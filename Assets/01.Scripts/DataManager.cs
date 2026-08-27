@@ -1,23 +1,12 @@
-using NUnit.Framework;
+// ScriptableObject 기획 데이터(레시피, 재료, 음식 등) 원본을 보관하고 제공
 using System.Collections.Generic;
-using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public class DataManager : MMSingleton<DataManager>
 {
-    public static DataManager Instance { get; private set; }
-
-    public List<IngredientData> allIngredients;
-    public List<RecipeData> allRecipes;
-    public List<FoodData> allFoods;
-    public CarriageData carriageData;
-    public List<NPCUpgradeData> nPCUpgradeDataList;
-    public AdData adData;
-
-    private void Awake()
-    {
-        if (Instance != null) { Destroy(gameObject); return; }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
+    public List<IngredientData> allIngredients;      // 전체 재료 데이터
+    public List<RecipeData> allRecipes;               // 전체 레시피 데이터
+    public List<FoodData> allFoods;                   // 전체 음식 데이터
+    public CarriageData carriageData;                 // 마차 업그레이드 데이터
+    public List<NPCUpgradeData> npcUpgradeDataList;   // 역할별 NPC 업그레이드 데이터
+    public AdData adData;                             // 광고 업그레이드 데이터
 }
