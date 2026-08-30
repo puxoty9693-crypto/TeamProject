@@ -8,10 +8,24 @@ public class SaveManager : MMSingleton<SaveManager>
 
     private string SavePath => Application.persistentDataPath + "/save.json"; // 세이브 파일 경로
 
+    [SerializeField] private float autoSaveInterval = 30f;
+    private float autoSaveTimer;
+
     private void Start()
     {
         CurrentData = LoadGame();
     }
+
+    private void Update()
+    {
+        autoSaveTimer += Time.deltaTime;
+        if (autoSaveTimer >= autoSaveInterval) 
+        {
+            autoSaveTimer = 0f;
+            SaveGame();
+        }
+    }
+
 
     // 현재 데이터를 JSON으로 저장
     public void SaveGame()
@@ -26,4 +40,17 @@ public class SaveManager : MMSingleton<SaveManager>
         if (!File.Exists(SavePath)) return new PlayerData();
         return JsonUtility.FromJson<PlayerData>(File.ReadAllText(SavePath));
     }
+
+    // 앱이 백그라운드로 가거나 종료될 때도 저장 (모바일 대비)
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause) SaveGame();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+
 }
