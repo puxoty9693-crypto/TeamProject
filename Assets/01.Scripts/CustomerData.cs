@@ -1,7 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Customer_", menuName = "Data/Customer")]
-public class CustomerData : ScriptableObject
+[CreateAssetMenu(fileName = "Customer_", menuName = "Data/NPC/Customer")]
+public class CustomerData : NPCData
 {
-    public Sprite customerImage; // ¼Õ´Ô ÀÌ¹ÌÁö
+    [Header("Customer")]
+    [SerializeField] private float basePatience = 30f;
+
+    public float BasePatience => basePatience;
+
 }
