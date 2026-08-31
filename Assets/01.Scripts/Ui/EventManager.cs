@@ -7,7 +7,9 @@ public enum EventType
     OnChangeGold,
     OnChangeRecipe,
     OnCustomerCount,
-    OnCustomerMaxCount
+    OnCustomerMaxCount,
+    OnSpeechBubble,
+
 }
 #endregion
 

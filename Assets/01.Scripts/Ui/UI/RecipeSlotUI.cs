@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RecipeUI : MonoBehaviour, IListener
+public class RecipeSlotUI : MonoBehaviour, IListener
 {
     [SerializeField] Image foodimg;
-    [SerializeField] TextMeshProUGUI foodinfo;
+    [SerializeField] TextMeshProUGUI foodName;
     [SerializeField] TextMeshProUGUI unlockPrice;
     private void OnEnable()
     {
@@ -21,6 +21,7 @@ public class RecipeUI : MonoBehaviour, IListener
     public void UpdateRecipeUI(RecipeData data)
     {
         foodimg.sprite = data.food.foodImage;
+        foodName.text = data.name;
         unlockPrice.text = $"{data.unlockGoldCost}";
     }
     private void OnDisable()

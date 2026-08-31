@@ -20,7 +20,7 @@ public class GoldUI : MonoBehaviour, IListener
 
     public void UpdateGoldUI(int gold)
     {
-        goldText.text = $"{gold}G";
+        goldText.text = $"{gold}";
     }
 
     private void OnDisable()

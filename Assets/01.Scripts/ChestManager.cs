@@ -1,4 +1,6 @@
 // 창고(재료 적재) 관리. PlayerData.warehouseStock에 직접 접근하지 말고 항상 이 매니저를 거칠 것
+using System.Collections.Generic;
+
 public class ChestManager : MMSingleton<ChestManager>
 {
     // 재료 추가 (파밍, 마차 수급 완료 시 호출)
