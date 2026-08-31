@@ -2,31 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ¸ğµç ¸Å´ÏÀú°¡ »ó¼Ó¹Ş´Â ½Ì±ÛÅæ º£ÀÌ½º Å¬·¡½º
-// ¾À¿¡ ÀÎ½ºÅÏ½º°¡ ¾øÀ¸¸é ÀÚµ¿ »ı¼º, ¾À ÀüÈ¯ ½Ã¿¡µµ ÆÄ±«µÇÁö ¾Êµµ·Ï Ã³¸®
+// ëª¨ë“  ë§¤ë‹ˆì €ë¥˜ê°€ ìƒì†ë°›ëŠ” ì‹±ê¸€í†¤ ë² ì´ìŠ¤ í´ë˜ìŠ¤
+// ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì—†ìœ¼ë©´ ìë™ ìƒì„±, ì”¬ ì „í™˜ ì‹œì—ë„ íŒŒê´´ë˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬
 public class MMSingleton<T> : MonoBehaviour where T : Component
 {
-    protected static T _instance; // ½ÇÁ¦ ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    protected static T _instance; // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤
 
-    public static bool HasInstance => _instance != null; // ÀÎ½ºÅÏ½º Á¸Àç ¿©ºÎ
-    public static T TryGetInstance() => HasInstance ? _instance : null; // ÀÚµ¿ »ı¼º ¾øÀÌ ¾ÈÀüÇÏ°Ô °¡Á®¿À±â
-    public static T Current => _instance; // ÇöÀç ÀÎ½ºÅÏ½º (¾øÀ¸¸é null)
+    public static bool HasInstance => _instance != null; // ì¸ìŠ¤í„´ìŠ¤ ì¡´ì¬ ì—¬ë¶€
+    public static T TryGetInstance() => HasInstance ? _instance : null; // ìë™ ìƒì„± ì—†ì´ ì¸ìŠ¤í„´ìŠ¤ ë°˜í™˜
+    public static T Current => _instance; // í˜„ì¬ ì¸ìŠ¤í„´ìŠ¤ (ì—†ìœ¼ë©´ null)
 
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º Á¢±Ù ÇÁ·ÎÆÛÆ¼. ¾øÀ¸¸é Ã£¾Æº¸°í, ±×·¡µµ ¾øÀ¸¸é ÀÚµ¿ »ı¼º
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ì ‘ê·¼ í”„ë¡œí¼í‹°. ì—†ìœ¼ë©´ ì°¾ì•„ë³´ê³ , ê·¸ë˜ë„ ì—†ìœ¼ë©´ ìë™ ìƒì„±
     public static T Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = FindAnyObjectByType<T>(); // ¾À¿¡¼­ ±âÁ¸ ÀÎ½ºÅÏ½º Å½»ö
-                Create(true);                          // ¾øÀ¸¸é ÀÚµ¿ »ı¼º (DontDestroyOnLoad Àû¿ë)
+                _instance = FindAnyObjectByType<T>(); // ì”¬ì—ì„œ ê¸°ì¡´ ì¸ìŠ¤í„´ìŠ¤ íƒìƒ‰
+                if (_instance == null)
+                {
+                    Create(true);                     // ì—†ìœ¼ë©´ ìë™ ìƒì„± (DontDestroyOnLoad ì ìš©)
+                }
             }
             return _instance;
         }
     }
 
-    // ÀÎ½ºÅÏ½º°¡ ¾øÀ¸¸é »õ·Î »ı¼º (¾À ÀüÈ¯ ½Ã À¯Áö ¾È ÇÔ)
+    // ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìˆ˜ë™ìœ¼ë¡œ ì‚¬ì „ ìƒì„± (ì”¬ ì „í™˜ ì „ ìƒì„± ì‹œ ì‚¬ìš©)
     public static void Create()
     {
         if (_instance == null)
@@ -37,7 +40,7 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
         }
     }
 
-    // ÀÎ½ºÅÏ½º°¡ ¾øÀ¸¸é »õ·Î »ı¼º (dontDestroy = true¸é ¾À ÀüÈ¯ ½Ã¿¡µµ À¯Áö)
+    // ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìˆ˜ë™ìœ¼ë¡œ ì‚¬ì „ ìƒì„± (dontDestroy = trueë©´ ì”¬ ì „í™˜ ì‹œì—ë„ ìœ ì§€)
     public static void Create(bool dontDestroy)
     {
         if (_instance == null)
@@ -49,13 +52,13 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
         }
     }
 
-    // Awake ½ÃÁ¡¿¡ ½Ì±ÛÅæ ÃÊ±âÈ­. ÀÚ½Ä Å¬·¡½º¿¡¼­ ÀçÁ¤ÀÇ ½Ã base.Awake() ¸ÕÀú È£ÃâÇÒ °Í
+    // Awake ë‹¨ê³„ì—ì„œ ì‹±ê¸€í†¤ ì´ˆê¸°í™”. ìì‹ í´ë˜ìŠ¤ì—ì„œ ì˜¤ë²„ë¼ì´ë“œ ì‹œ base.Awake() ë°˜ë“œì‹œ í˜¸ì¶œí•´ì•¼ í•¨
     protected virtual void Awake()
     {
         InitializeSingleton();
     }
 
-    // ½ÇÁ¦ ÀÎ½ºÅÏ½º ÇÒ´ç. ¿¡µğÅÍ¿¡¼­ ÇÃ·¹ÀÌ ÁßÀÌ ¾Æ´Ï¸é µ¿ÀÛ ¾È ÇÔ
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ í• ë‹¹. ì—ë””í„°ê°€ í”Œë ˆì´ ëª¨ë“œì¼ ë•Œë§Œ ë™ì‘
     protected virtual void InitializeSingleton()
     {
         if (!Application.isPlaying)
@@ -63,6 +66,13 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
             return;
         }
 
-        _instance = this as T;
+        if (_instance == null)
+        {
+            _instance = this as T;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject); // ì¤‘ë³µ ìƒì„±ëœ ì‹±ê¸€í†¤ íŒŒê´´
+        }
     }
 }
