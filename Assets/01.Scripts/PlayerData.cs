@@ -58,5 +58,8 @@ public class PlayerData
     public List<CarriageBoxStock> carriageBoxStock;
     public int takeoutUpgradeLevel;
     public List<TableSave> tableLevels;
+
+    public float bgmVolume = 1f;
+    public float sfxVolume = 1f;
 }
 
