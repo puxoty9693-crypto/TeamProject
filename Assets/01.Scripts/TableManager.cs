@@ -6,13 +6,11 @@ public class TableManager : MMSingleton<TableManager>
    public int GetTotallCapacity() 
    {
         int total = 0;
-        foreach (var save in SaveManager.Instance.CurrentData.tableLevels) 
+        foreach (var tableData in DataManager.Instance.tableUpgrades)
         {
-            var data = DataManager.Instance.tableUpgrades.Find(t => t.tableId == save.tableId);
-            if (data != null && save.level < data.levels.Count) 
-            {
-                total += data.levels[save.level].capacity;
-            } 
+            int level = SaveManager.Instance.CurrentData.GetTableLevel(tableData.tableId);
+            if (level < tableData.levels.Count)
+                total += tableData.levels[level].capacity;
         }
         return total;
    }
@@ -20,18 +18,16 @@ public class TableManager : MMSingleton<TableManager>
     //특정 테이블 강화
     public bool UpgradeTable(string tableId) 
     {
-        var save = SaveManager.Instance.CurrentData.tableLevels.Find(t => t.tableId == tableId);
         var data = DataManager.Instance.tableUpgrades.Find(t => t.tableId == tableId);
-        if (save == null || data == null) return false;
+        if (data == null) return false;
 
-        int nextLevel = save.level + 1;
-        if (nextLevel >= data.levels.Count) return false;
+        int currentLevel = SaveManager.Instance.CurrentData.GetTableLevel(tableId);
+        if (currentLevel >= data.levels.Count) return false;
 
-        int cost = data.levels[save.level].upgradeGoldCost;
-        if (SaveManager.Instance.CurrentData.gold < cost) return false;
+        int cost = data.levels[currentLevel].upgradeGoldCost;
+        if (!SaveManager.Instance.CurrentData.SpendGold(cost)) return false;
 
-        SaveManager.Instance.CurrentData.gold -= cost;
-        save.level = nextLevel;
+        SaveManager.Instance.CurrentData.UpgradeTableLevel(tableId);
         return true;
     }
 

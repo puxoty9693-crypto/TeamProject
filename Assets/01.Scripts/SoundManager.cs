@@ -130,14 +130,14 @@ public class SoundManager : MMSingleton<SoundManager>
     //볼륨 저장/로드
     private void SaveVolumeSettings() 
     {
-        SaveManager.Instance.CurrentData.bgmVolume = bgmVolume;
-        SaveManager.Instance.CurrentData.sfxVolume = sfxVolume;
+        SaveManager.Instance.CurrentData.SetBgmVolume(bgmVolume);
+        SaveManager.Instance.CurrentData.SetSfxVolume(sfxVolume);
     }
 
     private void LoadVolumeSettings() 
     {
-        bgmVolume = SaveManager.Instance.CurrentData.bgmVolume;
-        sfxVolume = SaveManager.Instance.CurrentData.sfxVolume;
+        bgmVolume = SaveManager.Instance.CurrentData.BgmVolume;
+        sfxVolume = SaveManager.Instance.CurrentData.SfxVolume;
         bgmSource.volume = bgmVolume;
     }
 

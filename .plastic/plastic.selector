@@ -1,4 +1,0 @@
-repository "TeamProject/TeamProject@14568888449643@cloud"
-  path "/"
-    br "/main"
-    co "/main"
