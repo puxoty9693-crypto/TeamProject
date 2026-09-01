@@ -5,10 +5,10 @@ using UnityEngine;
 public enum EventType
 {
     OnChangeGold,
-    OnChangeRecipe,
     OnCustomerCount,
     OnCustomerMaxCount,
     OnSpeechBubble,
+    OnFeedbackMessage,
 
 }
 #endregion
