@@ -22,4 +22,5 @@ public class CookingRecipeSlot : MonoBehaviour
     {
         cookingInfo.UpdateCookingInfo(currentRecipe);
     }
+
 }
