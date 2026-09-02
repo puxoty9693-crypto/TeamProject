@@ -2,11 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChestSlotUI : MonoBehaviour
+public class IngrendientSlot : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI countText;
+    [SerializeField] int maxCount = 999;
     [SerializeField] Sprite nullimg;
-    [SerializeField] int nullcount = 0;
     [SerializeField] Image ingredientImg;
 
     public void UdateChestSlotUI(IngredientData data, IngredientStock stock)
@@ -14,10 +14,19 @@ public class ChestSlotUI : MonoBehaviour
         if (data != null)
         {
             ingredientImg.sprite = data.ingredientImage;
-            countText.text = $"{stock.count}";
+            if(stock.count < maxCount)
+            {
+            countText.text = $"{stock.count}°³";
             return;
+            }
+            else
+            {
+                countText.text = $"{maxCount}°³";
+                return;
+            }
         }
+
         ingredientImg.sprite = nullimg;
-        countText.text = $"{nullcount}";
+        countText.text = "";
     }
 }

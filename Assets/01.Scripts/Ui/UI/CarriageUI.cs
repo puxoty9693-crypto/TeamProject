@@ -1,8 +1,0 @@
-using System.Collections.Generic;
-using UnityEngine;
-//∆¿¿Â¥‘ø¿Ω√∏È ºˆ¡§
-public class CarriageUI : MonoBehaviour
-{
-    List<CarriageSlotUI> slots = new();
-   
-}

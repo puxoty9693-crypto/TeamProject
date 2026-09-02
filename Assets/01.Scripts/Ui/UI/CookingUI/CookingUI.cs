@@ -13,7 +13,7 @@ public class CookingUI : MonoBehaviour
 
     public void SetRecipes()
     {
-        List<string> unlockedIDs = SaveManager.Instance.CurrentData.unlockedRecipeIds;
+        IReadOnlyList<string> unlockedIDs = SaveManager.Instance.CurrentData.UnlockedRecipeIds;
         List<RecipeData> allRecipes = DataManager.Instance.allRecipes;
 
         int index = 0;
