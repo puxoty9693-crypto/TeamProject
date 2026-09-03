@@ -25,17 +25,14 @@ public class NPCUpgradeUI : MonoBehaviour
     }
      private void TryUpgrade(NPCUpgradeData data, NPCUpgradeSlot slotUI)
     {
-        int level = SaveManager.Instance.CurrentData.GetNPCUpgradeLevel(data.role);
-        if (level >= data.levels.Count - 1) return; // 이미 최대 레벨
+        bool success = NPCUpgradeManager.Instance.Upgrade(data.role);
 
-        int cost = data.levels[level].upgradeGoldCost;
-        if (!SaveManager.Instance.CurrentData.SpendGold(cost))
+        if (!success)
         {
             EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "골드가 부족합니다");
             return;
         }
 
-        SaveManager.Instance.CurrentData.UpgradeNPCLevel(data.role);
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         RefreshSlot(data, slotUI);
     }

@@ -22,19 +22,42 @@ public class CarriageUI : MonoBehaviour
             }
             else
             {
-                slots[i].gameObject.SetActive(false); // 재료 수보다 슬롯이 많을 경우 남는 슬롯 숨김
+                slots[i].gameObject.SetActive(false);
             }
         }
     }
 
     private void RefreshSlot(CarriageIngredientData data, CarriageSlotUI slotUI)
     {
-        int level = CarriageManager.Instance.GetLevel(data.ingredient.ingredientId);
+        string ingredientId = data.ingredient.ingredientId;
+        bool isUnlocked = CarriageManager.Instance.IsUnlocked(ingredientId);
+
+        if (!isUnlocked)
+        {
+            slotUI.ShowLocked(data.ingredient, data.unlockGoldCost, () => TryUnlock(data, slotUI));
+            return;
+        }
+
+        int level = CarriageManager.Instance.GetLevel(ingredientId);
         int clampedIndex = Mathf.Min(level, data.levels.Count - 1);
         var currentLevel = data.levels[clampedIndex];
         bool isMaxLevel = level >= data.levels.Count - 1;
 
-        slotUI.UpdateCarriageUI(data.ingredient, currentLevel, level, isMaxLevel, () => TryUpgrade(data, slotUI));
+        slotUI.ShowUnlocked(data.ingredient, currentLevel, level, isMaxLevel, () => TryUpgrade(data, slotUI));
+    }
+
+    private void TryUnlock(CarriageIngredientData data, CarriageSlotUI slotUI)
+    {
+        bool success = CarriageManager.Instance.UnlockedIngredient(data.ingredient.ingredientId);
+
+        if (!success)
+        {
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "골드가 부족합니다");
+            return;
+        }
+
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
+        RefreshSlot(data, slotUI); // 해금 성공 시 바로 강화 상태 화면으로 전환됨
     }
 
     private void TryUpgrade(CarriageIngredientData data, CarriageSlotUI slotUI)

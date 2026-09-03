@@ -65,32 +65,6 @@ public class PlayerData
         gold -= amount;
         return true;
     }
-    // ---------- 완성된 요리 재고 (세이브 데이터, FoodStock 리스트) [임시 - 나중에 태경님 커밋으로 교체 예정] ----------
-    [SerializeField] private List<FoodStock> foodStock = new List<FoodStock>();
-    public IReadOnlyList<FoodStock> FoodStock => foodStock;
-
-    public void AddFood(string foodId, int amount)
-    {
-        if (amount <= 0) return;
-        var stock = foodStock.Find(s => s.foodId == foodId);
-        if (stock != null) stock.count += amount;
-        else foodStock.Add(new FoodStock { foodId = foodId, count = amount });
-    }
-
-    public bool UseFood(string foodId, int amount)
-    {
-        var stock = foodStock.Find(s => s.foodId == foodId);
-        if (stock == null || stock.count < amount) return false;
-        stock.count -= amount;
-        return true;
-    }
-
-    public int GetFoodCount(string foodId)
-    {
-        var stock = foodStock.Find(s => s.foodId == foodId);
-        return stock != null ? stock.count : 0;
-    }
-
     // ---------- 해금한 레시피 (세이브 데이터) ----------
     [SerializeField] private List<string> unlockedRecipeIds = new List<string>();
     public IReadOnlyList<string> UnlockedRecipeIds => unlockedRecipeIds;

@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdUpgradeUI : MonoBehaviour
+public class TakeoutUpgradeUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI descriptionText; // 현재 레벨 효과 설명 (upgradeText)
+    [SerializeField] TextMeshProUGUI chanceText;   // 현재 테이크아웃 확률
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] Button upgradeButton;
 
@@ -21,12 +21,12 @@ public class AdUpgradeUI : MonoBehaviour
 
     private void Refresh()
     {
-        var levels = DataManager.Instance.adData.levels;
-        int level = AdManager.Instance.GetLevel();
+        var levels = DataManager.Instance.takeoutUpgradeData.levels;
+        int level = TakeoutManager.Instance.GetLevel();
         bool isMaxLevel = level >= levels.Count - 1;
 
         levelText.text = $"Lv.{level + 1}";
-        descriptionText.text = AdManager.Instance.GetCurrentUpgradeText();
+        chanceText.text = $"{TakeoutManager.Instance.GetCurrentTakeOutChance() * 100f:0}%";
 
         if (isMaxLevel)
         {
@@ -42,7 +42,7 @@ public class AdUpgradeUI : MonoBehaviour
 
     private void TryUpgrade()
     {
-        bool success = AdManager.Instance.Upgrade();
+        bool success = TakeoutManager.Instance.Upgrade();
 
         if (!success)
         {

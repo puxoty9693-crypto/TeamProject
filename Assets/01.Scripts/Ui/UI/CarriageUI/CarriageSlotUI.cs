@@ -6,30 +6,51 @@ using UnityEngine.UI;
 public class CarriageSlotUI : MonoBehaviour
 {
     [SerializeField] Image ingredientImage;
-    [SerializeField] TextMeshProUGUI upgradePriceText;
+    [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI statText;
-    [SerializeField] Button upgradeButton;
+    [SerializeField] Button actionButton;
+    [SerializeField] TextMeshProUGUI actionButtonLabel;
+    private Action onActionClicked;
+    private void Awake()
+    {
+        actionButton.onClick.AddListener(() => onActionClicked?.Invoke());
+    }
 
-    private System.Action onUpgradeClicked;
-    public void UpdateCarriageUI(IngredientData data, CarriageIngredientLevel currentLevel, int levelIndex, bool isMaxLevel, Action onUpgrade)
+    public void ShowLocked(IngredientData data, int unlockCost, Action onUnlock)
     {
         ingredientImage.sprite = data.ingredientImage;
+        ingredientImage.color = new Color(0.5f, 0.5f, 0.5f, 1f); // 어둡게 표시
+        nameText.text = data.ingredientName;
+        levelText.text = "미해금";
+        statText.text = "-";
+        priceText.text = $"{unlockCost}G";
+
+        if (actionButtonLabel != null) actionButtonLabel.text = "해금";
+        onActionClicked = onUnlock;
+        actionButton.interactable = true;
+    }
+    public void ShowUnlocked(IngredientData data, CarriageIngredientLevel currentLevel, int levelIndex, bool isMaxLevel, Action onUpgrade)
+    {
+        ingredientImage.sprite = data.ingredientImage;
+        ingredientImage.color = Color.white;
         nameText.text = data.ingredientName;
         levelText.text = $"Lv.{levelIndex + 1}";
-        statText.text = currentLevel.isInfinite? "무한 생산" : $"{currentLevel.gatherTime}초 / {currentLevel.gatherAmount}개";
+        statText.text = currentLevel.isInfinite ? "무한 생산" : $"{currentLevel.gatherTime}초 / 1개";
 
-        onUpgradeClicked = onUpgrade;
+        if (actionButtonLabel != null) actionButtonLabel.text = "강화";
+        onActionClicked = onUpgrade;
+
         if (isMaxLevel)
         {
-            upgradePriceText.text = "MAX";
-            upgradeButton.interactable = false;
+            priceText.text = "MAX";
+            actionButton.interactable = false;
         }
         else
         {
-            upgradePriceText.text = $"{currentLevel.upgradeGoldCost}G";
-            upgradeButton.interactable = true;
+            priceText.text = $"{currentLevel.upgradeGoldCost}G";
+            actionButton.interactable = true;
         }
     }
 }
