@@ -41,7 +41,19 @@ public class ServerBehaviour : WorkerBehaviour
                 break;
             case ServerState.PickUp:
                 currentRequest.PickUp();
+
+                if (currentRequest.IsCancelled)
+                {
+                    State = ServerState.Cancelled;
+                    Debug.Log($"Server State : {State}");
+
+                    SetTarget(currentRequest.DumpPoint);
+                    break;
+                }
+
                 State = ServerState.Delivery;
+                Debug.Log($"Server State : {State}");
+
                 SetTarget(currentRequest.DeliveryPoint);
 
                 break;
@@ -49,15 +61,33 @@ public class ServerBehaviour : WorkerBehaviour
                 currentRequest.Delivery();
                 currentRequest = null;
                 State = ServerState.Idle;
+                Debug.Log($"Server State : {State}");
+
                 ReturnToWaitingPoint();
 
+                break;
+            case ServerState.Cancelled:
+                currentRequest.CancelHandled();
+
+                currentRequest = null;
+                State = ServerState.Idle;
+                Debug.Log($"Server State : {State}");
+
+                ReturnToWaitingPoint();
                 break;
         }
     }
 
     public override void Tick()
     {
-
+        if (currentRequest == null) return;
+        if (!currentRequest.IsCancelled) return;
+        if(State == ServerState.Delivery)
+        {
+            State = ServerState.Cancelled;
+            SetTarget(currentRequest.DumpPoint);
+        }
+        
     }
 
 

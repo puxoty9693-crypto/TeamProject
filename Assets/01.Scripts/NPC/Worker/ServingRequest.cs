@@ -12,6 +12,8 @@ public class ServingRequest
     private readonly Action onDelivery;
     private readonly Action onCancel;
 
+    public bool IsCancelled { get; private set; }
+
     public ServingRequest(Transform PickUpPoint_, Transform DeliveryPoint_, Transform DumpPoint_, Action onPickUp_ = null, Action onDelivery_ = null, Action onCancel_ = null )
     {
         PickUpPoint = PickUpPoint_;
@@ -23,11 +25,14 @@ public class ServingRequest
 
     }
 
-
+    public void CancelHandled()
+    {
+        onCancel?.Invoke();
+    }
 
     public void Cancel()
     {
-
+        IsCancelled = true;
     }
 
     public void PickUp()

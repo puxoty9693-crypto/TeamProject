@@ -1,7 +1,7 @@
 public enum WorkerRole
 {
     None=0,
-    Chec,
+    Chef,
     Server,
     Cashier,
 

@@ -100,6 +100,9 @@ public class WorkerAI : MonoBehaviour
     private void HandleTargetChanged(Transform target)
     {
         currentTarget = target;
+
+        Debug.Log($"Target : {target?.name}");
+
         if(currentTarget == null)
         {
             movement.Stop();
@@ -109,7 +112,7 @@ public class WorkerAI : MonoBehaviour
         }
 
         isMoving = movement.MoveTo(currentTarget.position);
-
+        Debug.Log($"MovoTo : {isMoving}");
     }
 
     private void DeactivateCurrentBehaviour()

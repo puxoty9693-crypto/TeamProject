@@ -33,9 +33,18 @@ public class AgentMovement : MonoBehaviour
     /// <returns></returns>
     public bool MoveTo(Vector3 destination)
     {
+        Debug.Log(
+        $"Agent Active : {agent.isActiveAndEnabled}, " +
+        $"OnNavMesh : {agent.isOnNavMesh}, " +
+        $"Destination : {destination}");
+
         if (!agent.isActiveAndEnabled || !agent.isOnNavMesh) return false;      // null Component 에러 방지
 
         agent.isStopped = false;
+        bool result = agent.SetDestination(destination);
+
+        Debug.Log($"SetDestination : {result}");
+
         return agent.SetDestination(destination);
     }
     
