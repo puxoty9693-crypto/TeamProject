@@ -22,7 +22,7 @@ public class ServerBehaviour : WorkerBehaviour
     {
         if (!IsReady) return false;
 
-        if (request == null || request.PickUpPoint == null || request.DeliveryPoint == null) return false;
+        if (request == null || request.PickUpPoint == null || request.DeliveryPoint == null||request.DumpPoint == null) return false;
 
         currentRequest = request;
         State = ServerState.PickUp;
