@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class AdUpgradeLevel
+public class AdUpgradeLevel : IUpgradeLevel
 {
     public int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
     public string upgradeText;   // UI에 표시할 설명 텍스트
+    public int UpgradeGoldCost => upgradeGoldCost;
 }
 
 // 광고 전체 업그레이드 단계
