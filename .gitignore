@@ -83,6 +83,22 @@ InitTestScene*.unity*
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+/[Aa]ssets/[Ss]cenes/exemple.unity
+/[Aa]ssets/[Ss]cenes/exemple.unity.meta
+/[Aa]ssets/[Ss]cenes/Spring.unity
+/[Aa]ssets/[Ss]cenes/Spring.unity.meta
+/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity
+/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta# ===== 유료/라이선스 에셋 - Git에 올리지 않음 (구글 드라이브로 팀 내부 공유) =====
+/[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One)/
+/[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One).meta
+/[Aa]ssets/LutLight2D/
+/[Aa]ssets/LutLight2D.meta
+/[Aa]ssets/Pixem/
+/[Aa]ssets/Pixem.meta
+/[Aa]ssets/RPGMaker/
+/[Aa]ssets/RPGMaker.meta
+/[Aa]ssets/WCE Assets/
+/[Aa]ssets/WCE Assets.meta
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 # Auto-generated cache in Assets folder

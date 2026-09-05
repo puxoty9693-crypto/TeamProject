@@ -1,34 +1,26 @@
 using TMPro;
 using UnityEngine;
 
-public class CustomerUI : MonoBehaviour, IListener
+public class CustomerUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI customerCount;
     [SerializeField] TextMeshProUGUI customerMaxCount;
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnCustomerCount, this);
-        EventManager.Instance.AddListener(EventType.OnCustomerMaxCount, this);
-    }
-    public void OnEvent(EventType type, Component sender, object param)
-    {
-        if (type == EventType.OnCustomerCount)
-            UpdateCustomerCountUI((int)param);
-        if (type == EventType.OnCustomerMaxCount)
-            UpdateCustomerMaxCountUI((int)param);
-
-    }
-    public void UpdateCustomerCountUI(int count)
-    {
-        customerCount.text = $"{count}";
-    }
-    public void UpdateCustomerMaxCountUI(int max)
-    {
-        customerMaxCount.text = $"/ {max}";
+        EventManager.Instance.AddListener(EventType.OnCustomerCount, OnCustomerCount);
+        EventManager.Instance.AddListener(EventType.OnCustomerMaxCount, OnCustomerMaxCount);
+        customerMaxCount.text = $"/ {TableManager.Instance.GetTotallCapacity()}";
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnCustomerCount, this);
-        EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, this);
+        EventManager.Instance.RemoveListener(EventType.OnCustomerCount, OnCustomerCount);
+    }
+    private void OnCustomerMaxCount(Component sender, object param)
+    {
+        customerMaxCount.text = $"/ {(int)param}";
+    }
+    private void OnCustomerCount(Component sender, object param)
+    {
+        customerCount.text = $"{(int)param}";
     }
 }

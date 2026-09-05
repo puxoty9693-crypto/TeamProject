@@ -17,7 +17,6 @@ public class CarriageSlotUI : MonoBehaviour
     {
         actionButton.onClick.AddListener(() => onActionClicked?.Invoke());
     }
-
     public void ShowLocked(IngredientData data, int unlockCost, Action onUnlock)
     {
         ingredientImage.sprite = data.ingredientImage;

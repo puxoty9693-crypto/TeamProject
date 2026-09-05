@@ -63,6 +63,7 @@ public class TableUpgradePopup : MMSingleton<TableUpgradePopup>
         }
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotallCapacity());
         currentTarget.GetComponent<TableWorldSlot>()?.RefreshSprite();
         Refresh();
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,37 +10,12 @@ public enum EventType
     OnCustomerMaxCount,
     OnSpeechBubble,
     OnFeedbackMessage,
-
+    OnWarehouseChanged,
 }
 #endregion
-
-#region 이벤트 구독자용 인터페이스
-/*
-    이벤트 구독할 cs에 사용
-    예시) 골드
-
-    public void OnEvent(EventType type, Component sender, object param)
-    {
-        if (type == EventType.OnChangeGold)
-        {
-            UpdateGoldUI((int)param);
-        }
-    }
-
-    public void UpdateGoldUI(int gold)
-    {
-        goldText.text = $"{gold}G";
-    }
- */
-public interface IListener
-{
-    void OnEvent(EventType type, Component sender, object param = null);
-}
-#endregion
-
 public class EventManager : MMSingleton<EventManager>
 {
-    Dictionary<EventType, List<IListener>> listeners = new();
+    private Dictionary<EventType, Action<Component, object>> events = new();
 
     #region 구독함수
     /*
@@ -47,24 +23,16 @@ public class EventManager : MMSingleton<EventManager>
         예시) 골드
         private void OnEnable()
         {
-            EventManager.Instance.AddListener(EventType.OnChangeGold, this);
+            EventManager.Instance.AddListener(EventType.OnChangeGold,추가할 함수);
         }
         온에이블에서 구독
      */
-    public void AddListener(EventType type, IListener ilistener)
+    public void AddListener(EventType type, Action<Component, object> listener)
     {
-        if (listeners.TryGetValue(type, out List<IListener> listenlist))
-        {
-            if (!listenlist.Contains(ilistener))
-                listenlist.Add(ilistener);
-            return;
-        }
-
-        listenlist = new List<IListener>
-        {
-            ilistener
-        };
-        listeners.Add(type, listenlist);
+        if (events.ContainsKey(type))
+            events[type] += listener;
+        else
+            events[type] = listener;
     }
     #endregion
 
@@ -75,13 +43,8 @@ public class EventManager : MMSingleton<EventManager>
      */
     public void PostNotification(EventType type, Component sender, object param = null)
     {
-        if (!listeners.TryGetValue(type, out List<IListener> listenList))
-            return;
-        for (int i = 0; i < listenList.Count; i++)
-        {
-            if (!listenList[i].Equals(null))
-                listenList[i].OnEvent(type, sender, param);
-        }
+        if (events.TryGetValue(type, out var action))
+            action?.Invoke(sender, param);
     }
     #endregion
 
@@ -92,23 +55,18 @@ public class EventManager : MMSingleton<EventManager>
         예시) 골드
         private void OnDisable()
         {
-            EventManager.Instance.RemoveListener(EventType.OnChangeGold, this);
+            EventManager.Instance.RemoveListener(EventType.OnChangeGold,리무브할함수);
         }
         온디스에이블에서 구독해제 *필수*
      */
-    public void RemoveListener(EventType type, IListener listener)
+    public void RemoveListener(EventType type, Action<Component, object> listener)
     {
-        if (listeners.TryGetValue(type, out List<IListener> listenList))
+        if (events.ContainsKey(type))
         {
-            listenList.Remove(listener);
-
-            if (listenList.Count == 0)
-                RemoveEvent(type);
+            events[type] -= listener;
+            if (events[type] == null)
+                events.Remove(type);
         }
-    }
-    public void RemoveEvent(EventType Type)
-    {
-        listeners.Remove(Type);
     }
     #endregion
 

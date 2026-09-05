@@ -2,12 +2,12 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class SpeechBubbleUI : MonoBehaviour, IListener
+public class SpeechBubbleUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI lineText;
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnSpeechBubble,this);
+        EventManager.Instance.AddListener(EventType.OnSpeechBubble, OnSpeechBubble);
     }
 
     public void OnEvent(EventType type, Component sender, object param = null)
@@ -19,6 +19,11 @@ public class SpeechBubbleUI : MonoBehaviour, IListener
             UpdateBubble(data.target, data.line);
         }
     }
+    private void OnSpeechBubble(Component sender, object param)
+    {
+        DialogueEventData data = (DialogueEventData)param;
+        UpdateBubble(data.target, data.line);
+    }
     public void UpdateBubble(Transform target, string line)
     {
         transform.position = target.position + Vector3.up * 1.5f;
@@ -27,7 +32,7 @@ public class SpeechBubbleUI : MonoBehaviour, IListener
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnSpeechBubble, this);
+        EventManager.Instance.RemoveListener(EventType.OnSpeechBubble, OnSpeechBubble);
     }
 }
 /* 

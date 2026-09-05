@@ -15,7 +15,17 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.Instance.AddListener(EventType.OnWarehouseChanged, OnWarehouseChanged);
         ShowIngrendientTab();
+    }
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventType.OnWarehouseChanged, OnWarehouseChanged);
+    }
+    private void OnWarehouseChanged(Component sender, object param)
+    {
+        if (ingredientTabPanel.activeSelf)
+            RefreshIngrendientSlots();
     }
     public void ShowIngrendientTab()
     {

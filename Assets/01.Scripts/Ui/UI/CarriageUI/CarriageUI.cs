@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-//∆¿¿Â¥‘ø¿Ω√∏È ºˆ¡§
+
 public class CarriageUI : MonoBehaviour
 {
     [SerializeField] List<CarriageSlotUI> slots = new();
+
     private void OnEnable()
     {
         RefreshAll();
     }
-
     private void RefreshAll()
     {
         var carriageDataList = DataManager.Instance.carriageUpgrades;
