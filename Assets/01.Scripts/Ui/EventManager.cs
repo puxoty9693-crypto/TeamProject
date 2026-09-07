@@ -5,12 +5,13 @@ using UnityEngine;
 #region 이벤트 목록
 public enum EventType
 {
-    OnChangeGold,
-    OnCustomerCount,
-    OnCustomerMaxCount,
-    OnSpeechBubble,
-    OnFeedbackMessage,
-    OnWarehouseChanged,
+    OnChangeGold, //골드UI수치용이벤트
+    OnGetGold, // 골드용 이펙트
+    OnCustomerCount, // 손님ui수치용이벤트
+    OnCustomerMaxCount, // 손님max수치용이벤트
+    OnSpeechBubble, // 말풍선이벤트
+    OnFeedbackMessage, // 골드부족같은 피드백용 이벤트
+    OnWarehouseChanged, // 실시간 인벤토리 반영용 이벤트
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

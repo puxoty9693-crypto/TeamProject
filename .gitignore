@@ -14,7 +14,6 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 *.log
-
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
 *.blend1.meta
@@ -83,12 +82,17 @@ InitTestScene*.unity*
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+# Auto-generated scenes by play mode tests
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+# Auto-generated cache in Assets folder
+
+/[Aa]ssets/[Ss]ceneDependencyCache*
 /[Aa]ssets/[Ss]cenes/exemple.unity
 /[Aa]ssets/[Ss]cenes/exemple.unity.meta
 /[Aa]ssets/[Ss]cenes/Spring.unity
 /[Aa]ssets/[Ss]cenes/Spring.unity.meta
 /[Aa]ssets/[Ss]cenes/Tileset Exemple.unity
-/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta# ===== 유료/라이선스 에셋 - Git에 올리지 않음 (구글 드라이브로 팀 내부 공유) =====
+/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta
 /[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One)/
 /[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One).meta
 /[Aa]ssets/LutLight2D/
@@ -99,10 +103,10 @@ InitTestScene*.unity*
 /[Aa]ssets/RPGMaker.meta
 /[Aa]ssets/WCE Assets/
 /[Aa]ssets/WCE Assets.meta
-# Auto-generated scenes by play mode tests
-/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-# Auto-generated cache in Assets folder
-/[Aa]ssets/[Ss]ceneDependencyCache*
+/[Aa]ssets/Casual Game UI Sound/
+/[Aa]ssets/Casual Game UI Sound.meta
+/[Aa]ssets/Gold Coin VFX/
+/[Aa]ssets/Gold Coin VFX.meta
  
 # Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
 .plastic/
