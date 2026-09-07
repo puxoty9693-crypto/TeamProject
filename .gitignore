@@ -104,6 +104,8 @@ InitTestScene*.unity*
 /[Aa]ssets/RPGMaker.meta
 /[Aa]ssets/WCE Assets/
 /[Aa]ssets/WCE Assets.meta
+/[Aa]ssets/Casual Game UI Sound/
+/[Aa]ssets/Casual Game UI Sound.meta
 
  
 # Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
