@@ -20,11 +20,11 @@ public class FoodStock
 }
 
 
-// [세이브 데이터] 특정 NPC 역할의 현재 업그레이드 레벨
+// [세이브 데이터] 특정 직원 역할의 현재 업그레이드 레벨
 [System.Serializable]
-public class NPCUpgradeSave
+public class WorkerUpgradeSave
 {
-    public NPCRole role; // 업그레이드 대상 역할
+    public WorkerRole role; // 업그레이드 대상 역할
     public int level;    // 현재 레벨
 }
 
@@ -161,20 +161,20 @@ public class PlayerData
         else carriageLevels.Add(new CarriageSave { ingredientId = ingredientId, level = 1 });
     }
 
-    // ---------- NPC 업그레이드 레벨 (세이브 데이터) ----------
-    [SerializeField] private List<NPCUpgradeSave> npcUpgradeLevels = new List<NPCUpgradeSave>();
+    // ---------- 직원 업그레이드 레벨 (세이브 데이터) ----------
+    [SerializeField] private List<WorkerUpgradeSave> npcUpgradeLevels = new List<WorkerUpgradeSave>();
 
-    public int GetNPCUpgradeLevel(NPCRole role) // 확인함수
+    public int GetWorkerUpgradeLevel(WorkerRole role) // 확인함수
     {
-        var save = npcUpgradeLevels.Find(n => n.role == role);
+        var save = npcUpgradeLevels.Find(w => w.role == role);
         return save != null ? save.level : 0;
     }
 
-    public void UpgradeNPCLevel(NPCRole role) // 추가(레벨업)함수
+    public void UpgradeWorkerLevel(WorkerRole role) // 추가(레벨업)함수
     {
-        var save = npcUpgradeLevels.Find(n  => n.role == role);
+        var save = npcUpgradeLevels.Find(w  => w.role == role);
         if (save != null) save.level++;
-        else npcUpgradeLevels.Add(new NPCUpgradeSave { role = role, level = 1 });
+        else npcUpgradeLevels.Add(new WorkerUpgradeSave { role = role, level = 1 });
     }
 
     // ---------- 테이블 레벨 (세이브 데이터) ----------
