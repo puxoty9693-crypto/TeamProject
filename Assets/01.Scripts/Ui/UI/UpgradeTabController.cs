@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class UpgradeTabController : MonoBehaviour
 {
-    [SerializeField] GameObject ingredientTabPanel; // 재료업그레이드 패널 전체
-    [SerializeField] GameObject staffTabPanel;       // 직원업그레이드 패널 전체
-    [SerializeField] GameObject adTabPanel;          // 광고업그레이드 패널 전체
-    [SerializeField] GameObject takeOutPanel;
+    [SerializeField] GameObject ingredientTabPanel; // 재료업그레이드 패널
+    [SerializeField] GameObject staffTabPanel;       // 직원업그레이드 패널
+    [SerializeField] GameObject adTabPanel;          // 광고업그레이드 패널
+    [SerializeField] GameObject takeOutPanel;       // 손님업그레이드 패널
 
     public void ShowIngredientTab() => SetTab(ingredientTabPanel);
     public void ShowStaffTab() => SetTab(staffTabPanel);
