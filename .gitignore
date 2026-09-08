@@ -87,12 +87,12 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
  
-# Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
+
 .plastic/
 .p4ignore
 .p4config
 
-# ===== 유료/라이선스 에셋 - Git에 올리지 않음 (구글 드라이브로 팀 내부 공유) =====
+
 /[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One)/
 /[Aa]ssets/Farm RPG - Tiny Asset Pack - (All in One).meta
 /[Aa]ssets/LutLight2D/
@@ -103,8 +103,14 @@ InitTestScene*.unity*
 /[Aa]ssets/RPGMaker.meta
 /[Aa]ssets/WCE Assets/
 /[Aa]ssets/WCE Assets.meta
+/[Aa]ssets/Casual Game UI Sound/
+/[Aa]ssets/Casual Game UI Sound.meta
+/[Aa]ssets/Gold Coin VFX/
+/[Aa]ssets/Gold Coin VFX.meta
+/[Aa]ssets/RPGBuildings_HOUSES/
+/[Aa]ssets/RPGBuildings_HOUSES.meta
 
-# Farm RPG 에셋팩에 딸려온 예제 씬 (원래 프로젝트 씬 아님)
+
 /[Aa]ssets/[Ss]cenes/exemple.unity
 /[Aa]ssets/[Ss]cenes/exemple.unity.meta
 /[Aa]ssets/[Ss]cenes/Spring.unity
@@ -112,7 +118,7 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ss]cenes/Tileset Exemple.unity
 /[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta
 
-# 압축 파일 (에셋 배포/공유용, Git에 올리지 않음)
+
 *.7z
 *.zip
 *.rar
