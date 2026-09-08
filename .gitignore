@@ -107,6 +107,8 @@ InitTestScene*.unity*
 /[Aa]ssets/Casual Game UI Sound.meta
 /[Aa]ssets/Gold Coin VFX/
 /[Aa]ssets/Gold Coin VFX.meta
+/[Aa]ssets/RPGBuildings_HOUSES/
+/[Aa]ssets/RPGBuildings_HOUSES.meta
  
 # Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
 .plastic/
