@@ -17,6 +17,7 @@ public class Customer : MonoBehaviour
     public CustomerModifier Modifier { get; private set; }
     public CustomerTraitSet Traits { get; private set; }
     public AgentMovement Movement { get; private set; }
+    public Transform ReservedSeat { get; private set; }
 
     //public CustomerAI AI { get; private set; }
 
@@ -31,6 +32,8 @@ public class Customer : MonoBehaviour
     private void Awake()
     {
         Movement = GetComponent<AgentMovement>();
+        Modifier = new CustomerModifier();
+        Traits = new CustomerTraitSet();
         //AI = GetComponent<CustomerAI>();
     }
 
@@ -42,6 +45,8 @@ public class Customer : MonoBehaviour
     /// <param name="data"></param>
     public void Initialize(CustomerData data)
     {
+        if (data == null) return;
+
         ResetRun();
         Data = data;
         Movement.SetSpeed(data.MoveSpeed);
@@ -158,16 +163,35 @@ public class Customer : MonoBehaviour
     /// </summary>
     public void ResetRun()
     {
+        State = CustomerState.Entering;
+        ExitReason = CustomerExitReason.Normal;
+
+        EndPatience();
 
         // 이하는 Seat 스크립트 필요. 할당한 자리 반환 및 인내심 초기화
         //ReleaseSeat();
         //EndPatience();
 
-        ExitReason = CustomerExitReason.Normal;
+        
 
         // 이하는 null check 및 trait data 초기화
         Traits?.Clear();
         Modifier?.Reset();
+    }
+
+
+    /// <summary>
+    /// 이하는 좌석 예약 및 해제
+    /// </summary>
+    /// <param name="seat"></param>
+    public void SetSeat(Transform seat)
+    {
+        ReservedSeat = seat;
+    }
+
+    public void ClearSeat()
+    {
+        ReservedSeat = null;
     }
 
 }
