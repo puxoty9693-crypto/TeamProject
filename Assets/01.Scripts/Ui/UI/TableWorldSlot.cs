@@ -10,7 +10,7 @@ public class TableWorldSlot : MonoBehaviour
         RefreshSprite();
     }
 
-    private void OnMouseDown()
+    public void OnClicked()
     {
         TableUpgradePopup.Instance.Show(tableId,transform);
     }
