@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCUpgradeSlot : MonoBehaviour
+public class WorkerUpgradeSlot : MonoBehaviour
 {
     [SerializeField] Image npcImage;
     [SerializeField] TextMeshProUGUI nameText;

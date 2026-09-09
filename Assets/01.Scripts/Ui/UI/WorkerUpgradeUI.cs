@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCUpgradeUI : MonoBehaviour
+public class WorkerUpgradeUI : MonoBehaviour
 {
-    [SerializeField] List<NPCUpgradeSlot> slots;
+    [SerializeField] List<WorkerUpgradeSlot> slots;
 
     private void OnEnable()
     {
@@ -15,7 +15,7 @@ public class NPCUpgradeUI : MonoBehaviour
         }
     }
 
-    private void RefreshSlot(NPCUpgradeData data, NPCUpgradeSlot slotUI)
+    private void RefreshSlot(NPCUpgradeData data, WorkerUpgradeSlot slotUI)
     {
         NPCData npcData = DataManager.Instance.allNPCs.Find(x => x.role == data.role);
         int level = SaveManager.Instance.CurrentData.GetNPCUpgradeLevel(data.role);
@@ -23,7 +23,7 @@ public class NPCUpgradeUI : MonoBehaviour
         bool isMaxLevel = level >= data.levels.Count - 1;
         slotUI.UpdateSlot(npcData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
     }
-     private void TryUpgrade(NPCUpgradeData data, NPCUpgradeSlot slotUI)
+     private void TryUpgrade(NPCUpgradeData data, WorkerUpgradeSlot slotUI)
     {
         bool success = NPCUpgradeManager.Instance.Upgrade(data.role);
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NPCWorldSlot : MonoBehaviour
+public class WorkerWorldSlot : MonoBehaviour
 {
     [SerializeField] GameObject npcUpgradePopup;
 
