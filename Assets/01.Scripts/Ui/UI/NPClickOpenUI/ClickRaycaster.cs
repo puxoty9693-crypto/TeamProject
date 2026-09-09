@@ -18,7 +18,7 @@ public class ClickRaycaster : MonoBehaviour
         {
             return;
         }
-        var npcSlot = hit.collider.GetComponent<NPCWorldSlot>();
+        var npcSlot = hit.collider.GetComponent<WorkerWorldSlot>();
         if (npcSlot != null)
         {
             npcSlot.OpenPopup();
