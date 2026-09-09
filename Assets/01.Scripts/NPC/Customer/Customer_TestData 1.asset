@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96bcfedebb2e664eb3571a1602074e0, type: 3}
   m_Name: Customer_TestData 1
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
-  npcId: Customer_Dine_Test
+  npcId: Customer_Takeout_Test
   npcName: Test
   npcImage: {fileID: 0}
   moveSpeed: 2
   basePatience: 30
-  customerType: 0
+  customerType: 1

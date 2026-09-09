@@ -77,10 +77,18 @@ public class CustomerAI : MonoBehaviour
         currentBehaviour?.Arrived();
     }
 
+ 
+    
     public void StartCustomer()
     {
+        PatienceManager.instance?.Register(this);
         ChangeState(CustomerState.Entering);
+    }
 
+    private void OnDisable()
+    {
+        PatienceManager.instance?.Unregister(this);
+        customer?.EndPatience();
     }
 
     public void ChangeState(CustomerState state)
@@ -136,7 +144,18 @@ public class CustomerAI : MonoBehaviour
 
     internal void OnPatienceExpired()
     {
-        throw new NotImplementedException();
+        if (customer.State == CustomerState.Leaving) return;        // 이미 떠나고있는 대상은 return
+
+        // 인내심이 바닥났을 때만 구동
+        customer.EndPatience();
+        customer.SetExitReason(CustomerExitReason.PatienceOver);
+
+        Debug.Log($"{customer.name} 인내심 종료");
+
+        // 주문 취소는 여기에
+
+        ChangeState(CustomerState.Leaving);
+
     }
 
    

@@ -29,16 +29,23 @@ public class OrderingBehaviour : CustomerBehaviour
 
         if (CustomerAgent.Data == null) return;
 
+
+        // Data.Type에 의거 테이크아웃 상태 진입
         if(CustomerAgent.Data.Type == CustomerData.CustomerType.Takeout)
         {
             ChangeState(CustomerState.WaitingTakeout);
             return;
         }
 
+        // 자리가 없을 때 인내심 소모 시작
         if(!AI.SeatManager.TryReserveSeat(CustomerAgent, out Transform seat))
         {
+            if (CustomerAgent.IsPatienceActive) CustomerAgent.BeginPatience();
             return;
         }
+
+        // 자리 찾음.
+        CustomerAgent.EndPatience();
 
         CustomerAgent.SetSeat(seat);
 
