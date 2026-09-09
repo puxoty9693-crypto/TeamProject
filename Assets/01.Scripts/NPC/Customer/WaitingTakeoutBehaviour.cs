@@ -21,6 +21,8 @@ public class WaitingTakeoutBehaviour : CustomerBehaviour
     {
         base.Arrived();
 
+        CustomerAgent.BeginPatience();
+
         Debug.Log($"{CustomerAgent.name} Takeout 대기중");
 
 

@@ -14,8 +14,10 @@ public class CustomerAI : MonoBehaviour
     [Header("Points")]
     [SerializeField] private Transform orderingPoint;
     [SerializeField] private Transform takeoutWaitingPoint;
-    
 
+    [SerializeField] private Transform exitPoint;
+
+    
 
 
     private Customer customer;
@@ -25,6 +27,7 @@ public class CustomerAI : MonoBehaviour
 
     private CustomerBehaviour currentBehaviour;
     private Transform currentTarget;
+    public Transform ExitPoint => exitPoint;
 
     private bool isMoving;
 

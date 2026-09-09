@@ -7,5 +7,8 @@ public class WaitingFoodBehaviour : CustomerBehaviour
     public override void Enter()
     {
         base.Enter();
+
+        CustomerAgent.BeginPatience();
+        Debug.Log($"음식 대기중");
     }
 }

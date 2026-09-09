@@ -16,5 +16,5 @@ MonoBehaviour:
   npcName: Test
   npcImage: {fileID: 0}
   moveSpeed: 2
-  basePatience: 30
+  basePatience: 3
   customerType: 1
