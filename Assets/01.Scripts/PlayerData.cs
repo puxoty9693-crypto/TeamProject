@@ -65,8 +65,6 @@ public class PlayerData
         gold -= amount;
         return true;
     }
-
-
     // ---------- 해금한 레시피 (세이브 데이터) ----------
     [SerializeField] private List<string> unlockedRecipeIds = new List<string>();
     public IReadOnlyList<string> UnlockedRecipeIds => unlockedRecipeIds;
@@ -93,9 +91,7 @@ public class PlayerData
 
     // ---------- 재료 창고 (세이브 데이터, IngredientStock 리스트) ----------
     [SerializeField] private List<IngredientStock> warehouseStock = new List<IngredientStock>();
-
     public IReadOnlyList<IngredientStock> WarehouseStock => warehouseStock;
-
     public void AddIngredient(string ingredientId, int amount) 
     {
         if (amount <= 0) return;
