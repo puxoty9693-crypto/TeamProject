@@ -112,3 +112,5 @@ InitTestScene*.unity*
 .plastic/
 .p4ignore
 .p4config
+Packages/manifest.json
+Packages/manifest.json

@@ -9,6 +9,9 @@ public class LeavingBehaviour : CustomerBehaviour
         base.Enter();
 
         CustomerAgent.EndPatience();
+        AI.ReleaseSeat();
+
+        if (AI.ExitPoint == null) return;
 
         SetTarget(AI.ExitPoint);
     }
@@ -20,6 +23,7 @@ public class LeavingBehaviour : CustomerBehaviour
         Debug.Log(
             $"{CustomerAgent.name} 퇴장 / {CustomerAgent.ExitReason}");
 
+        AI.ExitComplete();
         // NPCPool.Return()
     }
 }

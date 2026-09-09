@@ -16,8 +16,21 @@ public class CustomerFlowTest : MonoBehaviour
         {
             customer.Initialize(customerData);
             customerAI.StartCustomer();
+        }
 
-            Debug.Log("Customer Flow Start");
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            customerAI.FoodReceived();
+        }
+
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        {
+            customerAI.EatingFinished();
+        }
+
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {
+            customerAI.PayComplete();
         }
     }
 }

@@ -16,6 +16,8 @@ public class CustomerAI : MonoBehaviour
     [SerializeField] private Transform takeoutWaitingPoint;
 
     [SerializeField] private Transform exitPoint;
+    [SerializeField] private Transform payingPoint;
+
 
     
 
@@ -28,7 +30,7 @@ public class CustomerAI : MonoBehaviour
     private CustomerBehaviour currentBehaviour;
     private Transform currentTarget;
     public Transform ExitPoint => exitPoint;
-
+    public event Action<CustomerAI> OnExitComplete;
     private bool isMoving;
 
 
@@ -37,7 +39,7 @@ public class CustomerAI : MonoBehaviour
     public TestSeatManager SeatManager => seatManager;
     public Transform OrderingPoint => orderingPoint;
     public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
-
+    public Transform PayingPoint => payingPoint;
     private void Awake()
     {
         customer = GetComponent<Customer>();
@@ -80,8 +82,37 @@ public class CustomerAI : MonoBehaviour
         currentBehaviour?.Arrived();
     }
 
- 
-    
+    public void FoodReceived()
+    {
+        switch (customer.State)
+        {
+            case CustomerState.WaitingFood:
+                customer.EndPatience();
+                ChangeState(CustomerState.Eating);
+                break;
+            case CustomerState.WaitingTakeout:
+                customer.EndPatience();
+                ChangeState(CustomerState.Paying);
+                break;
+
+        }
+    }
+
+    public void EatingFinished()
+    {
+        if (customer.State != CustomerState.Eating) return;
+        ChangeState(CustomerState.Paying);
+
+    }
+
+    public void PayComplete()
+    {
+        if (customer.State != CustomerState.Paying) return;
+        customer.SetExitReason(CustomerExitReason.Normal);
+
+        ChangeState(CustomerState.Leaving);
+    }
+
     public void StartCustomer()
     {
         PatienceManager.instance?.Register(this);
@@ -130,6 +161,11 @@ public class CustomerAI : MonoBehaviour
 
     }
 
+    public void ExitComplete()
+    {
+        OnExitComplete?.Invoke(this);
+    }
+
     private void DeactivateCurrentBehaviour()
     {
         if (currentBehaviour == null) return;
@@ -159,6 +195,15 @@ public class CustomerAI : MonoBehaviour
 
         ChangeState(CustomerState.Leaving);
 
+    }
+
+    public void ReleaseSeat()
+    {
+        if (customer.ReservedSeat == null) return;
+
+        if (seatManager != null) seatManager.ReleaseSeat(customer.ReservedSeat);
+
+        customer.ClearSeat();
     }
 
    
