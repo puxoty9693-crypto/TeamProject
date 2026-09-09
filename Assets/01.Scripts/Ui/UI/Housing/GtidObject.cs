@@ -1,8 +1,18 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class GridObject
 {
-    public Vector2Int position;
+    public string objID;
     public Vector2Int size;
-    public GameObject obj;
+    public GameObject objPrefabs;
+}
+
+
+[CreateAssetMenu(fileName = "GridOBJ", menuName = "Data/GridOBJ")]
+public class GridObjectData : ScriptableObject
+{
+    public List<GridObject> objects = new();
 }
