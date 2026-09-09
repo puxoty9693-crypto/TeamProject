@@ -17,11 +17,11 @@ public class NPCUpgradeUI : MonoBehaviour
 
     private void RefreshSlot(NPCUpgradeData data, NPCUpgradeSlot slotUI)
     {
-        NPCData npcData = DataManager.Instance.allNPCs.Find(x => x.role == data.role);
+        //NPCData npcData = DataManager.Instance.allNPCs.Find(x => x.role == data.role);
         int level = SaveManager.Instance.CurrentData.GetNPCUpgradeLevel(data.role);
         int clampedIndex = Mathf.Min(level, data.levels.Count - 1);
         bool isMaxLevel = level >= data.levels.Count - 1;
-        slotUI.UpdateSlot(npcData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
+        //slotUI.UpdateSlot(npcData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
     }
      private void TryUpgrade(NPCUpgradeData data, NPCUpgradeSlot slotUI)
     {
