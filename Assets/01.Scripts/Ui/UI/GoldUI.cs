@@ -1,31 +1,29 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class GoldUI : MonoBehaviour, IListener
+public class GoldUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldText;
 
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnChangeGold, this);
-    }
-
-    public void OnEvent(EventType type, Component sender, object param)
-    {
-        if (type == EventType.OnChangeGold)
-        {
-            UpdateGoldUI((int)param);
-        }
-    }
-
-    public void UpdateGoldUI(int gold)
-    {
-        goldText.text = $"{gold}G";
+        EventManager.Instance.AddListener(EventType.OnChangeGold, OnChangeGold);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnChangeGold, this);
+        EventManager.Instance.RemoveListener(EventType.OnChangeGold, OnChangeGold);
+    }
+
+    private void OnChangeGold(Component sender, object param)
+    {
+        UpdateGoldUI((int)param);
+    }
+
+    public void UpdateGoldUI(int gold)
+    {
+        goldText.text = $"{gold}";
     }
 
 }

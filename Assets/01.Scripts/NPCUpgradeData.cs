@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCUpgradeLevel : IUpgradeLevel
 {
     public int upgradeValue;     // 적용되는 능력치(속도, 효율 등)
-    [SerializeField] private int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
+    [SerializeField] public int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
     public int UpgradeGoldCost => upgradeGoldCost;
 
 }
