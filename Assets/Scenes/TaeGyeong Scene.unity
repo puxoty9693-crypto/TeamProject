@@ -119,6 +119,129 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &840144977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 840144979}
+  - component: {fileID: 840144978}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &840144978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840144977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86100a673fb193649847ade9db04716d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  allIngredients:
+  - {fileID: 11400000, guid: be8c0da9c864e04489289b5b9a8e8db2, type: 2}
+  - {fileID: 11400000, guid: b29ddb73268264a4aaa56c5a9cee3fa2, type: 2}
+  - {fileID: 11400000, guid: f61640b48349aed46bd527b312e5b852, type: 2}
+  - {fileID: 11400000, guid: 406e84e93bb2c19439fab81393cd5b9f, type: 2}
+  - {fileID: 11400000, guid: 73593f0f2f69667438bcddca8dec5c93, type: 2}
+  allRecipes:
+  - {fileID: 11400000, guid: 602ba83c43a920843819f69b19007ce3, type: 2}
+  - {fileID: 11400000, guid: 00481773f4fdf844eaa3883b48fbac05, type: 2}
+  - {fileID: 11400000, guid: 3a21805149233154cb90edb2b7cf5c3b, type: 2}
+  - {fileID: 11400000, guid: 978223ad35537ae40aefe4e8589e695d, type: 2}
+  - {fileID: 11400000, guid: 620ce8227694e284b9fd18fe62f3da4e, type: 2}
+  allFoods:
+  - {fileID: 11400000, guid: 93fe7eabb14239f448378e6fe22e0eed, type: 2}
+  - {fileID: 11400000, guid: c215cb2efa276f64da652c6c5846ea9d, type: 2}
+  - {fileID: 11400000, guid: 8ae2528cefb064041b13630a34555d54, type: 2}
+  - {fileID: 11400000, guid: c5dbc5edaa329ba4dba71c5ca966e17b, type: 2}
+  - {fileID: 11400000, guid: 9a66c9df15227814bbf6c056190baed3, type: 2}
+  carriageUpgrades:
+  - {fileID: 11400000, guid: 75ec37d68f5121847a2c010896bebe93, type: 2}
+  - {fileID: 11400000, guid: 8bfc492dfce7a0d46a66d0b97d824b3f, type: 2}
+  - {fileID: 11400000, guid: 9d3d7abb55bd76543b852c0937fab59a, type: 2}
+  - {fileID: 11400000, guid: 2b20c76d1d61b1a4db78d0d3661d2ea1, type: 2}
+  - {fileID: 11400000, guid: 92d1679c1c9d3ce4caeb45805894db46, type: 2}
+  allWorkers:
+  - {fileID: 11400000, guid: a97a495705586cf468a4bb12b3a3811c, type: 2}
+  - {fileID: 11400000, guid: 83e5716aa6c16ae42baf0204904cc367, type: 2}
+  - {fileID: 11400000, guid: 508b4412cd5f6b64c8cd66b6b0815c1b, type: 2}
+  workerUpgradeDataList:
+  - {fileID: 11400000, guid: 89bbdaa812ffff043800a86f1e660e8a, type: 2}
+  - {fileID: 11400000, guid: 9b6b9fc78773a0645a3f721f520ac5aa, type: 2}
+  - {fileID: 11400000, guid: 1a5828c6dd6f90f4d80f75c081e2be1c, type: 2}
+  adData: {fileID: 0}
+  tableUpgrades: []
+  takeoutUpgradeData: {fileID: 0}
+--- !u!4 &840144979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840144977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.11783, y: -4.33753, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1579121396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579121398}
+  - component: {fileID: 1579121397}
+  m_Layer: 0
+  m_Name: TableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1579121397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579121396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a16540140e74445ab0c96653d47c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TableManager
+--- !u!4 &1579121398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579121396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.11783, y: -4.33753, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034486450
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,3 +384,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2034486453}
+  - {fileID: 840144979}
+  - {fileID: 1579121398}

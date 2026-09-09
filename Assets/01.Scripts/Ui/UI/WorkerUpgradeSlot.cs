@@ -3,9 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCUpgradeSlot : MonoBehaviour
+public class WorkerUpgradeSlot : MonoBehaviour
 {
-    [SerializeField] Image npcImage;
+    [SerializeField] Image workerImage;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI upgradePriceText;
     [SerializeField] TextMeshProUGUI statText;
@@ -13,10 +13,10 @@ public class NPCUpgradeSlot : MonoBehaviour
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
-    public void UpdateSlot(NPCData npcData, NPCUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
+    public void UpdateSlot(WorkerData workerData, WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
-        npcImage.sprite = npcData.npcImage;
-        nameText.text = npcData.npcName;
+        workerImage.sprite = workerData.workerImage;
+        nameText.text = workerData.workerName;
         levelText.text = $"Lv.{levelIndex + 1}";
         statText.text = $"È¿°ú {currentLevel.upgradeValue}";
 
