@@ -2,29 +2,29 @@ using UnityEngine;
 
 public class TableManager : MMSingleton<TableManager>
 {
-    public int GetLevel(string tableId)
-        => SaveManager.Instance.CurrentData.GetTableLevel(tableId);
+    private const int CapacityPerTable = 4; // 테이블 1개당 고정 수용 인원
 
-    //특정 테이블 강화
-    public bool UpgradeTable(string tableId) 
+    public int GetLevel()
+        => SaveManager.Instance.CurrentData.TableUpgradeLevel;
+
+    public bool Upgrade()
     {
-        var data = DataManager.Instance.tableUpgrades.Find(t => t.tableId == tableId);
-        if (data == null) return false;
-
-        return UpgradeHelper.TryUpgrade(GetLevel(tableId), data.levels,() => SaveManager.Instance.CurrentData.UpgradeTableLevel(tableId));
+        return UpgradeHelper.TryUpgrade(GetLevel(), DataManager.Instance.tableUpgradeData.levels, () => SaveManager.Instance.CurrentData.UpgradeTableLevel());
     }
 
-    //현재 매장의 총 수용 가능 인원 계산
-    public int GetTotallCapacity()
+    // 현재 레벨에서 설치 가능한 최대 테이블 개수
+    public int GetMaxTableCount()
     {
-        int total = 0;
-        foreach (var tableData in DataManager.Instance.tableUpgrades)
-        {
-            int level = SaveManager.Instance.CurrentData.GetTableLevel(tableData.tableId);
-            if (level < tableData.levels.Count)
-                total += tableData.levels[level].capacity;
-        }
-        return total;
+        int level = GetLevel();
+        var levels = DataManager.Instance.tableUpgradeData.levels;
+        return level < levels.Count ? levels[level].tableCount : levels[levels.Count - 1].tableCount;
     }
 
+    // 현재 매장의 총 수용 가능 인원
+    // TODO(하우징 연동): 실제로 "배치된" 테이블 개수를 받아와야 정확함.
+    // 하우징 시스템 완성 전까지는 해금된 만큼 전부 배치했다고 가정
+    public int GetTotalCapacity()
+    {
+        return GetMaxTableCount() * CapacityPerTable;
+    }
 }

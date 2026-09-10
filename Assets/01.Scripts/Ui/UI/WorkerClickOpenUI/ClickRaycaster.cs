@@ -25,7 +25,7 @@ public class ClickRaycaster : MonoBehaviour
             return;
         }
 
-        var tableSlot = hit.collider.GetComponent<TableWorldSlot>();
+        var tableSlot = hit.collider.GetComponent<PlaceableObjectClickHandler>();
         if (tableSlot != null)
         {
             tableSlot.OnClicked();

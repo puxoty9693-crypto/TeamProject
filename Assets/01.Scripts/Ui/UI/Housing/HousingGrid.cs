@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class HousingGrid : MonoBehaviour
 {
+
+    [Header("격자 크기")]
     [SerializeField] private float cellSize = 1f;
     [SerializeField] public int minGridX = -18;
     [SerializeField] public int minGridY = -8;
@@ -11,13 +13,15 @@ public class HousingGrid : MonoBehaviour
 
     [SerializeField] private GridObjectData gridObjectData;
 
+    private List<GameObject> placedObjects = new();
     private Dictionary<Vector2Int, GameObject> occupiedCells = new();
 
     private void Start()
     {
-        Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
-        Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
-
+        //테스트
+        // Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
+        // Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
+        LoadPlacedObjects();
     }
     #region 그리드그리기
     public Vector2Int WorldToGrid(Vector3 worldPosition)
@@ -125,15 +129,53 @@ public class HousingGrid : MonoBehaviour
 
         foreach (var pair in occupiedCells)
         {
-            if(pair.Value == target)
+            if (pair.Value == target)
             {
                 cellsToRemove.Add(pair.Key);
             }
         }
-        foreach (Vector2Int cell in cellsToRemove)
+
+        if (cellsToRemove.Count > 0)
         {
-            occupiedCells.Remove(cell);
-        }
+            foreach (Vector2Int cell in cellsToRemove)
+            {
+                occupiedCells.Remove(cell);
+            }
             Destroy(target);
+        }
+    }
+    public void LoadPlacedObjects()
+    {
+        foreach (var save in SaveManager.Instance.CurrentData.PlacedObjects)
+        {
+            var objData = gridObjectData.objects.Find(o => o.objID == save.objId);
+            if (objData == null) continue;
+
+            Vector2Int pos = new Vector2Int(save.gridX, save.gridY);
+            SpawnAndRegister(pos, objData, save.instanceId);
+        }
+    }
+
+    private void SpawnAndRegister(Vector2Int pos, GridObject obj, string instanceId)
+    {
+        GameObject placedObject = Instantiate(obj.objPrefabs, GridToWorld(pos), Quaternion.identity);
+        placedObject.AddComponent<PlacedGridObject>().Init(obj.objID, instanceId);
+
+        if (obj.objID == "table")
+            TableRegistry.Instance.Register(instanceId, placedObject.transform);
+
+        List<Vector2Int> cells = GetOccupiedCells(pos, obj);
+        foreach (Vector2Int cell in cells)
+            occupiedCells[cell] = placedObject;
+
+        placedObjects.Add(placedObject);
+    }
+    public int GetPlacedCount(string objID)
+    {
+        placedObjects.RemoveAll(o => o == null);
+        int count = 0;
+        foreach (var obj in placedObjects)
+            if (obj.GetComponent<PlacedGridObject>().ObjId == objID) count++;
+        return count;
     }
 }

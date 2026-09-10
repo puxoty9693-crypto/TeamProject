@@ -44,6 +44,15 @@ public class TableSave
     public int level; // 0 = 부서진 채로 방치, 1 이상 = 수리/강화된 레벨
 }
 
+[System.Serializable]
+public class PlacedObjectSave
+{
+    public string objId;       // 오브젝트 타입
+    public string instanceId;  // 개별 인스턴스 id (테이블만 유의미, 나머진 GUID)
+    public int gridX;
+    public int gridY;
+}
+
 // [세이브 데이터] 플레이어 전체 진행 상태
 [System.Serializable]
 public class PlayerData
@@ -207,6 +216,35 @@ public class PlayerData
 
     public void SetBgmVolume(float volume) => bgmVolume = Mathf.Clamp01(volume);    
     public void SetSfxVolume(float volume) => sfxVolume = Mathf.Clamp01(volume);
-   
+
+
+
+    // ---------- 테이블 업그레이드 레벨 (세이브 데이터, 글로벌) 경은 추가 ----------
+    [SerializeField] private int tableUpgradeLevel;
+    public int TableUpgradeLevel => tableUpgradeLevel;
+    public void UpgradeTableLevel() => tableUpgradeLevel++;
+
+    // ---------- 하우징 배치 (세이브 데이터) ----------
+    [SerializeField] private List<PlacedObjectSave> placedObjects = new List<PlacedObjectSave>();
+    public IReadOnlyList<PlacedObjectSave> PlacedObjects => placedObjects;
+
+    [SerializeField] private int nextTableIndex = 0; // 순차 id 카운터, 테이블 전용
+
+    public void AddPlacedObject(string objId, string instanceId, Vector2Int gridPos)
+    {
+        placedObjects.Add(new PlacedObjectSave { objId = objId, instanceId = instanceId, gridX = gridPos.x, gridY = gridPos.y });
+    }
+
+    public void RemovePlacedObject(string instanceId)
+    {
+        placedObjects.RemoveAll(p => p.instanceId == instanceId);
+    }
+
+    public string GetNextTableId()
+    {
+        string id = $"table_{nextTableIndex}";
+        nextTableIndex++;
+        return id;
+    }
 }
 

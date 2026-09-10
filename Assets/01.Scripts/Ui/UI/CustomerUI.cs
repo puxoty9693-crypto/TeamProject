@@ -9,7 +9,7 @@ public class CustomerUI : MonoBehaviour
     {
         EventManager.Instance.AddListener(EventType.OnCustomerCount, OnCustomerCount);
         EventManager.Instance.AddListener(EventType.OnCustomerMaxCount, OnCustomerMaxCount);
-        customerMaxCount.text = $"/ {TableManager.Instance.GetTotallCapacity()}";
+        customerMaxCount.text = $"/ {TableManager.Instance.GetTotalCapacity()}";
     }
     private void OnDisable()
     {
