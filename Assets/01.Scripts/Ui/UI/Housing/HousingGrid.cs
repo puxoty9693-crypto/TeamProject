@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HousingGrid : MonoBehaviour
 {
@@ -43,17 +44,57 @@ public class HousingGrid : MonoBehaviour
     
     public bool IsCellAvailable(Vector2Int gridPosition)
     {
+
         return !occupiedCells.ContainsKey(gridPosition);
     }
 
-   //public List<Vector2Int> GetOccupiedCells(Vector2Int size)
-   //{
-   //    for (int y = 0; y < size.y; y++)
-   //    {
-   //        for (int x = 0; x < size.x; x++)
-   //        {
-   //            
-   //        }
-   //    }
-   //}
+    public List<Vector2Int> GetOccupiedCells(Vector2Int pos, GridObject obj)
+    {
+
+        Vector2Int size = obj.size;
+
+        List<Vector2Int> cells = new();
+        for (int y = 0; y < size.y; y++)
+        {
+            for (int x = 0; x < size.x; x++)
+            { 
+                int cellX = pos.x + x;
+                int cellY = pos.y + y;
+
+
+                Vector2Int cell = new (cellX,cellY);
+                
+                cells.Add(cell);
+            }
+        }
+        return cells;
+    }
+    public bool CanPlace(Vector2Int pos, GridObject obj)
+    {
+
+        List<Vector2Int> cells = GetOccupiedCells(pos, obj);
+
+        foreach(Vector2Int cell in cells)
+        {
+
+            if(cell.x < minGridX || cell.x >= maxGridX || cell.y < minGridY || cell.y >= maxGridY || !IsCellAvailable(cell))
+                return false;
+        }
+        return true;
+    }
+
+    public void Place(Vector2Int pos, GridObject obj)
+    {
+        if(!CanPlace(pos, obj))
+            return;
+
+        GameObject placedObject = Instantiate(obj.objPrefabs, GridToWorld(pos), Quaternion.identity);
+
+        List<Vector2Int> cells = GetOccupiedCells(pos, obj);
+
+        foreach(Vector2Int cell in cells)
+        {
+            occupiedCells.Add(cell, placedObject);
+        }
+    }
 }
