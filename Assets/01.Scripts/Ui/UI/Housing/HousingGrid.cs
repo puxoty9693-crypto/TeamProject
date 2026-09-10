@@ -1,18 +1,24 @@
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class HousingGrid : MonoBehaviour
 {
     [SerializeField] private float cellSize = 1f;
-    [SerializeField] public int minGridX = 0;
-    [SerializeField] public int minGridY = 0;
-    [SerializeField] public int maxGridX = 10;
-    [SerializeField] public int maxGridY = 10;
+    [SerializeField] public int minGridX = -18;
+    [SerializeField] public int minGridY = -8;
+    [SerializeField] public int maxGridX = 18;
+    [SerializeField] public int maxGridY = 4;
+
+    [SerializeField] private GridObjectData gridObjectData;
 
     private Dictionary<Vector2Int, GameObject> occupiedCells = new();
 
+    private void Start()
+    {
+        Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
+        Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
+
+    }
     #region 그리드그리기
     public Vector2Int WorldToGrid(Vector3 worldPosition)
     {
@@ -76,17 +82,32 @@ public class HousingGrid : MonoBehaviour
 
         foreach(Vector2Int cell in cells)
         {
+            Debug.Log($"검사 중: {cell}");
 
-            if(cell.x < minGridX || cell.x >= maxGridX || cell.y < minGridY || cell.y >= maxGridY || !IsCellAvailable(cell))
+            if (cell.x < minGridX || cell.x >= maxGridX || cell.y < minGridY || cell.y >= maxGridY)
+            {
+                Debug.Log($"맵 범위 밖: {cell}");
                 return false;
+            }
+
+            if (!IsCellAvailable(cell))
+            {
+                Debug.Log($"이미 점유됨: {cell}");
+                return false;
+            }
         }
         return true;
     }
 
     public void Place(Vector2Int pos, GridObject obj)
     {
-        if(!CanPlace(pos, obj))
+        Debug.Log("Place 호출됨");
+
+        if (!CanPlace(pos, obj))
+        {
+            Debug.Log("배치 불가능");
             return;
+        }
 
         GameObject placedObject = Instantiate(obj.objPrefabs, GridToWorld(pos), Quaternion.identity);
 
@@ -96,5 +117,23 @@ public class HousingGrid : MonoBehaviour
         {
             occupiedCells.Add(cell, placedObject);
         }
+    }
+
+    public void Remove(GameObject target)
+    {
+        List<Vector2Int> cellsToRemove = new();
+
+        foreach (var pair in occupiedCells)
+        {
+            if(pair.Value == target)
+            {
+                cellsToRemove.Add(pair.Key);
+            }
+        }
+        foreach (Vector2Int cell in cellsToRemove)
+        {
+            occupiedCells.Remove(cell);
+        }
+            Destroy(target);
     }
 }
