@@ -6,6 +6,17 @@ public class HousingSystem : MonoBehaviour
 
     [SerializeField] private HousingGrid housingGrid;
 
+    private void Update()
+    {
+        if (!isHousingMode)
+            return;
+        Vector3 mousWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousWorldPos.z = 0f;
+
+        Vector2Int gridpos = housingGrid.WorldToGrid(mousWorldPos);
+
+        Debug.Log($"현재 그리드 : {gridpos}");
+    }
 
     public void EnterHousingMode()
     {
