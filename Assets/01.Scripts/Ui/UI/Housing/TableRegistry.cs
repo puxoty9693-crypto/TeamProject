@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 // TableRegistry.Instance.GetTable(id) / GetAllTables() 사용으로 테이블 조회
 public class TableRegistry : MMSingleton<TableRegistry>
 {

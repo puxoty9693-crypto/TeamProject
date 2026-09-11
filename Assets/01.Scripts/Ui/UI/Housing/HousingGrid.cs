@@ -3,31 +3,44 @@ using UnityEngine;
 
 public class HousingGrid : MonoBehaviour
 {
-
+    #region Grid Settings
     [Header("격자 크기")]
     [SerializeField] private float cellSize = 1f;
     [SerializeField] public int minGridX = -18;
     [SerializeField] public int minGridY = -8;
     [SerializeField] public int maxGridX = 18;
     [SerializeField] public int maxGridY = 4;
+    [SerializeField] private GameObject gridCellPrefab;
+    #endregion
+
+    #region Grid Data
 
     [SerializeField] private GridObjectData gridObjectData;
 
-    [SerializeField] private GameObject gridCellPrefab;
-
-    private List<GameObject> placedObjects = new();
+    private Dictionary<Vector2Int, GameObject> gridCells = new();
     private Dictionary<Vector2Int, GameObject> occupiedCells = new();
+    private List<GameObject> placedObjects = new();
 
+    #endregion
+
+    #region Holding
+
+    private GameObject heldObject;
+    private GridObject heldObjectData;
+    private Vector2Int heldOriginalPos;
+
+    public bool IsHolding => heldObject != null;
+    public GridObject HeldObjectData => heldObjectData;
+
+    #endregion
 
     private void Start()
     {
         CreateGrid();
-        //테스트
-        // Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
-        // Place(new Vector2Int(-3,-4), gridObjectData.objects[0]);
-        //LoadPlacedObjects();
+        LoadPlacedObjects();
     }
-    #region 그리드그리기
+
+    #region Grid Coordinate
     public Vector2Int WorldToGrid(Vector3 worldPosition)
     {
         int x = Mathf.FloorToInt(worldPosition.x / cellSize);
@@ -42,27 +55,44 @@ public class HousingGrid : MonoBehaviour
 
         return new Vector3(x, y, 0f);
     }
-
-    private void OnDrawGizmos()
+    public Vector3 GetFootprintCenter(Vector2Int anchorPos, Vector2Int size)
     {
-       for(int y = minGridY; y < maxGridY; y++)
-       {
-            Gizmos.DrawLine(new Vector3(minGridX * cellSize, y * cellSize, 0), new Vector3(maxGridX * cellSize, y * cellSize, 0));            
-       }
-       for (int x = minGridX; x < maxGridX; x++)
-       { 
-           Gizmos.DrawLine(new Vector3(x * cellSize, minGridY * cellSize, 0), new Vector3(x * cellSize, maxGridY * cellSize, 0));
-       }
+        float centerX = (anchorPos.x + size.x / 2f) * cellSize;
+        float centerY = (anchorPos.y + size.y / 2f) * cellSize;
+        return new Vector3(centerX, centerY, 0f);
+    }
+    public bool IsInGrid(Vector2Int gridPos)
+    {
+        return gridPos.x >= minGridX && gridPos.x < maxGridX && gridPos.y >= minGridY && gridPos.y < maxGridY;
     }
     #endregion
-    
+
+    #region Grid Cell
+    private void CreateGrid()
+    {
+        for (int y = minGridY; y < maxGridY; y++)
+        {
+            for (int x = minGridX; x < maxGridX; x++)
+            {
+                Vector2Int gridPosition = new Vector2Int(x, y);
+
+                GameObject cell = Instantiate(gridCellPrefab, GridToWorld(gridPosition), Quaternion.identity,transform);
+
+                gridCells.Add(gridPosition, cell);
+            }
+        }
+    }
+    public GameObject GetCell(Vector2Int gridPosition)
+    {
+        return gridCells.TryGetValue(gridPosition, out var cell)? cell : null;
+    }
+
     public bool IsCellAvailable(Vector2Int gridPosition)
     {
 
         return !occupiedCells.ContainsKey(gridPosition);
     }
-
-    public List<Vector2Int> GetOccupiedCells(Vector2Int pos, GridObject obj)
+    public List<Vector2Int> GetObjectCells(Vector2Int pos, GridObject obj)
     {
 
         Vector2Int size = obj.size;
@@ -86,118 +116,225 @@ public class HousingGrid : MonoBehaviour
     public bool CanPlace(Vector2Int pos, GridObject obj)
     {
 
-        List<Vector2Int> cells = GetOccupiedCells(pos, obj);
+        List<Vector2Int> cells = GetObjectCells(pos, obj);
 
         foreach(Vector2Int cell in cells)
         {
-            Debug.Log($"검사 중: {cell}");
 
-            if (cell.x < minGridX || cell.x >= maxGridX || cell.y < minGridY || cell.y >= maxGridY)
-            {
-                Debug.Log($"맵 범위 밖: {cell}");
+            if (!IsInGrid(cell))
                 return false;
-            }
 
             if (!IsCellAvailable(cell))
-            {
-                Debug.Log($"이미 점유됨: {cell}");
                 return false;
-            }
         }
         return true;
     }
+    #endregion
 
+    #region Object Placement
     public void Place(Vector2Int pos, GridObject obj)
     {
-        Debug.Log("Place 호출됨");
 
         if (!CanPlace(pos, obj))
-        {
-            Debug.Log("배치 불가능");
             return;
-        }
 
-        GameObject placedObject = Instantiate(obj.objPrefabs, GridToWorld(pos), Quaternion.identity);
+        string instanceId = obj.objID == ObjectIds.Table? SaveManager.Instance.CurrentData.GetNextTableId() : System.Guid.NewGuid().ToString();
 
-        List<Vector2Int> cells = GetOccupiedCells(pos, obj);
+        if(!SpawnAndRegister(pos,obj,instanceId))
+            return;
 
-        foreach(Vector2Int cell in cells)
-        {
-            occupiedCells.Add(cell, placedObject);
-        }
+        SaveManager.Instance.CurrentData.AddPlacedObject(obj.objID, instanceId, pos);
     }
+    private bool SpawnAndRegister(Vector2Int pos, GridObject obj, string instanceId)
+    {
+        GameObject placedObject = Instantiate(obj.objPrefabs, GetFootprintCenter(pos, obj.size), Quaternion.identity);
 
+        PlacedGridObject info = placedObject.GetComponent<PlacedGridObject>();
+        if (info == null)
+        {
+            Destroy(placedObject);
+            return false;    
+        }
+
+        info.Init(obj.objID, instanceId);
+
+        if (obj.objID == ObjectIds.Table)
+            TableRegistry.Instance.Register(instanceId, placedObject.transform);
+
+        foreach (Vector2Int cell in GetObjectCells(pos, obj))
+            occupiedCells[cell] = placedObject;
+
+        placedObjects.Add(placedObject);
+        
+        return true;
+    }
+    #endregion
+
+    #region Object Removal
     public void Remove(GameObject target)
     {
-        List<Vector2Int> cellsToRemove = new();
+        if (target == null)
+            return;
+        
+        var info = target.GetComponent<PlacedGridObject>();
 
+        if (info == null)
+            return;
+
+        List<Vector2Int> cellsToRemove = GetCellsOccupiedBy(target);
+
+        if (cellsToRemove.Count == 0)
+            return;
+
+        foreach (Vector2Int cell in cellsToRemove)
+        {
+            occupiedCells.Remove(cell);
+        }
+
+        placedObjects.Remove(target);
+
+
+        if (info.ObjId == ObjectIds.Table)
+        {
+            TableRegistry.Instance.Unregister(info.InstanceId);
+        }
+
+        SaveManager.Instance.CurrentData.RemovePlacedObject(info.InstanceId);
+
+        Destroy(target);
+        
+    }
+    public int GetPlacedCount(string objID)
+    {
+        placedObjects.RemoveAll(o => o == null);
+        int count = 0;
+        foreach (var obj in placedObjects)
+        {
+            if (obj.GetComponent<PlacedGridObject>().ObjId == objID) count++;
+        }
+        return count;
+    }
+    #endregion
+
+    #region Object Movement
+    public bool PickUp(GameObject target)
+    {
+        if (IsHolding)
+            return false;
+
+        var info = target.GetComponent<PlacedGridObject>();
+
+        if (info == null)
+            return false;
+
+        var objData = GetGridObject(info.ObjId);
+
+        if (objData == null)
+            return false;
+
+        Vector2Int? originalAnchor = FindAnchorOf(target);
+
+        if (originalAnchor == null)
+            return false;
+
+        List<Vector2Int> cellsToRemove = GetCellsOccupiedBy(target);
+
+        foreach (var cell in cellsToRemove)
+            occupiedCells.Remove(cell);
+
+
+        heldObject = target;
+        heldObjectData = objData;
+        heldOriginalPos = originalAnchor.Value;
+
+        return true;
+    }
+
+    private Vector2Int? FindAnchorOf(GameObject target)
+    {
+        List<Vector2Int> cells = GetCellsOccupiedBy(target);
+
+        if (cells.Count == 0)
+            return null;
+
+        int minX = int.MaxValue;
+        int minY = int.MaxValue;
+
+        foreach (var c in cells)
+        {
+            if (c.x < minX) minX = c.x;
+            if (c.y < minY) minY = c.y;
+        }
+
+        return new Vector2Int(minX, minY);
+    }
+
+    public bool TryDrop(Vector2Int pos)
+    {
+        if (!IsHolding)
+            return false;
+        if (!CanPlace(pos, heldObjectData)) 
+            return false;
+
+        heldObject.transform.position = GetFootprintCenter(pos, heldObjectData.size);
+
+        List<Vector2Int> cells = GetObjectCells(pos, heldObjectData);
+
+        foreach (var cell in cells)
+        {
+            occupiedCells[cell] = heldObject;
+        }
+
+        var info = heldObject.GetComponent<PlacedGridObject>();
+        SaveManager.Instance.CurrentData.UpdatePlacedObjectPosition(info.InstanceId, pos);
+
+
+        heldObject = null;
+        heldObjectData = null;
+        return true;
+    }
+
+    public void CancelPickUp()
+    {
+        if (!IsHolding)
+            return;
+        TryDrop(heldOriginalPos);
+    }
+
+    #endregion
+
+    #region Object Query
+    public GameObject GetObjectAt(Vector2Int cell)
+    => occupiedCells.TryGetValue(cell, out var obj) ? obj : null;
+    public List<Vector2Int> GetCellsOccupiedBy(GameObject target)
+    {
+        List<Vector2Int> cells = new();
         foreach (var pair in occupiedCells)
         {
-            if (pair.Value == target)
-            {
-                cellsToRemove.Add(pair.Key);
-            }
+            if (pair.Value == target) cells.Add(pair.Key);
         }
 
-        if (cellsToRemove.Count > 0)
-        {
-            foreach (Vector2Int cell in cellsToRemove)
-            {
-                occupiedCells.Remove(cell);
-            }
-            Destroy(target);
-        }
+        return cells;
     }
-  //  public void LoadPlacedObjects()
-  //  {
-  //      foreach (var save in SaveManager.Instance.CurrentData.PlacedObjects)
-  //      {
-  //          var objData = gridObjectData.objects.Find(o => o.objID == save.objId);
-  //          if (objData == null) continue;
-  //
-  //          Vector2Int pos = new Vector2Int(save.gridX, save.gridY);
-  //          SpawnAndRegister(pos, objData, save.instanceId);
-  //      }
-  //  }
-  //
-  //  private void SpawnAndRegister(Vector2Int pos, GridObject obj, string instanceId)
-  //  {
-  //      GameObject placedObject = Instantiate(obj.objPrefabs, GridToWorld(pos), Quaternion.identity);
-  //      placedObject.AddComponent<PlacedGridObject>().Init(obj.objID, instanceId);
-  //
-  //      if (obj.objID == "table")
-  //          TableRegistry.Instance.Register(instanceId, placedObject.transform);
-  //
-  //      List<Vector2Int> cells = GetOccupiedCells(pos, obj);
-  //      foreach (Vector2Int cell in cells)
-  //          occupiedCells[cell] = placedObject;
-  //
-  //      placedObjects.Add(placedObject);
-  //  }
-  //  public int GetPlacedCount(string objID)
-  //  {
-  //      placedObjects.RemoveAll(o => o == null);
-  //      int count = 0;
-  //      foreach (var obj in placedObjects)
-  //          if (obj.GetComponent<PlacedGridObject>().ObjId == objID) count++;
-  //      return count;
-  //  }
 
-    private void CreateGrid()
+    private GridObject GetGridObject(string objID)
     {
-        for (int y = minGridY; y < maxGridY; y++)
-        {
-            for (int x = minGridX; x < maxGridX; x++)
-            {
-                Vector2Int gridPosition = new Vector2Int(x, y);
+        return gridObjectData.objects.Find(o => o.objID == objID);
+    }
+    #endregion
 
-                Instantiate(
-                    gridCellPrefab,
-                    GridToWorld(gridPosition),
-                    Quaternion.identity,
-                    transform
-                );
-            }
+    #region Save / Load
+    public void LoadPlacedObjects()
+    {
+        foreach (var save in SaveManager.Instance.CurrentData.PlacedObjects)
+        {
+            var objData = GetGridObject(save.objId);
+            if (objData == null)
+                continue;
+  
+            Vector2Int pos = new Vector2Int(save.gridX, save.gridY);
+            SpawnAndRegister(pos, objData, save.instanceId);
         }
     }
+    #endregion
 }

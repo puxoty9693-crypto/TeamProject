@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4086730233009300653}
-  - component: {fileID: 6518225893672312846}
+  - component: {fileID: 8887902210077807648}
+  - component: {fileID: 1361458554076035840}
   - component: {fileID: 4716693472611561526}
   - component: {fileID: 6120723130619211970}
   m_Layer: 6
@@ -34,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6518225893672312846
+--- !u!114 &8887902210077807648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +44,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3295521530288594644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c8244c6818e4645bb00cdb95882d82, type: 3}
+  m_Script: {fileID: 11500000, guid: 20f4636de8aaeab4eab665acf75670cd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TableWorldSlot
-  tableId: 1
-  tableRenderer: {fileID: 4716693472611561526}
+  m_EditorClassIdentifier: Assembly-CSharp::PlacedGridObject
+--- !u!114 &1361458554076035840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295521530288594644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f77633b9aa94b4f87f1087b3fe7da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaceableObjectClickHandler
 --- !u!212 &4716693472611561526
 SpriteRenderer:
   serializedVersion: 2

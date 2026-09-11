@@ -235,6 +235,16 @@ public class PlayerData
         placedObjects.Add(new PlacedObjectSave { objId = objId, instanceId = instanceId, gridX = gridPos.x, gridY = gridPos.y });
     }
 
+    public void UpdatePlacedObjectPosition(string instanceId, Vector2Int gridPos)
+    {
+        var save = placedObjects.Find(p => p.instanceId == instanceId);
+        if (save != null)
+        {
+            save.gridX = gridPos.x;
+            save.gridY = gridPos.y;
+        }
+    }
+
     public void RemovePlacedObject(string instanceId)
     {
         placedObjects.RemoveAll(p => p.instanceId == instanceId);

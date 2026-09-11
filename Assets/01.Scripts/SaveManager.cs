@@ -52,5 +52,13 @@ public class SaveManager : MMSingleton<SaveManager>
         SaveGame();
     }
 
-
+    [ContextMenu("Delete Save")]
+    private void DeleteSave()
+    {
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+            Debug.Log("세이브 삭제 완료");
+        }
+    }
 }
