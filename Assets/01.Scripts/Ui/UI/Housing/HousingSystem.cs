@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HousingSystem : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class HousingSystem : MonoBehaviour
     {
         if (!isHousingMode)
             return;
-        Vector3 mousWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousWorldPos.z = 0f;
 
         Vector2Int gridpos = housingGrid.WorldToGrid(mousWorldPos);
