@@ -109,6 +109,13 @@ public class PlayerData
         return true;
     }
 
+    public bool HasIngredient(string ingredientId, int amount)
+    {
+        var stock = warehouseStock.Find(s => s.ingredientId == ingredientId);
+        if (stock == null || stock.count < amount) return false;
+        return true;
+    }
+
     public int GetIngredientCount(string ingredientId) 
     {
         var stock = warehouseStock.Find(s => s.ingredientId ==ingredientId);
@@ -132,6 +139,12 @@ public class PlayerData
         var stock = foodStock.Find(f => f.foodId == foodId);
         if (stock == null || stock.count < amount) return false;
         stock.count -= amount;
+        return true;
+    }
+    public bool HasFood(string foodId, int amount)
+    {
+        var stock = foodStock.Find(f => f.foodId == foodId);
+        if (stock == null || stock.count < amount) return false;
         return true;
     }
 

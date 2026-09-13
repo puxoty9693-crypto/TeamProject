@@ -40,6 +40,37 @@ public class CraftingController : MonoBehaviour
         craftingSystem.ClearRecipe();
     }
 
+    public void RequestCrafting(int count)
+    {
+        if (craftingSystem == null)
+        {
+            Debug.LogWarning("CraftingSystem이 초기화되지 않았습니다.");
+            return;
+        }
+
+        craftingSystem.RequestCrafting(count);
+    }
+
+    public void CancelCooking()
+    {
+        if (craftingSystem == null)
+        {
+            Debug.LogWarning("CraftingSystem이 초기화되지 않았습니다.");
+            return;
+        }
+
+        craftingSystem.CancelCooking();
+    }
+
+    public int RemainingCraftCount =>
+        craftingSystem?.RemainingCraftCount ?? 0;
+
+    public int RequestedCraftCount =>
+        craftingSystem?.RequestedCraftCount ?? 0;
+
+    public int CompletedCraftCount =>
+        craftingSystem?.CompletedCraftCount ?? 0;
+
     public RecipeData SelectedRecipe =>
         craftingSystem?.SelectedRecipe;
 
