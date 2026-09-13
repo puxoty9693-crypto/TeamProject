@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a36c91e63edd94e97e3f7737a677ec, type: 3}
   m_Name: Recipe_Beef_Patty
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeId: recipe_beef_patty
+  recipeId: Recipe_4
+  recipeName: recipe_beef_patty
   unlockGoldCost: 0
   food: {fileID: 11400000, guid: 9a66c9df15227814bbf6c056190baed3, type: 2}

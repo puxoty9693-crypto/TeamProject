@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f59bbabda187c14a8749cda7e1448ce, type: 3}
   m_Name: Basil_Tomato_Lasagna
   m_EditorClassIdentifier: Assembly-CSharp::FoodData
-  foodId: basil_tomato_lasagna
+  foodId: Food_1
+  foodName: basil_tomato_lasagna
   foodImage: {fileID: 1126792965, guid: 07093360f2641474d944e703b1c55065, type: 3}
   goldPerSale: 0
   requiredIngredients:

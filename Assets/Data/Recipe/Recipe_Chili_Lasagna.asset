@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a36c91e63edd94e97e3f7737a677ec, type: 3}
   m_Name: Recipe_Chili_Lasagna
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeId: recipe_chili_lasagna
+  recipeId: Recipe_2
+  recipeName: recipe_chili_lasagna
   unlockGoldCost: 0
   food: {fileID: 11400000, guid: 8ae2528cefb064041b13630a34555d54, type: 2}

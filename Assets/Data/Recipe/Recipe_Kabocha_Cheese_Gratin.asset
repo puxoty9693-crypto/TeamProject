@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a36c91e63edd94e97e3f7737a677ec, type: 3}
   m_Name: Recipe_Kabocha_Cheese_Gratin
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeId: recipe_kabocha_cheese_gratin
+  recipeId: Recipe_3
+  recipeName: recipe_kabocha_cheese_gratin
   unlockGoldCost: 0
   food: {fileID: 11400000, guid: c5dbc5edaa329ba4dba71c5ca966e17b, type: 2}

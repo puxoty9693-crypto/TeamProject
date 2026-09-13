@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb4e1cf1075ad934f8689d11f5c178e0, type: 3}
-  m_Name: Tomato_CarriageUpgrade
+  m_Name: Lettuce_CarriageUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::CarriageIngredientData
-  ingredient: {fileID: 11400000, guid: be8c0da9c864e04489289b5b9a8e8db2, type: 2}
+  ingredient: {fileID: 11400000, guid: 73593f0f2f69667438bcddca8dec5c93, type: 2}
   unlockGoldCost: 0
   levels:
   - gatherTime: 10

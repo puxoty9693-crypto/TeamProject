@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec131242ba69b024fa2eff53f7a87f28, type: 3}
-  m_Name: Cashier_
+  m_Name: Server_
   m_EditorClassIdentifier: Assembly-CSharp::WorkerData
-  role: 2
-  workerName: Cashier
+  role: 1
+  workerName: Server
   workerImage: {fileID: 8224124334607301300, guid: a4a3c93b06c1dce42a0fe57aa64f53fb, type: 3}

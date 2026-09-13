@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum WorkerRole { Chef, Waiter, Cashier } // 요리사, 웨이터, 계산원
+public enum WorkerRole { Chef, Server, Cashier } // 요리사, 서버, 계산원
 
 // NPC 한 명의 기본 정보
 [CreateAssetMenu(fileName = "Worker_", menuName = "Data/Worker")]

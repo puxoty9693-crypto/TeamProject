@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class AdUpgradeLevel : IUpgradeLevel
 {
+    public float spawnIntervalMin;
+    public float spawnIntervalMax;
     public int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
     public string upgradeText;   // UI에 표시할 설명 텍스트
     public int UpgradeGoldCost => upgradeGoldCost;

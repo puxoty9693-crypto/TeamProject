@@ -10,7 +10,6 @@ public class DataManager : MMSingleton<DataManager>
     public List<WorkerData> allWorkers;
     public List<WorkerUpgradeData> workerUpgradeDataList;   // 역할별 직원 업그레이드 데이터
     public AdData adData;                             // 광고 업그레이드 데이터
-    public List<TableData> tableUpgrades;            //테이블 업그레이드 데이터 
-    public TakeoutUpgradeData takeoutUpgradeData;    // 픽업 업그레이드 데이터
+    public CookingBatchConfig cookingBatchConfig; // 제작 단위
 
 }
