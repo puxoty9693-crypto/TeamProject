@@ -101,11 +101,17 @@ public class PlayerData
         return true;
     }
 
+    // 지금 몇 개 있어?
     public int GetIngredientCount(string ingredientId) 
     {
         var stock = warehouseStock.Find(s => s.ingredientId ==ingredientId);
         return stock != null ? stock.count : 0;
     }
+
+    // N개 이상 있어? (있으면 Yes, 없으면 No)
+    public bool HasIngredient(string ingredientId, int amount)
+        => GetIngredientCount(ingredientId) >= amount;
+
 
     // ---------- 음식 창고 (세이브 데이터, FoodStock 리스트) ----------
     [SerializeField] private List<FoodStock> foodStock = new List<FoodStock>();
@@ -119,6 +125,7 @@ public class PlayerData
         else foodStock.Add(new FoodStock { foodId = foodId, count = amount });
     }
 
+    //음식이 충분하면 차감하고 true, 부족하면 false
     public bool UseFood(string foodId, int amount) 
     {
         var stock = foodStock.Find(f => f.foodId == foodId);
@@ -126,12 +133,16 @@ public class PlayerData
         stock.count -= amount;
         return true;
     }
-
+    //지금 몇 개 있는지 조회(없으면 0)
     public int GetFoodCount(string foodId) 
     {
         var stock = foodStock.Find(f => f.foodId == foodId);
         return stock != null ? stock.count : 0; 
     }
+
+    // N개 이상 있어? (있으면 Yes, 없으면 No)
+    public bool HasFood(string foodId, int amount)
+        => GetFoodCount(foodId) >= amount;
 
     // ---------- 마차(재료별) 강화 레벨 (세이브 데이터, CarriageSave 리스트) ----------
     [SerializeField] private List<CarriageSave> carriageLevels = new List<CarriageSave>();
@@ -170,10 +181,6 @@ public class PlayerData
     public int AdUpgradeLevel => adUpgradeLevel;
     public void UpgradeAdLevel() => adUpgradeLevel++;
 
-    // ---------- 테이크아웃 확률 업그레이드 레벨 (세이브 데이터) ----------
-    [SerializeField] private int takeoutUpgradeLevel;
-    public int TakeoutUpgradeLevel => takeoutUpgradeLevel;
-    public void UpgradeTakeoutLevel() => takeoutUpgradeLevel++;
 
     // ---------- 사운드 볼륨 (세이브 데이터, 설정값) ----------
     [SerializeField] private float bgmVolume = 1f;
