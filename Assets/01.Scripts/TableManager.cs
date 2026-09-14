@@ -21,10 +21,8 @@ public class TableManager : MMSingleton<TableManager>
     }
 
     // 현재 매장의 총 수용 가능 인원
-    // TODO(하우징 연동): 실제로 "배치된" 테이블 개수를 받아와야 정확함.
-    // 하우징 시스템 완성 전까지는 해금된 만큼 전부 배치했다고 가정
     public int GetTotalCapacity()
     {
-        return GetMaxTableCount() * CapacityPerTable;
+        return TableRegistry.Instance.GetAllTables().Count * CapacityPerTable;
     }
 }

@@ -2,11 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdUpgradeUI : MonoBehaviour
+public class TableUpgradeUI : MonoBehaviour
 {
+    [Header("텍스트")]
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI descriptionText;
+    [SerializeField] TextMeshProUGUI tableCountText;
     [SerializeField] TextMeshProUGUI costText;
+    
+    [Header("버튼")]
     [SerializeField] Button upgradeButton;
 
     private void Awake()
@@ -21,12 +24,12 @@ public class AdUpgradeUI : MonoBehaviour
 
     private void Refresh()
     {
-        var levels = DataManager.Instance.adData.levels;
-        int level = AdManager.Instance.GetLevel();
+        var levels = DataManager.Instance.tableUpgradeData.levels;
+        int level = TableManager.Instance.GetLevel();
         bool isMaxLevel = level >= levels.Count - 1;
 
         levelText.text = $"Lv.{level + 1}";
-        descriptionText.text = AdManager.Instance.GetCurrentUpgradeText();
+        tableCountText.text = $"설치 가능 테이블 {TableManager.Instance.GetMaxTableCount()}개";
 
         if (isMaxLevel)
         {
@@ -42,7 +45,7 @@ public class AdUpgradeUI : MonoBehaviour
 
     private void TryUpgrade()
     {
-        bool success = AdManager.Instance.Upgrade();
+        bool success = TableManager.Instance.Upgrade();
 
         if (!success)
         {
@@ -51,6 +54,8 @@ public class AdUpgradeUI : MonoBehaviour
         }
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());
+        EventManager.Instance.PostNotification(EventType.OnHousingChanged, this);
         Refresh();
     }
 }

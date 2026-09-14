@@ -11,7 +11,7 @@ public class CookingRecipeInfo : MonoBehaviour
     [SerializeField] TextMeshProUGUI ingredient1Count;
     [SerializeField] TextMeshProUGUI ingredient2Count;
     
-    //[SerializeField] Button cookingButton; 나중에 요리하기 만드시면 이걸로 연결해주세요
+    [SerializeField] Button cookingButton; //나중에 요리하기 만드시면 이걸로 연결해주세요
 
     [Header("숫자업다운")]
     [SerializeField] Button plus1Btn;

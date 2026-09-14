@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class IngrendientSlot : MonoBehaviour
 {
+    [Header("텍스트")]
     [SerializeField] TextMeshProUGUI countText;
     [SerializeField] int maxCount = 999;
-    [SerializeField] Sprite nullimg;
+    
+    [Header("이미지")]
+    [SerializeField] Sprite nullimg; // null이미지
     [SerializeField] Image ingredientImg;
 
     public void UdateChestSlotUI(IngredientData data, IngredientStock stock)

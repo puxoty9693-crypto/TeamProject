@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CarriageUI : MonoBehaviour
 {
+    [Header("재료업글 슬롯연결")]
     [SerializeField] List<CarriageSlotUI> slots = new();
 
     private void OnEnable()

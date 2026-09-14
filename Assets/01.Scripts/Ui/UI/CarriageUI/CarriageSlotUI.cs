@@ -2,17 +2,23 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-//팀장님오시면 수정
 public class CarriageSlotUI : MonoBehaviour
 {
+    [Header("이미지")]
     [SerializeField] Image ingredientImage;
+    
+    [Header("텍스트")]
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI statText;
+    
+    [Header("버튼")]
     [SerializeField] Button actionButton;
     [SerializeField] TextMeshProUGUI actionButtonLabel;
+
     private Action onActionClicked;
+    
     private void Awake()
     {
         actionButton.onClick.AddListener(() => onActionClicked?.Invoke());

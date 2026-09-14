@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlaceableObjectClickHandler : MonoBehaviour
+public class PlaceableObjectClickHandler : MonoBehaviour, IClickable
 {
     public void OnClicked()
     {
