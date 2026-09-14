@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CarriageSlotUI : MonoBehaviour
 {
     [SerializeField] Image ingredientImage;
-    [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI statText;
@@ -24,7 +24,7 @@ public class CarriageSlotUI : MonoBehaviour
         nameText.text = data.ingredientName;
         levelText.text = "미해금";
         statText.text = "-";
-        priceText.text = $"{unlockCost}G";
+        costText.text = $"{unlockCost}G";
 
         if (actionButtonLabel != null) actionButtonLabel.text = "해금";
         onActionClicked = onUnlock;
@@ -43,12 +43,12 @@ public class CarriageSlotUI : MonoBehaviour
 
         if (isMaxLevel)
         {
-            priceText.text = "MAX";
+            costText.text = "MAX";
             actionButton.interactable = false;
         }
         else
         {
-            priceText.text = $"{currentLevel.upgradeGoldCost}G";
+            costText.text = $"{currentLevel.upgradeGoldCost}G";
             actionButton.interactable = true;
         }
     }

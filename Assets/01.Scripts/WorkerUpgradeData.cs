@@ -10,7 +10,7 @@ public class WorkerUpgradeLevel : IUpgradeLevel
 
 }
 
-// 특정 역할(NPCRole)의 전체 업그레이드 단계
+// 특정 역할(WorkerRole)의 전체 업그레이드 단계
 [CreateAssetMenu(fileName = "WorkerUpgrade_", menuName = "Data/WorkerUpgrade")]
 public class WorkerUpgradeData : ScriptableObject
 {
