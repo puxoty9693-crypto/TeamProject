@@ -27,8 +27,11 @@ public class PaletteUI : MonoBehaviour
         {
             if (i < available.Count)
             {
+                GridObject obj = available[i];
                 slots[i].gameObject.SetActive(true);
-                slots[i].Setup(available[i].objID, available[i].icon);
+
+                var (current, max) = GetCountInfo(obj);
+                slots[i].Setup(obj.objID, obj.icon, current, max);
             }
             else
             {
@@ -37,13 +40,25 @@ public class PaletteUI : MonoBehaviour
         }
     }
 
+    private (int current, int max) GetCountInfo(GridObject obj)
+    {
+        if (obj.objID == ObjectIds.Table)
+        {
+            int current = TableRegistry.Instance.GetAllTables().Count;
+            int max = TableManager.Instance.GetMaxTableCount();
+            return (current, max);
+        }
+
+        return (HousingSystem.Instance.Grid.GetPlacedCount(obj.objID), obj.maxCount);
+    }
+
     private bool IsAvailable(GridObject obj)
     {
         if (obj.objID == ObjectIds.Table)
             return TableRegistry.Instance.GetAllTables().Count < TableManager.Instance.GetMaxTableCount();
 
         if (obj.maxCount < 0)
-            return true; // 제한 없음
+            return true;
 
         return HousingSystem.Instance.Grid.GetPlacedCount(obj.objID) < obj.maxCount;
     }
