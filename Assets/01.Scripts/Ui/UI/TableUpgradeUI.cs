@@ -52,6 +52,7 @@ public class TableUpgradeUI : MonoBehaviour
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());
+        EventManager.Instance.PostNotification(EventType.OnHousingChanged, this);
         Refresh();
     }
 }
