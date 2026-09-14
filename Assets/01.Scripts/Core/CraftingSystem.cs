@@ -46,16 +46,19 @@ public class CraftingSystem
     // 현재까지 완료한 제작 횟수
     public int CompletedCraftCount { get; private set; }
 
-
-    // 이벤트
-    public event Action<RecipeData> OnRecipeSelected;
+    //제작 요청 수량이 변경될때, x1 x5 x10 버튼 눌렀을때, 제작 전
+    public event Action<int> OnRequestedCraftCountChanged;
+    //제작 첫 요청, 제작버튼
     public event Action<RecipeData, int> OnCraftingRequested;
 
+    //요리가 시작될때, 매 갯수마다 반복 실행
     public event Action<RecipeData> OnCookingStarted;
+    //요리가 완성될때, 매 갯수마다 반복 실행
     public event Action<RecipeData> OnCookingCompleted;
+    //요리 제작을 취소할때
     public event Action<RecipeData> OnCookingCanceled;
 
-    // 제작 수량이 변경되었을 때 사용
+    //제작중인 요리의 남은 수량
     public event Action<int> OnRemainingCraftCountChanged;
 
 
@@ -69,73 +72,6 @@ public class CraftingSystem
 
         curData = data;
     }
-
-
-    // 레시피 선택만 담당
-    public void SelectRecipe(RecipeData recipe)
-    {
-        if (recipe == null)
-        {
-            Debug.LogWarning("선택하려는 레시피가 존재하지 않습니다.");
-            return;
-        }
-
-        SelectedRecipe = recipe;
-
-        OnRecipeSelected?.Invoke(recipe);
-    }
-
-
-    public void ClearRecipe()
-    {
-        if (IsCooking)
-        {
-            Debug.LogWarning("제작 중에는 레시피를 해제할 수 없습니다.");
-            return;
-        }
-
-        SelectedRecipe = null;
-    }
-
-
-    // 원하는 수량만큼 제작 요청
-    public bool RequestCrafting(int count)
-    {
-        if (SelectedRecipe == null)
-        {
-            Debug.LogWarning("먼저 레시피를 선택해야 합니다.");
-            return false;
-        }
-
-        if (count <= 0)
-        {
-            Debug.LogWarning("제작 수량은 1개 이상이어야 합니다.");
-            return false;
-        }
-
-        // 이미 제작 요청이 있는 경우
-        if (IsCooking || RemainingCraftCount > 0)
-        {
-            Debug.LogWarning("이미 제작 요청이 진행 중입니다.");
-            return false;
-        }
-
-        RequestedCraftCount = count;
-        CompletedCraftCount = 0;
-        RemainingCraftCount = count;
-
-        OnCraftingRequested?.Invoke(
-            SelectedRecipe,
-            count
-        );
-
-        // 첫 번째 제작 시작
-        TryStartNextCooking();
-
-        return true;
-    }
-
-
     public void Update(float deltaTime)
     {
         if (deltaTime < 0f)
@@ -152,6 +88,72 @@ public class CraftingSystem
         }
     }
 
+    public void AddCraftingRequest(int amount)
+    {
+        if (amount <= 0)
+        {
+            Debug.LogWarning("추가할 제작 수량은 1개 이상이어야 합니다.");
+            return;
+        }
+
+        // 제작 중에는 요청 수량을 변경하지 못하게 함
+        if (IsCooking)
+        {
+            Debug.LogWarning("제작 중에는 요청 수량을 변경할 수 없습니다.");
+            return;
+        }
+
+        RequestedCraftCount += amount;
+
+        OnRequestedCraftCountChanged?.Invoke(
+            RequestedCraftCount
+        );
+    }
+    public void ClearCraftingRequest()
+    {
+        if (IsCooking)
+        {
+            Debug.LogWarning("제작 중에는 요청 수량을 초기화할 수 없습니다.");
+            return;
+        }
+
+        RequestedCraftCount = 0;
+
+        OnRequestedCraftCountChanged?.Invoke(
+            RequestedCraftCount
+        );
+    }
+
+
+    // 원하는 수량만큼 제작 요청
+    public bool StartRequestedCrafting()
+    {
+        if (IsCooking)
+            return false;
+
+        if (SelectedRecipe == null)
+            return false;
+
+        if (RequestedCraftCount <= 0)
+            return false;
+
+        if (!CanStartCooking())
+        {
+            Debug.LogWarning("현재 재료가 부족하여 제작할 수 없습니다.");
+            return false;
+        }
+
+        RemainingCraftCount = RequestedCraftCount;
+        CompletedCraftCount = 0;
+
+        RequestedCraftCount = 0;
+
+        OnRequestedCraftCountChanged?.Invoke(
+            RequestedCraftCount
+        );
+
+        return TryStartNextCooking();
+    }
 
     // 현재 제작을 취소
     public bool CancelCooking()
