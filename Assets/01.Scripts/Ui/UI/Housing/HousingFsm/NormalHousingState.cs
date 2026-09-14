@@ -14,7 +14,11 @@ public class NormalHousingState : IState
         var grid = controller.System.Grid;
         GridObject selected = grid.IsHolding ? grid.HeldObjectData : controller.System.ObjectToPlace;
 
-        if (selected == null) { controller.ClearPreview(); return; }
+        if (selected == null)
+        {
+            controller.ClearPreview();
+            return; 
+        }
 
         Vector2Int anchorPos = controller.GetCenteredAnchor(controller.MouseGridPos, selected.size);
         controller.UpdatePlacementPreview(anchorPos, selected);

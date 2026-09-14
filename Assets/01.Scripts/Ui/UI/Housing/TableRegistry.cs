@@ -7,10 +7,19 @@ public class TableRegistry : MMSingleton<TableRegistry>
     private Dictionary<string, Transform> tables = new();
 
     public void Register(string tableId, Transform tableTransform)
-        => tables[tableId] = tableTransform;
+    {
+        tables[tableId] = tableTransform;
+
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount,this, TableManager.Instance.GetTotalCapacity());
+    }
 
     public void Unregister(string tableId)
-        => tables.Remove(tableId);
+    {
+        tables.Remove(tableId);
+
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());
+    }
+
 
     public Transform GetTable(string tableId)
         => tables.TryGetValue(tableId, out var t) ? t : null;

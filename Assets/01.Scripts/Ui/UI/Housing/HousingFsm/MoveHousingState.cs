@@ -12,7 +12,8 @@ public class MoveHousingState : IState
     public void Update()
     {
         var grid = controller.System.Grid;
-        if (!grid.IsHolding) return;
+        if (!grid.IsHolding)
+            return;
 
         Vector2Int anchorPos = controller.GetCenteredAnchor(controller.MouseGridPos, grid.HeldObjectData.size);
         controller.UpdatePlacementPreview(anchorPos, grid.HeldObjectData);

@@ -10,7 +10,8 @@ public class CustomerUI : MonoBehaviour
     {
         EventManager.Instance.AddListener(EventType.OnCustomerCount, OnCustomerCount);
         EventManager.Instance.AddListener(EventType.OnCustomerMaxCount, OnCustomerMaxCount);
-        customerMaxCount.text = $"/ {TableManager.Instance.GetTotalCapacity()}";
+        customerCount.text = "0";
+        customerMaxCount.text = $" {TableManager.Instance.GetTotalCapacity()}";
     }
     private void OnDisable()
     {
@@ -18,7 +19,7 @@ public class CustomerUI : MonoBehaviour
     }
     private void OnCustomerMaxCount(Component sender, object param)
     {
-        customerMaxCount.text = $"/ {(int)param}";
+        customerMaxCount.text = $"{(int)param}";
     }
     private void OnCustomerCount(Component sender, object param)
     {

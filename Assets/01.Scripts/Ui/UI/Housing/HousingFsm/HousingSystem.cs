@@ -19,7 +19,8 @@ public class HousingSystem : MMSingleton<HousingSystem>
 
     public bool TryPlaceObject(Vector2Int pos)
     {
-        if (objectToPlace == null) return false;
+        if (objectToPlace == null)
+            return false;
 
         if (objectToPlace.objID == ObjectIds.Table)
         {
