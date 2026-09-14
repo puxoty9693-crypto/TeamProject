@@ -8,24 +8,24 @@ public class WorkerUpgradeUI : MonoBehaviour
 
     private void OnEnable()
     {
-        var upgradeDataList = DataManager.Instance.npcUpgradeDataList;
+        var upgradeDataList = DataManager.Instance.workerUpgradeDataList;
         for(int i = 0; i < slots.Count && i < upgradeDataList.Count; i++)
         {
             RefreshSlot(upgradeDataList[i], slots[i]);
         }
     }
 
-    private void RefreshSlot(NPCUpgradeData data, WorkerUpgradeSlot slotUI)
+    private void RefreshSlot(WorkerUpgradeData data, WorkerUpgradeSlot slotUI)
     {
-        NPCData npcData = DataManager.Instance.allNPCs.Find(x => x.role == data.role);
-        int level = SaveManager.Instance.CurrentData.GetNPCUpgradeLevel(data.role);
+        WokerData workerData = DataManager.Instance.allWorkers.Find(x => x.role == data.role);
+        int level = SaveManager.Instance.CurrentData.GetWorkerUpgradeLevel(data.role);
         int clampedIndex = Mathf.Min(level, data.levels.Count - 1);
         bool isMaxLevel = level >= data.levels.Count - 1;
-        slotUI.UpdateSlot(npcData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
+        slotUI.UpdateSlot(workerData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
     }
-     private void TryUpgrade(NPCUpgradeData data, WorkerUpgradeSlot slotUI)
+     private void TryUpgrade(WorkerUpgradeData data, WorkerUpgradeSlot slotUI)
     {
-        bool success = NPCUpgradeManager.Instance.Upgrade(data.role);
+        bool success = WorkerUpgradeManager.Instance.Upgrade(data.role);
 
         if (!success)
         {

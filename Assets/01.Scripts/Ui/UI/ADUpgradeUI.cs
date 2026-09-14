@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class AdUpgradeUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI descriptionText; // 현재 레벨 효과 설명 (upgradeText)
+    [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] Button upgradeButton;
 

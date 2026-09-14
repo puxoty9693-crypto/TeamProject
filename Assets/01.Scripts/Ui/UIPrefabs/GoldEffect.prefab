@@ -4943,7 +4943,7 @@ GameObject:
   - component: {fileID: 5733572541337984859}
   - component: {fileID: 4946845156187310100}
   m_Layer: 0
-  m_Name: GoldCoin_5
+  m_Name: GoldEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

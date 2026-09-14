@@ -17,10 +17,10 @@ public class ClickRaycaster : MonoBehaviour
         if (hit.collider == null)
             return;
 
-        var npcSlot = hit.collider.GetComponent<WorkerWorldSlot>();
-        if (npcSlot != null)
+        var workerSlot = hit.collider.GetComponent<WorkerWorldSlot>();
+        if (workerSlot != null)
         {
-            npcSlot.OpenPopup();
+            workerSlot.OpenPopup();
             return;
         }
         var placeable = hit.collider.GetComponent<PlaceableObjectClickHandler>();

@@ -5,30 +5,30 @@ using UnityEngine.UI;
 
 public class WorkerUpgradeSlot : MonoBehaviour
 {
-    [SerializeField] Image npcImage;
+    [SerializeField] Image workerImage;
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI upgradePriceText;
+    [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI statText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
-    public void UpdateSlot(NPCData npcData, NPCUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
+    public void UpdateSlot(WokerData workerData, WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
-        npcImage.sprite = npcData.npcImage;
-        nameText.text = npcData.npcName;
+        workerImage.sprite = workerData.workerImage;
+        nameText.text = workerData.workerName;
         levelText.text = $"Lv.{levelIndex + 1}";
         statText.text = $"È¿°ú {currentLevel.upgradeValue}";
 
         OnUpgradeClicked = onUpgrade;
         if(isMaxLevel)
         {
-            upgradePriceText.text = "Max";
+            costText.text = "Max";
             upgradeButton.interactable = false;
         }
         else
         {
-            upgradePriceText.text = $"{currentLevel.upgradeGoldCost}G";
+            costText.text = $"{currentLevel.upgradeGoldCost}G";
             upgradeButton.interactable = true;
         }
     }
