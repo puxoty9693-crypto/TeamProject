@@ -38,7 +38,7 @@ public class TableUpgradeUI : MonoBehaviour
         }
         else
         {
-            costText.text = $"{levels[level].upgradeGoldCost}G";
+            costText.text = $"{GoldFormatter.Format(levels[level].upgradeGoldCost)}G";
             upgradeButton.interactable = true;
         }
     }

@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class WorkerUpgradeSlot : MonoBehaviour
 {
+    [Header("이미지")]
     [SerializeField] Image workerImage;
+
+    [Header("텍스트")]
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI statText;
     [SerializeField] TextMeshProUGUI levelText;
+
+    [Header("버튼")]
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
@@ -28,7 +33,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
         }
         else
         {
-            costText.text = $"{currentLevel.upgradeGoldCost}G";
+            costText.text = $"{GoldFormatter.Format(currentLevel.upgradeGoldCost)}G";
             upgradeButton.interactable = true;
         }
     }

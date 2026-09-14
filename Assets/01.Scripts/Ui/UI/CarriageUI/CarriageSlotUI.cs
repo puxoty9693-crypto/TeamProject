@@ -30,7 +30,7 @@ public class CarriageSlotUI : MonoBehaviour
         nameText.text = data.ingredientName;
         levelText.text = "미해금";
         statText.text = "-";
-        costText.text = $"{unlockCost}G";
+        costText.text = $"{GoldFormatter.Format(unlockCost)}G";
 
         if (actionButtonLabel != null) actionButtonLabel.text = "해금";
         onActionClicked = onUnlock;
@@ -54,7 +54,7 @@ public class CarriageSlotUI : MonoBehaviour
         }
         else
         {
-            costText.text = $"{currentLevel.upgradeGoldCost}G";
+            costText.text = $"{GoldFormatter.Format(currentLevel.upgradeGoldCost)}G";
             actionButton.interactable = true;
         }
     }

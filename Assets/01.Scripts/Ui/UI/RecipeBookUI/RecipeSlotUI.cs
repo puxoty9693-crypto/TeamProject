@@ -55,7 +55,7 @@ public class RecipeSlotUI : MonoBehaviour
         }
         else
         {
-            unlockCost.text = $"{data.unlockGoldCost}G";
+            unlockCost.text = $"{GoldFormatter.Format(data.unlockGoldCost)}G";
             unlockButton.interactable = true;
         }
     }
