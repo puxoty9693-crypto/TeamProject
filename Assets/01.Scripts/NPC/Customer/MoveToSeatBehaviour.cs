@@ -9,7 +9,8 @@ public class MoveToSeatBehaviour : CustomerBehaviour
         base.Enter();
         if(CustomerAgent.ReservedSeat == null)
         {
-            ChangeState(CustomerState.Ordering);
+            //ChangeState(CustomerState.Ordering);
+            // Seat Error
             return;
         }
 
@@ -22,7 +23,7 @@ public class MoveToSeatBehaviour : CustomerBehaviour
         base.Arrived();
         Debug.Log($"{CustomerAgent.name} 도착");
 
-        ChangeState(CustomerState.WaitingFood);
+        ChangeState(CustomerState.Ordering);
     }
 
 }

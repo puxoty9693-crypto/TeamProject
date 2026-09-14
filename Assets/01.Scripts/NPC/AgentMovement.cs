@@ -45,7 +45,7 @@ public class AgentMovement : MonoBehaviour
 
         Debug.Log($"SetDestination : {result}");
 
-        return agent.SetDestination(destination);
+        return result;
     }
     
 

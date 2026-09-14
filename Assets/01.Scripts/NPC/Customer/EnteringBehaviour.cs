@@ -7,7 +7,23 @@ public class EnteringBehaviour : CustomerBehaviour
     public override void Enter()
     {
         base.Enter();
-        SetTarget(AI.OrderingPoint);
+
+        if(CustomerAgent.Data == null)
+        {
+
+            // CustomerData null 
+            return;
+        }
+
+        if(CustomerAgent.ReservedSeat == null)
+        {
+            // Seat Null
+            return;
+        }
+
+        ChangeState(CustomerState.MoveToSeat);
+
+        
     }
 
     public override void Arrived()

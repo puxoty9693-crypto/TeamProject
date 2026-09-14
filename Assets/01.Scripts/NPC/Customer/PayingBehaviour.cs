@@ -9,27 +9,27 @@ public class PayingBehaviour : CustomerBehaviour
 {
     public override CustomerState State => CustomerState.Paying;
 
-    public override void Enter()
-    {
-        base.Enter();
+    //public override void Enter()
+    //{
+    //    base.Enter();
 
-        if(AI.PayingPoint == null)
-        {
+    //    if(AI.PayingPoint == null)
+    //    {
 
-            return;
-        }
+    //        return;
+    //    }
 
-        SetTarget(AI.PayingPoint);
-    }
+    //    SetTarget(AI.PayingPoint);
+    //}
 
-    public override void Arrived()
-    {
-        base.Arrived();
+    //public override void Arrived()
+    //{
+    //    base.Arrived();
 
-        Debug.Log($"{CustomerAgent.name} 계산중");
+    //    Debug.Log($"{CustomerAgent.name} 계산중");
 
         
-    }
+    //}
 
 
 }

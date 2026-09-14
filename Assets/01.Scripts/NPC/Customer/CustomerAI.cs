@@ -12,14 +12,14 @@ public class CustomerAI : MonoBehaviour
     [SerializeField] private TestSeatManager seatManager;
 
     [Header("Points")]
-    [SerializeField] private Transform orderingPoint;
-    [SerializeField] private Transform takeoutWaitingPoint;
+    //[SerializeField] private Transform orderingPoint;
+    //[SerializeField] private Transform takeoutWaitingPoint;
 
     [SerializeField] private Transform exitPoint;
     [SerializeField] private Transform payingPoint;
 
 
-    
+
 
 
     private Customer customer;
@@ -37,9 +37,9 @@ public class CustomerAI : MonoBehaviour
   
     public Customer Customer => customer;
     public TestSeatManager SeatManager => seatManager;
-    public Transform OrderingPoint => orderingPoint;
-    public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
-    public Transform PayingPoint => payingPoint;
+    //public Transform OrderingPoint => orderingPoint;
+    //public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
+    //public Transform PayingPoint => payingPoint;
     private void Awake()
     {
         customer = GetComponent<Customer>();
@@ -82,6 +82,34 @@ public class CustomerAI : MonoBehaviour
         currentBehaviour?.Arrived();
     }
 
+
+    /// <summary>
+    /// Ordering 시스템에서 호출
+    /// </summary>
+    public void OrderComplete()
+    {
+        if(customer.State != CustomerState.Ordering)
+        {
+            return;
+
+        }
+        ChangeState(CustomerState.WaitingFood);
+    }
+
+    public void StopCustomer()
+    {
+        PatienceManager.instance?.Unregister(this);
+
+        customer.EndPatience();
+
+        // 아직 좌석 있으면 return
+        ReleaseSeat();
+
+        DeactivateCurrentBehaviour();
+
+        movement.Stop();
+    }
+
     public void FoodReceived()
     {
         switch (customer.State)
@@ -104,6 +132,14 @@ public class CustomerAI : MonoBehaviour
         ChangeState(CustomerState.Paying);
 
     }
+
+    public void SetRuntimeRef(TestSeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
+    {
+        seatManager = seatManager_;
+        payingPoint = payingPoint_;
+        exitPoint = exitPoint_;
+    }
+
 
     public void PayComplete()
     {
