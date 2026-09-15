@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class IngredientBox
 {
-    // 상자에 들어있는 재료 정보
-    private readonly Dictionary<string, int> ingredientStocks =
-        new Dictionary<string, int>();
+    // 재료 상자에 현재 들어있는 재료 목록
+    private readonly List<IngredientStock> ingredientStocks =
+        new List<IngredientStock>();
 
-    // 상자에 재료가 추가되었을 때
+    // 재료가 상자에 추가되었을 때
     public event Action<IngredientData, int> OnIngredientAdded;
 
-    // NPC가 재료를 가져갔을 때
-    public event Action<IngredientData, int> OnIngredientTaken;
+    // NPC가 상자 안의 재료를 전부 가져갔을 때
+    public event Action<IReadOnlyList<IngredientStock>> OnIngredientsTaken;
 
 
-    // 상자에 재료 추가
+    // 재료를 상자에 추가
     public void AddIngredient(IngredientData ingredient, int amount)
     {
         if (ingredient == null)
@@ -36,15 +36,24 @@ public class IngredientBox
             return;
         }
 
-        string ingredientId = ingredient.ingredientId;
+        IngredientStock stock =
+            ingredientStocks.Find(
+                s => s.ingredientId == ingredient.ingredientId
+            );
 
-        if (ingredientStocks.ContainsKey(ingredientId))
+        if (stock != null)
         {
-            ingredientStocks[ingredientId] += amount;
+            stock.count += amount;
         }
         else
         {
-            ingredientStocks.Add(ingredientId, amount);
+            ingredientStocks.Add(
+                new IngredientStock
+                {
+                    ingredientId = ingredient.ingredientId,
+                    count = amount
+                }
+            );
         }
 
         OnIngredientAdded?.Invoke(
@@ -66,48 +75,49 @@ public class IngredientBox
         return GetIngredientCount(ingredient) > 0;
     }
 
-
-    // 해당 재료의 현재 상자 수량 확인
+    // 특정 재료의 현재 수량 확인
     public int GetIngredientCount(IngredientData ingredient)
     {
         if (ingredient == null)
             return 0;
 
-        if (string.IsNullOrEmpty(ingredient.ingredientId))
-            return 0;
+        IngredientStock stock =
+            ingredientStocks.Find(
+                s => s.ingredientId == ingredient.ingredientId
+            );
 
-        if (ingredientStocks.TryGetValue(
-                ingredient.ingredientId,
-                out int count))
-        {
-            return count;
-        }
-
-        return 0;
+        return stock != null ? stock.count : 0;
     }
 
 
-    // NPC가 재료 1개를 가져감
-    public bool TakeIngredient(IngredientData ingredient)
+    // 상자 안의 모든 재료를 한 번에 가져감
+    public List<IngredientStock> TakeAllIngredients()
     {
-        if (!HasIngredient(ingredient))
-            return false;
+        if (ingredientStocks.Count == 0)
+            return null;
 
-        string ingredientId = ingredient.ingredientId;
+        // 현재 데이터를 복사
+        List<IngredientStock> takenIngredients =
+            new List<IngredientStock>();
 
-        ingredientStocks[ingredientId]--;
-
-        // 0개가 되면 Dictionary에서 제거
-        if (ingredientStocks[ingredientId] <= 0)
+        foreach (IngredientStock stock in ingredientStocks)
         {
-            ingredientStocks.Remove(ingredientId);
+            takenIngredients.Add(
+                new IngredientStock
+                {
+                    ingredientId = stock.ingredientId,
+                    count = stock.count
+                }
+            );
         }
 
-        OnIngredientTaken?.Invoke(
-            ingredient,
-            1
+        // 상자는 비움
+        ingredientStocks.Clear();
+
+        OnIngredientsTaken?.Invoke(
+            takenIngredients
         );
 
-        return true;
+        return takenIngredients;
     }
 }

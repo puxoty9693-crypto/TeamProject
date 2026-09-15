@@ -6,7 +6,7 @@ public class IngredientSupplySystem
 {
     private readonly PlayerData curData;
     private readonly List<IngredientData> ingredients;
-    private readonly IngredientBox ingredientBox;
+    private readonly IngredientBoxController ingredientBoxController;
 
     // 기본 공급 주기
     private const float SupplyInterval = 5f;
@@ -24,7 +24,7 @@ public class IngredientSupplySystem
     public IngredientSupplySystem(
         PlayerData data,
         List<IngredientData> ingredients,
-        IngredientBox ingredientBox)
+        IngredientBoxController ingredientBoxController)
     {
         if (data == null)
             throw new ArgumentNullException(nameof(data));
@@ -32,12 +32,12 @@ public class IngredientSupplySystem
         if (ingredients == null)
             throw new ArgumentNullException(nameof(ingredients));
 
-        if (ingredientBox == null)
-            throw new ArgumentNullException(nameof(ingredientBox));
+        if (ingredientBoxController == null)
+            throw new ArgumentNullException(nameof(ingredientBoxController));
 
         curData = data;
         this.ingredients = ingredients;
-        this.ingredientBox = ingredientBox;
+        this.ingredientBoxController = ingredientBoxController;
 
         // 모든 재료의 타이머 초기화
         foreach (var ingredient in ingredients)
@@ -96,7 +96,7 @@ public class IngredientSupplySystem
         int supplyAmount =
             BaseSupplyAmount + upgradeLevel;
 
-        ingredientBox.AddIngredient(
+        ingredientBoxController.AddIngredient(
             ingredient,
             supplyAmount
         );

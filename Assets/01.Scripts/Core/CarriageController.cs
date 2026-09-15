@@ -1,16 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarriageController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private IngredientSupplySystem supplySystem;
+
+    public void Initialize(
+        IngredientSupplySystem system)
     {
-        
+        supplySystem = system;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (supplySystem == null)
+            return;
+
+        supplySystem.Update(Time.deltaTime);
     }
 }
