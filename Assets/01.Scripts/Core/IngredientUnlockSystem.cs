@@ -26,12 +26,37 @@ public class IngredientUnlockSystem
         if (curData.IsIngredientUnlocked(ingredient.ingredientId))
             return false;
 
+        //임시 로드 추후 수정해야함
+        CarriageIngredientData cIData =
+        DataManager.Instance.carriageUpgrades.Find(
+            x => x != null &&
+                x.ingredient != null &&
+                x.ingredient.ingredientId == ingredient.ingredientId
+        );
+        if (cIData == null)
+            return false;
+        if (curData.Gold < cIData.unlockGoldCost)
+            return false;
+
         return true;
     }
 
     public bool Unlock(IngredientData ingredient)
     {
         if (!CanUnlock(ingredient))
+            return false;
+
+        //임시 로드 추후에 수정해야함
+        CarriageIngredientData cIData =
+        DataManager.Instance.carriageUpgrades.Find(
+        x => x != null &&
+            x.ingredient != null &&
+            x.ingredient.ingredientId == ingredient.ingredientId
+        );
+        if (cIData == null)
+            return false;
+
+        if (!curData.SpendGold(cIData.unlockGoldCost))
             return false;
 
         curData.UnlockIngredient(ingredient.ingredientId);

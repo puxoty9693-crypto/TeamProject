@@ -11,6 +11,7 @@
     public IngredientSupplySystem IngredientSupplySystem { get; private set; }
     public IngredientWareHouse IngredientWareHouse { get; private set; }
     public RecipeUnlockSystem RecipeUnlockSystem { get; private set; }
+    public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
 
     protected override void Awake()
     {
@@ -22,6 +23,7 @@
         FoodService = new FoodService(pData);
         CraftingSystem = new CraftingSystem(pData);
         IngredientWareHouse = new IngredientWareHouse(pData);
+        ingredientUnlockSystem = new IngredientUnlockSystem(pData);
 
         IngredientSupplySystem =
             new IngredientSupplySystem(
