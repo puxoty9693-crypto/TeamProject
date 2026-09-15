@@ -98,7 +98,7 @@ public class CustomerAI : MonoBehaviour
 
     public void StopCustomer()
     {
-        PatienceManager.instance?.Unregister(this);
+        PatienceManager.TryGetInstance()?.Register(this);
 
         customer.EndPatience();
 
@@ -151,13 +151,13 @@ public class CustomerAI : MonoBehaviour
 
     public void StartCustomer()
     {
-        PatienceManager.instance?.Register(this);
+        PatienceManager.TryGetInstance()?.Register(this);
         ChangeState(CustomerState.Entering);
     }
 
     private void OnDisable()
     {
-        PatienceManager.instance?.Unregister(this);
+        PatienceManager.TryGetInstance()?.Unregister(this);
         customer?.EndPatience();
     }
 
