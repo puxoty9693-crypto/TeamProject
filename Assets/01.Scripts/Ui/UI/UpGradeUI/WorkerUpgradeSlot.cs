@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class WorkerUpgradeSlot : MonoBehaviour
 {
-    [Header("나중에 각자 슬롯에 따로 추가")]
-    [SerializeField] Image workerImage;
-    [SerializeField] TextMeshProUGUI nameText;
+    [Header("이름과 이미지 각자 슬롯에 따로 추가")]
+     //Image workerImage;
+     //TextMeshProUGUI nameText;
     [Header("텍스트")]
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI statText;
