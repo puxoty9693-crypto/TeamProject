@@ -1,24 +1,16 @@
-// ScriptableObject ±âÈ¹ µ¥ÀÌÅÍ(·¹½ÃÇÇ, Àç·á, À½½Ä µî) ¿øº»À» º¸°üÇÏ°í Á¦°ø
+ï»¿// ScriptableObject ê¸°íš ë°ì´í„°(ë ˆì‹œí”¼, ì¬ë£Œ, ìŒì‹ ë“±) ì›ë³¸ì„ ë³´ê´€í•˜ê³  ì œê³µ
 using System.Collections.Generic;
 
 public class DataManager : MMSingleton<DataManager>
 {
-    public List<IngredientData> allIngredients;      // ÀüÃ¼ Àç·á µ¥ÀÌÅÍ
-    public List<RecipeData> allRecipes;               // ÀüÃ¼ ·¹½ÃÇÇ µ¥ÀÌÅÍ
-    public List<FoodData> allFoods;                   // ÀüÃ¼ À½½Ä µ¥ÀÌÅÍ
-<<<<<<< HEAD
-    public List<CarriageIngredientData> carriageUpgrades;     //¸¶Â÷ ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
+    public List<IngredientData> allIngredients;      // ì „ì²´ ì¬ë£Œ ë°ì´í„°
+    public List<RecipeData> allRecipes;               // ì „ì²´ ë ˆì‹œí”¼ ë°ì´í„°
+    public List<FoodData> allFoods;                   // ì „ì²´ ìŒì‹ ë°ì´í„°
+    public List<CarriageIngredientData> carriageUpgrades;     //ë§ˆì°¨ ì—…ê·¸ë ˆì´ë“œ ë°ì´í„°
     public List<WorkerData> allWorkers;
-    public List<WorkerUpgradeData> workerUpgradeDataList;   // ¿ªÇÒº° Á÷¿ø ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
-    public AdData adData;                             // ±¤°í ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
-    public CookingBatchConfig cookingBatchConfig; // Á¦ÀÛ ´ÜÀ§
+    public List<WorkerUpgradeData> workerUpgradeDataList;   // ì—­í• ë³„ ì§ì› ì—…ê·¸ë ˆì´ë“œ ë°ì´í„°
+    public AdData adData;                             // ê´‘ê³  ì—…ê·¸ë ˆì´ë“œ ë°ì´í„°
+    public CookingBatchConfig cookingBatchConfig; // ì œì‘ ë‹¨ìœ„
 
-=======
-    public List<CarriageIngredientData> carriageUpgrades;     // ¸¶Â÷ ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
-    public List<WorkerData> allWorkers;
-    public List<WorkerUpgradeData> workerUpgradeDataList;   // ¿ªÇÒº° Á÷¿ø ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
-    public AdData adData;                             // ±¤°í ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
-    public CookingBatchConfig cookingBatchConfig;      // Á¦ÀÛ ´ÜÀ§
-    public TableUpgradeData tableUpgradeData;          // Å×ÀÌºí ¾÷±×·¹ÀÌµå µ¥ÀÌÅÍ
->>>>>>> origin/feature/TaeGyeong
+
 }
