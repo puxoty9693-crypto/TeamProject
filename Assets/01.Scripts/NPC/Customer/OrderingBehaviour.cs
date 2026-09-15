@@ -4,7 +4,7 @@ public class OrderingBehaviour : CustomerBehaviour
 {
     public override CustomerState State => CustomerState.Ordering;
 
-    [SerializeField] private bool testComplete = true;
+    //[SerializeField] private bool testComplete = true;
 
     private const float SeatCheckInterval = 0.2f;   // 좌석 확인 딜레이
 
@@ -14,11 +14,11 @@ public class OrderingBehaviour : CustomerBehaviour
     {
         base.Enter();
 
-        if (testComplete)
-        {
-            AI.OrderComplete();
+        //if (testComplete)
+        //{
+        //    AI.OrderComplete();
 
-        }
+        //}
 
         //nextSeatCheckTime = 0f;
 
