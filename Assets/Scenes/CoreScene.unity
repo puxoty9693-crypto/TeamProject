@@ -298,6 +298,7 @@ MonoBehaviour:
   craftingController: {fileID: 431913230}
   carriageController: {fileID: 104368568}
   ingredientBoxController: {fileID: 31128861}
+  recipeUnlockController: {fileID: 1664666004}
 --- !u!1 &1153030242
 GameObject:
   m_ObjectHideFlags: 0

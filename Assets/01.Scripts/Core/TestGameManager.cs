@@ -1,65 +1,39 @@
-﻿using UnityEngine;
-
-//박스 옮기는 NPC IngredientWareHouse 받기
-//캐셔 NPC PaymentSystem 받기
-//서빙 NPC FoodService 받기
-public class TestGameManager : MMSingleton<TestGameManager>
+﻿public class TestGameManager : MMSingleton<TestGameManager>
 {
     public CraftingController craftingController;
     public CarriageController carriageController;
     public IngredientBoxController ingredientBoxController;
     public RecipeUnlockController recipeUnlockController;
-    private CraftingSystem craftingSystem;
-    private PaymentSystem paymentSystem;
-    private FoodService foodService;
-    private IngredientSupplySystem ingredientSupplySystem;
-    private IngredientWareHouse ingredientWareHouse;
-    private RecipeUnlockSystem recipeUnlockSystem;
+
+    public CraftingSystem CraftingSystem { get; private set; }
+    public PaymentSystem PaymentSystem { get; private set; }
+    public FoodService FoodService { get; private set; }
+    public IngredientSupplySystem IngredientSupplySystem { get; private set; }
+    public IngredientWareHouse IngredientWareHouse { get; private set; }
+    public RecipeUnlockSystem RecipeUnlockSystem { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
+
         PlayerData pData = SaveManager.Instance.CurrentData;
-        paymentSystem = new PaymentSystem(pData);
-        foodService = new FoodService(pData);
-        craftingSystem = new CraftingSystem(pData);
-        ingredientWareHouse = new IngredientWareHouse(pData);
-        ingredientSupplySystem = new IngredientSupplySystem(pData, DataManager.Instance.allIngredients, ingredientBoxController);
-        recipeUnlockSystem = new RecipeUnlockSystem(pData);
-        recipeUnlockController.Initialize(recipeUnlockSystem);
-        craftingController.Initialize(craftingSystem);
-        carriageController.Initialize(ingredientSupplySystem);
-    }
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
-    }
-    public IngredientWareHouse GetIngredientWareHouse()
-    {
-        return ingredientWareHouse;
-    }
-    public IngredientSupplySystem GetIngredientSupplySystem()
-    {
-        return ingredientSupplySystem;
-    }
+        PaymentSystem = new PaymentSystem(pData);
+        FoodService = new FoodService(pData);
+        CraftingSystem = new CraftingSystem(pData);
+        IngredientWareHouse = new IngredientWareHouse(pData);
 
-    public IngredientBoxController GetIngredientBox()
-    {
-        return ingredientBoxController;
-    }
+        IngredientSupplySystem =
+            new IngredientSupplySystem(
+                pData,
+                DataManager.Instance.allIngredients,
+                ingredientBoxController
+            );
 
-    public PaymentSystem GetPaymentSystem()
-    {
-        return paymentSystem;
-    }
+        RecipeUnlockSystem = new RecipeUnlockSystem(pData);
 
-    public FoodService GetFoodService()
-    {
-        return foodService;
+        recipeUnlockController.Initialize(RecipeUnlockSystem);
+        craftingController.Initialize(CraftingSystem);
+        carriageController.Initialize(IngredientSupplySystem);
     }
-
 }
