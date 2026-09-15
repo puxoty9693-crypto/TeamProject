@@ -19,13 +19,12 @@ public class SaveManager : MMSingleton<SaveManager>
     private void Update()
     {
         autoSaveTimer += Time.deltaTime;
-        if (autoSaveTimer >= autoSaveInterval) 
+        if (autoSaveTimer >= autoSaveInterval)
         {
             autoSaveTimer = 0f;
             SaveGame();
         }
     }
-
 
     // 현재 데이터를 JSON으로 저장
     public void SaveGame()
@@ -53,13 +52,12 @@ public class SaveManager : MMSingleton<SaveManager>
     }
 
     [ContextMenu("Delete Save")]
-    private void DeleteSave() 
+    private void DeleteSave()
     {
-        if (File.Exists(SavePath)) 
+        if (File.Exists(SavePath))
         {
             File.Delete(SavePath);
             Debug.Log("세이브 삭제 완료");
         }
     }
-
 }

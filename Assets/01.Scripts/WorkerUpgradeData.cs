@@ -7,7 +7,6 @@ public class WorkerUpgradeLevel : IUpgradeLevel
     public int upgradeValue;     // 적용되는 능력치(조리시간 감소율, 속도, 효율 등)
     public int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
     public int UpgradeGoldCost => upgradeGoldCost;
-
 }
 
 // 특정 역할(WorkerRole)의 전체 업그레이드 단계

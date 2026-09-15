@@ -9,4 +9,5 @@ public class RecipeData : ScriptableObject
     public int unlockGoldCost;   // 해금에 필요한 골드
     public FoodData food;        // 연결된 음식
     public float cookingTime; //기본 조리시간
+
 }

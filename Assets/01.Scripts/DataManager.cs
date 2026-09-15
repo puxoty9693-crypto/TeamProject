@@ -6,11 +6,10 @@ public class DataManager : MMSingleton<DataManager>
     public List<IngredientData> allIngredients;      // 전체 재료 데이터
     public List<RecipeData> allRecipes;               // 전체 레시피 데이터
     public List<FoodData> allFoods;                   // 전체 음식 데이터
-    public List<CarriageIngredientData> carriageUpgrades;     //마차 업그레이드 데이터
+    public List<CarriageIngredientData> carriageUpgrades;     // 마차 업그레이드 데이터
     public List<WorkerData> allWorkers;
     public List<WorkerUpgradeData> workerUpgradeDataList;   // 역할별 직원 업그레이드 데이터
     public AdData adData;                             // 광고 업그레이드 데이터
-    public CookingBatchConfig cookingBatchConfig; // 제작 단위
-    public TableUpgradeData tableUpgradeData; //테이블 업그레이드 데이터
-
+    public CookingBatchConfig cookingBatchConfig;      // 제작 단위
+    public TableUpgradeData tableUpgradeData;          // 테이블 업그레이드 데이터
 }
