@@ -5,15 +5,16 @@
 //서빙 NPC FoodService 받기
 public class TestGameManager : MMSingleton<TestGameManager>
 {
-    
-    [SerializeField] private CraftingController craftingController;
-    [SerializeField] private CarriageController carriageController;
-    [SerializeField] private IngredientBoxController ingredientBoxController;
+    public CraftingController craftingController;
+    public CarriageController carriageController;
+    public IngredientBoxController ingredientBoxController;
+    public RecipeUnlockController recipeUnlockController;
     private CraftingSystem craftingSystem;
     private PaymentSystem paymentSystem;
     private FoodService foodService;
     private IngredientSupplySystem ingredientSupplySystem;
     private IngredientWareHouse ingredientWareHouse;
+    private RecipeUnlockSystem recipeUnlockSystem;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +24,8 @@ public class TestGameManager : MMSingleton<TestGameManager>
         craftingSystem = new CraftingSystem(pData);
         ingredientWareHouse = new IngredientWareHouse(pData);
         ingredientSupplySystem = new IngredientSupplySystem(pData, DataManager.Instance.allIngredients, ingredientBoxController);
+        recipeUnlockSystem = new RecipeUnlockSystem(pData);
+        recipeUnlockController.Initialize(recipeUnlockSystem);
         craftingController.Initialize(craftingSystem);
         carriageController.Initialize(ingredientSupplySystem);
     }
