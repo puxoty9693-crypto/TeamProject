@@ -55,5 +55,5 @@ public class HousingSystem : MMSingleton<HousingSystem>
     public bool TryDropObject(Vector2Int pos) => housingGrid.TryDrop(pos);
     public void CancelPickUp() => housingGrid.CancelPickUp();
 
-    public void SetGridActive(bool active) => housingGrid.gameObject.SetActive(active);
+    public void SetGridActive(bool active) => housingGrid.SetGridVisible(active);
 }

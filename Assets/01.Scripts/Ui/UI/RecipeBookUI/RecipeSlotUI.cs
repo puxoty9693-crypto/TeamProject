@@ -34,11 +34,11 @@ public class RecipeSlotUI : MonoBehaviour
         var required = data.food.requiredIngredients;
 
         igredent1Img.sprite = required[0].ingredient.ingredientImage;
-        bool ingredient1Unlocked = CarriageManager.Instance.IsUnlocked(required[0].ingredient.ingredientId);
+        bool ingredient1Unlocked = SaveManager.Instance.CurrentData.IsIngredientUnlocked(required[0].ingredient.ingredientId);
         igredent1Dim.SetActive(!ingredient1Unlocked); // ÇØ±Ý ¾È µÆÀ¸¸é µõ ÄÑ±â
 
         igredent2Img.sprite = required[1].ingredient.ingredientImage;
-        bool ingredient2Unlocked = CarriageManager.Instance.IsUnlocked(required[1].ingredient.ingredientId);
+        bool ingredient2Unlocked = SaveManager.Instance.CurrentData.IsIngredientUnlocked(required[1].ingredient.ingredientId);
         igredent2Dim.SetActive(!ingredient2Unlocked);
 
         bool ingredientsReady = ingredient1Unlocked && ingredient2Unlocked;

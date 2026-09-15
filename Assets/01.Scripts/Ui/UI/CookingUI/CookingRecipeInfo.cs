@@ -106,7 +106,7 @@ public class CookingRecipeInfo : MonoBehaviour
         int max = int.MaxValue;
         foreach (var req in data.food.requiredIngredients)
         {
-            int owned = ChestManager.Instance.GetIngredientCount(req.ingredient.ingredientId);
+            int owned = SaveManager.Instance.CurrentData.GetIngredientCount(req.ingredient.ingredientId);
             max = Mathf.Min(max, owned / req.amount);
         }
         return Mathf.Max(1, max);
