@@ -21,6 +21,7 @@ public class TakeoutUpgradeUI : MonoBehaviour
 
     private void Refresh()
     {
+#if false
         var levels = DataManager.Instance.takeoutUpgradeData.levels;
         int level = TakeoutManager.Instance.GetLevel();
         bool isMaxLevel = level >= levels.Count - 1;
@@ -38,10 +39,12 @@ public class TakeoutUpgradeUI : MonoBehaviour
             costText.text = $"{GoldFormatter.Format(levels[level].upgradeGoldCost)}G";
             upgradeButton.interactable = true;
         }
+#endif
     }
 
     private void TryUpgrade()
     {
+#if false
         bool success = TakeoutManager.Instance.Upgrade();
 
         if (!success)
@@ -52,5 +55,6 @@ public class TakeoutUpgradeUI : MonoBehaviour
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         Refresh();
+#endif
     }
 }

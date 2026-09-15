@@ -24,6 +24,7 @@ public class AdUpgradeUI : MonoBehaviour
 
     private void Refresh()
     {
+#if false
         var levels = DataManager.Instance.adData.levels;
         int level = AdManager.Instance.GetLevel();
         bool isMaxLevel = level >= levels.Count - 1;
@@ -41,10 +42,12 @@ public class AdUpgradeUI : MonoBehaviour
             costText.text = $"{GoldFormatter.Format(levels[level].upgradeGoldCost)}G";
             upgradeButton.interactable = true;
         }
+#endif
     }
 
     private void TryUpgrade()
     {
+#if false
         bool success = AdManager.Instance.Upgrade();
 
         if (!success)
@@ -55,5 +58,6 @@ public class AdUpgradeUI : MonoBehaviour
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         Refresh();
+#endif
     }
 }

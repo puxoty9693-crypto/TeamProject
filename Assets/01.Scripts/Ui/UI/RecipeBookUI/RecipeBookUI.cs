@@ -9,8 +9,9 @@ public class RecipeBookUI : MonoBehaviour
 
     void OnEnable()
     {
-        SetRecipes();   
+        SetRecipes();
     }
+
     public void SetRecipes()
     {
         List<RecipeData> recipes = DataManager.Instance.allRecipes;
@@ -18,11 +19,11 @@ public class RecipeBookUI : MonoBehaviour
         for (int i = 0; i < pages.Count; i++)
         {
             RecipeSlotUI[] slots = pages[i].GetComponentsInChildren<RecipeSlotUI>(true);
-            for(int j = 0; j < slots.Length; j++)
+            for (int j = 0; j < slots.Length; j++)
             {
                 int recipeIndex = i * slotsPerPage + j;
 
-                if(recipeIndex < recipes.Count)
+                if (recipeIndex < recipes.Count)
                 {
                     slots[j].gameObject.SetActive(true);
                     RefreshSlot(recipes[recipeIndex], slots[j]);
@@ -34,14 +35,20 @@ public class RecipeBookUI : MonoBehaviour
             }
         }
     }
+
     private void RefreshSlot(RecipeData data, RecipeSlotUI slot)
     {
+#if false
         bool isUnlocked = RecipeManager.Instance.IsUnlocked(data.recipeId);
+#else
+        bool isUnlocked = false;
+#endif
         slot.UpdateRecipeUI(data, isUnlocked, () => TryUnlock(data, slot));
     }
 
     private void TryUnlock(RecipeData data, RecipeSlotUI slot)
     {
+#if false
         bool success = RecipeManager.Instance.UnlockRecipe(data.recipeId);
 
         if (!success)
@@ -52,5 +59,6 @@ public class RecipeBookUI : MonoBehaviour
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         RefreshSlot(data, slot);
+#endif
     }
 }

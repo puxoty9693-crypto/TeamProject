@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class CookingRecipeInfo : MonoBehaviour
 {
-    [Header ("재료와음식정보")]
+    [Header("재료와음식정보")]
     [SerializeField] Image ingredient1Image1;
     [SerializeField] Image ingredient1Image2;
     [SerializeField] Image foodImage;
     [SerializeField] TextMeshProUGUI ingredient1Count;
     [SerializeField] TextMeshProUGUI ingredient2Count;
-    
+
 
     [Header("숫자업다운")]
     [SerializeField] Button plus1Btn;
@@ -106,7 +106,11 @@ public class CookingRecipeInfo : MonoBehaviour
         int max = int.MaxValue;
         foreach (var req in data.food.requiredIngredients)
         {
+#if false
             int owned = ChestManager.Instance.GetIngredientCount(req.ingredient.ingredientId);
+#else
+            int owned = 0;
+#endif
             max = Mathf.Min(max, owned / req.amount);
         }
         return Mathf.Max(1, max);
