@@ -22,6 +22,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
     {
         workerImage.sprite = workerData.workerImage;
         nameText.text = workerData.workerName;
+
         levelText.text = $"Lv.{levelIndex + 1}";
         statText.text = $"È¿°ú {currentLevel.upgradeValue}";
 
