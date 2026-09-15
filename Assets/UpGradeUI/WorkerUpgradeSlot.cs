@@ -18,7 +18,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
-    public void UpdateSlot(WokerData workerData, WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
+    public void UpdateSlot(WorkerData workerData, WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
         workerImage.sprite = workerData.workerImage;
         nameText.text = workerData.workerName;
