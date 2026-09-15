@@ -13,6 +13,9 @@ public enum EventType
     OnFeedbackMessage, // 골드부족같은 피드백용 이벤트
     OnWarehouseChanged, // 실시간 인벤토리 반영용 이벤트
     OnHousingChanged, // 하우징 설치시 남은개수용
+    OnCookingStarted,   // 요리시작 재료 소모
+    OnCookingCompleted, // 요리 끝 창고로 음식 넣기
+    OnCookingCanceled,  // 요리 취소
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

@@ -36,14 +36,6 @@ public class CarriageSave
     public int level;
 }
 
-// [세이브 데이터] 개별 테이블의 현재 레벨
-[System.Serializable]
-public class TableSave
-{
-    public string tableId;
-    public int level; // 0 = 부서진 채로 방치, 1 이상 = 수리/강화된 레벨
-}
-
 [System.Serializable]
 public class PlacedObjectSave
 {
@@ -180,22 +172,6 @@ public class PlayerData
         var save = workerUpgradeLevels.Find(n  => n.role == role);
         if (save != null) save.level++;
         else workerUpgradeLevels.Add(new WorkerUpgradeSave { role = role, level = 1 });
-    }
-
-    // ---------- 테이블 레벨 (세이브 데이터) ----------
-    [SerializeField] private List<TableSave> tableLevels = new List<TableSave>();
-
-    public int GetTableLevel(string tableId) // 확인함수
-    {
-        var save = tableLevels.Find(t => t.tableId == tableId);
-        return save != null ? save.level : 0;
-    }
-
-    public void UpgradeTableLevel(string tableId) // 추가(레벨업)함수
-    {
-        var save = tableLevels.Find(t =>t.tableId == tableId);
-        if (save != null) save.level++;
-        else tableLevels.Add(new TableSave { tableId = tableId, level = 1});
     }
 
     // ---------- 광고 업그레이드 레벨 (세이브 데이터) ----------
