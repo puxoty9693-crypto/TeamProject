@@ -7,7 +7,7 @@ public class DataManager : MMSingleton<DataManager>
     public List<RecipeData> allRecipes;               // 전체 레시피 데이터
     public List<FoodData> allFoods;                   // 전체 음식 데이터
     public List<CarriageIngredientData> carriageUpgrades;
-    public List<WokerData> allWorkers;
+    public List<WorkerData> allWorkers;
     public List<WorkerUpgradeData> workerUpgradeDataList;   // 역할별 NPC 업그레이드 데이터
     public AdData adData;                             // 광고 업그레이드 데이터
     public TableUpgradeData tableUpgradeData;

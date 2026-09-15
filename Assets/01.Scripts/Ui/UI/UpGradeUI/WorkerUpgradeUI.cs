@@ -17,11 +17,10 @@ public class WorkerUpgradeUI : MonoBehaviour
 
     private void RefreshSlot(WorkerUpgradeData data, WorkerUpgradeSlot slotUI)
     {
-        WokerData workerData = DataManager.Instance.allWorkers.Find(x => x.role == data.role);
         int level = SaveManager.Instance.CurrentData.GetWorkerUpgradeLevel(data.role);
         int clampedIndex = Mathf.Min(level, data.levels.Count - 1);
         bool isMaxLevel = level >= data.levels.Count - 1;
-        slotUI.UpdateSlot(workerData, data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
+        slotUI.UpdateSlot(data.levels[clampedIndex], level, isMaxLevel, () => TryUpgrade(data, slotUI));
     }
      private void TryUpgrade(WorkerUpgradeData data, WorkerUpgradeSlot slotUI)
     {
