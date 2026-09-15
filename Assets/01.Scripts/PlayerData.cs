@@ -1,17 +1,17 @@
-ï»¿// í”Œë ˆì´ì–´ ì „ì²´ ì§„í–‰ ìƒíƒœ (JSONìœ¼ë¡œ ì €ì¥/ë¡œë“œ, SaveManagerë¥¼ í†µí•´ì„œë§Œ ì ‘ê·¼ ê¶Œì¥)
+// ÇÃ·¹ÀÌ¾î ÀüÃ¼ ÁøÇà »óÅÂ (JSONÀ¸·Î ÀúÀå/·Îµå, SaveManager¸¦ ÅëÇØ¼­¸¸ Á¢±Ù ±ÇÀå)
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// [ì„¸ì´ë¸Œ ë°ì´í„°] ì°½ê³  ì¬ë£Œ í•˜ë‚˜ì˜ ë³´ìœ  ìˆ˜ëŸ‰
+// [¼¼ÀÌºê µ¥ÀÌÅÍ] Ã¢°í Àç·á ÇÏ³ªÀÇ º¸À¯ ¼ö·®
 [System.Serializable]
 public class IngredientStock
 {
-    public string ingredientId; // ì¬ë£Œ ID (IngredientData.ingredientIdì™€ ë§¤ì¹­)
-    public int count;           // í˜„ì¬ ë³´ìœ  ìˆ˜ëŸ‰
+    public string ingredientId; // Àç·á ID (IngredientData.ingredientId¿Í ¸ÅÄª)
+    public int count;           // ÇöÀç º¸À¯ ¼ö·®
 }
 
-//[ì„¸ì´ë¸Œ ë°ì´í„°] ìŒì‹ ì°½ê³ ì— ë³´ê´€ ì¤‘ì¸ ìŒì‹ í•˜ë‚˜ì˜ ìˆ˜ëŸ‰
+//[¼¼ÀÌºê µ¥ÀÌÅÍ] À½½Ä Ã¢°í¿¡ º¸°ü ÁßÀÎ À½½Ä ÇÏ³ªÀÇ ¼ö·®
 [System.Serializable]
 public class FoodStock 
 {
@@ -20,15 +20,15 @@ public class FoodStock
 }
 
 
-// [ì„¸ì´ë¸Œ ë°ì´í„°] íŠ¹ì • NPC ì—­í• ì˜ í˜„ì¬ ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨
+// [¼¼ÀÌºê µ¥ÀÌÅÍ] Æ¯Á¤ Á÷¿ø ¿ªÇÒÀÇ ÇöÀç ¾÷±×·¹ÀÌµå ·¹º§
 [System.Serializable]
-public class NPCUpgradeSave
+public class WorkerUpgradeSave
 {
-    public NPCRole role; // ì—…ê·¸ë ˆì´ë“œ ëŒ€ìƒ ì—­í• 
-    public int level;    // í˜„ì¬ ë ˆë²¨
+    public WorkerRole role; // ¾÷±×·¹ÀÌµå ´ë»ó ¿ªÇÒ
+    public int level;    // ÇöÀç ·¹º§
 }
 
-// [ì„¸ì´ë¸Œ ë°ì´í„°] ì¬ë£Œë³„ ë§ˆì°¨ í˜„ì¬ ê°•í™” ë ˆë²¨
+// [¼¼ÀÌºê µ¥ÀÌÅÍ] Àç·áº° ¸¶Â÷ ÇöÀç °­È­ ·¹º§
 [System.Serializable]
 public class CarriageSave
 {
@@ -36,19 +36,11 @@ public class CarriageSave
     public int level;
 }
 
-// [ì„¸ì´ë¸Œ ë°ì´í„°] ê°œë³„ í…Œì´ë¸”ì˜ í˜„ì¬ ë ˆë²¨
-[System.Serializable]
-public class TableSave
-{
-    public string tableId;
-    public int level; // 0 = ë¶€ì„œì§„ ì±„ë¡œ ë°©ì¹˜, 1 ì´ìƒ = ìˆ˜ë¦¬/ê°•í™”ëœ ë ˆë²¨
-}
-
-// [ì„¸ì´ë¸Œ ë°ì´í„°] í”Œë ˆì´ì–´ ì „ì²´ ì§„í–‰ ìƒíƒœ
+// [¼¼ÀÌºê µ¥ÀÌÅÍ] ÇÃ·¹ÀÌ¾î ÀüÃ¼ ÁøÇà »óÅÂ
 [System.Serializable]
 public class PlayerData
 {
-    // ---------- ê³¨ë“œ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
+    // ---------- °ñµå (¼¼ÀÌºê µ¥ÀÌÅÍ) ----------
     [SerializeField] private int gold; 
     public int Gold => gold;
 
@@ -58,14 +50,14 @@ public class PlayerData
         gold += amount;
     }
 
-    //ê³¨ë“œê°€ ì¶©ë¶„í•˜ë©´ ì°¨ê°í•˜ê³  true, ë¶€ì¡±í•˜ë©´ false
+    //°ñµå°¡ ÃæºĞÇÏ¸é Â÷°¨ÇÏ°í true, ºÎÁ·ÇÏ¸é false
     public bool SpendGold(int amount) 
     {
         if (amount < 0 || gold < amount) return false;
         gold -= amount;
         return true;
     }
-
+    // ---------- ÇØ±İÇÑ ·¹½ÃÇÇ (¼¼ÀÌºê µ¥ÀÌÅÍ) ----------
     [SerializeField] private List<string> unlockedRecipeIds = new List<string>();
     public IReadOnlyList<string> UnlockedRecipeIds => unlockedRecipeIds;
 
@@ -77,7 +69,7 @@ public class PlayerData
 
     public bool IsRecipeUnlocked(string recipeId) => unlockedRecipeIds.Contains(recipeId);
 
-    // ---------- í•´ê¸ˆí•œ ì¬ë£Œ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
+    // ---------- ÇØ±İÇÑ Àç·á (¼¼ÀÌºê µ¥ÀÌÅÍ) ----------
     [SerializeField] private List<string> unlockedIngredientIds = new List<string>();
     public IReadOnlyList<string> UnlockedIngredientIds => unlockedIngredientIds;
 
@@ -89,7 +81,7 @@ public class PlayerData
 
     public bool IsIngredientUnlocked(string ingredientId) => unlockedIngredientIds.Contains(ingredientId);
 
-    // ---------- ì¬ë£Œ ì°½ê³  (ì„¸ì´ë¸Œ ë°ì´í„°, IngredientStock ë¦¬ìŠ¤íŠ¸) ----------
+    // ---------- Àç·á Ã¢°í (¼¼ÀÌºê µ¥ÀÌÅÍ, IngredientStock ¸®½ºÆ®) ----------
     [SerializeField] private List<IngredientStock> warehouseStock = new List<IngredientStock>();
     public IReadOnlyList<IngredientStock> WarehouseStock => warehouseStock;
     public void AddIngredient(string ingredientId, int amount) 
@@ -100,7 +92,7 @@ public class PlayerData
         else warehouseStock.Add(new IngredientStock { ingredientId = ingredientId, count = amount });
     }
 
-    //ì¬ë£Œê°€ ì¶©ë¶„í•˜ë©´ ì°¨ê°í•˜ê³  true, ë¶€ì¡±í•˜ë©´ false
+    //Àç·á°¡ ÃæºĞÇÏ¸é Â÷°¨ÇÏ°í true, ºÎÁ·ÇÏ¸é false
     public bool UseIngredient(string ingredientId, int amount) 
     {
         var stock = warehouseStock.Find(s => s.ingredientId == ingredientId);
@@ -109,20 +101,19 @@ public class PlayerData
         return true;
     }
 
-    public bool HasIngredient(string ingredientId, int amount)
-    {
-        var stock = warehouseStock.Find(s => s.ingredientId == ingredientId);
-        if (stock == null || stock.count < amount) return false;
-        return true;
-    }
-
+    // Áö±İ ¸î °³ ÀÖ¾î?
     public int GetIngredientCount(string ingredientId) 
     {
         var stock = warehouseStock.Find(s => s.ingredientId ==ingredientId);
         return stock != null ? stock.count : 0;
     }
 
-    // ---------- ìŒì‹ ì°½ê³  (ì„¸ì´ë¸Œ ë°ì´í„°, FoodStock ë¦¬ìŠ¤íŠ¸) ----------
+    // N°³ ÀÌ»ó ÀÖ¾î? (ÀÖÀ¸¸é Yes, ¾øÀ¸¸é No)
+    public bool HasIngredient(string ingredientId, int amount)
+        => GetIngredientCount(ingredientId) >= amount;
+
+
+    // ---------- À½½Ä Ã¢°í (¼¼ÀÌºê µ¥ÀÌÅÍ, FoodStock ¸®½ºÆ®) ----------
     [SerializeField] private List<FoodStock> foodStock = new List<FoodStock>();
     public IReadOnlyList<FoodStock> FoodStock => foodStock;
 
@@ -134,6 +125,7 @@ public class PlayerData
         else foodStock.Add(new FoodStock { foodId = foodId, count = amount });
     }
 
+    //À½½ÄÀÌ ÃæºĞÇÏ¸é Â÷°¨ÇÏ°í true, ºÎÁ·ÇÏ¸é false
     public bool UseFood(string foodId, int amount) 
     {
         var stock = foodStock.Find(f => f.foodId == foodId);
@@ -141,78 +133,56 @@ public class PlayerData
         stock.count -= amount;
         return true;
     }
-    public bool HasFood(string foodId, int amount)
-    {
-        var stock = foodStock.Find(f => f.foodId == foodId);
-        if (stock == null || stock.count < amount) return false;
-        return true;
-    }
-
+    //Áö±İ ¸î °³ ÀÖ´ÂÁö Á¶È¸(¾øÀ¸¸é 0)
     public int GetFoodCount(string foodId) 
     {
         var stock = foodStock.Find(f => f.foodId == foodId);
         return stock != null ? stock.count : 0; 
     }
 
-    // ---------- ë§ˆì°¨(ì¬ë£Œë³„) ê°•í™” ë ˆë²¨ (ì„¸ì´ë¸Œ ë°ì´í„°, CarriageSave ë¦¬ìŠ¤íŠ¸) ----------
+    // N°³ ÀÌ»ó ÀÖ¾î? (ÀÖÀ¸¸é Yes, ¾øÀ¸¸é No)
+    public bool HasFood(string foodId, int amount)
+        => GetFoodCount(foodId) >= amount;
+
+    // ---------- ¸¶Â÷(Àç·áº°) °­È­ ·¹º§ (¼¼ÀÌºê µ¥ÀÌÅÍ, CarriageSave ¸®½ºÆ®) ----------
     [SerializeField] private List<CarriageSave> carriageLevels = new List<CarriageSave>();
 
-    public int GetCarriageLevel(string ingredientId) // í™•ì¸í•¨ìˆ˜
+    public int GetCarriageLevel(string ingredientId) // È®ÀÎÇÔ¼ö
     {
         var save = carriageLevels.Find(c => c.ingredientId == ingredientId);
         return save != null ? save.level : 0;
     }
 
-    public void UpgradeCarriageLevel(string ingredientId) // ì¶”ê°€(ë ˆë²¨ì—…)í•¨ìˆ˜
+    public void UpgradeCarriageLevel(string ingredientId) // Ãß°¡(·¹º§¾÷)ÇÔ¼ö
     {
         var save = carriageLevels.Find(c => c.ingredientId == ingredientId);
         if (save != null) save.level++;
         else carriageLevels.Add(new CarriageSave { ingredientId = ingredientId, level = 1 });
     }
 
-    // ---------- NPC ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
-    [SerializeField] private List<NPCUpgradeSave> npcUpgradeLevels = new List<NPCUpgradeSave>();
+    // ---------- Á÷¿ø ¾÷±×·¹ÀÌµå ·¹º§ (¼¼ÀÌºê µ¥ÀÌÅÍ) ----------
+    [SerializeField] private List<WorkerUpgradeSave> npcUpgradeLevels = new List<WorkerUpgradeSave>();
 
-    public int GetNPCUpgradeLevel(NPCRole role) // í™•ì¸í•¨ìˆ˜
+    public int GetWorkerUpgradeLevel(WorkerRole role) // È®ÀÎÇÔ¼ö
     {
-        var save = npcUpgradeLevels.Find(n => n.role == role);
+        var save = npcUpgradeLevels.Find(w => w.role == role);
         return save != null ? save.level : 0;
     }
 
-    public void UpgradeNPCLevel(NPCRole role) // ì¶”ê°€(ë ˆë²¨ì—…)í•¨ìˆ˜
+    public void UpgradeWorkerLevel(WorkerRole role) // Ãß°¡(·¹º§¾÷)ÇÔ¼ö
     {
-        var save = npcUpgradeLevels.Find(n  => n.role == role);
+        var save = npcUpgradeLevels.Find(w  => w.role == role);
         if (save != null) save.level++;
-        else npcUpgradeLevels.Add(new NPCUpgradeSave { role = role, level = 1 });
+        else npcUpgradeLevels.Add(new WorkerUpgradeSave { role = role, level = 1 });
     }
 
-    // ---------- í…Œì´ë¸” ë ˆë²¨ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
-    [SerializeField] private List<TableSave> tableLevels = new List<TableSave>();
-
-    public int GetTableLevel(string tableId) // í™•ì¸í•¨ìˆ˜
-    {
-        var save = tableLevels.Find(t => t.tableId == tableId);
-        return save != null ? save.level : 0;
-    }
-
-    public void UpgradeTableLevel(string tableId) // ì¶”ê°€(ë ˆë²¨ì—…)í•¨ìˆ˜
-    {
-        var save = tableLevels.Find(t =>t.tableId == tableId);
-        if (save != null) save.level++;
-        else tableLevels.Add(new TableSave { tableId = tableId, level = 1});
-    }
-
-    // ---------- ê´‘ê³  ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
+    // ---------- ±¤°í ¾÷±×·¹ÀÌµå ·¹º§ (¼¼ÀÌºê µ¥ÀÌÅÍ) ----------
     [SerializeField] private int adUpgradeLevel;
     public int AdUpgradeLevel => adUpgradeLevel;
     public void UpgradeAdLevel() => adUpgradeLevel++;
 
-    // ---------- í…Œì´í¬ì•„ì›ƒ í™•ë¥  ì—…ê·¸ë ˆì´ë“œ ë ˆë²¨ (ì„¸ì´ë¸Œ ë°ì´í„°) ----------
-    [SerializeField] private int takeoutUpgradeLevel;
-    public int TakeoutUpgradeLevel => takeoutUpgradeLevel;
-    public void UpgradeTakeoutLevel() => takeoutUpgradeLevel++;
 
-    // ---------- ì‚¬ìš´ë“œ ë³¼ë¥¨ (ì„¸ì´ë¸Œ ë°ì´í„°, ì„¤ì •ê°’) ----------
+    // ---------- »ç¿îµå º¼·ı (¼¼ÀÌºê µ¥ÀÌÅÍ, ¼³Á¤°ª) ----------
     [SerializeField] private float bgmVolume = 1f;
     [SerializeField] private float sfxVolume = 1f;
     public float BgmVolume => bgmVolume;

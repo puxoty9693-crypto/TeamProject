@@ -14,6 +14,7 @@ public class IngredientAmount
 public class FoodData : ScriptableObject
 {
     public string foodId;       // 음식 고유 ID
+    public string foodName;     // 음식 고유 이름
     public Sprite foodImage;    // 음식 이미지
     public int goldPerSale;     // 판매 갯수당 골드
     public List<IngredientAmount> requiredIngredients; // 필요한 재료 목록
