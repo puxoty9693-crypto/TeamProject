@@ -1,6 +1,7 @@
 // 플레이어 전체 진행 상태 (JSON으로 저장/로드, SaveManager를 통해서만 접근 권장)
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // [세이브 데이터] 창고 재료 하나의 보유 수량
@@ -190,6 +191,54 @@ public class PlayerData
 
     public void SetBgmVolume(float volume) => bgmVolume = Mathf.Clamp01(volume);    
     public void SetSfxVolume(float volume) => sfxVolume = Mathf.Clamp01(volume);
-   
+
+    // 배치된 오브젝트 하나의 정보 (세이브 데이터)
+    [System.Serializable]
+    public class PlacedObjectSave 
+    {
+        public string objId;       //오브젝트 타입
+        public string instanceId;  // 개별 인스턴스 id
+        public int gridX;
+        public int gridY;
+    }
+
+    //테이블 업그레이드 레벨 (세이브 데이터, 글로벌)
+    [SerializeField] private int tableUpgradeLevel;
+    public int TableUpgradeLevel => tableUpgradeLevel;
+    public void UpgradeTableLevel() => tableUpgradeLevel++;
+
+    // 하우징 배치 (세이브 데이터)
+    [SerializeField] private List<PlacedObjectSave> placedObjects = new List<PlacedObjectSave>();
+    public IReadOnlyList<PlacedObjectSave> PlacedObjects => placedObjects;
+
+    [SerializeField] private int nextTableIndex = 0; //순차 id 카운터, 테이블 전용
+
+    public void AddPlacedObject(string objId, string instanceId, Vector2Int gridPos)
+    {
+        placedObjects.Add(new PlacedObjectSave { objId = objId, instanceId = instanceId, gridX = gridPos.x, gridY = gridPos.y });
+    }
+
+    public void UpdatePlacedObjectPosition(string instanceId, Vector2Int gridPos) 
+    {
+        var save = placedObjects.Find(p => p.instanceId == instanceId);
+        if (save != null)
+        {
+            save.gridX = gridPos.x;
+            save.gridY = gridPos.y;
+        }
+    }
+
+    public void RemovePlacedObject(string instanceId) 
+    {
+        placedObjects.RemoveAll(p => p.instanceId == instanceId);
+    }
+
+    public string GetNextTableId() 
+    {
+        string id = $"table_{nextTableIndex}";
+        nextTableIndex++;
+        return id ;
+    }
+
 }
 

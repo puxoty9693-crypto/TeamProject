@@ -16,14 +16,18 @@ MonoBehaviour:
   unlockGoldCost: 0
   levels:
   - gatherTime: 10
+    gatherAmount: 1
     upgradeGoldCost: 100
     isInfinite: 0
   - gatherTime: 5
+    gatherAmount: 2
     upgradeGoldCost: 200
     isInfinite: 0
   - gatherTime: 2
+    gatherAmount: 3
     upgradeGoldCost: 300
     isInfinite: 0
   - gatherTime: 0
+    gatherAmount: 4
     upgradeGoldCost: 400
     isInfinite: 1

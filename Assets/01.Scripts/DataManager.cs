@@ -11,5 +11,6 @@ public class DataManager : MMSingleton<DataManager>
     public List<WorkerUpgradeData> workerUpgradeDataList;   // 역할별 직원 업그레이드 데이터
     public AdData adData;                             // 광고 업그레이드 데이터
     public CookingBatchConfig cookingBatchConfig; // 제작 단위
+    public TableUpgradeData tableUpgradeData; //테이블 업그레이드 데이터
 
 }
