@@ -27,6 +27,7 @@ public class CookingRecipeInfo : MonoBehaviour
     [SerializeField] GameObject cookingPanel; // 취소버튼있는 판낼
     [SerializeField] TextMeshProUGUI previewTimeText;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI remainingText;
     [SerializeField] Button cancelButton;
 
     private int currentCount = 1;
@@ -41,7 +42,7 @@ public class CookingRecipeInfo : MonoBehaviour
         plus1Btn.onClick.AddListener(() => ChangeCount(1));
         plus5Btn.onClick.AddListener(() => ChangeCount(5));
         plus10Btn.onClick.AddListener(() => ChangeCount(10));
-        //clearCountBtn.onClick.AddListener();
+        clearCountBtn.onClick.AddListener(ClearCount);
 
         cookingButton.onClick.AddListener(TryStartCooking);
         cancelButton.onClick.AddListener(() => Controller.CancelCooking());
@@ -62,10 +63,14 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void Update()
     {
-        if (cookingPanel.activeSelf && CookingTimerController.Instance.IsCooking)
-        {
-            timerText.text = $"{CookingTimerController.Instance.RemainingTime:0.0}초";
-        }
+        if (!cookingPanel.activeSelf)
+            return;
+        if (!Controller.IsCooking || Controller.CookingRecipe == null)
+            return;
+
+        float remaining = Controller.CookingRecipe.cookingTime * (1f - Controller.CookingProgressRatio);
+        timerText.text = $"{remaining:0.0}초";
+        remainingText.text = $"남은 요리 : {Controller.RemainingCraftCount}개";
     }
     public void UpdateCookingInfo(RecipeData data)
     {
@@ -86,6 +91,11 @@ public class CookingRecipeInfo : MonoBehaviour
     {
         currentCount = Mathf.Clamp(currentCount + count, 1, maxAffordableCount);
         RefreshCountText();
+    }
+
+    public void ClearCount()
+    {
+        currentCount = 0;
     }
 
     private void RefreshCountText()
@@ -141,7 +151,7 @@ public class CookingRecipeInfo : MonoBehaviour
 
     private void RefreshPanelByState()
     {
-        bool isCooking = CookingTimerController.Instance.IsCooking;
+        bool isCooking = Controller.IsCooking;
         selectionPanel.SetActive(!isCooking);
         cookingPanel.SetActive(isCooking);
     }
