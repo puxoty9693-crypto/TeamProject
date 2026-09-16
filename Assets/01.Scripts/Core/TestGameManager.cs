@@ -15,10 +15,8 @@
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
 
 
-    protected override void Awake()
+    public void Start()
     {
-        base.Awake();
-
         PlayerData pData = SaveManager.Instance.CurrentData;
 
         PaymentSystem = new PaymentSystem(pData);

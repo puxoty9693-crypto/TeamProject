@@ -90,13 +90,20 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void ChangeCount(int count)
     {
-        currentCount = Mathf.Clamp(currentCount + count, 1, maxAffordableCount);
+        int newCount = Mathf.Clamp(currentCount + count, 1, maxAffordableCount);
+        if (newCount == currentCount && count > 0)
+        {
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "더 만들 수 없습니다.");
+            return;
+        }
+        currentCount = newCount;
         RefreshCountText();
     }
 
     public void ClearCount()
     {
         currentCount = 0;
+        RefreshCountText();
     }
 
     private void RefreshCountText()

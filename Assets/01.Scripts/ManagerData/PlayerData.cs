@@ -243,7 +243,7 @@ public class PlayerData
             return $"{ObjectIds.TableIdPrefix}{reused}";
         }
 
-        string id = $"table_{nextTableIndex}";
+        string id = $"{ObjectIds.TableIdPrefix}{nextTableIndex}";
         nextTableIndex++;
         return id;
     }

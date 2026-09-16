@@ -64,7 +64,7 @@ public class CarriageUI : MonoBehaviour
     
         if (!success)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "해금할 수 없습니다");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "해금할 수 없습니다.");
             return;
         }
     
@@ -76,7 +76,7 @@ public class CarriageUI : MonoBehaviour
         bool success = TestGameManager.Instance.ingredientUpgradeSystem.Upgrade(data.ingredient);
         if (!success)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "해금할 수 없습니다");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "업그레이드할 수 없습니다.");
             return;
         }
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
