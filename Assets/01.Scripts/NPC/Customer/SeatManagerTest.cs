@@ -1,88 +1,48 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SeatManagerTest : MonoBehaviour
 {
-    [SerializeField] private TestSeatManager seatManager;
-    [SerializeField] private Customer[] customers;
+    [SerializeField] private SeatManager seatManager;
+    [SerializeField] private Customer[] testCustomers;
 
-    private void Update()
+    private readonly List<Transform> reservedSeats = new();
+
+
+    [ContextMenu("Reserve All")]
+    private void ReserveAll()
     {
-        if (Keyboard.current == null)
-            return;
+        reservedSeats.Clear();
 
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
-            Reserve(0);
-
-        if (Keyboard.current.digit2Key.wasPressedThisFrame)
-            Reserve(1);
-
-        if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            Reserve(2);
-
-        if (Keyboard.current.digit4Key.wasPressedThisFrame)
-            Reserve(3);
-
-        if (Keyboard.current.digit5Key.wasPressedThisFrame)
-            Reserve(4);
-
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-            Release(0);
-    }
-
-    private void Reserve(int index)
-    {
-        if (index < 0 || index >= customers.Length)
-            return;
-
-        Customer customer = customers[index];
-
-        if (customer == null)
-            return;
-
-        if (customer.ReservedSeat != null)
+        foreach (Customer customer in testCustomers)
         {
-            Debug.Log(
-                $"{customer.name}은 이미 {customer.ReservedSeat.name} 예약 중");
-            return;
-        }
+            if (seatManager.TryReserve(customer, out Transform seat))
+            {
+                reservedSeats.Add(seat);
 
-        if (seatManager.TryReserveSeat(customer, out Transform seat))
-        {
-            customer.SetSeat(seat);
-
-            Debug.Log(
-                $"{customer.name} 좌석 예약 성공 : {seat.name}");
-        }
-        else
-        {
-            Debug.Log(
-                $"{customer.name} 좌석 예약 실패 : 빈 좌석 없음");
+                Debug.Log(
+                    $"{customer.name} -> {seat.name} / " +
+                    $"{seatManager.GetTableId(seat)}");
+            }
+            else
+            {
+                Debug.Log($"{customer.name} -> Seat 없음");
+            }
         }
     }
 
-    private void Release(int index)
+
+    [ContextMenu("Release First")]
+    private void ReleaseFirst()
     {
-        if (index < 0 || index >= customers.Length)
+        if (reservedSeats.Count == 0)
             return;
 
-        Customer customer = customers[index];
-
-        if (customer == null)
-            return;
-
-        if (customer.ReservedSeat == null)
-        {
-            Debug.Log($"{customer.name}은 예약된 좌석이 없음");
-            return;
-        }
-
-        Transform seat = customer.ReservedSeat;
+        Transform seat = reservedSeats[0];
 
         seatManager.ReleaseSeat(seat);
-        customer.ClearSeat();
+        reservedSeats.RemoveAt(0);
 
-        Debug.Log(
-            $"{customer.name} 좌석 해제 : {seat.name}");
+        Debug.Log($"{seat.name} 반환");
     }
 }
