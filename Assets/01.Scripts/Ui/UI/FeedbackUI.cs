@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class FeedbackUI : MonoBehaviour
 {
+
     [SerializeField] TextMeshProUGUI messageText;
-    [SerializeField] CanvasGroup canvasGroup; // 페이드용
+    [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] float showDuration = 1.2f;
     [SerializeField] float fadeDuration = 0.3f;
 
@@ -26,6 +27,7 @@ public class FeedbackUI : MonoBehaviour
     {
         ShowMessage((string)param);
     }
+
     // param은 string으로 뭐가 부족한지 뭐가 실했는지 문구를 넣어주시면 감사하겠습니다.
     public void ShowMessage(string message)
     {

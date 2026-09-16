@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1722fc8aaea7d41a25abb66617f7ac, type: 3}
+  m_Name: Ad_
+  m_EditorClassIdentifier: Assembly-CSharp::AdData
+  levels:
+  - spawnIntervalMin: 20
+    spawnIntervalMax: 25
+    upgradeGoldCost: 100
+    upgradeText: 
+  - spawnIntervalMin: 15
+    spawnIntervalMax: 20
+    upgradeGoldCost: 200
+    upgradeText: 
+  - spawnIntervalMin: 10
+    spawnIntervalMax: 15
+    upgradeGoldCost: 300
+    upgradeText: 
+  - spawnIntervalMin: 5
+    spawnIntervalMax: 10
+    upgradeGoldCost: 400
+    upgradeText: 

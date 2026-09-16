@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class CookingUI : MonoBehaviour
 {
+
+    [Header("토글에 있는 레시피슬롯들 연결")]
     [SerializeField] List<CookingRecipeSlot> resipeSlot = new();
+
     private void OnEnable()
     {
         SetRecipes();

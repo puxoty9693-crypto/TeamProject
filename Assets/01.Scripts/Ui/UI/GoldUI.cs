@@ -23,7 +23,7 @@ public class GoldUI : MonoBehaviour
 
     public void UpdateGoldUI(int gold)
     {
-        goldText.text = $"{gold}";
+        goldText.text = GoldFormatter.Format(gold);
     }
 
 }
