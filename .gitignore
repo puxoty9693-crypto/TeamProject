@@ -114,7 +114,8 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ss]cenes/Tileset Exemple.unity
 /[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta
 /[Aa]ssets/ExclusionAssets/
- 
+/[Aa]ssets/ExclusionAssets.meta
+
 # Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
 .plastic/
 .p4ignore
