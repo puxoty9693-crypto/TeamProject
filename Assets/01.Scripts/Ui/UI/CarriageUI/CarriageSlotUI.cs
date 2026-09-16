@@ -32,38 +32,31 @@ public class CarriageSlotUI : MonoBehaviour
         statText.text = "-";
         costText.text = $"{GoldFormatter.Format(unlockCost)}G";
 
-        if (actionButtonLabel != null)
-            actionButtonLabel.text = "해금";
-
+        if (actionButtonLabel != null) actionButtonLabel.text = "해금";
         onActionClicked = onUnlock;
         actionButton.interactable = true;
     }
-    public void ShowUnlocked(IngredientData data, int level, int supplyAmount, float supplyInterval, int upgradeCost, bool isMaxLevel, Action onUpgrade)
+    public void ShowUnlocked(IngredientData data, CarriageIngredientLevel currentLevel, int levelIndex, bool isMaxLevel, Action onUpgrade)
     {
         ingredientImage.sprite = data.ingredientImage;
         ingredientImage.color = Color.white;
-
         nameText.text = data.ingredientName;
-        levelText.text = $"Lv.{level}";
-        statText.text = $"{supplyInterval:0}초마다 {supplyAmount}개";
+        levelText.text = $"Lv.{levelIndex + 1}";
+        statText.text = currentLevel.isInfinite ? "무한 생산" : $"{currentLevel.gatherTime}초 / 1개";
 
-        if (actionButtonLabel != null) 
-            actionButtonLabel.text = "강화";
-
+        if (actionButtonLabel != null) actionButtonLabel.text = "강화";
         onActionClicked = onUpgrade;
 
         if (isMaxLevel)
         {
-           costText.text = "MAX";
-           actionButton.interactable = false;
+            costText.text = "MAX";
+            actionButton.interactable = false;
         }
-        
         else
         {
-           costText.text = $"{GoldFormatter.Format(upgradeCost)}G";
-           actionButton.interactable = true;
+            costText.text = $"{GoldFormatter.Format(currentLevel.upgradeGoldCost)}G";
+            actionButton.interactable = true;
         }
-        
     }
 }
 

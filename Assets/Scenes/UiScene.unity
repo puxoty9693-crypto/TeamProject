@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 110026788}
   - component: {fileID: 110026787}
-  - component: {fileID: 110026789}
   m_Layer: 0
   m_Name: breaktime
   m_TagString: Untagged
@@ -211,62 +210,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &110026789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110026786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 110026786}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &486104510
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,37 +379,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 486104511}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1743173785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1743173786}
-  m_Layer: 0
-  m_Name: GridCells
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1743173786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743173785}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4348464312865938575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &961032624534425
 MonoBehaviour:
@@ -9801,7 +9713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &574188805764904244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11236,7 +11148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &886674449822248957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12264,7 +12176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 216, y: -135}
+  m_AnchoredPosition: {x: 72, y: -135}
   m_SizeDelta: {x: 144, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &995211002036434850
@@ -12647,7 +12559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72, y: -405}
+  m_AnchoredPosition: {x: 72, y: -135}
   m_SizeDelta: {x: 144, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1042372627207497574
@@ -17443,6 +17355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  workerImage: {fileID: 7940281466584121704}
+  nameText: {fileID: 3602332059156972980}
   costText: {fileID: 6959552135774407985}
   statText: {fileID: 231138998637000846}
   levelText: {fileID: 2178927064765010259}
@@ -24714,7 +24628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504, y: -135}
+  m_AnchoredPosition: {x: 72, y: -135}
   m_SizeDelta: {x: 144, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2678692151856308049
@@ -24877,7 +24791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -135}
+  m_AnchoredPosition: {x: 72, y: -135}
   m_SizeDelta: {x: 144, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2701419391795248302
@@ -46337,8 +46251,7 @@ Transform:
   m_LocalPosition: {x: -1225.0206, y: -546.4101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1743173786}
+  m_Children: []
   m_Father: {fileID: 2692009085186160967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &4353934495126549274
@@ -53917,6 +53830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  workerImage: {fileID: 6205573207847645083}
+  nameText: {fileID: 4293033766202986832}
   costText: {fileID: 1067231071509404358}
   statText: {fileID: 2901762828015224404}
   levelText: {fileID: 5086497070932780027}
@@ -59281,8 +59196,8 @@ RectTransform:
   m_Children:
   - {fileID: 8125198230407595362}
   - {fileID: 6420176537750015761}
-  - {fileID: 8635992240418291779}
   - {fileID: 2346192058589882930}
+  - {fileID: 8635992240418291779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -61127,6 +61042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  workerImage: {fileID: 4920150541295038907}
+  nameText: {fileID: 8761176789666694394}
   costText: {fileID: 4558125607144225053}
   statText: {fileID: 4634904913512892489}
   levelText: {fileID: 5355862648821814929}
@@ -91436,7 +91353,6 @@ MonoBehaviour:
   maxGridY: 3
   gridCellPrefab: {fileID: 7134645772710852307, guid: a5c8ac3486b36114b864cc0bfa213c53, type: 3}
   gridObjectData: {fileID: 11400000, guid: 63fead43ebd4e084cac9a13b36dc3628, type: 2}
-  gridVisualRoot: {fileID: 1743173786}
 --- !u!224 &9091060149231521096
 RectTransform:
   m_ObjectHideFlags: 0

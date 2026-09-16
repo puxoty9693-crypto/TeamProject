@@ -34,12 +34,10 @@ public class HousingGrid : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private Transform gridVisualRoot;
-
     private void Start()
     {
         CreateGrid();
-        LoadPlacedObjects(); // 나중에 세이브매니저의 스타트에서 로드후 호출하게 연결
+        LoadPlacedObjects();
     }
 
     #region Grid Coordinate
@@ -78,20 +76,15 @@ public class HousingGrid : MonoBehaviour
             {
                 Vector2Int gridPosition = new Vector2Int(x, y);
 
-                GameObject cell = Instantiate(gridCellPrefab, GridToWorld(gridPosition), Quaternion.identity, gridVisualRoot);
+                GameObject cell = Instantiate(gridCellPrefab, GridToWorld(gridPosition), Quaternion.identity,transform);
 
                 gridCells.Add(gridPosition, cell);
             }
         }
-        gridVisualRoot.gameObject.SetActive(false);
     }
     public GameObject GetCell(Vector2Int gridPosition)
     {
         return gridCells.TryGetValue(gridPosition, out var cell)? cell : null;
-    }
-    public void SetGridVisible(bool visible)
-    {
-        gridVisualRoot.gameObject.SetActive(visible);
     }
 
     public bool IsCellAvailable(Vector2Int gridPosition)
