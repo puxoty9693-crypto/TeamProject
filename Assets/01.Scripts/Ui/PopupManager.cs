@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-// 나중에 전부 연결해서 사용해야함
 
 public class PopupManager : MMSingleton<PopupManager>
 {
