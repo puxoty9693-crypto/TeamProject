@@ -1344,8 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCPool
   customerPrefabFolder: Assets/01.Scripts/NPC/Customer/Customer_Prefab
-  customerPrefabs:
-  - {fileID: 1863047433836960620, guid: fce349d873727ed4aaa0cdb71dca052b, type: 3}
+  customerPrefabs: []
   initialPoolSize: 20
   poolRoot: {fileID: 0}
 --- !u!4 &596075419
