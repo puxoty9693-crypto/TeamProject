@@ -1,6 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
+//재료를 요리를 제외한 다른곳에서 사용하게 되면 수정해야함
+
+/*구조 -> 요리 요청 갯수에 맞게 재료를 가지고 있어야 요리 제작 실행
+ * 실제 재료 차감은 요리 완성할때마다 레시피에 1개에 맞는 재료만 차감 -> 반복
+ * 취소하면 재료 남음, 요리중일때 취소하면 요리에 소모된 재료만 사라짐
+*/ 
 public class CraftingSystem
 {
     private readonly PlayerData curData;
@@ -123,7 +129,20 @@ public class CraftingSystem
             RequestedCraftCount
         );
     }
+    public bool SelectRecipe(RecipeData recipe)
+    {
+        if (recipe == null)
+            return false;
 
+        if (IsCooking)
+        {
+            Debug.LogWarning("현재 요리 제작중이여서 선택이 불가능합니다");
+            return false;
+        }
+
+        SelectedRecipe = recipe;
+        return true;
+    }
 
     // 원하는 수량만큼 제작 요청
     public bool StartRequestedCrafting()
@@ -140,6 +159,12 @@ public class CraftingSystem
         if (!CanStartCooking())
         {
             Debug.LogWarning("현재 재료가 부족하여 제작할 수 없습니다.");
+            return false;
+        }
+
+        if (!HasRequiredIngredientsForAmount(SelectedRecipe, RequestedCraftCount))
+        {
+            Debug.LogWarning("요청한 제작 수량에 필요한 재료가 부족합니다.");
             return false;
         }
 
@@ -262,8 +287,9 @@ public class CraftingSystem
             if (requirement.amount <= 0)
                 return false;
 
-            if (curData.HasIngredient(
-                    requirement.ingredient.ingredientId, requirement.amount))
+            if (!curData.HasIngredient(
+                    requirement.ingredient.ingredientId,
+                    requirement.amount))
             {
                 return false;
             }
@@ -327,5 +353,59 @@ public class CraftingSystem
         {
             TryStartNextCooking();
         }
+    }
+
+    private bool HasRequiredIngredientsForAmount(RecipeData recipe, int craftAmount)
+    {
+        if (recipe == null)
+            return false;
+
+        if (recipe.food == null)
+            return false;
+
+        if (craftAmount <= 0)
+            return false;
+
+        var requirements =
+            recipe.food.requiredIngredients;
+
+        if (requirements == null ||
+            requirements.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var requirement in requirements)
+        {
+            if (requirement == null)
+                return false;
+
+            if (requirement.ingredient == null)
+                return false;
+
+            if (string.IsNullOrEmpty(
+                    requirement.ingredient.ingredientId))
+            {
+                return false;
+            }
+
+            if (requirement.amount <= 0)
+                return false;
+
+            int requiredAmount =
+                requirement.amount * craftAmount;
+
+            int currentAmount =
+                curData.GetIngredientCount(
+                    requirement.ingredient.ingredientId
+                );
+
+            if (currentAmount < requiredAmount)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
