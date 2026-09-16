@@ -11,7 +11,8 @@ public class CookingTimerController : MMSingleton<CookingTimerController>
 
     private void Update()
     {
-        if (!IsCooking) return;
+        if (!IsCooking)
+            return;
 
         RemainingTime -= Time.deltaTime;
 
@@ -21,7 +22,8 @@ public class CookingTimerController : MMSingleton<CookingTimerController>
 
     public bool StartCooking(string recipeId, int count, float cookingTimePerUnit)
     {
-        if (IsCooking) return false; // 이미 조리 중이면 무시 (동시 조리는 요구사항에 없음)
+        if (IsCooking) 
+            return false; // 이미 조리 중이면 무시 (동시 조리는 요구사항에 없음)
 
         CookingRecipeId = recipeId;
         CookingCount = count;
@@ -33,12 +35,14 @@ public class CookingTimerController : MMSingleton<CookingTimerController>
         // CookingManager.Instance.ConsumeIngredients(recipeId, count);
 
         EventManager.Instance.PostNotification(EventType.OnCookingStarted, this);
+
         return true;
     }
 
     public void CancelCooking()
     {
-        if (!IsCooking) return;
+        if (!IsCooking)
+            return;
 
         IsCooking = false;
         

@@ -14,6 +14,7 @@
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -26,7 +27,6 @@
         IngredientWareHouse = new IngredientWareHouse(pData);
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
-
         IngredientSupplySystem =
             new IngredientSupplySystem(
                 pData,
