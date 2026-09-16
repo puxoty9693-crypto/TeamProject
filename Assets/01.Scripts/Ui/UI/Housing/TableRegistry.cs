@@ -5,10 +5,12 @@ using UnityEngine;
 public class TableRegistry : MMSingleton<TableRegistry>
 {
     private Dictionary<string, Transform> tables = new();
+    [SerializeField] private List<string> tableIds = new();
 
     public void Register(string tableId, Transform tableTransform)
     {
         tables[tableId] = tableTransform;
+        tableIds.Add(tableId);
 
         EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount,this, TableManager.Instance.GetTotalCapacity());
     }
@@ -16,6 +18,7 @@ public class TableRegistry : MMSingleton<TableRegistry>
     public void Unregister(string tableId)
     {
         tables.Remove(tableId);
+        tableIds.Remove(tableId);
 
         EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());
     }

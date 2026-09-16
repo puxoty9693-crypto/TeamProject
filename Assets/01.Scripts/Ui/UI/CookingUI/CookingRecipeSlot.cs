@@ -21,7 +21,7 @@ public class CookingRecipeSlot : MonoBehaviour
     public void SetRecipe(RecipeData data)
     {
         currentRecipe = data;
-        recipeName.text = currentRecipe.name;
+        recipeName.text = currentRecipe.recipeName;
     }
 
     public void OnClick()

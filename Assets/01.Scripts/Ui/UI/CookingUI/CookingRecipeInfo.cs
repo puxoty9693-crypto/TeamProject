@@ -16,14 +16,13 @@ public class CookingRecipeInfo : MonoBehaviour
     [SerializeField] Button plus1Btn;
     [SerializeField] Button plus5Btn;
     [SerializeField] Button plus10Btn;
-    [SerializeField] Button minus1Btn;
-    [SerializeField] Button minus5Btn;
-    [SerializeField] Button minus10Btn;
+    [SerializeField] Button clearCountBtn;
     [SerializeField] TextMeshProUGUI countText;
 
     [Header("요리 버튼")]
     [SerializeField] Button cookingButton;
     [SerializeField] GameObject selectionPanel;
+
     [Header("요리 진행중")]
     [SerializeField] GameObject cookingPanel; // 취소버튼있는 판낼
     [SerializeField] TextMeshProUGUI previewTimeText;
@@ -34,17 +33,18 @@ public class CookingRecipeInfo : MonoBehaviour
     private int maxAffordableCount = 1;
     private RecipeData currentData;
 
+    private CraftingController Controller => TestGameManager.Instance.craftingController;
+    private CraftingSystem System => TestGameManager.Instance.CraftingSystem;
+
     private void Awake()
     {
         plus1Btn.onClick.AddListener(() => ChangeCount(1));
         plus5Btn.onClick.AddListener(() => ChangeCount(5));
         plus10Btn.onClick.AddListener(() => ChangeCount(10));
-        minus1Btn.onClick.AddListener(() => ChangeCount(-1));
-        minus5Btn.onClick.AddListener(() => ChangeCount(-5));
-        minus10Btn.onClick.AddListener(() => ChangeCount(-10));
+        //clearCountBtn.onClick.AddListener();
 
         cookingButton.onClick.AddListener(TryStartCooking);
-        cancelButton.onClick.AddListener(CookingTimerController.Instance.CancelCooking);
+        cancelButton.onClick.AddListener(() => Controller.CancelCooking());
     }
     private void OnEnable()
     {
@@ -82,11 +82,12 @@ public class CookingRecipeInfo : MonoBehaviour
         RefreshCountText();
         RefreshPanelByState();
     }
-    private void ChangeCount(int delta)
+    private void ChangeCount(int count)
     {
-        currentCount = Mathf.Clamp(currentCount + delta, 1, maxAffordableCount);
+        currentCount = Mathf.Clamp(currentCount + count, 1, maxAffordableCount);
         RefreshCountText();
     }
+
     private void RefreshCountText()
     {
         countText.text = $"{currentCount}";
@@ -94,7 +95,8 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void RefreshPreviewTime()
     {
-        if (currentData == null) return;
+        if (currentData == null)
+            return;
 
         float totalSeconds = currentData.cookingTime * currentCount;
         int minutes = Mathf.FloorToInt(totalSeconds / 60f);
@@ -113,8 +115,25 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void TryStartCooking()
     {
-        if (currentData == null) return;
-        CookingTimerController.Instance.StartCooking(currentData.recipeId, currentCount, currentData.cookingTime);
+        if (currentData == null)
+            return;
+
+        bool selected = Controller.SelectRecipe(currentData);
+
+        if(!selected)
+        {
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "레시피를 선택할 수 없습니다");
+            return;
+        }
+
+        Controller.AddCraftingRequest(currentCount);
+        bool success = System.StartRequestedCrafting();
+
+        if (!success)
+        {
+            Controller.ClearCraftingRequest();
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "재료가 부족합니다");
+        }
     }
 
     private void OnCookingStarted(Component sender, object param) => RefreshPanelByState();

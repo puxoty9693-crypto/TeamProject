@@ -11666,7 +11666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100.1KG
+  m_text: 0G
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12262,10 +12262,10 @@ RectTransform:
   - {fileID: 2842330112716992865}
   m_Father: {fileID: 3167798519438221871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 216, y: -135}
-  m_SizeDelta: {x: 144, y: 270}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &995211002036434850
 GameObject:
@@ -12645,10 +12645,10 @@ RectTransform:
   - {fileID: 6999681353140708702}
   m_Father: {fileID: 3167798519438221871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72, y: -405}
-  m_SizeDelta: {x: 144, y: 270}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1042372627207497574
 CanvasRenderer:
@@ -12918,7 +12918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 547, y: -135}
+  m_AnchoredPosition: {x: 311.4, y: -135}
   m_SizeDelta: {x: 144, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1072121024627814359
@@ -13008,7 +13008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1098645926811513914
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23886,10 +23886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e576579f0eb51f840a009024f34e82eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AdUpgradeUI
-  levelText: {fileID: 7856120216842429432}
-  descriptionText: {fileID: 2455085399845472861}
-  costText: {fileID: 6898744589826518624}
-  upgradeButton: {fileID: 6432419467252074604}
 --- !u!222 &2531476929850658224
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24712,10 +24708,10 @@ RectTransform:
   - {fileID: 3945120066606592834}
   m_Father: {fileID: 3167798519438221871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504, y: -135}
-  m_SizeDelta: {x: 144, y: 270}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2678692151856308049
 CanvasRenderer:
@@ -24875,10 +24871,10 @@ RectTransform:
   - {fileID: 2041400799824790279}
   m_Father: {fileID: 3167798519438221871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -135}
-  m_SizeDelta: {x: 144, y: 270}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2701419391795248302
 RectTransform:
@@ -42118,7 +42114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3693780178471098788
 GameObject:
   m_ObjectHideFlags: 0
@@ -44669,10 +44665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c446dc495efe9438eb872f63adfc5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeoutUpgradeUI
-  levelText: {fileID: 3895090430580724910}
-  chanceText: {fileID: 6221846341411650184}
-  costText: {fileID: 8378876558365939925}
-  upgradeButton: {fileID: 3915552819308001759}
 --- !u!224 &4112246700485586011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51229,10 +51221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727abfc502ed05d478bb05bcdd82b9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeUI
-  slots:
-  - {fileID: 5648214533674107117}
-  - {fileID: 1731837568005402961}
-  - {fileID: 6531275595306522832}
 --- !u!1 &5180274229763428537
 GameObject:
   m_ObjectHideFlags: 0
@@ -62150,8 +62138,8 @@ MonoBehaviour:
   allWorkers: []
   workerUpgradeDataList: []
   adData: {fileID: 0}
+  cookingBatchConfig: {fileID: 0}
   tableUpgradeData: {fileID: 11400000, guid: dac2019ffdb12574fa8f2addab32c3ab, type: 2}
-  takeoutUpgradeData: {fileID: 0}
 --- !u!1839735485 &6715372947684792421
 Tilemap:
   m_ObjectHideFlags: 0
@@ -74059,10 +74047,10 @@ RectTransform:
   - {fileID: 6727643809080272371}
   m_Father: {fileID: 3167798519438221871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72, y: -135}
-  m_SizeDelta: {x: 144, y: 270}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7458067196659536774
 CanvasRenderer:
@@ -89984,7 +89972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &8912347400602987990
 GameObject:
   m_ObjectHideFlags: 0

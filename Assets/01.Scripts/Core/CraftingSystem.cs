@@ -123,7 +123,20 @@ public class CraftingSystem
             RequestedCraftCount
         );
     }
+    public bool SelectRecipe(RecipeData recipe)
+    {
+        if (recipe == null)
+            return false;
 
+        if (IsCooking)
+        {
+            Debug.LogWarning("현재 요리 제작중이여서 선택이 불가능합니다");
+            return false;
+        }
+
+        SelectedRecipe = recipe;
+        return true;
+    }
 
     // 원하는 수량만큼 제작 요청
     public bool StartRequestedCrafting()
