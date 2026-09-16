@@ -49,17 +49,18 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnCookingStarted, OnCookingStarted);
-        EventManager.Instance.AddListener(EventType.OnCookingCompleted, OnCookingEnded);
-        EventManager.Instance.AddListener(EventType.OnCookingCanceled, OnCookingEnded);
+        System.OnCookingStarted += OnCookingStarted;
+        System.OnCookingCanceled += OnCookingEnded;
+        System.OnCookingCompleted += OnCookingEnded;
 
         RefreshPanelByState();
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnCookingStarted, OnCookingStarted);
-        EventManager.Instance.RemoveListener(EventType.OnCookingCompleted, OnCookingEnded);
-        EventManager.Instance.RemoveListener(EventType.OnCookingCanceled, OnCookingEnded);
+        System.OnCookingStarted -= OnCookingStarted;
+        System.OnCookingCanceled -= OnCookingEnded;
+        System.OnCookingCompleted -= OnCookingEnded;
+
     }
     private void Update()
     {
@@ -146,8 +147,8 @@ public class CookingRecipeInfo : MonoBehaviour
         }
     }
 
-    private void OnCookingStarted(Component sender, object param) => RefreshPanelByState();
-    private void OnCookingEnded(Component sender, object param) => RefreshPanelByState();
+    private void OnCookingStarted(RecipeData recipe) => RefreshPanelByState();
+    private void OnCookingEnded(RecipeData recipe) => RefreshPanelByState();
 
     private void RefreshPanelByState()
     {

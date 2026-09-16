@@ -69,6 +69,7 @@ public class CraftingController : MonoBehaviour
 
         craftingSystem.StartRequestedCrafting();
     }
+    //레시피 선택
     public bool SelectRecipe(RecipeData recipe)
     {
         if (craftingSystem == null)
@@ -78,6 +79,7 @@ public class CraftingController : MonoBehaviour
         }
         return craftingSystem.SelectRecipe(recipe);
     }
+
     //갯수 초기화 버튼
     public void ClearCraftingRequest()
     {
