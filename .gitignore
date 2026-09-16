@@ -106,7 +106,14 @@ InitTestScene*.unity*
 /[Aa]ssets/WCE Assets.meta
 /[Aa]ssets/Casual Game UI Sound/
 /[Aa]ssets/Casual Game UI Sound.meta
-/[Aa]sset/ExclusionAssets/
+/[Aa]ssets/[Ss]ceneDependencyCache*
+/[Aa]ssets/[Ss]cenes/exemple.unity
+/[Aa]ssets/[Ss]cenes/exemple.unity.meta
+/[Aa]ssets/[Ss]cenes/Spring.unity
+/[Aa]ssets/[Ss]cenes/Spring.unity.meta
+/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity
+/[Aa]ssets/[Ss]cenes/Tileset Exemple.unity.meta
+/[Aa]ssets/ExclusionAssets/
  
 # Perforce / Plastic SCM (Unity Version Control) 관련 - Git과 병행 사용 시 무시
 .plastic/
