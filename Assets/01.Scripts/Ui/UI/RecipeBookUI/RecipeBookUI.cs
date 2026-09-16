@@ -1,64 +1,58 @@
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections.Generic;
+//using UnityEngine;//
 
-public class RecipeBookUI : MonoBehaviour
-{
-    [Header("레시피북 페이지 넣기")]
-    [SerializeField] List<RectTransform> pages = new();
-    private const int slotsPerPage = 2;
+//public class RecipeBookUI : MonoBehaviour
+//{
+//    [Header("레시피북 페이지 넣기")]
+//    [SerializeField] List<RectTransform> pages = new();
+//    private const int slotsPerPage = 2;//
 
-    void OnEnable()
-    {
-        SetRecipes();
-    }
+//    void OnEnable()
+//    {
+//        SetRecipes();   
+//    }
+//    public void SetRecipes()
+//    {
+//        List<RecipeData> recipes = DataManager.Instance.allRecipes;//
 
-    public void SetRecipes()
-    {
-        List<RecipeData> recipes = DataManager.Instance.allRecipes;
+//        for (int i = 0; i < pages.Count; i++)
+//        {
+//            RecipeSlotUI[] slots = pages[i].GetComponentsInChildren<RecipeSlotUI>(true);
+//            for(int j = 0; j < slots.Length; j++)
+//            {
+//                int recipeIndex = i * slotsPerPage + j;//
 
-        for (int i = 0; i < pages.Count; i++)
-        {
-            RecipeSlotUI[] slots = pages[i].GetComponentsInChildren<RecipeSlotUI>(true);
-            for (int j = 0; j < slots.Length; j++)
-            {
-                int recipeIndex = i * slotsPerPage + j;
-
-                if (recipeIndex < recipes.Count)
-                {
-                    slots[j].gameObject.SetActive(true);
-                    RefreshSlot(recipes[recipeIndex], slots[j]);
-                }
-                else
-                {
-                    slots[j].gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-
-    private void RefreshSlot(RecipeData data, RecipeSlotUI slot)
-    {
-#if false
-        bool isUnlocked = RecipeManager.Instance.IsUnlocked(data.recipeId);
-#else
-        bool isUnlocked = false;
-#endif
-        slot.UpdateRecipeUI(data, isUnlocked, () => TryUnlock(data, slot));
-    }
-
-    private void TryUnlock(RecipeData data, RecipeSlotUI slot)
-    {
-#if false
-        bool success = RecipeManager.Instance.UnlockRecipe(data.recipeId);
-
-        if (!success)
-        {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "골드가 부족합니다");
-            return;
-        }
-
-        EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
-        RefreshSlot(data, slot);
-#endif
-    }
-}
+//                if(recipeIndex < recipes.Count)
+//                {
+//                    slots[j].gameObject.SetActive(true);
+//                    RefreshSlot(recipes[recipeIndex], slots[j]);
+//                }
+//                else
+//                {
+//                    slots[j].gameObject.SetActive(false);
+//                }
+//            }
+//        }
+//    }
+//합친후 사용
+//    private void RefreshSlot(RecipeData data, RecipeSlotUI slot)
+//    {
+//        bool isUnlocked = recipeUnlockController.IsUnlocked(data);
+//        slot.UpdateRecipeUI(data, isUnlocked, () => TryUnlock(data, slot));
+//    }
+    
+//나중에 합칠때 사용
+//    private void TryUnlock(RecipeData data, RecipeSlotUI slot)
+//    {
+//        bool success = TestGameManager.Instance.recipeUnlockController.UnlockRecipe(data);
+//    
+//        if (!success)
+//        {
+//            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "골드가 부족합니다");
+//            return;
+//        }
+//    
+//        EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
+//        RefreshSlot(data, slot);
+//    }
+//}

@@ -36,8 +36,8 @@ public class DataManager : MMSingleton<DataManager>
         => GetCarriageData(ingredient.ingredientId);
 
     // 역할로 직원 원본 데이터 찾기
-    public WorkerData GetWorker(WorkerRole role)
-        => allWorkers.Find(w => w.role == role);
+   // public WorkerData GetWorker(WorkerRole role)
+   //     => allWorkers.Find(w => w.role == role);
     
     // 역할로 직원 업그레이드 데이터 찾기
     public WorkerUpgradeData GetWorkerUpgradeData(WorkerRole role)

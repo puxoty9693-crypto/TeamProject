@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class WorkerUpgradeSlot : MonoBehaviour
 {
-    [Header("이미지")]
-    [SerializeField] Image workerImage;
-
+    [Header("이름과 이미지 각자 슬롯에 따로 추가")]
+     //Image workerImage;
+     //TextMeshProUGUI nameText;
     [Header("텍스트")]
-    [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI statText;
     [SerializeField] TextMeshProUGUI levelText;
@@ -18,10 +17,8 @@ public class WorkerUpgradeSlot : MonoBehaviour
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
-    public void UpdateSlot(WorkerData workerData, WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
+    public void UpdateSlot( WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
-        workerImage.sprite = workerData.workerImage;
-        nameText.text = workerData.workerName;
         levelText.text = $"Lv.{levelIndex + 1}";
         statText.text = $"효과 {currentLevel.upgradeValue}";
 
