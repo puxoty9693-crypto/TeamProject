@@ -7,6 +7,7 @@ using UnityEngine;
  * 실제 재료 차감은 요리 완성할때마다 레시피에 1개에 맞는 재료만 차감 -> 반복
  * 취소하면 재료 남음, 요리중일때 취소하면 요리에 소모된 재료만 사라짐
 */ 
+
 public class CraftingSystem
 {
     private readonly PlayerData curData;

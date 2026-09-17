@@ -1,5 +1,4 @@
-﻿
-public class GameManager : MMSingleton<GameManager>
+﻿public class GameManager : MMSingleton<GameManager>
 {
     public CraftingController craftingController;
     public CarriageController carriageController;
@@ -40,3 +39,4 @@ public class GameManager : MMSingleton<GameManager>
         carriageController.Initialize(IngredientSupplySystem);
     }
 }
+
