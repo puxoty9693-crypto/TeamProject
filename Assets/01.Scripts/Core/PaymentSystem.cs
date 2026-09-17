@@ -40,7 +40,6 @@ public class PaymentSystem
             return false;
 
         int gold = GetPrice(food);
-
         curData.AddGold(gold);
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, curData.Gold);
