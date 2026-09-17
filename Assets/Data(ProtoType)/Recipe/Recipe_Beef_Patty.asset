@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a36c91e63edd94e97e3f7737a677ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 08d7f5727d12da5498ca300fdf3a016e, type: 3}
   m_Name: Recipe_Beef_Patty
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeId: Recipe_4
+  recipeId: recipe_4
   recipeName: recipe_beef_patty
-  unlockGoldCost: 0
-  food: {fileID: 11400000, guid: 9a66c9df15227814bbf6c056190baed3, type: 2}
+  unlockGoldCost: 10000
+  food: {fileID: 11400000, guid: 93783299ab229da49a30a8cf868b9999, type: 2}
+  cookingTime: 20

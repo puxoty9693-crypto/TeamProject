@@ -9,25 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4e1cf1075ad934f8689d11f5c178e0, type: 3}
+  m_Script: {fileID: 11500000, guid: dbadc813869e0e947bcf1c79f8f71f57, type: 3}
   m_Name: Kabocha_CarriageUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::CarriageIngredientData
   ingredient: {fileID: 11400000, guid: 406e84e93bb2c19439fab81393cd5b9f, type: 2}
-  unlockGoldCost: 0
+  unlockGoldCost: 5000
   levels:
-  - gatherTime: 10
+  - gatherTime: 15
     gatherAmount: 1
     upgradeGoldCost: 100
     isInfinite: 0
-  - gatherTime: 5
+  - gatherTime: 10
     gatherAmount: 2
-    upgradeGoldCost: 200
+    upgradeGoldCost: 500
+    isInfinite: 0
+  - gatherTime: 5
+    gatherAmount: 3
+    upgradeGoldCost: 5000
     isInfinite: 0
   - gatherTime: 2
-    gatherAmount: 3
-    upgradeGoldCost: 300
-    isInfinite: 0
-  - gatherTime: 0
-    gatherAmount: 4
-    upgradeGoldCost: 400
+    gatherAmount: 5
+    upgradeGoldCost: 10000
     isInfinite: 1
