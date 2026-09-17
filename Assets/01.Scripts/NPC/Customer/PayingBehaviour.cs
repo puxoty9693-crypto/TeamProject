@@ -9,7 +9,7 @@ public class PayingBehaviour : CustomerBehaviour
 {
     public override CustomerState State => CustomerState.Paying;
     private PaymentSystem paymentSystem;
-
+    Vector3 pos = new();
     public override void Enter()
     {
         base.Enter();
@@ -18,7 +18,7 @@ public class PayingBehaviour : CustomerBehaviour
 
         if (CustomerAgent.OrderedFood == null) return;
 
-        paymentSystem.Pay(CustomerAgent.OrderedFood);
+        paymentSystem.Pay(CustomerAgent.OrderedFood,pos);
         GameLogOnlyEditor.Log($"{CustomerAgent.name} 결제 완료");
         AI.PayComplete();
 
