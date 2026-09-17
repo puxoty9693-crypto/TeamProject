@@ -9,10 +9,10 @@ public class OptionPanel : MonoBehaviour
     private void OnEnable()
     {
         bgmSlider.SetValueWithoutNotify(SoundManager.Instance.bgmVolume);
-        sfxSlider.SetValueWithoutNotify(SoundManager.Instance.sfxVolume);
+       // sfxSlider.SetValueWithoutNotify(SoundManager.Instance.sfxVolume);
 
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
-        sfxSlider.onValueChanged.AddListener(OnSfxVolumeChanged);
+        //sfxSlider.onValueChanged.AddListener(OnSfxVolumeChanged);
     }
     private void OnBgmVolumeChanged(float value)
     {
@@ -27,6 +27,6 @@ public class OptionPanel : MonoBehaviour
     private void OnDisable()
     {
         bgmSlider.onValueChanged.RemoveListener(OnBgmVolumeChanged);
-        sfxSlider.onValueChanged.RemoveListener(OnSfxVolumeChanged);
+        //sfxSlider.onValueChanged.RemoveListener(OnSfxVolumeChanged);
     }
 }
