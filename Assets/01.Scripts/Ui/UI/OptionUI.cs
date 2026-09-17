@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class OptionPanel : MonoBehaviour
 {
     public Slider bgmSlider;
-    public Slider sfxSlider;
+    //public Slider sfxSlider;
 
     private void OnEnable()
     {

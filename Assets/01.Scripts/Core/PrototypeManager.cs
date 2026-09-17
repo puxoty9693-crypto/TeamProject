@@ -21,7 +21,8 @@ public class PrototypeManager : MonoBehaviour
     {
         SaveManager.Instance.DeleteSave();
         testFood = DataManager.Instance.allFoods[0];
-        for(int i = 0; i < 10; i++) Debug.Log(GameManager.Instance.PaymentSystem.Pay(testFood));
+        Vector3 pos = new();
+        for(int i = 0; i < 10; i++) Debug.Log(GameManager.Instance.PaymentSystem.Pay(testFood,pos));
     }
 
     // Update is called once per frame
