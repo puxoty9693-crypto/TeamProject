@@ -19,6 +19,6 @@ MonoBehaviour:
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: be8c0da9c864e04489289b5b9a8e8db2, type: 2}
     amount: 1
-  - ingredient: {fileID: 11400000, guid: 42c7c8bb0713ad1448ca1ddf3c978f36, type: 2}
+  - ingredient: {fileID: 11400000, guid: be8c0da9c864e04489289b5b9a8e8db2, type: 2}
     amount: 1
   sellPrice: 100

@@ -1,4 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
+
+/* 테스트 목록
+1. 레시피 선택
+2. 제작 수량 +1 / +5 / +10
+3. 현재 요청 수량 출력
+4. 제작 버튼
+5. 전체 필요 재료 검사
+6. 제작 시작
+7. 1개 제작할 때 재료 차감
+8. 제작 완료
+9. 음식 +1
+10. 남은 제작 수량 출력
+11. 재료 수급 테스트*/
 
 public class PrototypeManager : MonoBehaviour
 {
@@ -14,5 +28,26 @@ public class PrototypeManager : MonoBehaviour
     void Update()
     {
         Debug.Log(SaveManager.Instance.CurrentData.Gold);
+
+        if (Keyboard.current.f5Key.IsPressed())
+        {
+            TestUnlockRecipe();
+        }
+        if (Keyboard.current.f6Key.IsPressed())
+        {
+            TestTakeIngredientBox();
+        }
+    }
+
+    public void TestUnlockRecipe()
+    {
+        IngredientData testData = DataManager.Instance.allIngredients[0];
+
+        Debug.Log(GameManager.Instance.ingredientUnlockSystem.CanUnlock(testData));
+    }
+
+    public void TestTakeIngredientBox()
+    {
+
     }
 }

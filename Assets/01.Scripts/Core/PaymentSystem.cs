@@ -42,6 +42,9 @@ public class PaymentSystem
         int gold = GetPrice(food);
         curData.AddGold(gold);
 
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, curData.Gold);
+        EventManager.Instance.PostNotification(EventType.OnGetGold, null);
+
         OnPaymentCompleted?.Invoke(food, gold);
         OnGoldEarned?.Invoke(gold);
 

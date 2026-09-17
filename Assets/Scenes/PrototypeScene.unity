@@ -63433,10 +63433,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8581567023438673816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5997e0bc7beaac47b46d6b090a994c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ce0ba987e7f6aa4da5c0fa278b79f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
-  autoSaveInterval: 30
+  allIngredients: []
+  allRecipes: []
+  allFoods: []
+  carriageUpgrades: []
+  allWorkers: []
+  workerUpgradeDataList: []
+  adData: {fileID: 0}
+  cookingBatchConfig: {fileID: 0}
+  tableUpgradeData: {fileID: 0}
 --- !u!224 &6601381893976998343
 RectTransform:
   m_ObjectHideFlags: 0
