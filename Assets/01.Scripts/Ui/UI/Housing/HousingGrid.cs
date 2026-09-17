@@ -204,6 +204,7 @@ public class HousingGrid : MonoBehaviour
         if (info.ObjId == ObjectIds.Table)
         {
             TableRegistry.Instance.Unregister(info.InstanceId);
+            SaveManager.Instance.CurrentData.ReleaseTableID(info.InstanceId);
         }
 
         SaveManager.Instance.CurrentData.RemovePlacedObject(info.InstanceId);

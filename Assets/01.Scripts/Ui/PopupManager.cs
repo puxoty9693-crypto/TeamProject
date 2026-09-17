@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PopupManager : MMSingleton<PopupManager>
 {
+    [Header("ÆË¾÷Äµ¹ö½ºÀÇ Dim")]
     [SerializeField] GameObject dim;
+
+    [Header("ÆË¾÷ ÄÑÁö´Â ¼Óµµ")]
     [SerializeField] float animDuration = 0.25f;
 
     private List<GameObject> openPopups = new();
