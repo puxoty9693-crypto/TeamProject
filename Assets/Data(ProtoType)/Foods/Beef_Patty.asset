@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f59bbabda187c14a8749cda7e1448ce, type: 3}
+  m_Script: {fileID: 11500000, guid: e9de525cb431eb441928e23fe1ecbc7d, type: 3}
   m_Name: Beef_Patty
   m_EditorClassIdentifier: Assembly-CSharp::FoodData
-  foodId: Food_4
+  foodId: food_4
   foodName: beef_patty
   foodImage: {fileID: 1381818035, guid: 07093360f2641474d944e703b1c55065, type: 3}
   goldPerSale: 0
   requiredIngredients:
+  - ingredient: {fileID: 11400000, guid: b29ddb73268264a4aaa56c5a9cee3fa2, type: 2}
+    amount: 1
   - ingredient: {fileID: 11400000, guid: 73593f0f2f69667438bcddca8dec5c93, type: 2}
     amount: 1
-  - ingredient: {fileID: 11400000, guid: f61640b48349aed46bd527b312e5b852, type: 2}
-    amount: 1
-  sellPrice: 0
+  sellPrice: 2000

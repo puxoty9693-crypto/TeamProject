@@ -16,10 +16,10 @@ MonoBehaviour:
   - tableCount: 2
     upgradeGoldCost: 0
   - tableCount: 4
-    upgradeGoldCost: 100
+    upgradeGoldCost: 500
   - tableCount: 6
     upgradeGoldCost: 1000
   - tableCount: 8
-    upgradeGoldCost: 10000
+    upgradeGoldCost: 5000
   - tableCount: 10
-    upgradeGoldCost: 100000
+    upgradeGoldCost: 10000
