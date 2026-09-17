@@ -11,8 +11,9 @@ public class SaveManager : MMSingleton<SaveManager>
     [SerializeField] private float autoSaveInterval = 30f;
     private float autoSaveTimer;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         CurrentData = LoadGame();
     }
 

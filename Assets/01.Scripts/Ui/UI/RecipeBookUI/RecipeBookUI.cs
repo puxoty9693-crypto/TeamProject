@@ -5,25 +5,24 @@ public class RecipeBookUI : MonoBehaviour
 {
     [Header("레시피북 페이지 넣기")]
     [SerializeField] List<RectTransform> pages = new();
-    private const int slotsPerPage = 2;
+    private const int slotsPerPage = 2;//
 
     void OnEnable()
     {
-        SetRecipes();
+        SetRecipes();   
     }
-
     public void SetRecipes()
     {
-        List<RecipeData> recipes = DataManager.Instance.allRecipes;
+        List<RecipeData> recipes = DataManager.Instance.allRecipes;//
 
         for (int i = 0; i < pages.Count; i++)
         {
             RecipeSlotUI[] slots = pages[i].GetComponentsInChildren<RecipeSlotUI>(true);
-            for (int j = 0; j < slots.Length; j++)
+            for(int j = 0; j < slots.Length; j++)
             {
-                int recipeIndex = i * slotsPerPage + j;
+                int recipeIndex = i * slotsPerPage + j;//
 
-                if (recipeIndex < recipes.Count)
+                if(recipeIndex < recipes.Count)
                 {
                     slots[j].gameObject.SetActive(true);
                     RefreshSlot(recipes[recipeIndex], slots[j]);
@@ -38,27 +37,22 @@ public class RecipeBookUI : MonoBehaviour
 
     private void RefreshSlot(RecipeData data, RecipeSlotUI slot)
     {
-#if false
-        bool isUnlocked = RecipeManager.Instance.IsUnlocked(data.recipeId);
-#else
-        bool isUnlocked = false;
-#endif
+        bool isUnlocked = GameManager.Instance.RecipeUnlockSystem.IsUnlocked(data);
         slot.UpdateRecipeUI(data, isUnlocked, () => TryUnlock(data, slot));
     }
+  
 
     private void TryUnlock(RecipeData data, RecipeSlotUI slot)
     {
-#if false
-        bool success = RecipeManager.Instance.UnlockRecipe(data.recipeId);
-
+        bool success = GameManager.Instance.recipeUnlockController.UnlockRecipe(data);
+    
         if (!success)
         {
             EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "골드가 부족합니다");
             return;
         }
-
+    
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
         RefreshSlot(data, slot);
-#endif
     }
 }

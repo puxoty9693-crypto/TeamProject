@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01.Scripts/Ui/UI/Housing.meta
 guid: ad71a300556379248beb4be6a82c51cf
 folderAsset: yes
+========
+guid: ce5c2106950af754eb7a057f145ab9bd
+>>>>>>>> a12efbf2d0b50c68e47bf1dc84b84a988277fd0f:Assets/Scenes/CoreScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

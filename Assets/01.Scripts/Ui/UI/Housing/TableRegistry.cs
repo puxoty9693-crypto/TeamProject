@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+// TableRegistry.Instance.GetTable(id) / GetAllTables() 사용으로 테이블 조회
+public class TableRegistry : MMSingleton<TableRegistry>
+{
+    private Dictionary<string, Transform> tables = new();
+    [SerializeField] private List<string> tableIds = new();
+
+    public void Register(string tableId, Transform tableTransform)
+    {
+        tables[tableId] = tableTransform;
+        tableIds.Add(tableId);
+
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount,this, TableManager.Instance.GetTotalCapacity());
+    }
+
+    public void Unregister(string tableId)
+    {
+        tables.Remove(tableId);
+        tableIds.Remove(tableId);
+
+        EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());
+    }
+
+
+    public Transform GetTable(string tableId)
+        => tables.TryGetValue(tableId, out var t) ? t : null;
+
+    public IReadOnlyDictionary<string, Transform> GetAllTables() => tables;
+}

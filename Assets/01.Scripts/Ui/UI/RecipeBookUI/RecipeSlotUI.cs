@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RecipeSlotUI : MonoBehaviour
 {
-    [Header("해금재료")]
+    [Header( "해금재료")]
     [SerializeField] Image igredent1Img;
     [SerializeField] GameObject igredent1Dim;
     [SerializeField] Image igredent2Img;
@@ -27,28 +27,21 @@ public class RecipeSlotUI : MonoBehaviour
     public void UpdateRecipeUI(RecipeData data, bool isUnlocked, Action onUnlock)
     {
         foodimg.sprite = data.food.foodImage;
-        foodName.text = data.food.foodId;
+        foodName.text = data.food.foodName;
         sellPrice.text = $"개당 : {data.food.sellPrice}G";
         onUnlockClicked = onUnlock;
 
         var required = data.food.requiredIngredients;
 
         igredent1Img.sprite = required[0].ingredient.ingredientImage;
+        bool ingredient1Unlocked = SaveManager.Instance.CurrentData.IsIngredientUnlocked(required[0].ingredient.ingredientId);
+        igredent1Dim.SetActive(!ingredient1Unlocked); // 해금 안 됐으면 딤 켜기
+
         igredent2Img.sprite = required[1].ingredient.ingredientImage;
-
-#if false
-        bool ingredient1Unlocked = CarriageManager.Instance.IsUnlocked(required[0].ingredient.ingredientId);
-        igredent1Dim.SetActive(!ingredient1Unlocked);
-
-        bool ingredient2Unlocked = CarriageManager.Instance.IsUnlocked(required[1].ingredient.ingredientId);
+        bool ingredient2Unlocked = SaveManager.Instance.CurrentData.IsIngredientUnlocked(required[1].ingredient.ingredientId);
         igredent2Dim.SetActive(!ingredient2Unlocked);
 
         bool ingredientsReady = ingredient1Unlocked && ingredient2Unlocked;
-#else
-        bool ingredientsReady = false;
-        igredent1Dim.SetActive(false);
-        igredent2Dim.SetActive(false);
-#endif
 
         if (isUnlocked)
         {
@@ -66,4 +59,5 @@ public class RecipeSlotUI : MonoBehaviour
             unlockButton.interactable = true;
         }
     }
+
 }

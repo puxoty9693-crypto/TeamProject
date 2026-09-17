@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 857096393}
   - component: {fileID: 857096394}
   m_Layer: 0
-  m_Name: TestGameManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,9 +292,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 857096392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ad5c801be5dbd41a775f8c8e229449, type: 3}
+  m_Script: {fileID: 11500000, guid: 291ad185122afa7489fdee34a6611304, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestGameManager
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
   craftingController: {fileID: 431913230}
   carriageController: {fileID: 104368568}
   ingredientBoxController: {fileID: 31128861}
@@ -391,6 +391,7 @@ MonoBehaviour:
   workerUpgradeDataList: []
   adData: {fileID: 0}
   cookingBatchConfig: {fileID: 0}
+  tableUpgradeData: {fileID: 0}
 --- !u!1 &1510037813
 GameObject:
   m_ObjectHideFlags: 0
