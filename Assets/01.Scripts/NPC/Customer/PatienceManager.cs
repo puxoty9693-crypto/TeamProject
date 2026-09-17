@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PatienceManager : MMSingleton<PatienceManager>
+public class PatienceManager : MonoBehaviour
 {
-    //public static PatienceManager instance;
+    public static PatienceManager instance;
 
     [SerializeField] private float tickInterval = 0.2f;     // patience reduce time(s)
 
@@ -12,18 +12,18 @@ public class PatienceManager : MMSingleton<PatienceManager>
 
     private float nextTickTime;
 
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-    //}
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     private void Update() 
     {

@@ -8,11 +8,11 @@ public enum EventType
     OnChangeGold, //골드UI수치용이벤트
     OnGetGold, // 골드용 이펙트
     OnCustomerCount, // 손님ui수치용이벤트
-    OnCustomerMaxCount, // 손님max수치용이벤트
-    OnSpeechBubble, // 말풍선이벤트
-    OnFeedbackMessage, // 골드부족같은 피드백용 이벤트
-    OnWarehouseChanged, // 실시간 인벤토리 반영용 이벤트
-    OnHousingChanged, // 하우징 설치시 남은개수용
+    OnCustomerMaxCount, // 손님max수치용이벤트 연결완료
+    OnSpeechBubble, // 말풍선이벤트 
+    OnFeedbackMessage, // 골드부족같은 피드백용 이벤트 연결완료
+    OnWarehouseChanged, // 실시간 인벤토리 반영용 이벤트 연결완료
+    OnHousingChanged, // 하우징 설치시 남은개수용 연결완료
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

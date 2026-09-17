@@ -9,7 +9,7 @@ public class CustomerAI : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private SeatManager seatManager;
+    [SerializeField] private TestSeatManager seatManager;
 
     [Header("Points")]
     //[SerializeField] private Transform orderingPoint;
@@ -36,7 +36,7 @@ public class CustomerAI : MonoBehaviour
 
   
     public Customer Customer => customer;
-    public SeatManager SeatManager => seatManager;
+    public TestSeatManager SeatManager => seatManager;
     //public Transform OrderingPoint => orderingPoint;
     //public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
     //public Transform PayingPoint => payingPoint;
@@ -98,7 +98,7 @@ public class CustomerAI : MonoBehaviour
 
     public void StopCustomer()
     {
-        PatienceManager.TryGetInstance()?.Register(this);
+        PatienceManager.instance?.Unregister(this);
 
         customer.EndPatience();
 
@@ -133,7 +133,7 @@ public class CustomerAI : MonoBehaviour
 
     }
 
-    public void SetRuntimeRef(SeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
+    public void SetRuntimeRef(TestSeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
     {
         seatManager = seatManager_;
         payingPoint = payingPoint_;
@@ -151,13 +151,13 @@ public class CustomerAI : MonoBehaviour
 
     public void StartCustomer()
     {
-        PatienceManager.TryGetInstance()?.Register(this);
+        PatienceManager.instance?.Register(this);
         ChangeState(CustomerState.Entering);
     }
 
     private void OnDisable()
     {
-        PatienceManager.TryGetInstance()?.Unregister(this);
+        PatienceManager.instance?.Unregister(this);
         customer?.EndPatience();
     }
 
@@ -227,7 +227,7 @@ public class CustomerAI : MonoBehaviour
 
         Debug.Log($"{customer.name} 인내심 종료");
 
-        // 주문 취소 함수
+        // 주문 취소는 여기에
 
         ChangeState(CustomerState.Leaving);
 
