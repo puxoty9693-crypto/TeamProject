@@ -8,7 +8,7 @@ public class CustomerSpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private NPCPool npcPool;
-    [SerializeField] private SeatManager seatManager;
+    [SerializeField] private TestSeatManager seatManager;
 
     [Header("Points")]
     [SerializeField] private Transform spawnPoint;
@@ -81,7 +81,7 @@ public class CustomerSpawner : MonoBehaviour
             return false;
 
         // 손님이 실제로 등장하기 전에 자리부터 선점
-        if (!seatManager.TryReserve(
+        if (!seatManager.TryReserveSeat(
                 customer,
                 out Transform seat))
         {

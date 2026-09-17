@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class OrderManager : MMSingleton<OrderManager>
+public class OrderManager : MonoBehaviour
 {
     private readonly List<Customer> orderList = new();
 

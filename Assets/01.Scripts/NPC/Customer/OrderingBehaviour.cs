@@ -14,25 +14,6 @@ public class OrderingBehaviour : CustomerBehaviour
     {
         base.Enter();
 
-        DataManager dataManager = DataManager.TryGetInstance();
-        OrderManager orderManager = OrderManager.TryGetInstance();
-
-        if (dataManager == null || orderManager == null) return;
-        if (dataManager.allFoods == null || dataManager.allFoods.Count == 0) return;
-
-
-        // 현재는 첫번째 음식만 호출 => 추후 랜덤 혹은 조건화
-        FoodData food = dataManager.allFoods[0];    
-        
-        if (food == null) return;
-
-        CustomerAgent.SetOrder(food);
-        if (!orderManager.AddOrder(CustomerAgent)) return;
-
-        
-        AI.OrderComplete();
-
-
         //if (testComplete)
         //{
         //    AI.OrderComplete();

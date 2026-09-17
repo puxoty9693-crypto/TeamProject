@@ -1,12 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/01.Scripts/Core.meta
 guid: 23d5fbb9a5f6bf54eb4bc06f2adc59f9
 folderAsset: yes
 DefaultImporter:
-========
-guid: c4f045aa7e13a824eaef191ff0d14a01
-PrefabImporter:
->>>>>>>> a12efbf2d0b50c68e47bf1dc84b84a988277fd0f:Assets/01.Scripts/Ui/UIPrefabs/Canvas/FeedbackCanvas.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/CoreScene.unity.meta
 guid: ce5c2106950af754eb7a057f145ab9bd
 DefaultImporter:
-========
-guid: 3fcf2500d193ae74c88850edf42431e3
-PrefabImporter:
->>>>>>>> a12efbf2d0b50c68e47bf1dc84b84a988277fd0f:Assets/01.Scripts/Ui/UIPrefabs/Canvas/TileMap.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e3ef610e4d2ed4ea1ff89de4d7cc0d, type: 3}
   m_Name: Chef_Upgrade_
   m_EditorClassIdentifier: Assembly-CSharp::WorkerUpgradeData
-  role: 0
+  role: 1
   levels:
   - upgradeValue: 10
     upgradeGoldCost: 100
