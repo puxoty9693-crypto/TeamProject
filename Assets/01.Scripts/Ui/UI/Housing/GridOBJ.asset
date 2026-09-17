@@ -16,5 +16,5 @@ MonoBehaviour:
   - objID: Table
     size: {x: 6, y: 5}
     objPrefabs: {fileID: 3295521530288594644, guid: ffe2628a38975d24b9e9d5ef5ef6abf7, type: 3}
-    icon: {fileID: -748633625, guid: 15e9ec24a68b45e4886413efe4258fd1, type: 3}
+    icon: {fileID: -4284693573223781721, guid: f990723eed5c1504b88ceda72cbaedd4, type: 3}
     maxCount: -1
