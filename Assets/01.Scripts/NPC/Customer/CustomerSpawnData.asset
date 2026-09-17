@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawnData
   spawnInterval: 2
   possibleCustomers:
-  - {fileID: 11400000, guid: be0d12ce79feed84c8e28e03a157c084, type: 2}
+  - {fileID: 11400000, guid: 17cd1267ab8b2ab4ca97039e103275b9, type: 2}

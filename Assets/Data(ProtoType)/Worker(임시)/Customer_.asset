@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4131a834b9f7f40b2ff8dac60eb90a, type: 3}
+  m_Name: Customer_
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerData
+  npcId: 0
+  npcName: asd
+  npcImage: {fileID: 8224124334607301300, guid: 4f90b8e8cbc7cb54ba98518a8d8cd9ea, type: 3}
+  moveSpeed: 2
+  basePatience: 30
+  customerType: 0

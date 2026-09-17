@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GridOBJ
   m_EditorClassIdentifier: Assembly-CSharp::GridObjectData
   objects:
-  - objID: table
+  - objID: Table
     size: {x: 6, y: 5}
     objPrefabs: {fileID: 3295521530288594644, guid: ffe2628a38975d24b9e9d5ef5ef6abf7, type: 3}
     icon: {fileID: -4284693573223781721, guid: f990723eed5c1504b88ceda72cbaedd4, type: 3}

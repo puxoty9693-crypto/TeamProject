@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: TableUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::TableUpgradeData
   levels:
-  - tableCount: 2
-    upgradeGoldCost: 0
   - tableCount: 4
     upgradeGoldCost: 500
   - tableCount: 6
     upgradeGoldCost: 1000
   - tableCount: 8
-    upgradeGoldCost: 5000
-  - tableCount: 10
     upgradeGoldCost: 10000
+  - tableCount: 10
+    upgradeGoldCost: 50000

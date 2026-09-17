@@ -35930,7 +35930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HousingSystem
   housingGrid: {fileID: 3600470799583013654}
-  gridObjectData: {fileID: 11400000, guid: 63fead43ebd4e084cac9a13b36dc3628, type: 2}
+  gridObjectData: {fileID: 11400000, guid: d5005ca489766dd4ea8c57171b416a09, type: 2}
 --- !u!224 &2605478392813019229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41652,7 +41652,7 @@ MonoBehaviour:
   maxGridX: 17
   maxGridY: 3
   gridCellPrefab: {fileID: 7134645772710852307, guid: a5c8ac3486b36114b864cc0bfa213c53, type: 3}
-  gridObjectData: {fileID: 11400000, guid: 63fead43ebd4e084cac9a13b36dc3628, type: 2}
+  gridObjectData: {fileID: 11400000, guid: d5005ca489766dd4ea8c57171b416a09, type: 2}
   gridVisualRoot: {fileID: 7442712841814722431}
 --- !u!222 &3602101233600961549
 CanvasRenderer:
@@ -43869,7 +43869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &3837503156900808145
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55308,7 +55308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18134c0b849d6a3459aa6534d9b041a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaletteUI
-  gridObjectData: {fileID: 11400000, guid: 63fead43ebd4e084cac9a13b36dc3628, type: 2}
+  gridObjectData: {fileID: 11400000, guid: d5005ca489766dd4ea8c57171b416a09, type: 2}
   slots:
   - {fileID: 3768832809513165115}
   - {fileID: 8060353387936291463}

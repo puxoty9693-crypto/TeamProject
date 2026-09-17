@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 993986361497057434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.573, y: 1.25, z: 0}
+  m_LocalPosition: {x: 1.614, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4716693472611561526}
   - component: {fileID: 6120723130619211970}
   - component: {fileID: 6593424706058960932}
+  - component: {fileID: -6022483864601233566}
   m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
@@ -274,7 +275,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76d29432f8e6fb468269b902f361c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeatProvider
-  seats: []
+  seats:
+  - {fileID: 8601328513008272323}
+  - {fileID: 1501579874959948684}
+  - {fileID: 3505233557419044082}
+  - {fileID: 6716346143911612981}
+--- !u!208 &-6022483864601233566
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295521530288594644}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0630001, y: 2.062, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4636260577339564156
 GameObject:
   m_ObjectHideFlags: 0
