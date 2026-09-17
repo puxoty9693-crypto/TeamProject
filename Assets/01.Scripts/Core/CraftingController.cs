@@ -69,6 +69,16 @@ public class CraftingController : MonoBehaviour
 
         craftingSystem.StartRequestedCrafting();
     }
+    //레시피 선택
+    public bool SelectRecipe(RecipeData recipe)
+    {
+        if (craftingSystem == null)
+        {
+            Debug.LogWarning("CraftingSystem이 초기화되지 않았습니다.");
+            return false;
+        }
+        return craftingSystem.SelectRecipe(recipe);
+    }
 
     //갯수 초기화 버튼
     public void ClearCraftingRequest()

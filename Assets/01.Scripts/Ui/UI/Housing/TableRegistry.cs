@@ -4,16 +4,13 @@ using UnityEngine;
 // TableRegistry.Instance.GetTable(id) / GetAllTables() 사용으로 테이블 조회
 public class TableRegistry : MMSingleton<TableRegistry>
 {
-
-    [SerializeField] private List<string> tableIds = new();
     private Dictionary<string, Transform> tables = new();
-    
+    [SerializeField] private List<string> tableIds = new();
 
     public void Register(string tableId, Transform tableTransform)
     {
         tables[tableId] = tableTransform;
         tableIds.Add(tableId);
-
 
         EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount,this, TableManager.Instance.GetTotalCapacity());
     }
@@ -21,7 +18,6 @@ public class TableRegistry : MMSingleton<TableRegistry>
     public void Unregister(string tableId)
     {
         tables.Remove(tableId);
-
         tableIds.Remove(tableId);
 
         EventManager.Instance.PostNotification(EventType.OnCustomerMaxCount, this, TableManager.Instance.GetTotalCapacity());

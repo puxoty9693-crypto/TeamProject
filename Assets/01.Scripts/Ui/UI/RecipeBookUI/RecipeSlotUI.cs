@@ -27,7 +27,7 @@ public class RecipeSlotUI : MonoBehaviour
     public void UpdateRecipeUI(RecipeData data, bool isUnlocked, Action onUnlock)
     {
         foodimg.sprite = data.food.foodImage;
-        foodName.text = data.food.foodId;
+        foodName.text = data.food.foodName;
         sellPrice.text = $"°³´ç : {data.food.sellPrice}G";
         onUnlockClicked = onUnlock;
 

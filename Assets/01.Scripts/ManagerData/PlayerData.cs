@@ -212,7 +212,7 @@ public class PlayerData
     public IReadOnlyList<PlacedObjectSave> PlacedObjects => placedObjects;
 
     [SerializeField] private int nextTableIndex = 0; // 순차 id 카운터, 테이블 전용
-
+    [SerializeField] private List<int> freedTableIDs = new();
     public void AddPlacedObject(string objId, string instanceId, Vector2Int gridPos)
     {
         placedObjects.Add(new PlacedObjectSave { objId = objId, instanceId = instanceId, gridX = gridPos.x, gridY = gridPos.y });
@@ -235,8 +235,32 @@ public class PlayerData
 
     public string GetNextTableId()
     {
-        string id = $"table_{nextTableIndex}";
+        if (freedTableIDs.Count > 0)
+        {
+            freedTableIDs.Sort();
+            int reused = freedTableIDs[0];
+            freedTableIDs.RemoveAt(0);
+            return $"{ObjectIds.TableIdPrefix}{reused}";
+        }
+
+        string id = $"{ObjectIds.TableIdPrefix}{nextTableIndex}";
         nextTableIndex++;
         return id;
+    }
+
+    public void ReleaseTableID(string instanceID)
+    {
+        if (string.IsNullOrEmpty(instanceID))
+            return;
+        if (!instanceID.StartsWith(ObjectIds.TableIdPrefix))
+            return;
+        string number = instanceID.Substring(ObjectIds.TableIdPrefix.Length);
+        if (!int.TryParse(number, out int index))
+            return;
+
+        if(!freedTableIDs.Contains(index))
+        {
+            freedTableIDs.Add(index);
+        }
     }
 }
