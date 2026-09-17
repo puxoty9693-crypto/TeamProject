@@ -13,12 +13,7 @@ using UnityEngine.InputSystem;
 9. 음식 +1
 10. 남은 제작 수량 출력
 11. 재료 수급 테스트*/
-public class PrototypeManager : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+
 public class PrototypeManager : MonoBehaviour
 {
     FoodData testFood = null;
