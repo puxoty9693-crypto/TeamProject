@@ -9,7 +9,7 @@ public class CustomerAI : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private TestSeatManager seatManager;
+    [SerializeField] private SeatManager seatManager;
 
     [Header("Points")]
     //[SerializeField] private Transform orderingPoint;
@@ -36,7 +36,7 @@ public class CustomerAI : MonoBehaviour
 
   
     public Customer Customer => customer;
-    public TestSeatManager SeatManager => seatManager;
+    public SeatManager SeatManager => seatManager;
     //public Transform OrderingPoint => orderingPoint;
     //public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
     //public Transform PayingPoint => payingPoint;
@@ -133,7 +133,7 @@ public class CustomerAI : MonoBehaviour
 
     }
 
-    public void SetRuntimeRef(TestSeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
+    public void SetRuntimeRef(SeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
     {
         seatManager = seatManager_;
         payingPoint = payingPoint_;
@@ -227,7 +227,7 @@ public class CustomerAI : MonoBehaviour
 
         Debug.Log($"{customer.name} 인내심 종료");
 
-        // 주문 취소는 여기에
+        // 주문 취소 함수
 
         ChangeState(CustomerState.Leaving);
 

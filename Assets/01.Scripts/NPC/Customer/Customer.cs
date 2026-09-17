@@ -19,6 +19,8 @@ public class Customer : MonoBehaviour
     public AgentMovement Movement { get; private set; }
     public Transform ReservedSeat { get; private set; }
 
+    public FoodData OrderedFood { get; private set; }
+
     //public CustomerAI AI { get; private set; }
 
     //private SeatManager seatManager;      가칭 => 좌석 관리
@@ -167,6 +169,7 @@ public class Customer : MonoBehaviour
         ExitReason = CustomerExitReason.Normal;
 
         EndPatience();
+        OrderedFood = null;
 
         // 이하는 Seat 스크립트 필요. 할당한 자리 반환 및 인내심 초기화
         //ReleaseSeat();
@@ -194,4 +197,13 @@ public class Customer : MonoBehaviour
         ReservedSeat = null;
     }
 
+    public void SetOrder(FoodData food)
+    {
+        OrderedFood = food;
+    }
+
+    public void ClearOrder()
+    {
+        OrderedFood = null;
+    }
 }

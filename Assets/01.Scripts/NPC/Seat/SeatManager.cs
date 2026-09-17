@@ -1,6 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+
+using System.Collections.Generic;
+
+
 
 public class SeatManager : MonoBehaviour
 {
@@ -68,8 +70,10 @@ public class SeatManager : MonoBehaviour
         seat = null;
 
         if (customer == null) return false;
+        
+        if (!SyncSeats()) return false;
 
-        SyncSeats();
+        
 
         foreach(var pair in reservedSeats)
         {

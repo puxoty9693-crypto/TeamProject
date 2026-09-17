@@ -55,7 +55,7 @@ public class CustomerFlowTest : MonoBehaviour
         }
 
         // DineIn은 입장 전에 자리 선점
-        if (!customerAI.SeatManager.TryReserveSeat(
+        if (!customerAI.SeatManager.TryReserve(
                 customer,
                 out Transform seat))
         {

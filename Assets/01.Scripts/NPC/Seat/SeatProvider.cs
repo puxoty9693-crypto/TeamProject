@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SeatProvider : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class SeatProvider : MonoBehaviour
     {
         if (seats == null || seats.Length == 0)
         {
-            seats = GetComponentsInChildren<Transform>();
+            seats = GetComponentsInChildren<Transform>()
+                .Where(t => t != transform)
+                .ToArray();
         }
+
     }
 
 }
