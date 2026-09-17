@@ -40,7 +40,6 @@ public class PaymentSystem
             return false;
 
         int gold = GetPrice(food);
-
         curData.AddGold(gold);
 
         OnPaymentCompleted?.Invoke(food, gold);

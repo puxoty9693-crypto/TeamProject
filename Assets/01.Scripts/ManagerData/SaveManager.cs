@@ -1,12 +1,12 @@
-// ÇÃ·¹ÀÌ¾î ÁøÇà µ¥ÀÌÅÍ(PlayerData)¸¦ JSON ÆÄÀÏ·Î ÀúÀå/·Îµå
+ï»¿// í”Œë ˆì´ì–´ ì§„í–‰ ë°ì´í„°(PlayerData)ë¥¼ JSON íŒŒì¼ë¡œ ì €ì¥/ë¡œë“œ
 using System.IO;
 using UnityEngine;
 
 public class SaveManager : MMSingleton<SaveManager>
 {
-    public PlayerData CurrentData { get; private set; } // ÇöÀç ·ÎµåµÈ ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ
+    public PlayerData CurrentData { get; private set; } // í˜„ì¬ ë¡œë“œëœ í”Œë ˆì´ì–´ ë°ì´í„°
 
-    private string SavePath => Application.persistentDataPath + "/save.json"; // ¼¼ÀÌºê ÆÄÀÏ °æ·Î
+    private string SavePath => Application.persistentDataPath + "/save.json"; // ì„¸ì´ë¸Œ íŒŒì¼ ê²½ë¡œ
 
     [SerializeField] private float autoSaveInterval = 30f;
     private float autoSaveTimer;
@@ -27,21 +27,21 @@ public class SaveManager : MMSingleton<SaveManager>
         }
     }
 
-    // ÇöÀç µ¥ÀÌÅÍ¸¦ JSONÀ¸·Î ÀúÀå
+    // í˜„ì¬ ë°ì´í„°ë¥¼ JSONìœ¼ë¡œ ì €ì¥
     public void SaveGame()
     {
         string json = JsonUtility.ToJson(CurrentData, true);
         File.WriteAllText(SavePath, json);
     }
 
-    // ¼¼ÀÌºê ÆÄÀÏÀ» ÀĞ¾î PlayerData·Î ¹İÈ¯ (¾øÀ¸¸é »õ µ¥ÀÌÅÍ)
+    // ì„¸ì´ë¸Œ íŒŒì¼ì„ ì½ì–´ PlayerDataë¡œ ë°˜í™˜ (ì—†ìœ¼ë©´ ìƒˆ ë°ì´í„°)
     private PlayerData LoadGame()
     {
         if (!File.Exists(SavePath)) return new PlayerData();
         return JsonUtility.FromJson<PlayerData>(File.ReadAllText(SavePath));
     }
 
-    // ¾ÛÀÌ ¹é±×¶ó¿îµå·Î °¡°Å³ª Á¾·áµÉ ¶§µµ ÀúÀå (¸ğ¹ÙÀÏ ´ëºñ)
+    // ì•±ì´ ë°±ê·¸ë¼ìš´ë“œë¡œ ê°€ê±°ë‚˜ ì¢…ë£Œë  ë•Œë„ ì €ì¥ (ëª¨ë°”ì¼ ëŒ€ë¹„)
     private void OnApplicationPause(bool pause)
     {
         if (pause) SaveGame();
@@ -53,12 +53,12 @@ public class SaveManager : MMSingleton<SaveManager>
     }
 
     [ContextMenu("Delete Save")]
-    private void DeleteSave()
+    public void DeleteSave()
     {
         if (File.Exists(SavePath))
         {
             File.Delete(SavePath);
-            Debug.Log("¼¼ÀÌºê »èÁ¦ ¿Ï·á");
+            Debug.Log("ì„¸ì´ë¸Œ ì‚­ì œ ì™„ë£Œ");
         }
     }
 }
