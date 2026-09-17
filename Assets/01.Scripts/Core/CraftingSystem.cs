@@ -254,8 +254,6 @@ public class CraftingSystem
         if (!ConsumeIngredients(SelectedRecipe))
             return false;
 
-        EventManager.Instance.PostNotification(EventType.OnWarehouseChanged, null);
-
         CookingRecipe = SelectedRecipe;
         CookingProgress = 0f;
         IsCooking = true;
@@ -334,8 +332,6 @@ public class CraftingSystem
             completedRecipe.food.foodId,
             1
         );
-
-        EventManager.Instance.PostNotification(EventType.OnWarehouseChanged, null);
 
         CompletedCraftCount++;
         RemainingCraftCount--;
