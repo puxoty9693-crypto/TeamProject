@@ -37,14 +37,14 @@ public class RecipeBookUI : MonoBehaviour
 
     private void RefreshSlot(RecipeData data, RecipeSlotUI slot)
     {
-        bool isUnlocked = TestGameManager.Instance.RecipeUnlockSystem.IsUnlocked(data);
+        bool isUnlocked = GameManager.Instance.RecipeUnlockSystem.IsUnlocked(data);
         slot.UpdateRecipeUI(data, isUnlocked, () => TryUnlock(data, slot));
     }
   
 
     private void TryUnlock(RecipeData data, RecipeSlotUI slot)
     {
-        bool success = TestGameManager.Instance.recipeUnlockController.UnlockRecipe(data);
+        bool success = GameManager.Instance.recipeUnlockController.UnlockRecipe(data);
     
         if (!success)
         {

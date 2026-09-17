@@ -33,11 +33,11 @@ public class CarriageUI : MonoBehaviour
     {
         IngredientData ingredient = data.ingredient;
     
-        var unlockSystem = TestGameManager.Instance.ingredientUnlockSystem;
+        var unlockSystem = GameManager.Instance.ingredientUnlockSystem;
     
-        var upgradeSystem = TestGameManager.Instance.ingredientUpgradeSystem;
+        var upgradeSystem = GameManager.Instance.ingredientUpgradeSystem;
     
-        var supplySystem = TestGameManager.Instance.IngredientSupplySystem;
+        var supplySystem = GameManager.Instance.IngredientSupplySystem;
     
         if (!unlockSystem.IsUnlocked(ingredient))
         {
@@ -60,7 +60,7 @@ public class CarriageUI : MonoBehaviour
     }
     private void TryUnlock(CarriageIngredientData data, CarriageSlotUI slotUI)
     {
-        bool success = TestGameManager.Instance.ingredientUnlockSystem.Unlock(data.ingredient);
+        bool success = GameManager.Instance.ingredientUnlockSystem.Unlock(data.ingredient);
     
         if (!success)
         {
@@ -73,7 +73,7 @@ public class CarriageUI : MonoBehaviour
     }
     private void TryUpgrade(CarriageIngredientData data, CarriageSlotUI slotUI)
     {
-        bool success = TestGameManager.Instance.ingredientUpgradeSystem.Upgrade(data.ingredient);
+        bool success = GameManager.Instance.ingredientUpgradeSystem.Upgrade(data.ingredient);
         if (!success)
         {
             EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "업그레이드할 수 없습니다.");

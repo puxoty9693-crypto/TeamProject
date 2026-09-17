@@ -34,8 +34,8 @@ public class CookingRecipeInfo : MonoBehaviour
     private int maxAffordableCount = 1;
     private RecipeData currentData;
 
-    private CraftingController Controller => TestGameManager.Instance.craftingController;
-    private CraftingSystem System => TestGameManager.Instance.CraftingSystem;
+    private CraftingController Controller => GameManager.Instance.craftingController;
+    private CraftingSystem System => GameManager.Instance.CraftingSystem;
 
     private void Awake()
     {
