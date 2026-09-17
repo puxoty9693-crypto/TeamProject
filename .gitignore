@@ -102,3 +102,8 @@ InitTestScene*.unity*
 .p4config
 Packages/manifest.json
 Packages/manifest.json
+Assets/Resources/Asset/Casual Game UI Sound.meta
+Assets/Resources/Asset/Casual Game UI Sound/ITEM.meta
+/Assets/Resources/Asset/
+
+

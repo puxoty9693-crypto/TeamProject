@@ -33,6 +33,6 @@ public class IngredientWareHouse
                 stock.count
             );
         }
-
+        EventManager.Instance.PostNotification(EventType.OnWarehouseChanged, null);
     }
 }
