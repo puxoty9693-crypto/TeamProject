@@ -29,7 +29,7 @@ public class CarriageSlotUI : MonoBehaviour
         ingredientImage.color = new Color(0.5f, 0.5f, 0.5f, 1f); // 어둡게 표시
         nameText.text = data.ingredientName;
         levelText.text = "미해금";
-        statText.text = "-";
+        statText.text = "";
         costText.text = $"{GoldFormatter.Format(unlockCost)}G";
 
         if (actionButtonLabel != null)
