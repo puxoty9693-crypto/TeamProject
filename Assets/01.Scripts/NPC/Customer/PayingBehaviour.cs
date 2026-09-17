@@ -8,10 +8,19 @@ using UnityEngine;
 public class PayingBehaviour : CustomerBehaviour
 {
     public override CustomerState State => CustomerState.Paying;
+    private PaymentSystem paymentSystem;
 
     public override void Enter()
     {
         base.Enter();
+
+        if (paymentSystem == null) paymentSystem = GameManager.Instance.PaymentSystem;
+
+        if (CustomerAgent.OrderedFood == null) return;
+
+        paymentSystem.Pay(CustomerAgent.OrderedFood);
+        GameLogOnlyEditor.Log($"{CustomerAgent.name} 결제 완료");
+        AI.PayComplete();
 
         //if (AI.PayingPoint == null)
         //{

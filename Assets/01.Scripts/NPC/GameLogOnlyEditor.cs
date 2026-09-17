@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Diagnostics;
 
-public class GameLogOnlyEditor : MonoBehaviour
+public static class GameLogOnlyEditor
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Conditional("UNITY_EDITOR")]
+    public static void Log(object message)
     {
-        
+        UnityEngine.Debug.Log(message);
     }
 
-    // Update is called once per frame
-    void Update()
+    [Conditional("UNITY_EDITOR")]
+    public static void Log(object message, Object context)
     {
-        
+        UnityEngine.Debug.Log(message, context);
     }
 }

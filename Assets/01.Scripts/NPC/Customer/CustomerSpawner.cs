@@ -117,7 +117,7 @@ public class CustomerSpawner : MonoBehaviour
         customer.Initialize(data);
 
         // Scene reference 주입
-        ai.SetRuntimeRef(seatManager, payingPoint, exitPoint);
+        ai.SetRuntimeRef(seatManager, exitPoint);
 
         // 활성화하기 전에 입구에 배치
         customer.transform.position = spawnPoint.position;

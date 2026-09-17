@@ -14,6 +14,24 @@ public class OrderingBehaviour : CustomerBehaviour
     {
         base.Enter();
 
+        DataManager dataManager = DataManager.TryGetInstance();
+        OrderManager orderManager = OrderManager.TryGetInstance();
+
+        if (dataManager == null || orderManager == null) return;
+        if (dataManager.allFoods == null || dataManager.allFoods.Count == 0) return;
+
+        FoodData food = dataManager.allFoods[0];
+        
+        if (food == null) return;
+
+        CustomerAgent.SetOrder(food);
+
+        if (!orderManager.AddOrder(CustomerAgent)) return;
+
+        GameLogOnlyEditor.Log($"{CustomerAgent.name} 주문 : {food.foodName}");
+        AI.OrderComplete();
+
+
         //if (testComplete)
         //{
         //    AI.OrderComplete();
