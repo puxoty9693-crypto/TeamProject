@@ -25,9 +25,8 @@ public class OrderManager : MMSingleton<OrderManager>
     public Customer GetFirstOrder()
     {
         if (orderList.Count == 0) return null;
-        Customer customer = orderList[0];
-        orderList.RemoveAt(0);
-        return customer;
+        ;
+        return orderList[0];
     }
 
     //public Customer NextOrder()
