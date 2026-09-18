@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f67909b239d624eb80563f86d9d9ec, type: 3}
+  m_Script: {fileID: 11500000, guid: f31befbc14e3f0d439b347e1f173f203, type: 3}
   m_Name: CustomerSpawnData
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawnData
   spawnInterval: 2
