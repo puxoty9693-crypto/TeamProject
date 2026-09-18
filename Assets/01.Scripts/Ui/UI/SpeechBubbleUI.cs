@@ -32,7 +32,8 @@ public class SpeechBubbleUI : MonoBehaviour
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnSpeechBubble, OnSpeechBubble);
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnSpeechBubble, OnSpeechBubble);
     }
 }
 /* 
