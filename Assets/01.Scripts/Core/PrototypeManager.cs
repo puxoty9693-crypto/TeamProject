@@ -24,7 +24,7 @@ public class PrototypeManager : MonoBehaviour
 
     private void Awake()
     {
-        //SaveManager.Instance.DeleteSave();
+        SaveManager.Instance.DeleteSave();
     }
     void Start()
     {
