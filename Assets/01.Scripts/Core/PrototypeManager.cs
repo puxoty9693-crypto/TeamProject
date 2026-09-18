@@ -16,19 +16,37 @@ using UnityEngine.InputSystem;
 
 public class PrototypeManager : MonoBehaviour
 {
+    string ownMoneyText = "소지금: ";
+
+    float testDeltaTime = 0;
+
     FoodData testFood = null;
-    void Start()
+
+    private void Awake()
     {
         SaveManager.Instance.DeleteSave();
+    }
+    void Start()
+    {
+        
         testFood = DataManager.Instance.allFoods[0];
-        Vector3 pos = new();
-        for(int i = 0; i < 10; i++) Debug.Log(GameManager.Instance.PaymentSystem.Pay(testFood,pos));
+
+        SaveManager.Instance.CurrentData.AddGold(100000);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(SaveManager.Instance.CurrentData.Gold);
+        testDeltaTime += Time.deltaTime;
+        Debug.Log(ownMoneyText + SaveManager.Instance.CurrentData.Gold);
+
+        if(testDeltaTime > 5)
+        {
+            testDeltaTime -= 5;
+            IngredientBox box = GameManager.Instance.ingredientBoxController.TakeBox();
+            GameManager.Instance.IngredientWareHouse.ReceiveBox(box);
+            Debug.Log("박스 수급 완료");
+        }
 
         if (Keyboard.current.f5Key.IsPressed())
         {

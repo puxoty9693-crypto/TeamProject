@@ -48,7 +48,7 @@ public class CraftingSystem
     public int RemainingCraftCount { get; private set; }
 
     // 처음 요청한 전체 제작 횟수
-    public int RequestedCraftCount { get; private set; }
+    public int RequestedCraftCount { get; private set; } = 0;
 
     // 현재까지 완료한 제작 횟수
     public int CompletedCraftCount { get; private set; }
@@ -172,7 +172,7 @@ public class CraftingSystem
         RemainingCraftCount = RequestedCraftCount;
         CompletedCraftCount = 0;
 
-        RequestedCraftCount = 0;
+        RequestedCraftCount = 1;
 
         OnRequestedCraftCountChanged?.Invoke(
             RequestedCraftCount
