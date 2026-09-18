@@ -17,6 +17,8 @@ public class OrderingBehaviour : CustomerBehaviour
         DataManager dataManager = DataManager.TryGetInstance();
         OrderManager orderManager = OrderManager.TryGetInstance();
 
+        if (!CustomerAgent.IsPatienceActive) CustomerAgent.BeginPatience();
+
         if (dataManager == null || orderManager == null) return;
         if (dataManager.allFoods == null || dataManager.allFoods.Count == 0) return;
 
