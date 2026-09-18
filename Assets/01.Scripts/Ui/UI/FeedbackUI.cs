@@ -15,12 +15,13 @@ public class FeedbackUI : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnFeedbackMessage, OnFeedbackMessage);
+            EventManager.Instance.AddListener(EventType.OnFeedbackMessage, OnFeedbackMessage);
         canvasGroup.alpha = 0f;
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnFeedbackMessage, OnFeedbackMessage);
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnFeedbackMessage, OnFeedbackMessage);
         currentSequence?.Kill();
     }
     private void OnFeedbackMessage(Component sender, object param)

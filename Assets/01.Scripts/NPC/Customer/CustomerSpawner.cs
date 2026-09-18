@@ -38,7 +38,8 @@ public class CustomerSpawner : MonoBehaviour
     private void OnDisable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned -= HandleCustomerReturned;
-        EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
     }
 
     private void Update()

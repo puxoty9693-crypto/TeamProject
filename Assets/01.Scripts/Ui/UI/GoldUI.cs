@@ -8,12 +8,14 @@ public class GoldUI : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnChangeGold, OnChangeGold);
+
+            EventManager.Instance.AddListener(EventType.OnChangeGold, OnChangeGold);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnChangeGold, OnChangeGold);
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnChangeGold, OnChangeGold);
     }
 
     private void OnChangeGold(Component sender, object param)

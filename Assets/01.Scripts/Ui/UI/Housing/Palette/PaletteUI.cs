@@ -14,7 +14,8 @@ public class PaletteUI : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnHousingChanged, OnHousingChanged);
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnHousingChanged, OnHousingChanged);
     }
 
     private void OnHousingChanged(Component sender, object param) => Refresh();

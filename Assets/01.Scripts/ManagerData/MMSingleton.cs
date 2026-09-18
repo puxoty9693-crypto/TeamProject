@@ -31,6 +31,8 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
     {
         if (_instance == null)
         {
+            
+
             GameObject obj = new GameObject(typeof(T).Name);
             obj.name = typeof(T).Name + "_AutoCreated";
             _instance = obj.AddComponent<T>();
@@ -42,6 +44,7 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
     {
         if (_instance == null)
         {
+            Debug.LogWarning($"[{typeof(T).Name}] 자동 생성됨! 호출 스택:\n{System.Environment.StackTrace}");
             GameObject obj = new GameObject(typeof(T).Name);
             obj.name = typeof(T).Name + "_AutoCreated";
             _instance = obj.AddComponent<T>();
