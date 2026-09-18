@@ -76,7 +76,7 @@ public class CookingRecipeInfo : MonoBehaviour
     public void UpdateCookingInfo(RecipeData data)
     {
         currentData = data;
-        currentCount = 0;
+        currentCount = 1;
         maxAffordableCount = CalculateMaxAffordable(data);
 
         ingredient1Image1.sprite = data.food.requiredIngredients[0].ingredient.ingredientImage;
