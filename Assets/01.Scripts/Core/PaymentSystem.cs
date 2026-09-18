@@ -34,7 +34,7 @@ public class PaymentSystem
         return food.goldPerSale;
     }
 
-    public bool Pay(FoodData food)
+    public bool Pay(FoodData food, Vector3 pos)
     {
         if (!CanPay(food))
             return false;
@@ -43,7 +43,7 @@ public class PaymentSystem
         curData.AddGold(gold);
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, curData.Gold);
-        EventManager.Instance.PostNotification(EventType.OnGetGold, null);
+        EventManager.Instance.PostNotification(EventType.OnGetGold, null, pos);
 
         OnPaymentCompleted?.Invoke(food, gold);
         OnGoldEarned?.Invoke(gold);

@@ -31,11 +31,14 @@ public class CustomerSpawner : MonoBehaviour
     private void OnEnable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned += HandleCustomerReturned;
+        EventManager.Instance.AddListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
+        SyncMaxActiveCustomers();
     }
 
     private void OnDisable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned -= HandleCustomerReturned;
+        EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
     }
 
     private void Update()
@@ -114,7 +117,7 @@ public class CustomerSpawner : MonoBehaviour
         customer.Movement.ResetMovement(spawnPoint.position);
 
         activeCustomers.Add(customer);
-
+        EventManager.Instance.PostNotification(EventType.OnCustomerCount, this, activeCustomers.Count);////손님입장시 ui반영 이벤트호출
         //Debug.Log(
         //    $"Customer Spawn : {customer.name}" +
         //    $" / Seat : {seat.name}" +
@@ -154,6 +157,7 @@ public class CustomerSpawner : MonoBehaviour
 
         if (!activeCustomers.Remove(customer)) return;
 
+        EventManager.Instance.PostNotification(EventType.OnCustomerCount, this, activeCustomers.Count);//손님퇴장시 ui반영 이벤트호출
         GameLogOnlyEditor.Log($"Customer 반환 / 활성화 : {activeCustomers.Count}",gameObject);
     }
 
@@ -167,5 +171,15 @@ public class CustomerSpawner : MonoBehaviour
     public void SetMaxActiveCustomers(int value)
     {
         maxActiveCustomers = Mathf.Max(0, value);
+    }
+    // 최대 수까지 스폰가능하게 설정
+    private void OnTableCapacityChanged(Component sender, object param)
+    {
+        SyncMaxActiveCustomers();
+    }
+
+    private void SyncMaxActiveCustomers()
+    {
+        SetMaxActiveCustomers(TableManager.Instance.GetTotalCapacity());
     }
 }

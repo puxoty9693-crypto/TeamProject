@@ -221,12 +221,19 @@ public class NPCPool : MonoBehaviour
 
     private void OnValidate()
     {
+        //에디터키자마자 에러떠서 추가
+        if (EditorApplication.isUpdating)
+            return;
         RefreshCustomerPrefabs();
     }
 
     [ContextMenu("Refresh Customer Prefabs")]
     private void RefreshCustomerPrefabs()
     {
+        //에디터키자마자 에러떠서 추가2차방어벽
+        if (EditorApplication.isUpdating)
+            return;
+
         if (string.IsNullOrWhiteSpace(customerPrefabFolder))
             return;
 
