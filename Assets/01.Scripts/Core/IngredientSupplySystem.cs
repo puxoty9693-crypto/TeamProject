@@ -82,6 +82,7 @@ public class IngredientSupplySystem
 
             SupplyIngredient(ingredient);
         }
+
     }
 
     private void SupplyIngredient(IngredientData ingredient)

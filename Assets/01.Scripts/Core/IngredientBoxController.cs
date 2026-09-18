@@ -13,7 +13,7 @@ public class IngredientBoxController : MonoBehaviour
 
     public IngredientBox ReturnBox()
     {
-        return currentBox; 
+        return currentBox;
     }
 
     // NPC가 현재 상자를 가져간다.
@@ -36,5 +36,6 @@ public class IngredientBoxController : MonoBehaviour
             currentBox = new IngredientBox();
 
         currentBox.AddIngredient(ingredient, amount);
+        Debug.Log(ingredient + "추가");
     }
 }

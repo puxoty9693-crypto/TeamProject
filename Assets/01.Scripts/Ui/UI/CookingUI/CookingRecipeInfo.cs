@@ -1,10 +1,10 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CookingRecipeInfo : MonoBehaviour
 {
-    [Header ("Àç·á¿ÍÀ½½ÄÁ¤º¸")]
+    [Header ("ì¬ë£Œì™€ìŒì‹ì •ë³´")]
     [SerializeField] Image ingredient1Image1;
     [SerializeField] Image ingredient1Image2;
     [SerializeField] Image foodImage;
@@ -12,19 +12,19 @@ public class CookingRecipeInfo : MonoBehaviour
     [SerializeField] TextMeshProUGUI ingredient2Count;
     
 
-    [Header("¼ıÀÚ¾÷´Ù¿î")]
+    [Header("ìˆ«ìì—…ë‹¤ìš´")]
     [SerializeField] Button plus1Btn;
     [SerializeField] Button plus5Btn;
     [SerializeField] Button plus10Btn;
     [SerializeField] Button clearCountBtn;
     [SerializeField] TextMeshProUGUI countText;
 
-    [Header("¿ä¸® ¹öÆ°")]
+    [Header("ìš”ë¦¬ ë²„íŠ¼")]
     [SerializeField] Button cookingButton;
     [SerializeField] GameObject selectionPanel;
 
-    [Header("¿ä¸® ÁøÇàÁß")]
-    [SerializeField] GameObject cookingPanel; // Ãë¼Ò¹öÆ°ÀÖ´Â ÆÇ³¾
+    [Header("ìš”ë¦¬ ì§„í–‰ì¤‘")]
+    [SerializeField] GameObject cookingPanel; // ì·¨ì†Œë²„íŠ¼ìˆëŠ” íŒë‚¼
     [SerializeField] TextMeshProUGUI previewTimeText;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI remainingText;
@@ -70,13 +70,13 @@ public class CookingRecipeInfo : MonoBehaviour
             return;
 
         float remaining = Controller.CookingRecipe.cookingTime * (1f - Controller.CookingProgressRatio);
-        timerText.text = $"{remaining:0.0}ÃÊ";
-        remainingText.text = $"³²Àº ¿ä¸® : {Controller.RemainingCraftCount}°³";
+        timerText.text = $"{remaining:0.0}ì´ˆ";
+        remainingText.text = $"ë‚¨ì€ ìš”ë¦¬ : {Controller.RemainingCraftCount}ê°œ";
     }
     public void UpdateCookingInfo(RecipeData data)
     {
         currentData = data;
-        currentCount = 0;
+        currentCount = 1;
         maxAffordableCount = CalculateMaxAffordable(data);
 
         ingredient1Image1.sprite = data.food.requiredIngredients[0].ingredient.ingredientImage;
@@ -93,7 +93,7 @@ public class CookingRecipeInfo : MonoBehaviour
         int newCount = Mathf.Clamp(currentCount + count, 1, maxAffordableCount);
         if (newCount == currentCount && count > 0)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "´õ ¸¸µé ¼ö ¾ø½À´Ï´Ù.");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "ë” ë§Œë“¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
         currentCount = newCount;
@@ -140,7 +140,7 @@ public class CookingRecipeInfo : MonoBehaviour
 
         if(!selected)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "·¹½ÃÇÇ¸¦ ¼±ÅÃÇÒ ¼ö ¾ø½À´Ï´Ù");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "ë ˆì‹œí”¼ë¥¼ ì„ íƒí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
             return;
         }
 
@@ -150,7 +150,7 @@ public class CookingRecipeInfo : MonoBehaviour
         if (!success)
         {
             Controller.ClearCraftingRequest();
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "Àç·á°¡ ºÎÁ·ÇÕ´Ï´Ù");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "ì¬ë£Œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤");
         }
     }
 
