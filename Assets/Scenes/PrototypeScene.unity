@@ -60165,6 +60165,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862132803}
   m_CullTransparentMesh: 1
+--- !u!4 &1863960163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6312866430090882111, guid: e1cd6e3e50ee7394e82bc1c6a7b07e3b, type: 3}
+  m_PrefabInstance: {fileID: 682826047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867569725
 GameObject:
   m_ObjectHideFlags: 0
@@ -61366,6 +61371,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925338342}
   m_CullTransparentMesh: 1
+--- !u!4 &1934585720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7557285517659045573, guid: e1cd6e3e50ee7394e82bc1c6a7b07e3b, type: 3}
+  m_PrefabInstance: {fileID: 682826047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1935210322
 GameObject:
   m_ObjectHideFlags: 0
@@ -68678,6 +68688,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5117003705980093132, guid: d38224c330d48ec48a6a82e7d0511760, type: 3}
+      propertyPath: dumpPoint
+      value: 
+      objectReference: {fileID: 1863960163}
+    - target: {fileID: 5117003705980093132, guid: d38224c330d48ec48a6a82e7d0511760, type: 3}
+      propertyPath: pickUpPoint
+      value: 
+      objectReference: {fileID: 1934585720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -103944,6 +103962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb952d83a7cabc4fba59968bbfde3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  bgmSource: {fileID: 0}
+  bgmFadeDuration: 1
+  bgmData: {fileID: 0}
+  bgmVolume: 1
+  sfxVolume: 1
 --- !u!212 &8289639177393977711
 SpriteRenderer:
   serializedVersion: 2
