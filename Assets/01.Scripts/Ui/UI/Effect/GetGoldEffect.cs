@@ -21,6 +21,7 @@ public class GetGoldEffect : MonoBehaviour
     }
     private void OnDisable()
     {
-        EventManager.Instance.RemoveListener(EventType.OnGetGold, PlayGoldEffect);
+        if (EventManager.HasInstance)
+            EventManager.Instance.RemoveListener(EventType.OnGetGold, PlayGoldEffect);
     }
 }

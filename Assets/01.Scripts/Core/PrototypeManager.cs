@@ -16,7 +16,7 @@ using UnityEngine.InputSystem;
 
 public class PrototypeManager : MonoBehaviour
 {
-    string ownMoneyText = "소지금: ";
+   // string ownMoneyText = "소지금: ";
 
     float testDeltaTime = 0;
 
