@@ -169,6 +169,7 @@ public class Customer : MonoBehaviour
         ExitReason = CustomerExitReason.Normal;
 
         EndPatience();
+        ClearOrder();
 
         // 이하는 Seat 스크립트 필요. 할당한 자리 반환 및 인내심 초기화
         //ReleaseSeat();

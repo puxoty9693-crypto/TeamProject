@@ -38,7 +38,6 @@ public class PrototypeManager : MonoBehaviour
     void Update()
     {
         testDeltaTime += Time.deltaTime;
-        Debug.Log(ownMoneyText + SaveManager.Instance.CurrentData.Gold);
 
         if(testDeltaTime > 5)
         {
