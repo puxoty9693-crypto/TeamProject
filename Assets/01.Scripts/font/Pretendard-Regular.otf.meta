@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb5f4bfadb7c32b45bbc4f8b2dea7036
+guid: eda1a6e2ea201ff4e85767877af53f07
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Batang
+  - Pretendard
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
