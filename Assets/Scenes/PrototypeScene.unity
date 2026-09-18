@@ -22511,6 +22511,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 682826048}
     - target: {fileID: 2871766376380109644, guid: 1a8e9d9075283444299da46d9b349283, type: 3}
+      propertyPath: spawnData
+      value: 
+      objectReference: {fileID: 11400000, guid: e117d6f2ed7583d46a0fc7cc0b84ff05, type: 2}
+    - target: {fileID: 2871766376380109644, guid: 1a8e9d9075283444299da46d9b349283, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 682826049}
