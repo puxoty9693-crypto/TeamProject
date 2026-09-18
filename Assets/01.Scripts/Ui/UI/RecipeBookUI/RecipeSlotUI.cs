@@ -16,6 +16,7 @@ public class RecipeSlotUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI foodName;
     [SerializeField] TextMeshProUGUI sellPrice;
     [SerializeField] TextMeshProUGUI unlockCost;
+    [SerializeField] TextMeshProUGUI buttonText;
     [SerializeField] Button unlockButton;
 
     private Action onUnlockClicked;
@@ -46,11 +47,13 @@ public class RecipeSlotUI : MonoBehaviour
         if (isUnlocked)
         {
             unlockCost.text = "해금 완료";
+            buttonText.text = "해금 완료";
             unlockButton.interactable = false;
         }
         else if (!ingredientsReady)
         {
             unlockCost.text = "재료 미해금";
+            buttonText.text = "해금 불가";
             unlockButton.interactable = false;
         }
         else

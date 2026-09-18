@@ -13,14 +13,14 @@ public class RecipeBookUI : MonoBehaviour
     }
     public void SetRecipes()
     {
-        List<RecipeData> recipes = DataManager.Instance.allRecipes;//
+        List<RecipeData> recipes = DataManager.Instance.allRecipes;
 
         for (int i = 0; i < pages.Count; i++)
         {
             RecipeSlotUI[] slots = pages[i].GetComponentsInChildren<RecipeSlotUI>(true);
             for(int j = 0; j < slots.Length; j++)
             {
-                int recipeIndex = i * slotsPerPage + j;//
+                int recipeIndex = i * slotsPerPage + j;
 
                 if(recipeIndex < recipes.Count)
                 {
