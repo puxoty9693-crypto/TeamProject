@@ -23,7 +23,7 @@ public class PaymentSystem
         if (food == null)
             return false;
 
-        return food.goldPerSale > 0;
+        return food.sellPrice > 0;
     }
 
     public int GetPrice(FoodData food)
@@ -31,14 +31,11 @@ public class PaymentSystem
         if (food == null)
             return 0;
 
-        return food.goldPerSale;
+        return food.sellPrice;
     }
 
     public bool Pay(FoodData food, Vector3 pos)
     {
-        if (!CanPay(food))
-            return false;
-
         int gold = GetPrice(food);
         curData.AddGold(gold);
 

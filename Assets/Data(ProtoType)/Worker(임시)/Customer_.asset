@@ -15,6 +15,6 @@ MonoBehaviour:
   npcId: 0
   npcName: asd
   npcImage: {fileID: 8224124334607301300, guid: 4f90b8e8cbc7cb54ba98518a8d8cd9ea, type: 3}
-  moveSpeed: 2
+  moveSpeed: 5
   basePatience: 30
   customerType: 0
