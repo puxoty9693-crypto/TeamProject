@@ -28,7 +28,6 @@ public class PrototypeManager : MonoBehaviour
     }
     void Start()
     {
-        
         testFood = DataManager.Instance.allFoods[0];
 
         SaveManager.Instance.CurrentData.AddGold(100000);
