@@ -47,7 +47,8 @@ public class RecipeSlotUI : MonoBehaviour
         if (isUnlocked)
         {
             unlockCost.text = "해금 완료";
-            buttonText.text = "해금 완료";
+            buttonText.text = "";
+            unlockButton.image.color = Color.white.WithAlpha(0f);
             unlockButton.interactable = false;
         }
         else if (!ingredientsReady)
@@ -58,6 +59,7 @@ public class RecipeSlotUI : MonoBehaviour
         }
         else
         {
+            buttonText.text = "해금 가능";
             unlockCost.text = $"{GoldFormatter.Format(data.unlockGoldCost)}G";
             unlockButton.interactable = true;
         }

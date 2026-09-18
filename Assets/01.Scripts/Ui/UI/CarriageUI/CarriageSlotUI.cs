@@ -55,6 +55,8 @@ public class CarriageSlotUI : MonoBehaviour
         if (isMaxLevel)
         {
            costText.text = "MAX";
+           actionButton.image.color = Color.white.WithAlpha(0f);
+           actionButtonLabel.text = "";
            actionButton.interactable = false;
         }
         
