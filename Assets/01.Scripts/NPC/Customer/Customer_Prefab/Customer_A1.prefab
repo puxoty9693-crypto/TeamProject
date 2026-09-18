@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 5589711429383774650}
   - component: {fileID: 7546677943523904078}
   - component: {fileID: 8168439010111554207}
+  - component: {fileID: 6131807788506600649}
+  - component: {fileID: 2668060782613075379}
   m_Layer: 7
   m_Name: Customer_A1
   m_TagString: Untagged
@@ -163,7 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerAI
   seatManager: {fileID: 0}
   exitPoint: {fileID: 0}
-  payingPoint: {fileID: 0}
 --- !u!50 &8085413095259572302
 Rigidbody2D:
   serializedVersion: 5
@@ -252,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fd4c08286dac041bda06befcbd630a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrderingBehaviour
-  testComplete: 1
 --- !u!114 &5589711429383774650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,3 +289,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dcfdd772c040249805f7cde427ee3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeavingBehaviour
+--- !u!114 &6131807788506600649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116590151409176836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e85e2c75bacc414580423cc1ddd253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EatingBehaviour
+--- !u!114 &2668060782613075379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116590151409176836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ed8a30af7d1a47a2485d6ccca37a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PayingBehaviour

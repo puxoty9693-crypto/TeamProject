@@ -11,9 +11,9 @@ public class SoundManager : MMSingleton<SoundManager>
     private BgmType currentBgmType;                          // 현재 재생 중인 BGM 타입 (중복 재생 방지용)
 
 
-    [SerializeField] private AudioSource sfxSourcePrefab;    // SFX 재생용 프리팹 (AudioSource만 붙어있는 오브젝트)
-    [SerializeField] private int sfxPoolSize = 10;           // 동시에 재생 가능한 SFX 개수
-    private List<AudioSource> sfxPool = new List<AudioSource>();
+   // [SerializeField] private AudioSource sfxSourcePrefab;    // SFX 재생용 프리팹 (AudioSource만 붙어있는 오브젝트)
+   // [SerializeField] private int sfxPoolSize = 10;           // 동시에 재생 가능한 SFX 개수
+   // private List<AudioSource> sfxPool = new List<AudioSource>();
 
     [Range(0f, 1f)] public float bgmVolume = 1f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
@@ -21,7 +21,7 @@ public class SoundManager : MMSingleton<SoundManager>
     protected override void Awake()
     {
         base.Awake();
-        InitSfxPool();
+       // InitSfxPool();
     }
 
     private void Start()
@@ -29,26 +29,26 @@ public class SoundManager : MMSingleton<SoundManager>
         LoadVolumeSettings();
     }
 
-    // SFX 풀 초기화
-    private void InitSfxPool() 
-    {
-        for (int i = 0; i < sfxPoolSize; i++) 
-        {
-            AudioSource source = Instantiate(sfxSourcePrefab, transform);
-            source.playOnAwake = false;
-            sfxPool.Add(source);
-        }
-    }
-
-    // 풀에서 재생 중이 아닌 오디오소스 하나 찾기(없으면 가장 오래된 걸 사용)
-    private AudioSource GetAvailableSfxSource() 
-    {
-        foreach (var source in sfxPool) 
-        {
-            if (!source.isPlaying) return source;
-        }
-        return sfxPool[0];
-    }
+   // // SFX 풀 초기화
+   // private void InitSfxPool() 
+   // {
+   //     for (int i = 0; i < sfxPoolSize; i++) 
+   //     {
+   //         AudioSource source = Instantiate(sfxSourcePrefab, transform);
+   //         source.playOnAwake = false;
+   //         sfxPool.Add(source);
+   //     }
+   // }
+   //
+   // // 풀에서 재생 중이 아닌 오디오소스 하나 찾기(없으면 가장 오래된 걸 사용)
+   // private AudioSource GetAvailableSfxSource() 
+   // {
+   //     foreach (var source in sfxPool) 
+   //     {
+   //         if (!source.isPlaying) return source;
+   //     }
+   //     return sfxPool[0];
+   // }
 
     // BGM(타입으로 재생)
     public void  PlayBGM(BgmType type, bool loop = true) 
@@ -104,14 +104,14 @@ public class SoundManager : MMSingleton<SoundManager>
     }
 
     //SFX
-    public void PlaySFX(AudioClip clip) 
-    {
-        if (clip == null) return;
-        AudioSource source = GetAvailableSfxSource();
-        source.clip = clip;
-        source.volume = sfxVolume;
-        source.Play();
-    }
+//    public void PlaySFX(AudioClip clip) 
+//    {
+//        if (clip == null) return;
+//        AudioSource source = GetAvailableSfxSource();
+//        source.clip = clip;
+//        source.volume = sfxVolume;
+//        source.Play();
+//    }
 
     // 볼륨 조절 UI
     public void SetBgmVolume(float volume) 

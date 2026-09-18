@@ -9,14 +9,14 @@ public class CustomerAI : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private TestSeatManager seatManager;
+    [SerializeField] private SeatManager seatManager;
 
     [Header("Points")]
     //[SerializeField] private Transform orderingPoint;
     //[SerializeField] private Transform takeoutWaitingPoint;
 
     [SerializeField] private Transform exitPoint;
-    [SerializeField] private Transform payingPoint;
+    //[SerializeField] private Transform payingPoint;
 
 
 
@@ -36,7 +36,8 @@ public class CustomerAI : MonoBehaviour
 
   
     public Customer Customer => customer;
-    public TestSeatManager SeatManager => seatManager;
+    public SeatManager SeatManager => seatManager;
+    
     //public Transform OrderingPoint => orderingPoint;
     //public Transform TakeoutWaitingPoint => takeoutWaitingPoint;
     //public Transform PayingPoint => payingPoint;
@@ -45,8 +46,7 @@ public class CustomerAI : MonoBehaviour
         customer = GetComponent<Customer>();
         movement = GetComponent<AgentMovement>();
 
-        CustomerBehaviour[] foundBehaviours =
-            GetComponents<CustomerBehaviour>();
+        CustomerBehaviour[] foundBehaviours = GetComponents<CustomerBehaviour>();
 
         foreach (CustomerBehaviour behaviour in foundBehaviours)
         {
@@ -133,10 +133,10 @@ public class CustomerAI : MonoBehaviour
 
     }
 
-    public void SetRuntimeRef(TestSeatManager seatManager_, Transform payingPoint_, Transform exitPoint_)
+    public void SetRuntimeRef(SeatManager seatManager_, Transform exitPoint_)
     {
         seatManager = seatManager_;
-        payingPoint = payingPoint_;
+        
         exitPoint = exitPoint_;
     }
 
@@ -145,6 +145,10 @@ public class CustomerAI : MonoBehaviour
     {
         if (customer.State != CustomerState.Paying) return;
         customer.SetExitReason(CustomerExitReason.Normal);
+
+        ReleaseSeat();
+        customer.ClearOrder();
+
 
         ChangeState(CustomerState.Leaving);
     }

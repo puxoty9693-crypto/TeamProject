@@ -2,7 +2,16 @@
 
 public class ServerBehaviour : WorkerBehaviour
 {
+    [SerializeField] private Transform pickUpPoint;
+    [SerializeField] private Transform dumpPoint;
+    
+    
     public override WorkerRole Role => WorkerRole.Server;
+    private OrderManager orderManager;
+    private FoodService foodService;
+    
+
+
 
     public ServerState State { get; private set; }
     public bool IsReady => IsActive && State == ServerState.Idle;
@@ -12,7 +21,8 @@ public class ServerBehaviour : WorkerBehaviour
     public override void Enter()
     {
         base.Enter();
-
+        orderManager = OrderManager.TryGetInstance();
+        foodService = GameManager.Instance.FoodService;
         State = ServerState.Idle;
         currentRequest = null;
 
@@ -80,14 +90,51 @@ public class ServerBehaviour : WorkerBehaviour
 
     public override void Tick()
     {
-        if (currentRequest == null) return;
-        if (!currentRequest.IsCancelled) return;
-        if(State == ServerState.Delivery)
+
+
+        if (currentRequest != null)
         {
-            State = ServerState.Cancelled;
-            SetTarget(currentRequest.DumpPoint);
+            if (!currentRequest.IsCancelled) return;
+            if (State == ServerState.Delivery)
+            {
+                State = ServerState.Cancelled;
+                SetTarget(currentRequest.DumpPoint);
+            }
+            return;
+        }
+
+        if (!IsReady) return;
+
+        TryNextOrder();
+        
+    }
+
+    private void TryNextOrder()
+    {
+        
+        if (orderManager == null) return;
+
+        Customer customer = orderManager.GetFirstOrder();
+        if (customer == null) return;
+
+        if (customer.State != CustomerState.WaitingFood|| customer.OrderedFood == null || customer.ReservedSeat == null)
+        {
+            orderManager.RemoveOrder(customer);
+            return;
         }
         
+        
+        if (!foodService.HasFood(customer.OrderedFood)) return;
+
+
+        ServingRequest request = new ServingRequest(pickUpPoint, customer.ReservedSeat, dumpPoint, () => foodService.TakeFood(customer.OrderedFood), () => customer.AI.FoodReceived(), 
+            () =>{
+            if (customer.State == CustomerState.WaitingFood) orderManager.AddOrder(customer);
+        });
+
+        if (!TryServing(request)) return;
+
+        orderManager.RemoveOrder(customer);
     }
 
 

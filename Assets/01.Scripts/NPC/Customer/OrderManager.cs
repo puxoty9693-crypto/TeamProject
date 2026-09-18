@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class OrderManager : MonoBehaviour
+public class OrderManager : MMSingleton<OrderManager>
 {
     private readonly List<Customer> orderList = new();
 
@@ -25,9 +25,8 @@ public class OrderManager : MonoBehaviour
     public Customer GetFirstOrder()
     {
         if (orderList.Count == 0) return null;
-        Customer customer = orderList[0];
-        orderList.RemoveAt(0);
-        return customer;
+        ;
+        return orderList[0];
     }
 
     //public Customer NextOrder()

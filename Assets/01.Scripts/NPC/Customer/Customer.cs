@@ -18,7 +18,8 @@ public class Customer : MonoBehaviour
     public CustomerTraitSet Traits { get; private set; }
     public AgentMovement Movement { get; private set; }
     public Transform ReservedSeat { get; private set; }
-
+    public FoodData OrderedFood { get; private set; }
+    public CustomerAI AI { get; private set; }
     //public CustomerAI AI { get; private set; }
 
     //private SeatManager seatManager;      가칭 => 좌석 관리
@@ -32,9 +33,10 @@ public class Customer : MonoBehaviour
     private void Awake()
     {
         Movement = GetComponent<AgentMovement>();
+        AI = GetComponent<CustomerAI>();
         Modifier = new CustomerModifier();
         Traits = new CustomerTraitSet();
-        //AI = GetComponent<CustomerAI>();
+        
     }
 
     /// <summary>
@@ -192,6 +194,16 @@ public class Customer : MonoBehaviour
     public void ClearSeat()
     {
         ReservedSeat = null;
+    }
+
+    public void SetOrder(FoodData food)
+    {
+        OrderedFood = food;
+    }
+
+    public void ClearOrder()
+    {
+        OrderedFood = null;
     }
 
 }
