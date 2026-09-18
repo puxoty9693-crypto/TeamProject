@@ -338,6 +338,11 @@ public class CraftingSystem
         CompletedCraftCount++;
         RemainingCraftCount--;
 
+        // 현재 제작 상태 초기화
+        CookingRecipe = null;
+        CookingProgress = 0f;
+        IsCooking = false;
+
         OnCookingCompleted?.Invoke(
             completedRecipe
         );
@@ -346,10 +351,6 @@ public class CraftingSystem
             RemainingCraftCount
         );
 
-        // 현재 제작 상태 초기화
-        CookingRecipe = null;
-        CookingProgress = 0f;
-        IsCooking = false;
 
         // 남은 제작 횟수가 있으면 다음 요리 시작
         if (RemainingCraftCount > 0)
