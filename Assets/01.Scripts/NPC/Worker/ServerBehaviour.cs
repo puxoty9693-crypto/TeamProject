@@ -8,8 +8,8 @@ public class ServerBehaviour : WorkerBehaviour
     
     public override WorkerRole Role => WorkerRole.Server;
     private OrderManager orderManager;
+
     private FoodService foodService;
-    
 
 
 
@@ -20,9 +20,11 @@ public class ServerBehaviour : WorkerBehaviour
 
     public override void Enter()
     {
+        GameLogOnlyEditor.Log("Server Enter");
         base.Enter();
-        orderManager = OrderManager.TryGetInstance();
-        foodService = GameManager.Instance.FoodService;
+
+        TryInitializeService();
+
         State = ServerState.Idle;
         currentRequest = null;
 
@@ -88,8 +90,28 @@ public class ServerBehaviour : WorkerBehaviour
         }
     }
 
+    private bool TryInitializeService()
+    {
+        if(orderManager == null) orderManager = OrderManager.TryGetInstance();
+        if (foodService == null)
+        {
+            GameManager gameManager = GameManager.TryGetInstance();
+            if (gameManager != null) foodService = GameManager.Instance.FoodService;
+        }
+
+        return orderManager != null && foodService != null;
+    }
+
     public override void Tick()
     {
+        GameLogOnlyEditor.Log($"Server Tick / Active:{IsActive} / Arrived:{IsArrived} / State:{State}");
+
+        if (orderManager == null || foodService == null)
+        {
+            if (!TryInitializeService()) return;
+
+            
+        }
 
 
         if (currentRequest != null)
@@ -111,7 +133,7 @@ public class ServerBehaviour : WorkerBehaviour
 
     private void TryNextOrder()
     {
-        
+        GameLogOnlyEditor.Log("TrhyNextOrder 호출");
         if (orderManager == null) return;
 
         Customer customer = orderManager.GetFirstOrder();
@@ -122,8 +144,8 @@ public class ServerBehaviour : WorkerBehaviour
             orderManager.RemoveOrder(customer);
             return;
         }
-        
-        
+        GameLogOnlyEditor.Log($"주문 음식 : {customer.OrderedFood.foodName} / " + $"보유 수량 : {foodService.GetFoodCount(customer.OrderedFood)}");
+
         if (!foodService.HasFood(customer.OrderedFood)) return;
 
 
