@@ -121,23 +121,23 @@ public class SoundManager : MMSingleton<SoundManager>
         SaveVolumeSettings();
     }
 
-    public void SetSfxVolume(float volume) 
-    {
-        sfxVolume = Mathf.Clamp01(volume);
-        SaveVolumeSettings();
-    }
+   // public void SetSfxVolume(float volume) 
+   // {
+   //     sfxVolume = Mathf.Clamp01(volume);
+   //     SaveVolumeSettings();
+   // }
 
     //볼륨 저장/로드
     private void SaveVolumeSettings() 
     {
         SaveManager.Instance.CurrentData.SetBgmVolume(bgmVolume);
-        SaveManager.Instance.CurrentData.SetSfxVolume(sfxVolume);
+        //SaveManager.Instance.CurrentData.SetSfxVolume(sfxVolume);
     }
 
     private void LoadVolumeSettings() 
     {
         bgmVolume = SaveManager.Instance.CurrentData.BgmVolume;
-        sfxVolume = SaveManager.Instance.CurrentData.SfxVolume;
+        //sfxVolume = SaveManager.Instance.CurrentData.SfxVolume;
         bgmSource.volume = bgmVolume;
     }
 

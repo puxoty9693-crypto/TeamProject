@@ -30,8 +30,8 @@ public class CookingRecipeInfo : MonoBehaviour
     [SerializeField] TextMeshProUGUI remainingText;
     [SerializeField] Button cancelButton;
 
-    private int currentCount = 1;
-    private int maxAffordableCount = 1;
+    private int currentCount = 0;
+    private int maxAffordableCount = 0;
     private RecipeData currentData;
 
     private CraftingController Controller => GameManager.Instance.craftingController;
@@ -76,7 +76,7 @@ public class CookingRecipeInfo : MonoBehaviour
     public void UpdateCookingInfo(RecipeData data)
     {
         currentData = data;
-        currentCount = 1;
+        currentCount = 0;
         maxAffordableCount = CalculateMaxAffordable(data);
 
         ingredient1Image1.sprite = data.food.requiredIngredients[0].ingredient.ingredientImage;
