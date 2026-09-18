@@ -3,13 +3,9 @@ using UnityEngine;
 using System;
 
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 public class NPCPool : MonoBehaviour
 {
-    [Header("Customer Prefab Auto Register")]
+    [Header("Customer Prefab")]
     [SerializeField]
     private string customerPrefabFolder = "Assets/03.Prefabs/NPC/Customer";
 
@@ -217,59 +213,4 @@ public class NPCPool : MonoBehaviour
         Return(ai.Customer);
     }
 
-#if UNITY_EDITOR
-
-    private void OnValidate()
-    {
-        //에디터키자마자 에러떠서 추가
-        if (EditorApplication.isUpdating)
-            return;
-        RefreshCustomerPrefabs();
-    }
-
-    [ContextMenu("Refresh Customer Prefabs")]
-    private void RefreshCustomerPrefabs()
-    {
-        //에디터키자마자 에러떠서 추가2차방어벽
-        if (EditorApplication.isUpdating)
-            return;
-
-        if (string.IsNullOrWhiteSpace(customerPrefabFolder))
-            return;
-
-        string[] guids =
-            AssetDatabase.FindAssets(
-                "t:Prefab",
-                new[] { customerPrefabFolder });
-
-        List<Customer> found = new();
-
-        foreach (string guid in guids)
-        {
-            string path =
-                AssetDatabase.GUIDToAssetPath(guid);
-
-            GameObject prefab =
-                AssetDatabase.LoadAssetAtPath<GameObject>(path);
-
-            if (prefab == null)
-                continue;
-
-            // Customer_ 로 시작하는 prefab만
-            if (!prefab.name.StartsWith("Customer_"))
-                continue;
-
-            Customer customer =
-                prefab.GetComponent<Customer>();
-
-            if (customer == null)
-                continue;
-
-            found.Add(customer);
-        }
-
-        customerPrefabs = found;
-    }
-
-#endif
 }
