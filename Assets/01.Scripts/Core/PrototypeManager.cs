@@ -41,6 +41,10 @@ public class PrototypeManager : MonoBehaviour
         if(testDeltaTime > 5)
         {
             testDeltaTime -= 5;
+            IngredientData testIngredient = DataManager.Instance.allIngredients[0];
+            GameManager.Instance.ingredientBoxController.AddIngredient(testIngredient, 5);
+
+
             IngredientBox box = GameManager.Instance.ingredientBoxController.TakeBox();
             GameManager.Instance.IngredientWareHouse.ReceiveBox(box);
             Debug.Log("박스 수급 완료");

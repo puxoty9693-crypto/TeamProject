@@ -19,8 +19,8 @@ public class IngrendientSlot : MonoBehaviour
             ingredientImg.sprite = data.ingredientImage;
             if(stock.count < maxCount)
             {
-            countText.text = $"{stock.count}°³";
-            return;
+                countText.text = $"{stock.count}°³";
+                return;
             }
             else
             {

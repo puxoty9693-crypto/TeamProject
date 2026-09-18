@@ -5,7 +5,7 @@ public class RecipeBookUI : MonoBehaviour
 {
     [Header("레시피북 페이지 넣기")]
     [SerializeField] List<RectTransform> pages = new();
-    private const int slotsPerPage = 2;//
+    private const int slotsPerPage = 2;
 
     void OnEnable()
     {
