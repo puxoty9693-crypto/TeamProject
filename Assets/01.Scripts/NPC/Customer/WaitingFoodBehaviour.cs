@@ -8,7 +8,7 @@ public class WaitingFoodBehaviour : CustomerBehaviour
     {
         base.Enter();
 
-        CustomerAgent.BeginPatience();
+        if(!CustomerAgent.IsPatienceActive) CustomerAgent.BeginPatience();
         Debug.Log($"음식 대기중");
     }
 }
