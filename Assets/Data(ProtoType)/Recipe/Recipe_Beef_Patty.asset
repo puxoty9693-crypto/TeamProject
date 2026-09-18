@@ -16,4 +16,4 @@ MonoBehaviour:
   recipeName: recipe_beef_patty
   unlockGoldCost: 10000
   food: {fileID: 11400000, guid: 93783299ab229da49a30a8cf868b9999, type: 2}
-  cookingTime: 20
+  cookingTime: 1
