@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 public class IngredientWareHouse
 {
@@ -16,6 +17,8 @@ public class IngredientWareHouse
 
         IReadOnlyList<IngredientStock> stocks =
             box.TakeAllIngredients();
+
+        if (stocks == null || stocks.Count == 0) return;
 
         foreach (IngredientStock stock in stocks)
         {
