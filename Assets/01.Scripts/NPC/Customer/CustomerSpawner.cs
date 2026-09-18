@@ -132,6 +132,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private bool CanSpawn()
     {
+        
         if (!acceptingCustomers) return false;
 
         if (npcPool == null || seatManager == null || spawnPoint == null || spawnData == null) return false;
