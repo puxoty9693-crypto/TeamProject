@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorkerUpgradeData
   role: 1
   levels:
-  - upgradeValue: 2
-    upgradeGoldCost: 500
-  - upgradeValue: 3
-    upgradeGoldCost: 2000
-  - upgradeValue: 4
+  - upgradeValue: 1
+    upgradeGoldCost: 0
+  - upgradeValue: 1.1
     upgradeGoldCost: 5000
-  - upgradeValue: 5
-    upgradeGoldCost: 10000
+  - upgradeValue: 1.2
+    upgradeGoldCost: 20000
+  - upgradeValue: 1.3
+    upgradeGoldCost: 50000

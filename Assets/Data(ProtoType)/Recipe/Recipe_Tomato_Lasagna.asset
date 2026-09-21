@@ -16,4 +16,4 @@ MonoBehaviour:
   recipeName: recipe_tomato_lasagna
   unlockGoldCost: 0
   food: {fileID: 11400000, guid: f1b03a58d4c85884c961aac467559ba9, type: 2}
-  cookingTime: 1
+  cookingTime: 200
