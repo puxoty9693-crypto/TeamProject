@@ -24,6 +24,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private float spawnTimer;
 
+    private AdUpgradeSystem adUpgradeSystem;
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
@@ -38,8 +39,7 @@ public class CustomerSpawner : MonoBehaviour
     private void OnDisable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned -= HandleCustomerReturned;
-        if (EventManager.HasInstance)
-            EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
+        if (EventManager.HasInstance) EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
     }
 
     private void Update()

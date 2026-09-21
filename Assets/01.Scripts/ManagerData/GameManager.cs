@@ -7,7 +7,6 @@ public class GameManager : MMSingleton<GameManager>
     public CarriageController carriageController;
     public IngredientBoxController ingredientBoxController;
     public RecipeUnlockController recipeUnlockController;
-
     public CraftingSystem CraftingSystem { get; private set; }
     public PaymentSystem PaymentSystem { get; private set; }
     public FoodService FoodService { get; private set; }
