@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class WorkerUpgradeSlot : MonoBehaviour
 {
-    [Header("이름과 이미지 각자 슬롯에 따로 추가")]
-     //Image workerImage;
-     //TextMeshProUGUI nameText;
     [Header("텍스트")]
+    [SerializeField] TextMeshProUGUI costTitleText;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI statText;
     [SerializeField] TextMeshProUGUI levelText;
@@ -30,7 +28,9 @@ public class WorkerUpgradeSlot : MonoBehaviour
         OnUpgradeClicked = onUpgrade;
         if(isMaxLevel)
         {
-            costText.text = "Max";
+            levelText.text = "Max";
+            costTitleText.text = "";
+            costText.text = "";
             upgradeButton.image.color = Color.white.WithAlpha(0f);
             buttonText.text = "";
             upgradeButton.interactable = false;

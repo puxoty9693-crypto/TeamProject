@@ -6,8 +6,9 @@ public class CarriageSlotUI : MonoBehaviour
 {
     [Header("이미지")]
     [SerializeField] Image ingredientImage;
-    
+
     [Header("텍스트")]
+    [SerializeField] TextMeshProUGUI costTitleText;
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
@@ -54,7 +55,9 @@ public class CarriageSlotUI : MonoBehaviour
 
         if (isMaxLevel)
         {
-           costText.text = "MAX";
+           levelText.text = "MAX";
+           costTitleText.text = "";
+           costText.text = "";
            actionButton.image.color = Color.white.WithAlpha(0f);
            actionButtonLabel.text = "";
            actionButton.interactable = false;

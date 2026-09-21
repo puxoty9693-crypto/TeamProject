@@ -1214,6 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 2091497324}
   costText: {fileID: 1263885117}
   statText: {fileID: 1453128688}
   levelText: {fileID: 833715842}
@@ -3474,6 +3475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 276770667}
+  costTitleText: {fileID: 1855166427}
   costText: {fileID: 309339954}
   nameText: {fileID: 740289672}
   levelText: {fileID: 1654669757}
@@ -4824,6 +4826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1077399835}
+  costTitleText: {fileID: 0}
   costText: {fileID: 1109547986}
   nameText: {fileID: 1328979858}
   levelText: {fileID: 1116128157}
@@ -6408,6 +6411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 949373724}
+  costTitleText: {fileID: 333238994}
   costText: {fileID: 1388437231}
   nameText: {fileID: 33261345}
   levelText: {fileID: 1302944303}
@@ -7875,6 +7879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 555771677}
+  costTitleText: {fileID: 0}
   costText: {fileID: 1646497525}
   nameText: {fileID: 1253678033}
   levelText: {fileID: 794519067}
@@ -10199,7 +10204,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &411762488
@@ -12908,7 +12913,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &547690148
@@ -14286,7 +14291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1197246177826292017, guid: a9f2160799da80b4ab11384955260546, type: 3}
+  m_Sprite: {fileID: 1501550360135087012, guid: b7388a22110f25c43b254207c0a446f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21559,7 +21564,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &701386810
@@ -23384,6 +23389,14 @@ PrefabInstance:
       propertyPath: allIngredients.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8412430320642376015, guid: 3de13bc94935c32429fdb7eeda777430, type: 3}
+      propertyPath: 'workerUpgradeDataList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b6b9fc78773a0645a3f721f520ac5aa, type: 2}
+    - target: {fileID: 8412430320642376015, guid: 3de13bc94935c32429fdb7eeda777430, type: 3}
+      propertyPath: 'workerUpgradeDataList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4092d8ee375af194d81f8e995558c18e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24991,6 +25004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1868772317}
+  costTitleText: {fileID: 0}
   costText: {fileID: 2071050473}
   nameText: {fileID: 1576672110}
   levelText: {fileID: 242304716}
@@ -31070,6 +31084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1474248843}
+  costTitleText: {fileID: 1450698617}
   costText: {fileID: 1962099402}
   nameText: {fileID: 1664038880}
   levelText: {fileID: 1056588928}
@@ -36437,7 +36452,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1283642851
@@ -38024,6 +38039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 2052835020}
   costText: {fileID: 1251206558}
   statText: {fileID: 1988838704}
   levelText: {fileID: 370038383}
@@ -47013,6 +47029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 266181432}
+  costTitleText: {fileID: 0}
   costText: {fileID: 1361178047}
   nameText: {fileID: 662604715}
   levelText: {fileID: 546553124}
@@ -50731,6 +50748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1233068851}
+  costTitleText: {fileID: 537442665}
   costText: {fileID: 1170104165}
   nameText: {fileID: 487354511}
   levelText: {fileID: 752444494}
@@ -51589,7 +51607,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1584776581
@@ -54582,6 +54600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 2086520827}
   costText: {fileID: 805682718}
   statText: {fileID: 993195358}
   levelText: {fileID: 1538525037}
@@ -55545,6 +55564,7 @@ MonoBehaviour:
   levelText: {fileID: 1558416579}
   tableCountText: {fileID: 1086233338}
   costText: {fileID: 1733466424}
+  costTitleText: {fileID: 1733466424}
   upgradeButton: {fileID: 1884486172}
   buttonText: {fileID: 1642648690}
 --- !u!1 &1706881531
@@ -56098,7 +56118,7 @@ MonoBehaviour:
   m_margin: {x: -17.912453, y: 0, z: -9.553402, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1714462464
@@ -56691,6 +56711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1589096803}
+  costTitleText: {fileID: 754064189}
   costText: {fileID: 1694893151}
   nameText: {fileID: 1556430913}
   levelText: {fileID: 1646282207}
@@ -58804,7 +58825,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1801052893
@@ -60289,6 +60310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1355542142}
+  costTitleText: {fileID: 0}
   costText: {fileID: 818494701}
   nameText: {fileID: 2041961529}
   levelText: {fileID: 457834232}
@@ -67438,7 +67460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6719004047371836332, guid: 662d3da652aebc444956a6ad67fd25c7, type: 3}
+  m_Sprite: {fileID: 1501550360135087012, guid: b7388a22110f25c43b254207c0a446f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70285,7 +70307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6719004047371836332, guid: 662d3da652aebc444956a6ad67fd25c7, type: 3}
+  m_Sprite: {fileID: 1501550360135087012, guid: b7388a22110f25c43b254207c0a446f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
