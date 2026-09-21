@@ -25,10 +25,14 @@ public class CraftingSystem
     public float CookingProgress { get; private set; }
 
     // 현재 요리의 전체 제작 시간
-    public float CookingTime =>
+    private float CookingTime =>
         CookingRecipe != null
             ? CookingRecipe.cookingTime
             : 0f;
+
+    //강화기준 제작 시간
+    public float UpgradedCookingTime => 
+        CookingTime != 0f ? GameManager.Instance.workerUpgradeSystem.GetUpgradedRecipeTime(CookingTime) : 0f;
 
     // 현재 제작 진행률
     public float CookingProgressRatio
@@ -89,7 +93,7 @@ public class CraftingSystem
 
         CookingProgress += deltaTime;
 
-        if (CookingProgress >= CookingTime)
+        if (CookingProgress >= UpgradedCookingTime)
         {
             CompleteCooking();
         }

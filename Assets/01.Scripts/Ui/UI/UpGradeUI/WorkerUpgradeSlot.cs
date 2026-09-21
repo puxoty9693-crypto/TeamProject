@@ -17,15 +17,20 @@ public class WorkerUpgradeSlot : MonoBehaviour
     [SerializeField] Button upgradeButton;
 
     private event Action OnUpgradeClicked;
+    private void Awake()
+    {
+        upgradeButton.onClick.AddListener(() => OnUpgradeClicked?.Invoke());
+    }
     public void UpdateSlot( WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
         levelText.text = $"Lv.{levelIndex + 1}";
-        statText.text = $"효과 {currentLevel.upgradeValue}";
+        statText.text = $"효과 {currentLevel.upgradeValue}증가";
 
         OnUpgradeClicked = onUpgrade;
         if(isMaxLevel)
         {
             costText.text = "Max";
+            upgradeButton.image.color = Color.white.WithAlpha(0f);
             upgradeButton.interactable = false;
         }
         else
