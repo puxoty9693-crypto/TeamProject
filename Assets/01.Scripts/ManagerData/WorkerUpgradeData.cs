@@ -1,18 +1,18 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class WorkerUpgradeLevel : IUpgradeLevel
 {
-    public int upgradeValue;     // Àû¿ëµÇ´Â ´É·ÂÄ¡(Á¶¸®½Ã°£ °¨¼ÒÀ², ¼Óµµ, È¿À² µî)
-    public int upgradeGoldCost;  // ´ÙÀ½ ·¹º§ ¾÷±×·¹ÀÌµå ºñ¿ë
+    public float upgradeValue;     // ì ìš©ë˜ëŠ” ëŠ¥ë ¥ì¹˜(ì¡°ë¦¬ì‹œê°„ ê°ì†Œìœ¨, ì†ë„, íš¨ìœ¨ ë“±)
+    public int upgradeGoldCost;  // ë‹¤ìŒ ë ˆë²¨ ì—…ê·¸ë ˆì´ë“œ ë¹„ìš©
     public int UpgradeGoldCost => upgradeGoldCost;
 }
 
-// Æ¯Á¤ ¿ªÇÒ(WorkerRole)ÀÇ ÀüÃ¼ ¾÷±×·¹ÀÌµå ´Ü°è
+// íŠ¹ì • ì—­í• (WorkerRole)ì˜ ì „ì²´ ì—…ê·¸ë ˆì´ë“œ ë‹¨ê³„
 [CreateAssetMenu(fileName = "WorkerUpgrade_", menuName = "Data/WorkerUpgrade")]
 public class WorkerUpgradeData : ScriptableObject
 {
-    public WorkerRole role;                    // ¾÷±×·¹ÀÌµå ´ë»ó ¿ªÇÒ
-    public List<WorkerUpgradeLevel> levels;    // ·¹º§º° Á¤º¸ (ÀÎµ¦½º = ·¹º§)
+    public WorkerRole role;                    // ì—…ê·¸ë ˆì´ë“œ ëŒ€ìƒ ì—­í• 
+    public List<WorkerUpgradeLevel> levels;    // ë ˆë²¨ë³„ ì •ë³´ (ì¸ë±ìŠ¤ = ë ˆë²¨)
 }

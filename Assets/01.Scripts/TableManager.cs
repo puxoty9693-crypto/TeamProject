@@ -1,17 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class TableManager : MMSingleton<TableManager>
 {
-    private const int CapacityPerTable = 4; // Å×ÀÌºí 1°³´ç °íÁ¤ ¼ö¿ë ÀÎ¿ø
+    private const int CapacityPerTable = 4; // í…Œì´ë¸” 1ê°œë‹¹ ê³ ì • ìˆ˜ìš© ì¸ì›
 
     public int GetLevel() => SaveManager.Instance.CurrentData.TableUpgradeLevel;
 
     public bool Upgrade()
     {
-        return UpgradeHelper.TryUpgrade(GetLevel(), DataManager.Instance.tableUpgradeData.levels, () => SaveManager.Instance.CurrentData.UpgradeTableLevel());
+        //return UpgradeHelper.TryUpgrade(GetLevel(), DataManager.Instance.tableUpgradeData.levels, () => SaveManager.Instance.CurrentData.UpgradeTableLevel());
+        return false;
     }
 
-    // ÇöÀç ·¹º§¿¡¼­ ¼³Ä¡ °¡´ÉÇÑ ÃÖ´ë Å×ÀÌºí °³¼ö
+    // í˜„ì¬ ë ˆë²¨ì—ì„œ ì„¤ì¹˜ ê°€ëŠ¥í•œ ìµœëŒ€ í…Œì´ë¸” ê°œìˆ˜
     public int GetMaxTableCount()
     {
         int level = GetLevel();
@@ -19,7 +20,7 @@ public class TableManager : MMSingleton<TableManager>
         return level < levels.Count ? levels[level].tableCount : levels[levels.Count - 1].tableCount;
     }
 
-    // ÇöÀç ¸ÅÀåÀÇ ÃÑ ¼ö¿ë °¡´É ÀÎ¿ø
+    // í˜„ì¬ ë§¤ì¥ì˜ ì´ ìˆ˜ìš© ê°€ëŠ¥ ì¸ì›
     public int GetTotalCapacity()
     {
         return TableRegistry.Instance.GetAllTables().Count * CapacityPerTable;
