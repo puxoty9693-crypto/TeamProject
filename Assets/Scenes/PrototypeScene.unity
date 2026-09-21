@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 6028864}
   - component: {fileID: 6028863}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 27394781}
   - component: {fileID: 27394780}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 103217624}
   - component: {fileID: 103217623}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2640,7 +2640,7 @@ GameObject:
   - component: {fileID: 124322686}
   - component: {fileID: 124322685}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3291,7 +3291,7 @@ GameObject:
   - component: {fileID: 143285824}
   - component: {fileID: 143285823}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3620,7 +3620,7 @@ GameObject:
   - component: {fileID: 155942917}
   - component: {fileID: 155942916}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3957,7 +3957,7 @@ GameObject:
   - component: {fileID: 160187428}
   - component: {fileID: 160187427}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4012,7 +4012,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4879,7 +4879,7 @@ GameObject:
   - component: {fileID: 189082415}
   - component: {fileID: 189082414}
   m_Layer: 5
-  m_Name: Time
+  m_Name: TimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6088,7 +6088,7 @@ GameObject:
   - component: {fileID: 240286889}
   - component: {fileID: 240286888}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6539,7 +6539,7 @@ GameObject:
   - component: {fileID: 254739050}
   - component: {fileID: 254739049}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6594,7 +6594,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7175,7 +7175,7 @@ GameObject:
   - component: {fileID: 278023688}
   - component: {fileID: 278023687}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9276,7 +9276,7 @@ GameObject:
   - component: {fileID: 383789735}
   - component: {fileID: 383789734}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9331,7 +9331,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10084,7 +10084,7 @@ GameObject:
   - component: {fileID: 411762488}
   - component: {fileID: 411762487}
   m_Layer: 5
-  m_Name: Remaining
+  m_Name: RemainingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12214,7 +12214,7 @@ GameObject:
   - component: {fileID: 536647506}
   - component: {fileID: 536647505}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13678,7 +13678,7 @@ GameObject:
   - component: {fileID: 586499599}
   - component: {fileID: 586499598}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14494,7 +14494,7 @@ GameObject:
   - component: {fileID: 616544551}
   - component: {fileID: 616544550}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14549,7 +14549,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16091,7 +16091,7 @@ GameObject:
   - component: {fileID: 687964327}
   - component: {fileID: 687964326}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16146,7 +16146,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21641,7 +21641,7 @@ GameObject:
   - component: {fileID: 708017147}
   - component: {fileID: 708017146}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24297,7 +24297,7 @@ GameObject:
   - component: {fileID: 765968608}
   - component: {fileID: 765968607}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24434,7 +24434,7 @@ GameObject:
   - component: {fileID: 774127012}
   - component: {fileID: 774127011}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24891,7 +24891,7 @@ GameObject:
   - component: {fileID: 786715227}
   - component: {fileID: 786715226}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25178,7 +25178,7 @@ GameObject:
   - component: {fileID: 792597149}
   - component: {fileID: 792597148}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25758,7 +25758,7 @@ GameObject:
   - component: {fileID: 808891387}
   - component: {fileID: 808891386}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25813,7 +25813,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26730,7 +26730,7 @@ GameObject:
   - component: {fileID: 840054155}
   - component: {fileID: 840054154}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26785,7 +26785,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26867,7 +26867,7 @@ GameObject:
   - component: {fileID: 841090027}
   - component: {fileID: 841090026}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26922,7 +26922,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28997,7 +28997,7 @@ GameObject:
   - component: {fileID: 963372497}
   - component: {fileID: 963372496}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29134,7 +29134,7 @@ GameObject:
   - component: {fileID: 969144998}
   - component: {fileID: 969144997}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30310,7 +30310,7 @@ GameObject:
   - component: {fileID: 1029199891}
   - component: {fileID: 1029199890}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31288,7 +31288,7 @@ GameObject:
   - component: {fileID: 1072756960}
   - component: {fileID: 1072756959}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31713,7 +31713,7 @@ GameObject:
   - component: {fileID: 1091246351}
   - component: {fileID: 1091246350}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32200,7 +32200,7 @@ GameObject:
   - component: {fileID: 1117481989}
   - component: {fileID: 1117481988}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32337,7 +32337,7 @@ GameObject:
   - component: {fileID: 1127613441}
   - component: {fileID: 1127613440}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32549,7 +32549,7 @@ GameObject:
   - component: {fileID: 1134511753}
   - component: {fileID: 1134511752}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33031,7 +33031,7 @@ GameObject:
   - component: {fileID: 1144341131}
   - component: {fileID: 1144341130}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33086,7 +33086,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -33600,7 +33600,7 @@ GameObject:
   - component: {fileID: 1173132129}
   - component: {fileID: 1173132128}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33655,7 +33655,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -33858,7 +33858,7 @@ GameObject:
   - component: {fileID: 1182392148}
   - component: {fileID: 1182392147}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35541,7 +35541,7 @@ GameObject:
   - component: {fileID: 1264856408}
   - component: {fileID: 1264856407}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35678,7 +35678,7 @@ GameObject:
   - component: {fileID: 1267557795}
   - component: {fileID: 1267557794}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35733,7 +35733,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36304,7 +36304,7 @@ GameObject:
   - component: {fileID: 1294709241}
   - component: {fileID: 1294709240}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36441,7 +36441,7 @@ GameObject:
   - component: {fileID: 1299734340}
   - component: {fileID: 1299734339}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37064,7 +37064,7 @@ GameObject:
   - component: {fileID: 1321070069}
   - component: {fileID: 1321070068}
   m_Layer: 5
-  m_Name: IngredientCount
+  m_Name: IngredientCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38521,7 +38521,7 @@ GameObject:
   - component: {fileID: 1355526568}
   - component: {fileID: 1355526567}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39355,7 +39355,7 @@ GameObject:
   - component: {fileID: 1371350426}
   - component: {fileID: 1371350425}
   m_Layer: 5
-  m_Name: NPCupgrade
+  m_Name: NPCupgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39492,7 +39492,7 @@ GameObject:
   - component: {fileID: 1380496614}
   - component: {fileID: 1380496613}
   m_Layer: 5
-  m_Name: UnLockPrice
+  m_Name: UnLockPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40007,7 +40007,7 @@ GameObject:
   - component: {fileID: 1388474280}
   - component: {fileID: 1388474279}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40144,7 +40144,7 @@ GameObject:
   - component: {fileID: 1391808027}
   - component: {fileID: 1391808026}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40402,7 +40402,7 @@ GameObject:
   - component: {fileID: 1403525888}
   - component: {fileID: 1403525887}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45449,7 +45449,7 @@ GameObject:
   - component: {fileID: 1419679142}
   - component: {fileID: 1419679141}
   m_Layer: 5
-  m_Name: IngredientCount
+  m_Name: IngredientCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46523,7 +46523,7 @@ GameObject:
   - component: {fileID: 1454259410}
   - component: {fileID: 1454259409}
   m_Layer: 5
-  m_Name: IngredientUpgrade
+  m_Name: IngredientUpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48017,7 +48017,7 @@ GameObject:
   - component: {fileID: 1507870020}
   - component: {fileID: 1507870019}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48365,7 +48365,7 @@ GameObject:
   - component: {fileID: 1509217456}
   - component: {fileID: 1509217455}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49158,7 +49158,7 @@ GameObject:
   - component: {fileID: 1542632468}
   - component: {fileID: 1542632467}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49213,7 +49213,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -49430,7 +49430,7 @@ GameObject:
   - component: {fileID: 1544909958}
   - component: {fileID: 1544909957}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50392,7 +50392,7 @@ GameObject:
   - component: {fileID: 1565486965}
   - component: {fileID: 1565486964}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51181,7 +51181,7 @@ GameObject:
   - component: {fileID: 1582679857}
   - component: {fileID: 1582679856}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51236,7 +51236,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -51318,7 +51318,7 @@ GameObject:
   - component: {fileID: 1584776581}
   - component: {fileID: 1584776580}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51455,7 +51455,7 @@ GameObject:
   - component: {fileID: 1586063467}
   - component: {fileID: 1586063466}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52643,7 +52643,7 @@ GameObject:
   - component: {fileID: 1639297977}
   - component: {fileID: 1639297976}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52698,7 +52698,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -53744,7 +53744,7 @@ GameObject:
   - component: {fileID: 1657226756}
   - component: {fileID: 1657226755}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55028,7 +55028,7 @@ GameObject:
   - component: {fileID: 1688106030}
   - component: {fileID: 1688106029}
   m_Layer: 5
-  m_Name: FoodNameTag
+  m_Name: FoodNameTagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56682,7 +56682,7 @@ GameObject:
   - component: {fileID: 1737869558}
   - component: {fileID: 1737869557}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58743,7 +58743,7 @@ GameObject:
   - component: {fileID: 1807979096}
   - component: {fileID: 1807979095}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ingredientTabText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58956,7 +58956,7 @@ GameObject:
   - component: {fileID: 1824218209}
   - component: {fileID: 1824218208}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59367,7 +59367,7 @@ GameObject:
   - component: {fileID: 1841811436}
   - component: {fileID: 1841811435}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59422,7 +59422,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -59736,7 +59736,7 @@ GameObject:
   - component: {fileID: 1855278727}
   - component: {fileID: 1855278726}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59791,7 +59791,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -59873,7 +59873,7 @@ GameObject:
   - component: {fileID: 1861042142}
   - component: {fileID: 1861042141}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59928,7 +59928,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278200319
-  m_fontColor: {r: 1, g: 0.15127307, b: 0, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -60341,7 +60341,7 @@ GameObject:
   - component: {fileID: 1878299076}
   - component: {fileID: 1878299075}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61397,7 +61397,7 @@ GameObject:
   - component: {fileID: 1935210325}
   - component: {fileID: 1935210324}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61452,7 +61452,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -66506,7 +66506,7 @@ GameObject:
   - component: {fileID: 1948843140}
   - component: {fileID: 1948843139}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67021,7 +67021,7 @@ GameObject:
   - component: {fileID: 1968897239}
   - component: {fileID: 1968897238}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67076,7 +67076,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -68924,7 +68924,7 @@ GameObject:
   - component: {fileID: 2033884785}
   - component: {fileID: 2033884784}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: FoodTabText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69166,7 +69166,7 @@ GameObject:
   - component: {fileID: 2037685167}
   - component: {fileID: 2037685166}
   m_Layer: 5
-  m_Name: ADupgrade
+  m_Name: ADupgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70156,7 +70156,7 @@ GameObject:
   - component: {fileID: 2058864457}
   - component: {fileID: 2058864456}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70211,7 +70211,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4286116341
-  m_fontColor: {r: 0.9622642, g: 0.9459141, b: 0.4702385, a: 1}
+  m_fontColor: {r: 0.9607843, g: 0.94509804, b: 0.47058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
