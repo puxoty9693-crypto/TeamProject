@@ -5884,7 +5884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &214440847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27328,6 +27328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848687304}
+  - component: {fileID: 848687307}
   - component: {fileID: 848687306}
   - component: {fileID: 848687305}
   m_Layer: 5
@@ -27400,6 +27401,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848687303}
   m_CullTransparentMesh: 1
+--- !u!114 &848687307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848687303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e576579f0eb51f840a009024f34e82eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdUpgradeUI
+  levelText: {fileID: 353044302}
+  descriptionText: {fileID: 277916472}
+  costTitleText: {fileID: 868692901}
+  costText: {fileID: 2018643250}
+  upgradeButton: {fileID: 1396163166}
+  buttonText: {fileID: 635486873}
 --- !u!1 &860099331
 GameObject:
   m_ObjectHideFlags: 0
@@ -51239,7 +51258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1582341551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68080,7 +68099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994917603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -78587,7 +78606,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 516ea0d3c8784594d893a81f57f568a0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
