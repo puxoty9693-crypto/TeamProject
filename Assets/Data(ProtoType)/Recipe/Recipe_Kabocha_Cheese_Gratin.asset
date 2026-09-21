@@ -16,4 +16,4 @@ MonoBehaviour:
   recipeName: recipe_kabocha_cheese_gratin
   unlockGoldCost: 5000
   food: {fileID: 11400000, guid: 40104ee16b1d7f145b2616c979b3c7a8, type: 2}
-  cookingTime: 10000
+  cookingTime: 200

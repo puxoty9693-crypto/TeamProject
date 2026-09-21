@@ -15,11 +15,14 @@ public class ChefBehaviour : WorkerBehaviour
 
     private void HandleCookingStarted(RecipeData _)
     {
+
+        GameLogOnlyEditor.Log("Cooking Start");
         animator.SetBool("IsCooking", true);
         
     }
     private void HandleCookingEnded(RecipeData _)
     {
+        GameLogOnlyEditor.Log("Cooking Finish");
         animator.SetBool("IsCooking", false);
         
     }
@@ -28,16 +31,29 @@ public class ChefBehaviour : WorkerBehaviour
     public override void Enter()
     {
         base.Enter();
-        craftingSystem = GameManager.Instance.CraftingSystem;
         GameLogOnlyEditor.Log("1111");
-        if (craftingSystem == null) return;
-        GameLogOnlyEditor.Log("2222");
+        TryGetCraftingSystem();
+
+
+        
+    }
+    private void TryGetCraftingSystem()
+    {
+        if (GameManager.Instance.CraftingSystem == null) return;
+
+        craftingSystem = GameManager.Instance.CraftingSystem;
+
         craftingSystem.OnCookingStarted += HandleCookingStarted;
         craftingSystem.OnCookingCompleted += HandleCookingEnded;
         craftingSystem.OnCookingCanceled += HandleCookingEnded;
-
-
-        // transform.position  정해줄 것.
+        GameLogOnlyEditor.Log("craftingSystem Loaded");
+    }
+    public override void Tick()
+    {
+        if(craftingSystem == null)
+        {
+            TryGetCraftingSystem();
+        }
     }
 
     public override void Arrived()

@@ -16,4 +16,4 @@ MonoBehaviour:
   recipeName: recipe_basil_tomato_lasagna
   unlockGoldCost: 1000
   food: {fileID: 11400000, guid: c215cb2efa276f64da652c6c5846ea9d, type: 2}
-  cookingTime: 1
+  cookingTime: 20
