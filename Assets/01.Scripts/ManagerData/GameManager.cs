@@ -16,6 +16,7 @@ public class GameManager : MMSingleton<GameManager>
     public RecipeUnlockSystem RecipeUnlockSystem { get; private set; }
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
+    public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
 
     public QuestManager QuestManager { get; private set; }
 
@@ -30,7 +31,7 @@ public class GameManager : MMSingleton<GameManager>
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
         QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig);
-
+        workerUpgradeSystem = new WorkerUpgradeSystem(pData);
 
         IngredientSupplySystem =
             new IngredientSupplySystem(
