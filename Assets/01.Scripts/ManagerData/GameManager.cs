@@ -18,6 +18,8 @@ public class GameManager : MMSingleton<GameManager>
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
     public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
 
+    public QuestBuffService QuestBuffService { get; private set; }
+
     public QuestManager QuestManager { get; private set; }
 
     private void Start()
@@ -45,11 +47,23 @@ public class GameManager : MMSingleton<GameManager>
         recipeUnlockController.Initialize(RecipeUnlockSystem);
         craftingController.Initialize(CraftingSystem);
         carriageController.Initialize(IngredientSupplySystem);
+
+        QuestBuffService = new QuestBuffService(
+            pData,
+            PaymentSystem,
+            IngredientSupplySystem,
+            CraftingSystem,
+            ingredientBoxController,
+            DataManager.Instance.suddenQuestConfig,
+            QuestManager
+            );
+
     }
 
     private void Update()
     {
         QuestManager.Update(Time.deltaTime);
+        QuestBuffService.Update(Time.deltaTime);
         // 임시 종료 가능 나중에 종료 확인 팝업 등으로 교체 예정
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) 
         {
