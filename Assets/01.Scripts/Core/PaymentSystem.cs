@@ -37,7 +37,11 @@ public class PaymentSystem
     public bool Pay(FoodData food, Vector3 pos)
     {
         int gold = GetPrice(food);
-        curData.AddGold(gold);
+
+        int upgradeGold = GameManager.Instance.workerUpgradeSystem.GetUpgradedIncome(gold);
+        if(upgradeGold < 0) return false;
+
+        curData.AddGold(upgradeGold);
 
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, curData.Gold);
         EventManager.Instance.PostNotification(EventType.OnGetGold, null, pos);

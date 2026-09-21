@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class CarriageUI : MonoBehaviour
 {
-    [Header("Àç·á¾÷±Û ½½·Ô¿¬°á")]
+    [Header("ì¬ë£Œì—…ê¸€ ìŠ¬ë¡¯ì—°ê²°")]
     [SerializeField] List<CarriageSlotUI> slots = new();
     
     private void OnEnable()
@@ -64,7 +64,7 @@ public class CarriageUI : MonoBehaviour
     
         if (!success)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "ÇØ±İÇÒ ¼ö ¾ø½À´Ï´Ù.");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "í•´ê¸ˆí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
     
@@ -76,7 +76,7 @@ public class CarriageUI : MonoBehaviour
         bool success = GameManager.Instance.ingredientUpgradeSystem.Upgrade(data.ingredient);
         if (!success)
         {
-            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "¾÷±×·¹ÀÌµåÇÒ ¼ö ¾ø½À´Ï´Ù.");
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "ì—…ê·¸ë ˆì´ë“œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
         EventManager.Instance.PostNotification(EventType.OnChangeGold, this, SaveManager.Instance.CurrentData.Gold);
