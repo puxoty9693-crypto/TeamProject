@@ -15,9 +15,16 @@ public class QuestManager
     private float nextQuestTime;
 
     private bool isChallengeActive;
+    public bool IsChallengeActive => isChallengeActive;
+
     private float challengeTimeRemaining;
+    public float ChallengeTimeRemaining => challengeTimeRemaining;
+
     private int challengeStartGold;
+    public int ChallengeGoalGold => challengeGoalGold;
+
     private int challengeGoalGold;
+    public int ChallengeStartGold => challengeStartGold;
 
     // 돌발 퀘스트 시작 (목표 금액, 제한 시간)
     public event Action<int, float> OnQuestStarted;

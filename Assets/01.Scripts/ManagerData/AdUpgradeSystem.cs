@@ -78,7 +78,7 @@ public class AdUpgradeSystem
         return data.levels[nextLevel].UpgradeGoldCost;
     }
 
-    private AdData GetUpgradeData()
+    public AdData GetUpgradeData()
     {
         if (DataManager.Instance == null)
             return null;

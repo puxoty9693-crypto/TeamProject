@@ -714,8 +714,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 331910632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.0863953, y: 0.6000004}
   m_SizeDelta: {x: 24.8248, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2212,7 +2212,7 @@ RectTransform:
   m_Father: {fileID: 1267909298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2604,7 +2604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1570401582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27392,10 +27392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 0}
   costText: {fileID: 4994501466306202055}
   statText: {fileID: 1888238068783273488}
   levelText: {fileID: 7699234180016769519}
   upgradeButton: {fileID: 4198457948907517567}
+  buttonText: {fileID: 0}
 --- !u!1 &1027395090759308368
 GameObject:
   m_ObjectHideFlags: 0
@@ -31084,6 +31086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1748096517149116036}
+  costTitleText: {fileID: 0}
   costText: {fileID: 4879580656427878901}
   nameText: {fileID: 5427328077975025074}
   levelText: {fileID: 5254105307190999074}
@@ -37264,6 +37267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 284352734982660090}
+  costTitleText: {fileID: 0}
   costText: {fileID: 8786165504060359171}
   nameText: {fileID: 355190828951065330}
   levelText: {fileID: 1426896403211489026}
@@ -37631,10 +37635,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 0}
   costText: {fileID: 1200439694956989857}
   statText: {fileID: 7033277663275176115}
   levelText: {fileID: 7574064066429208727}
   upgradeButton: {fileID: 8539800029028106883}
+  buttonText: {fileID: 0}
 --- !u!222 &2535850156660650082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56209,6 +56215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 2277772536467641229}
+  costTitleText: {fileID: 0}
   costText: {fileID: 4287107894761127964}
   nameText: {fileID: 7370148910009756296}
   levelText: {fileID: 5189067884519506594}
@@ -58870,6 +58877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 9011956159090622918}
+  costTitleText: {fileID: 0}
   costText: {fileID: 7328149053755703833}
   nameText: {fileID: 6967949006528628817}
   levelText: {fileID: 5953532686767431633}
@@ -66366,6 +66374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 2824974530352468787}
+  costTitleText: {fileID: 0}
   costText: {fileID: 9110538749954597104}
   nameText: {fileID: 5931721702491252925}
   levelText: {fileID: 1079884569197684642}
@@ -75509,6 +75518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 2399437238901000716}
+  costTitleText: {fileID: 0}
   costText: {fileID: 6113415796303081878}
   nameText: {fileID: 408971819891043656}
   levelText: {fileID: 7228596988741130496}
@@ -77008,7 +77018,9 @@ MonoBehaviour:
   levelText: {fileID: 4082090118246833066}
   tableCountText: {fileID: 2459463707504565475}
   costText: {fileID: 98870158743562437}
+  costTitleText: {fileID: 0}
   upgradeButton: {fileID: 2156348292513763138}
+  buttonText: {fileID: 0}
 --- !u!1 &7698959587137732807
 GameObject:
   m_ObjectHideFlags: 0
@@ -83798,6 +83810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 2516988107545128916}
+  costTitleText: {fileID: 0}
   costText: {fileID: 2127931228808305940}
   nameText: {fileID: 7403117437482600961}
   levelText: {fileID: 8268869889116137688}
@@ -84158,6 +84171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 1160783584515620489}
+  costTitleText: {fileID: 0}
   costText: {fileID: 8546139237991003058}
   nameText: {fileID: 1571676106827025668}
   levelText: {fileID: 7659675594052907832}
@@ -85457,6 +85471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 5290075890862349102}
+  costTitleText: {fileID: 0}
   costText: {fileID: 3109128606976783394}
   nameText: {fileID: 4471385026929165573}
   levelText: {fileID: 4580969320783673321}
@@ -86569,10 +86584,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88fb5f776024ba1a0352e23e00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCUpgradeSlot
+  costTitleText: {fileID: 0}
   costText: {fileID: 4665034894481994654}
   statText: {fileID: 1552881614545246756}
   levelText: {fileID: 4507816569873940763}
   upgradeButton: {fileID: 6825210829368814762}
+  buttonText: {fileID: 0}
 --- !u!224 &8563976847081175540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88449,6 +88466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarriageSlotUI
   ingredientImage: {fileID: 2878777451173001132}
+  costTitleText: {fileID: 0}
   costText: {fileID: 2570556740619953697}
   nameText: {fileID: 2785289534876464250}
   levelText: {fileID: 5781807797036328299}

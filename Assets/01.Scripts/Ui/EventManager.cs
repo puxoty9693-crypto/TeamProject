@@ -13,6 +13,9 @@ public enum EventType
     OnFeedbackMessage, // 골드부족같은 피드백용 이벤트 연결완료
     OnWarehouseChanged, // 실시간 인벤토리 반영용 이벤트 연결완료
     OnHousingChanged, // 하우징 설치시 남은개수용 연결완료
+    OnQuestStarted,      // 퀘스트시작
+    OnQuestEnded,        // 퀘스트 끝
+    OnRewardGranted,      // 보상
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

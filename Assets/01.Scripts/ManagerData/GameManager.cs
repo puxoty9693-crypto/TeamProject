@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameManager : MMSingleton<GameManager>
@@ -17,8 +18,8 @@ public class GameManager : MMSingleton<GameManager>
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
     public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
+    public AdUpgradeSystem AdUpgradeSystem { get; private set; }
     public StoreSystem StoreSystem { get; private set; }
-
     public QuestBuffService QuestBuffService { get; private set; }
 
     public QuestManager QuestManager { get; private set; }
@@ -34,6 +35,7 @@ public class GameManager : MMSingleton<GameManager>
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
         QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig);
+        AdUpgradeSystem = new AdUpgradeSystem(pData);
         workerUpgradeSystem = new WorkerUpgradeSystem(pData);
         StoreSystem = new StoreSystem();
 
@@ -59,7 +61,9 @@ public class GameManager : MMSingleton<GameManager>
             DataManager.Instance.suddenQuestConfig,
             QuestManager
             );
-
+        QuestManager.OnQuestStarted += (goal, duration) => EventManager.Instance.PostNotification(EventType.OnQuestStarted, this, new QuestStartedData { goalGold = goal, duration = duration });
+        QuestManager.OnQuestEnded += success => EventManager.Instance.PostNotification(EventType.OnQuestEnded, this, success);
+        QuestManager.OnRewardGranted += (type, value) => EventManager.Instance.PostNotification(EventType.OnRewardGranted, this, new QuestRewardData { type = type, value = value });
     }
 
     private void Update()

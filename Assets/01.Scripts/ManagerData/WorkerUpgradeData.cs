@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorkerUpgradeLevel : IUpgradeLevel
 {
     public float upgradeValue;     // 적용되는 능력치(조리시간 감소율, 속도, 효율 등)
+    public string upgradedeStatText;
     public int upgradeGoldCost;  // 다음 레벨 업그레이드 비용
     public int UpgradeGoldCost => upgradeGoldCost;
 }
