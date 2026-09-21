@@ -54,7 +54,7 @@ public class CustomerAI : MonoBehaviour
 
             if (behaviours.ContainsKey(behaviour.State))
             {
-                Debug.Log(
+                GameLogOnlyEditor.Log(
                     $"Customer Behaviour 중복 : {behaviour.State}",
                     gameObject);
 
@@ -63,7 +63,7 @@ public class CustomerAI : MonoBehaviour
 
             behaviours.Add(behaviour.State, behaviour);
 
-            Debug.Log(
+            GameLogOnlyEditor.Log(
                 $"Customer Behaviour 등록 : {behaviour.State}",
                 gameObject);
         }
@@ -167,13 +167,13 @@ public class CustomerAI : MonoBehaviour
 
     public void ChangeState(CustomerState state)
     {
-        Debug.Log($"ChangeState 호출 : {state}");
+        GameLogOnlyEditor.Log($"ChangeState 호출 : {state}");
 
         DeactivateCurrentBehaviour();
 
         if(!behaviours.TryGetValue(state,out CustomerBehaviour behaviour))
         {
-            Debug.Log($"Customer Behaviour 없음 : {state}", gameObject);
+            GameLogOnlyEditor.Log($"Customer Behaviour 없음 : {state}", gameObject);
 
             return;
         }
@@ -229,9 +229,10 @@ public class CustomerAI : MonoBehaviour
         customer.EndPatience();
         customer.SetExitReason(CustomerExitReason.PatienceOver);
 
-        Debug.Log($"{customer.name} 인내심 종료");
+        GameLogOnlyEditor.Log($"{customer.name} 인내심 종료");
 
-        // 주문 취소는 여기에
+        OrderManager.TryGetInstance()?.RemoveOrder(customer);
+        customer.ClearOrder();
 
         ChangeState(CustomerState.Leaving);
 

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCAnimator
   animator: {fileID: 2407602155087270137}
   root: {fileID: 6619724375182343391}
+  spriteRenderer: {fileID: 9118007148031192571}
 --- !u!61 &7617938481088953094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1c9700022c49f46bda77865d0c153c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChefBehaviour
+  animator: {fileID: 2407602155087270137}
 --- !u!114 &6071677281851548217
 MonoBehaviour:
   m_ObjectHideFlags: 0

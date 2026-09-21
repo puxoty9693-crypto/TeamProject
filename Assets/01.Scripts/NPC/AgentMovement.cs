@@ -16,6 +16,8 @@ public class AgentMovement : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+        //agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+
         // NPC간 충돌 제거
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
 
@@ -33,7 +35,7 @@ public class AgentMovement : MonoBehaviour
     /// <returns></returns>
     public bool MoveTo(Vector3 destination)
     {
-        Debug.Log(
+        GameLogOnlyEditor.Log(
         $"Agent Active : {agent.isActiveAndEnabled}, " +
         $"OnNavMesh : {agent.isOnNavMesh}, " +
         $"Destination : {destination}");
@@ -43,7 +45,7 @@ public class AgentMovement : MonoBehaviour
         agent.isStopped = false;
         bool result = agent.SetDestination(destination);
 
-        Debug.Log($"SetDestination : {result}");
+        GameLogOnlyEditor.Log($"SetDestination : {result}");
 
         return result;
     }
