@@ -11,7 +11,7 @@ public class TableUpgradeUI : MonoBehaviour
     
     [Header("¹öÆ°")]
     [SerializeField] Button upgradeButton;
-
+    [SerializeField] TextMeshProUGUI buttonText;
     private void Awake()
     {
         upgradeButton.onClick.AddListener(TryUpgrade);
@@ -34,6 +34,8 @@ public class TableUpgradeUI : MonoBehaviour
         if (isMaxLevel)
         {
             costText.text = "MAX";
+            upgradeButton.image.color = Color.white.WithAlpha(0f);
+            buttonText.text = "";
             upgradeButton.interactable = false;
         }
         else

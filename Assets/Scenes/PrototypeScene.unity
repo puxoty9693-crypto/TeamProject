@@ -55546,6 +55546,7 @@ MonoBehaviour:
   tableCountText: {fileID: 1086233338}
   costText: {fileID: 1733466424}
   upgradeButton: {fileID: 1884486172}
+  buttonText: {fileID: 1642648690}
 --- !u!1 &1706881531
 GameObject:
   m_ObjectHideFlags: 0
