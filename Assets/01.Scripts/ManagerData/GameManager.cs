@@ -13,6 +13,7 @@
     public RecipeUnlockSystem RecipeUnlockSystem { get; private set; }
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
+    public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
 
     private void Start()
     {
@@ -24,6 +25,7 @@
         IngredientWareHouse = new IngredientWareHouse(pData);
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
+        workerUpgradeSystem = new WorkerUpgradeSystem(pData);
 
         IngredientSupplySystem =
             new IngredientSupplySystem(
