@@ -62,4 +62,13 @@ public class SaveManager : MMSingleton<SaveManager>
             Debug.Log("세이브 삭제 완료");
         }
     }
+    public void ExitGame()
+    {
+        SaveGame();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
