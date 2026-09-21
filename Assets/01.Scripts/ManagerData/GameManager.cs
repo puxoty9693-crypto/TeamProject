@@ -1,4 +1,7 @@
-﻿public class GameManager : MMSingleton<GameManager>
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class GameManager : MMSingleton<GameManager>
 {
     public CraftingController craftingController;
     public CarriageController carriageController;
@@ -14,6 +17,8 @@
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
 
+    public QuestManager QuestManager { get; private set; }
+
     private void Start()
     {
         PlayerData pData = SaveManager.Instance.CurrentData;
@@ -24,6 +29,8 @@
         IngredientWareHouse = new IngredientWareHouse(pData);
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
+        QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig);
+
 
         IngredientSupplySystem =
             new IngredientSupplySystem(
@@ -38,5 +45,21 @@
         craftingController.Initialize(CraftingSystem);
         carriageController.Initialize(IngredientSupplySystem);
     }
+
+    private void Update()
+    {
+        QuestManager.Update(Time.deltaTime);
+        // 임시 종료 가능 나중에 종료 확인 팝업 등으로 교체 예정
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) 
+        {
+            QuitGame();
+        }
+    }
+    
+    private void QuitGame() 
+    {
+        Application.Quit();
+    }
+
 }
 

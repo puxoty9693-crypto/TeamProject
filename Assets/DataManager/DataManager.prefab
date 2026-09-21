@@ -80,3 +80,4 @@ MonoBehaviour:
   adData: {fileID: 11400000, guid: ee216a0d6e8895843a2584c7f0c1aeb3, type: 2}
   cookingBatchConfig: {fileID: 11400000, guid: ce4f63397a7b2384a92a9728126a3994, type: 2}
   tableUpgradeData: {fileID: 11400000, guid: dac2019ffdb12574fa8f2addab32c3ab, type: 2}
+  suddenQuestConfig: {fileID: 11400000, guid: b28ec2ef296b9e34ca770e1819a67e2e, type: 2}
