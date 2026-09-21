@@ -18,6 +18,8 @@ public class GameManager : MMSingleton<GameManager>
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
     public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
 
+    public QuestBuffService QuestBuffService { get; private set; }
+
     public QuestManager QuestManager { get; private set; }
 
     private void Start()
@@ -45,6 +47,16 @@ public class GameManager : MMSingleton<GameManager>
         recipeUnlockController.Initialize(RecipeUnlockSystem);
         craftingController.Initialize(CraftingSystem);
         carriageController.Initialize(IngredientSupplySystem);
+
+        QuestBuffService = new QuestBuffService(
+            pData,
+            PaymentSystem,
+            IngredientSupplySystem,
+            CraftingSystem,
+            ingredientBoxController,
+            DataManager.Instance.suddenQuestConfig,
+            QuestManager
+            );
     }
 
     private void Update()
