@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameManager : MMSingleton<GameManager>
@@ -57,7 +58,9 @@ public class GameManager : MMSingleton<GameManager>
             DataManager.Instance.suddenQuestConfig,
             QuestManager
             );
-
+        QuestManager.OnQuestStarted += (goal, duration) => EventManager.Instance.PostNotification(EventType.OnQuestStarted, this, new QuestStartedData { goalGold = goal, duration = duration });
+        QuestManager.OnQuestEnded += success => EventManager.Instance.PostNotification(EventType.OnQuestEnded, this, success);
+        QuestManager.OnRewardGranted += (type, value) => EventManager.Instance.PostNotification(EventType.OnRewardGranted, this, new QuestRewardData { type = type, value = value });
     }
 
     private void Update()

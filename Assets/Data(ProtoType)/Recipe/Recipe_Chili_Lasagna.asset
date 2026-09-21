@@ -16,4 +16,4 @@ MonoBehaviour:
   recipeName: recipe_chili_lasagna
   unlockGoldCost: 2000
   food: {fileID: 11400000, guid: 87ddabbb3f118e34dada3011c57c5e03, type: 2}
-  cookingTime: 1
+  cookingTime: 60
