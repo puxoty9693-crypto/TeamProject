@@ -57,11 +57,13 @@ public class GameManager : MMSingleton<GameManager>
             DataManager.Instance.suddenQuestConfig,
             QuestManager
             );
+
     }
 
     private void Update()
     {
         QuestManager.Update(Time.deltaTime);
+        QuestBuffService.Update(Time.deltaTime);
         // 임시 종료 가능 나중에 종료 확인 팝업 등으로 교체 예정
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) 
         {
