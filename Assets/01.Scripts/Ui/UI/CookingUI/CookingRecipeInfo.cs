@@ -52,6 +52,8 @@ public class CookingRecipeInfo : MonoBehaviour
         System.OnCookingStarted += OnCookingStarted;
         System.OnCookingCanceled += OnCookingEnded;
         System.OnCookingCompleted += OnCookingEnded;
+        EventManager.Instance.AddListener(EventType.OnWarehouseChanged, OnWarehouseChanged);
+
 
         RefreshPanelByState();
     }
@@ -60,7 +62,8 @@ public class CookingRecipeInfo : MonoBehaviour
         System.OnCookingStarted -= OnCookingStarted;
         System.OnCookingCanceled -= OnCookingEnded;
         System.OnCookingCompleted -= OnCookingEnded;
-
+        if(EventManager.HasInstance)
+        EventManager.Instance.RemoveListener(EventType.OnWarehouseChanged, OnWarehouseChanged);
     }
     private void Update()
     {
@@ -102,13 +105,14 @@ public class CookingRecipeInfo : MonoBehaviour
 
     public void ClearCount()
     {
-        currentCount = 0;
+        currentCount = 1;
         RefreshCountText();
     }
 
     private void RefreshCountText()
     {
         countText.text = $"{currentCount}";
+        remainingText.text = $"남은 요리 : {Controller.RemainingCraftCount}개";
         RefreshPreviewTime();
     }
     private void RefreshPreviewTime()
@@ -155,12 +159,29 @@ public class CookingRecipeInfo : MonoBehaviour
     }
 
     private void OnCookingStarted(RecipeData recipe) => RefreshPanelByState();
-    private void OnCookingEnded(RecipeData recipe) => RefreshPanelByState();
+    private void OnCookingEnded(RecipeData recipe)
+    {
+        ClearCount();
+        RefreshPanelByState();
+    }
+        
 
     private void RefreshPanelByState()
     {
         bool isCooking = Controller.IsCooking;
         selectionPanel.SetActive(!isCooking);
         cookingPanel.SetActive(isCooking);
+    }
+
+    private void OnWarehouseChanged(Component sender, object param)
+    {
+        if (currentData == null)
+            return;
+
+        maxAffordableCount = CalculateMaxAffordable(currentData);
+        currentCount = Mathf.Clamp(currentCount, currentCount == 0 ? 0 : 1, maxAffordableCount);
+        ingredient1Count.text = $"{currentData.food.requiredIngredients[0].amount}";
+        ingredient2Count.text = $"{currentData.food.requiredIngredients[1].amount}";
+        RefreshCountText();
     }
 }
