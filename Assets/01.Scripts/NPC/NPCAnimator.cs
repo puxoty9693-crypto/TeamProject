@@ -5,6 +5,9 @@ public class NPCAnimator : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform root;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private bool isFlipX;
+
     private Vector3 lastPosition;
 
     private void Awake()
@@ -27,6 +30,19 @@ public class NPCAnimator : MonoBehaviour
             Vector2 dir = new Vector2(lastDir.x, lastDir.y).normalized;
             animator.SetFloat("MoveX", dir.x);
             animator.SetFloat("MoveY", dir.y);
+
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            {
+                isFlipX = dir.x > 0f;
+
+            }
+            spriteRenderer.flipX = false;
+            
+
+        }
+        else
+        {
+            spriteRenderer.flipX = isFlipX;
         }
         lastPosition = root.position;
 

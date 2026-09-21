@@ -1,21 +1,20 @@
-// ±¤°í ¾÷±×·¹ÀÌµå ÇÑ ´Ü°èÀÇ Á¤º¸
+ï»¿// ê´‘ê³  ì—…ê·¸ë ˆì´ë“œ í•œ ë‹¨ê³„ì˜ ì •ë³´
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class AdUpgradeLevel : IUpgradeLevel
 {
-    public float spawnIntervalMin;
-    public float spawnIntervalMax;
-    public int upgradeGoldCost;  // ´ÙÀ½ ·¹º§ ¾÷±×·¹ÀÌµå ºñ¿ë
-    public string upgradeText;   // UI¿¡ Ç¥½ÃÇÒ ¼³¸í ÅØ½ºÆ®
+    public float upgradeValue;
+    public int upgradeGoldCost;  // ë‹¤ìŒ ë ˆë²¨ ì—…ê·¸ë ˆì´ë“œ ë¹„ìš©
+    public string upgradeText;   // UIì— í‘œì‹œí•  ì„¤ëª… í…ìŠ¤íŠ¸
     public int UpgradeGoldCost => upgradeGoldCost;
 }
 
-// ±¤°í ÀüÃ¼ ¾÷±×·¹ÀÌµå ´Ü°è
+// ê´‘ê³  ì „ì²´ ì—…ê·¸ë ˆì´ë“œ ë‹¨ê³„
 [CreateAssetMenu(fileName = "Ad_", menuName = "Data/Ad")]
 public class AdData : ScriptableObject
 {
-    public List<AdUpgradeLevel> levels; // ·¹º§º° Á¤º¸ (ÀÎµ¦½º = ·¹º§)
+    public List<AdUpgradeLevel> levels; // ë ˆë²¨ë³„ ì •ë³´ (ì¸ë±ìŠ¤ = ë ˆë²¨)
 }
 

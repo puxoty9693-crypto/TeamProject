@@ -11,7 +11,7 @@ public class ServerBehaviour : WorkerBehaviour
 
     private FoodService foodService;
 
-
+    private Customer currentCustomer;
 
     public ServerState State { get; private set; }
     public bool IsReady => IsActive && State == ServerState.Idle;
@@ -57,14 +57,14 @@ public class ServerBehaviour : WorkerBehaviour
                 if (currentRequest.IsCancelled)
                 {
                     State = ServerState.Cancelled;
-                    Debug.Log($"Server State : {State}");
+                    //GameLogOnlyEditor.Log($"Server State : {State}");
 
                     SetTarget(currentRequest.DumpPoint);
                     break;
                 }
 
                 State = ServerState.Delivery;
-                Debug.Log($"Server State : {State}");
+                //GameLogOnlyEditor.Log($"Server State : {State}");
 
                 SetTarget(currentRequest.DeliveryPoint);
 
@@ -72,8 +72,9 @@ public class ServerBehaviour : WorkerBehaviour
             case ServerState.Delivery:
                 currentRequest.Delivery();
                 currentRequest = null;
+                currentCustomer = null;
                 State = ServerState.Idle;
-                Debug.Log($"Server State : {State}");
+                //GameLogOnlyEditor.Log($"Server State : {State}");
 
                 ReturnToWaitingPoint();
 
@@ -82,8 +83,9 @@ public class ServerBehaviour : WorkerBehaviour
                 currentRequest.CancelHandled();
 
                 currentRequest = null;
+                currentCustomer = null;
                 State = ServerState.Idle;
-                Debug.Log($"Server State : {State}");
+                //GameLogOnlyEditor.Log($"Server State : {State}");
 
                 ReturnToWaitingPoint();
                 break;
@@ -104,7 +106,7 @@ public class ServerBehaviour : WorkerBehaviour
 
     public override void Tick()
     {
-        GameLogOnlyEditor.Log($"Server Tick / Active:{IsActive} / Arrived:{IsArrived} / State:{State}");
+        //GameLogOnlyEditor.Log($"Server Tick / Active:{IsActive} / Arrived:{IsArrived} / State:{State}");
 
         if (orderManager == null || foodService == null)
         {
@@ -116,13 +118,32 @@ public class ServerBehaviour : WorkerBehaviour
 
         if (currentRequest != null)
         {
+            if(currentCustomer == null || currentCustomer.State != CustomerState.WaitingFood)
+            {
+                currentRequest.Cancel();
+            }
+
             if (!currentRequest.IsCancelled) return;
             if (State == ServerState.Delivery)
             {
                 State = ServerState.Cancelled;
                 SetTarget(currentRequest.DumpPoint);
+                return;
+            }
+            
+            if(State == ServerState.PickUp)
+            {
+                currentRequest.CancelHandled();
+
+                currentRequest = null;
+                currentCustomer = null;
+                State = ServerState.Idle;
+
+                ReturnToWaitingPoint();
+                return;
             }
             return;
+
         }
 
         if (!IsReady) return;
@@ -133,7 +154,7 @@ public class ServerBehaviour : WorkerBehaviour
 
     private void TryNextOrder()
     {
-        GameLogOnlyEditor.Log("TrhyNextOrder 호출");
+        //GameLogOnlyEditor.Log("TryNextOrder 호출");
         if (orderManager == null) return;
 
         Customer customer = orderManager.GetFirstOrder();
@@ -144,7 +165,7 @@ public class ServerBehaviour : WorkerBehaviour
             orderManager.RemoveOrder(customer);
             return;
         }
-        GameLogOnlyEditor.Log($"주문 음식 : {customer.OrderedFood.foodName} / " + $"보유 수량 : {foodService.GetFoodCount(customer.OrderedFood)}");
+        //GameLogOnlyEditor.Log($"주문 음식 : {customer.OrderedFood.foodName} / " + $"보유 수량 : {foodService.GetFoodCount(customer.OrderedFood)}");
 
         if (!foodService.HasFood(customer.OrderedFood)) return;
 
@@ -156,6 +177,7 @@ public class ServerBehaviour : WorkerBehaviour
 
         if (!TryServing(request)) return;
 
+        currentCustomer = customer;
         orderManager.RemoveOrder(customer);
     }
 
@@ -164,6 +186,7 @@ public class ServerBehaviour : WorkerBehaviour
     public override void Exit()
     {
         currentRequest = null;
+        currentCustomer = null;
         State = ServerState.Idle;
         base.Exit();
     }

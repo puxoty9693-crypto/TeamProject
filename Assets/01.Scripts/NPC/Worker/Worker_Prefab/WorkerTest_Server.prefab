@@ -74,9 +74,9 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 1.3
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &763572542783182243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1c9700022c49f46bda77865d0c153c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChefBehaviour
+  animator: {fileID: 0}
 --- !u!114 &6686674309014480108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 5691455443060986943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCAnimator
   animator: {fileID: 8591280237293463292}
   root: {fileID: 1987651072796513022}
+  spriteRenderer: {fileID: 8327794182481811982}
 --- !u!95 &8591280237293463292
 Animator:
   serializedVersion: 7

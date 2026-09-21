@@ -14,18 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorkerUpgradeData
   role: 1
   levels:
-  - upgradeValue: 0
-    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4"
-    upgradeGoldCost: 0
   - upgradeValue: 1
-    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4"
-    upgradeGoldCost: 500
-  - upgradeValue: 2
-    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4"
-    upgradeGoldCost: 2000
-  - upgradeValue: 3
-    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4"
+    upgradeGoldCost: 0
+  - upgradeValue: 1.1
     upgradeGoldCost: 5000
-  - upgradeValue: 4
-    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4"
-    upgradeGoldCost: 10000
+  - upgradeValue: 1.2
+    upgradeGoldCost: 20000
+  - upgradeValue: 1.3
+    upgradeGoldCost: 50000

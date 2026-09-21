@@ -28360,6 +28360,7 @@ MonoBehaviour:
   adData: {fileID: 11400000, guid: ee216a0d6e8895843a2584c7f0c1aeb3, type: 2}
   cookingBatchConfig: {fileID: 11400000, guid: ce4f63397a7b2384a92a9728126a3994, type: 2}
   tableUpgradeData: {fileID: 11400000, guid: dac2019ffdb12574fa8f2addab32c3ab, type: 2}
+  suddenQuestConfig: {fileID: 0}
 --- !u!4 &1442188563490127828
 Transform:
   m_ObjectHideFlags: 0
@@ -75815,7 +75816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7513152512619411127
 RectTransform:
   m_ObjectHideFlags: 0

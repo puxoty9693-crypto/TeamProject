@@ -24,7 +24,7 @@ public class CraftingSystem
     // 현재 요리 진행 시간
     public float CookingProgress { get; private set; }
 
-    // 현재 요리의 전체 제작 시간
+    // 현재 요리의 제작 시간 (아래 업그레이드 타임 써야함)
     private float CookingTime =>
         CookingRecipe != null
             ? CookingRecipe.cookingTime
@@ -39,11 +39,11 @@ public class CraftingSystem
     {
         get
         {
-            if (!IsCooking || CookingTime <= 0f)
+            if (!IsCooking || UpgradedCookingTime <= 0f)
                 return 0f;
 
             return Mathf.Clamp01(
-                CookingProgress / CookingTime
+                CookingProgress / UpgradedCookingTime
             );
         }
     }
