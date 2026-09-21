@@ -105,13 +105,14 @@ public class CookingRecipeInfo : MonoBehaviour
 
     public void ClearCount()
     {
-        currentCount = 0;
+        currentCount = 1;
         RefreshCountText();
     }
 
     private void RefreshCountText()
     {
         countText.text = $"{currentCount}";
+        remainingText.text = $"남은 요리 : {Controller.RemainingCraftCount}개";
         RefreshPreviewTime();
     }
     private void RefreshPreviewTime()
@@ -158,7 +159,12 @@ public class CookingRecipeInfo : MonoBehaviour
     }
 
     private void OnCookingStarted(RecipeData recipe) => RefreshPanelByState();
-    private void OnCookingEnded(RecipeData recipe) => RefreshPanelByState();
+    private void OnCookingEnded(RecipeData recipe)
+    {
+        ClearCount();
+        RefreshPanelByState();
+    }
+        
 
     private void RefreshPanelByState()
     {
@@ -178,6 +184,4 @@ public class CookingRecipeInfo : MonoBehaviour
         ingredient2Count.text = $"{currentData.food.requiredIngredients[1].amount}";
         RefreshCountText();
     }
-
-
 }

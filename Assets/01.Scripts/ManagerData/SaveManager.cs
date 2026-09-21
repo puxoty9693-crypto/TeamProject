@@ -15,6 +15,7 @@ public class SaveManager : MMSingleton<SaveManager>
     {
         base.Awake();
         CurrentData = LoadGame();
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, CurrentData.Gold);
     }
 
     private void Update()
