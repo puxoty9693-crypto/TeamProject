@@ -18,8 +18,8 @@ public class GameManager : MMSingleton<GameManager>
     public IngredientUnlockSystem ingredientUnlockSystem { get; private set; }
     public IngredientUpgradeSystem ingredientUpgradeSystem { get; private set; }
     public WorkerUpgradeSystem workerUpgradeSystem { get; private set; }
+    public AdUpgradeSystem AdUpgradeSystem { get; private set; }
     public StoreSystem StoreSystem { get; private set; }
-
     public QuestBuffService QuestBuffService { get; private set; }
 
     public QuestManager QuestManager { get; private set; }
@@ -35,6 +35,7 @@ public class GameManager : MMSingleton<GameManager>
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
         QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig);
+        AdUpgradeSystem = new AdUpgradeSystem(pData);
         workerUpgradeSystem = new WorkerUpgradeSystem(pData);
         StoreSystem = new StoreSystem();
 
