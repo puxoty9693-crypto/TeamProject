@@ -1218,6 +1218,7 @@ MonoBehaviour:
   statText: {fileID: 1453128688}
   levelText: {fileID: 833715842}
   upgradeButton: {fileID: 614747204}
+  buttonText: {fileID: 1673077983}
 --- !u!114 &39232819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38027,6 +38028,7 @@ MonoBehaviour:
   statText: {fileID: 1988838704}
   levelText: {fileID: 370038383}
   upgradeButton: {fileID: 1925338344}
+  buttonText: {fileID: 386889420}
 --- !u!114 &1333724824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54584,6 +54586,7 @@ MonoBehaviour:
   statText: {fileID: 993195358}
   levelText: {fileID: 1538525037}
   upgradeButton: {fileID: 588804064}
+  buttonText: {fileID: 298238234}
 --- !u!114 &1676309065
 MonoBehaviour:
   m_ObjectHideFlags: 0

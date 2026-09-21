@@ -15,6 +15,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
 
     [Header("¹öÆ°")]
     [SerializeField] Button upgradeButton;
+    [SerializeField] TextMeshProUGUI buttonText;
 
     private event Action OnUpgradeClicked;
     private void Awake()
@@ -31,6 +32,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
         {
             costText.text = "Max";
             upgradeButton.image.color = Color.white.WithAlpha(0f);
+            buttonText.text = "";
             upgradeButton.interactable = false;
         }
         else
