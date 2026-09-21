@@ -15,10 +15,14 @@ MonoBehaviour:
   role: 2
   levels:
   - upgradeValue: 2
+    upgradedeStatText: "\uC11C\uBE59\uC18D\uB3C4"
     upgradeGoldCost: 500
   - upgradeValue: 3
+    upgradedeStatText: "\uC11C\uBE59\uC18D\uB3C4"
     upgradeGoldCost: 2000
   - upgradeValue: 4
+    upgradedeStatText: "\uC11C\uBE59\uC18D\uB3C4"
     upgradeGoldCost: 5000
   - upgradeValue: 5
+    upgradedeStatText: "\uC11C\uBE59\uC18D\uB3C4"
     upgradeGoldCost: 10000
