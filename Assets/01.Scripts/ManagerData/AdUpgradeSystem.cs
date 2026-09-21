@@ -21,16 +21,9 @@ public class AdUpgradeSystem
     {
         AdData data = GetUpgradeData();
 
-        if (data == null ||
-            data.levels == null ||
-            data.levels.Count == 0)
-        {
-            return 1f;
-        }
-
         int level = GetCurrentLevel();
 
-        if (level < 0 || level >= data.levels.Count)
+        if (level < 0)
             return 1f;
 
         return data.levels[level].upgradeValue;
@@ -45,7 +38,7 @@ public class AdUpgradeSystem
 
         if (value <= 0f) return originDelay;
 
-        return originDelay / value;
+        return originDelay * (2f - value);
     }
 
     public bool CanUpgrade()
@@ -93,17 +86,9 @@ public class AdUpgradeSystem
         return DataManager.Instance.adData;
     }
 
-    private bool TryGetNextLevel(
-        AdData data,
-        out int nextLevel)
+    private bool TryGetNextLevel(AdData data, out int nextLevel)
     {
         nextLevel = -1;
-
-        if (data == null ||
-            data.levels == null)
-        {
-            return false;
-        }
 
         int currentLevel = GetCurrentLevel();
 
