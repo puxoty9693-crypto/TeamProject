@@ -22,7 +22,7 @@ public class BootStrapper : MonoBehaviour
 
         yield return null; // 한 프레임 대기 (씬에 있던 매니저들의 Awake가 확실히 다 끝나도록)
 
-        SceneManager.Instance.ChangeScene(firstSceneName);
+        SceneChanger.Instance.ChangeScene(firstSceneName);
 
     }
 }
