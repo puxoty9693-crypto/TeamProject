@@ -21,15 +21,6 @@ public class BootStrapper : MonoBehaviour
         _ = EventManager.Instance;
 
         yield return null; // 한 프레임 대기 (씬에 있던 매니저들의 Awake가 확실히 다 끝나도록)
-        
-
-        //메인 메뉴에서 새 게임을 눌렀으면, 기존 세이브를 지우고 데이터를 새로 초기화함.
-        // 불러오기를 눌렀을 때는 그대로 기존 세이브 유지.
-        if (MainMenuController.PendingNewGame) 
-        {
-            MainMenuController.PendingNewGame = false;
-            SaveManager.Instance.StartNewGame();
-        }
 
 
         SceneChanger.Instance.ChangeScene(firstSceneName);

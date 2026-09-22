@@ -7,17 +7,18 @@ public class ServingRequest
     public Transform PickUpPoint { get; private set; }
     public Transform DeliveryPoint { get; private set; }
     public Transform DumpPoint { get; private set; }
-
+    public FoodData Food { get; private set; }
     private readonly Action onPickUp;
     private readonly Action onDelivery;
     private readonly Action onCancel;
 
     public bool IsCancelled { get; private set; }
 
-    public ServingRequest(Transform PickUpPoint_, Transform DeliveryPoint_, Transform DumpPoint_, Action onPickUp_ = null, Action onDelivery_ = null, Action onCancel_ = null )
+    public ServingRequest(Transform PickUpPoint_, Transform DeliveryPoint_, Transform DumpPoint_, FoodData Food_, Action onPickUp_ = null, Action onDelivery_ = null, Action onCancel_ = null )
     {
         PickUpPoint = PickUpPoint_;
         DeliveryPoint = DeliveryPoint_;
+        Food = Food_;
         onPickUp = onPickUp_;
         onDelivery = onDelivery_;
         DumpPoint = DumpPoint_;

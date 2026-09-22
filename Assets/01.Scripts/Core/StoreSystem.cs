@@ -11,7 +11,7 @@ public class StoreSystem
     public int CustomerCount { get; private set; }
 
     public bool CanHousing => State == StoreState.Empty;
-    public bool CanReceiveCustomer => !IsBreakTime;
+    public bool CanReceiveCustomer = false;
 
     public void CustomerEntered()
     {
@@ -28,6 +28,12 @@ public class StoreSystem
 
     public void SetBreakTime(bool value)
     {
+        //GameLogOnlyEditor.Log($"현재 value {value}");
         IsBreakTime = value;
+
+        //GameLogOnlyEditor.Log($"현재 isBreakTime {IsBreakTime}");
+        CanReceiveCustomer = !IsBreakTime;
+
+        //GameLogOnlyEditor.Log($"현재 CanReceiveCustomer {CanReceiveCustomer}");
     }
 }
