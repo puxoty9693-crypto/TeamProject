@@ -104,3 +104,5 @@ InitTestScene*.unity*
 Packages/manifest.json
 Packages/manifest.json
 Assets/01.Scripts/font/Pretendard-Regular SDF.asset
+/Assets/01.Scripts/font
+Assets/01.Scripts/font/Pretendard-Regular SDF.asset
