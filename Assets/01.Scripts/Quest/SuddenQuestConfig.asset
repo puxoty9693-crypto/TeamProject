@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SuddenQuestConfig
   m_EditorClassIdentifier: Assembly-CSharp::SuddenQuestConfig
   minIntervalSeconds: 10
-  maxIntervalSeconds: 400
+  maxIntervalSeconds: 20
   buffDurationSeconds: 60
   challengeDurationSeconds: 30
   incomeGoalMultiplier: 0.8

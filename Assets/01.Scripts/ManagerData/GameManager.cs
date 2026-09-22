@@ -78,7 +78,7 @@ public class GameManager : MMSingleton<GameManager>
     
     private void QuitGame() 
     {
-        Application.Quit();
+        SaveManager.Instance.ExitGame();
     }
 
 }
