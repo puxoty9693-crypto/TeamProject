@@ -1,16 +1,11 @@
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class CustomerStatusUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Customer customer;
+    [SerializeField] private Image orderIcon;
+    [SerializeField] private Image patienceFill;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
