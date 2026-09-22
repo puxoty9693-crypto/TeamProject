@@ -23,7 +23,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private bool acceptingCustomers = true;
 
     private float spawnTimer;
-    private StoreSystem storeSystem = new StoreSystem();
+    private StoreSystem storeSystem = GameManager.Instance.StoreSystem;
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
@@ -43,6 +43,8 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
+        GameLogOnlyEditor.Log($"스포너에선 {storeSystem.CanReceiveCustomer}");
+
         if (!CanSpawn()) return;
 
         spawnTimer += Time.deltaTime;
@@ -134,7 +136,7 @@ public class CustomerSpawner : MonoBehaviour
     private bool CanSpawn()
     {
         
-        if (storeSystem.IsBreakTime) 
+        if (!storeSystem.CanReceiveCustomer) 
         {
             spawnTimer = 0f;
             return false; 
