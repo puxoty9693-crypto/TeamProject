@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 // 메인 메뉴 씬에만 존재
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] private string bootSceneName = "Boot";
+    [SerializeField] private string bootSceneName = "BootScene";
 
     public static bool PendingNewGame;
 

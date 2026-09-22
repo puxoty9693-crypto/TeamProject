@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 // 여기 나열한 매니저들은 전부 MMS 의 persistAcrossScenes = true 여야 합니다.
 public class BootStrapper : MonoBehaviour
 {
-    //ProtoypeScene
-    [SerializeField] private string firstSceneName = "ProtoypeScene";
+
+    [SerializeField] private string firstSceneName = "PrototypeScene";
 
     private IEnumerator Start()
     {
