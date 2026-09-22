@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     public static bool PendingNewGame;
 
     // 새 게임 버튼에 연결 - 기존 세이브 지우기
-    public void OnClickStatGame() 
+    public void OnClickStartGame() 
     {
         PendingNewGame = true;
         SceneManager.LoadScene(bootSceneName);
