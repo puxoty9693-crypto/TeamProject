@@ -138,7 +138,7 @@ public class WorkerUpgradeSystem
 
         if (value <= 0) return 0;
 
-        float finalTime = originTime * (2f - data.levels[currentLevel].upgradeValue);
+        float finalTime = originTime * (1f - data.levels[currentLevel].upgradeValue);
 
         if(finalTime < 0) return 0;
 
@@ -156,13 +156,13 @@ public class WorkerUpgradeSystem
 
         if (value <= 0f) return originIncome;
 
-        return Mathf.RoundToInt(originIncome * value);
+        return Mathf.RoundToInt(originIncome * (1f + value));
     }
 
     //강화된 서빙 NPC 속도 값
     public float GetUpgradedServerSpeed(float originSpeed)
     {
-        if (originSpeed <= 0f)return 0f;
+        if (originSpeed <= 0f) return 0f;
 
         WorkerUpgradeData data =GetUpgradeData(WorkerRole.Server);
 
@@ -171,6 +171,6 @@ public class WorkerUpgradeSystem
 
         if (value <= 0f) return originSpeed;
 
-        return originSpeed * value;
+        return originSpeed * (1f + value);
     }
 }
