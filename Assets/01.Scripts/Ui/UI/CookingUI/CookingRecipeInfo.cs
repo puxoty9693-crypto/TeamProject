@@ -133,7 +133,7 @@ public class CookingRecipeInfo : MonoBehaviour
             int owned = SaveManager.Instance.CurrentData.GetIngredientCount(req.ingredient.ingredientId);
             max = Mathf.Min(max, owned / req.amount);
         }
-        return Mathf.Max(1, max);
+        return Mathf.Max(0, max);
     }
     private void TryStartCooking()
     {
