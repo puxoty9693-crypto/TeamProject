@@ -23,7 +23,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private bool acceptingCustomers = true;
 
     private float spawnTimer;
-
+    private StoreSystem storeSystem => GameManager.Instance.StoreSystem;
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
@@ -38,8 +38,7 @@ public class CustomerSpawner : MonoBehaviour
     private void OnDisable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned -= HandleCustomerReturned;
-        if (EventManager.HasInstance)
-            EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
+        if (EventManager.HasInstance) EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
     }
 
     private void Update()
@@ -48,7 +47,8 @@ public class CustomerSpawner : MonoBehaviour
 
         spawnTimer += Time.deltaTime;
 
-        float interval = Mathf.Max(0.1f, spawnData.spawnInterval);
+        float interval = 2;
+        //AdUpgradeSystem.GetCustomerSpawnDelay(spawnData.spawnInterval);
 
         if (spawnTimer < interval) return;
 
@@ -81,7 +81,7 @@ public class CustomerSpawner : MonoBehaviour
         {
             npcPool.Return(customer);
 
-            GameLogOnlyEditor.Log(" 빈 자리 없음 / Spawn 취소",gameObject);
+            GameLogOnlyEditor.Log(" 빈 자리 없음 / Spawn 취소", gameObject);
 
             return false;
         }
@@ -133,11 +133,16 @@ public class CustomerSpawner : MonoBehaviour
 
     private bool CanSpawn()
     {
-        
+
+        if (storeSystem.IsBreakTime)
+        {
+            spawnTimer = 0f;
+            return false;
+        }
         if (!acceptingCustomers) return false;
 
         if (npcPool == null || seatManager == null || spawnPoint == null || spawnData == null) return false;
-            
+
 
         if (spawnData.possibleCustomers == null || spawnData.possibleCustomers.Count == 0) return false;
 
@@ -149,7 +154,7 @@ public class CustomerSpawner : MonoBehaviour
     private CustomerData GetRandomCustomerData()
     {
         if (spawnData.possibleCustomers == null || spawnData.possibleCustomers.Count == 0) return null;
-        
+
 
         return spawnData.possibleCustomers[Random.Range(0, spawnData.possibleCustomers.Count)];
     }
@@ -162,7 +167,7 @@ public class CustomerSpawner : MonoBehaviour
 
         EventManager.Instance.PostNotification(EventType.OnCustomerCount, this, activeCustomers.Count);//손님퇴장시 ui반영 이벤트호출
         GameManager.Instance.StoreSystem.CustomerExited();
-        GameLogOnlyEditor.Log($"Customer 반환 / 활성화 : {activeCustomers.Count}",gameObject);
+        GameLogOnlyEditor.Log($"Customer 반환 / 활성화 : {activeCustomers.Count}", gameObject);
     }
 
     public void SetAcceptingCustomers(bool value)
