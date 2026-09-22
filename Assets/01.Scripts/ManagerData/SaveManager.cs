@@ -62,6 +62,18 @@ public class SaveManager : MMSingleton<SaveManager>
             Debug.Log("세이브 삭제 완료");
         }
     }
+
+    public void StartNewGame() 
+    {
+        DeleteSave();
+        CurrentData = new PlayerData();
+
+        //골드 등 초기화 된 값으로 UI도 바로 갱신되게 알림
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, CurrentData.Gold);
+    }
+
+
+
     public void ExitGame()
     {
         SaveGame();
