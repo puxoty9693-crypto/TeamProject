@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Profiling;
 using Random = UnityEngine.Random;
+using NUnit.Framework;
+using Unity.Jobs.LowLevel.Unsafe;
 
 public class QuestManager
 {
@@ -25,6 +27,10 @@ public class QuestManager
 
     private int challengeGoalGold;
     public int ChallengeStartGold => challengeStartGold;
+
+
+    //방금 끝난 돌발 퀘스트의 성공 판단
+    public bool IsQuestCompleted {  get; private set; }
 
     // 돌발 퀘스트 시작 (목표 금액, 제한 시간)
     public event Action<int, float> OnQuestStarted;
@@ -96,6 +102,7 @@ public class QuestManager
         challengeStartGold = currentGold;
         challengeTimeRemaining = config.challengeDurationSeconds;
         isChallengeActive = true;
+        IsQuestCompleted = false; // 새 퀘스트 시작하니까 초기화
 
         OnQuestStarted?.Invoke(challengeGoalGold, config.challengeDurationSeconds);
     }
@@ -104,16 +111,33 @@ public class QuestManager
     {
         challengeTimeRemaining -= deltaTime;
 
+        int earnGold = playerData.Gold - challengeStartGold;
+        bool goalReached = earnGold >= challengeGoalGold;
+
+        if (goalReached) 
+        {
+            FinishChallenge(true, earnGold);
+            return;
+        }
+
+        //목표를 아직 못 채웠으면, 시간이 남아있는 동안 대기
         if (challengeTimeRemaining > 0f)
             return;
 
-        int earnGold = playerData.Gold - challengeStartGold;
-        bool success = earnGold >= challengeGoalGold;
+        //시간이 다 됐는데도 목표 미달성
+        FinishChallenge(false, earnGold);
 
+    }
+
+    // 돌발 퀘스트 성공/실패 공통처리
+    private void FinishChallenge(bool success, int earnGold) 
+    {
         isChallengeActive = false;
+        IsQuestCompleted = success;
+
         OnQuestEnded?.Invoke(success);
 
-        if (success) 
+        if (success)
         {
             GrantRandomReward();
         }
