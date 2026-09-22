@@ -38,7 +38,7 @@ public class AdUpgradeSystem
 
         if (value <= 0f) return originDelay;
 
-        return originDelay * (2f - value);
+        return originDelay * (1f - value);
     }
 
     public bool CanUpgrade()

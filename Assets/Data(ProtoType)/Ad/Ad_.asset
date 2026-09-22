@@ -13,19 +13,15 @@ MonoBehaviour:
   m_Name: Ad_
   m_EditorClassIdentifier: Assembly-CSharp::AdData
   levels:
-  - spawnIntervalMin: 25
-    spawnIntervalMax: 20
-    upgradeGoldCost: 100
-    upgradeText: 
-  - spawnIntervalMin: 20
-    spawnIntervalMax: 15
-    upgradeGoldCost: 500
-    upgradeText: 
-  - spawnIntervalMin: 15
-    spawnIntervalMax: 10
-    upgradeGoldCost: 5000
-    upgradeText: 
-  - spawnIntervalMin: 10
-    spawnIntervalMax: 5
+  - upgradeValue: 0
+    upgradeGoldCost: 0
+    upgradeText: "\uAE30\uBCF8"
+  - upgradeValue: 0.1
     upgradeGoldCost: 10000
-    upgradeText: 
+    upgradeText: "\uC804\uB2E8\uC9C0 \uD64D\uBCF4"
+  - upgradeValue: 0.2
+    upgradeGoldCost: 20000
+    upgradeText: "\uC678\uAD6D \uD64D\uBCF4"
+  - upgradeValue: 0.3
+    upgradeGoldCost: 50000
+    upgradeText: "\uC655\uB3C4 \uD64D\uBCF4"
