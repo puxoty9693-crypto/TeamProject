@@ -23,8 +23,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private bool acceptingCustomers = true;
 
     private float spawnTimer;
-
-    
+    private StoreSystem storeSystem = new StoreSystem();
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
@@ -134,7 +133,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private bool CanSpawn()
     {
-        
+        if (storeSystem.IsBreakTime) return false;
         if (!acceptingCustomers) return false;
 
         if (npcPool == null || seatManager == null || spawnPoint == null || spawnData == null) return false;
