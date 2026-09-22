@@ -102,3 +102,4 @@ InitTestScene*.unity*
 .p4config
 Packages/manifest.json
 Packages/manifest.json
+/Assets/01.Scripts/font
