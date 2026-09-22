@@ -4,8 +4,12 @@ public class ServerBehaviour : WorkerBehaviour
 {
     [SerializeField] private Transform pickUpPoint;
     [SerializeField] private Transform dumpPoint;
-    
-    
+
+    //[SerializeField] private NPCStatusUI statusUI;
+    //[Header("Status UI")]
+    [SerializeField] private Sprite assignedIcon;
+    [SerializeField] private Sprite dumpIcon;
+
     public override WorkerRole Role => WorkerRole.Server;
     private OrderManager orderManager;
 
@@ -22,7 +26,7 @@ public class ServerBehaviour : WorkerBehaviour
     {
         GameLogOnlyEditor.Log("Server Enter");
         base.Enter();
-
+        AI.StatusUI.Hide();
         TryInitializeService();
 
         State = ServerState.Idle;
@@ -38,6 +42,7 @@ public class ServerBehaviour : WorkerBehaviour
 
         currentRequest = request;
         State = ServerState.PickUp;
+        AI.StatusUI.ShowIcon(currentRequest.Food.foodImage);
         SetTarget(currentRequest.PickUpPoint);
 
         return true;
@@ -59,6 +64,7 @@ public class ServerBehaviour : WorkerBehaviour
                     State = ServerState.Cancelled;
                     //GameLogOnlyEditor.Log($"Server State : {State}");
 
+                    AI.StatusUI.ShowIcon(dumpIcon);
                     SetTarget(currentRequest.DumpPoint);
                     break;
                 }
@@ -71,6 +77,8 @@ public class ServerBehaviour : WorkerBehaviour
                 break;
             case ServerState.Delivery:
                 currentRequest.Delivery();
+                AI.StatusUI.Hide();
+
                 currentRequest = null;
                 currentCustomer = null;
                 State = ServerState.Idle;
@@ -81,6 +89,7 @@ public class ServerBehaviour : WorkerBehaviour
                 break;
             case ServerState.Cancelled:
                 currentRequest.CancelHandled();
+                AI.StatusUI.Hide();
 
                 currentRequest = null;
                 currentCustomer = null;
@@ -127,6 +136,8 @@ public class ServerBehaviour : WorkerBehaviour
             if (State == ServerState.Delivery)
             {
                 State = ServerState.Cancelled;
+                AI.StatusUI.ShowIcon(dumpIcon);
+
                 SetTarget(currentRequest.DumpPoint);
                 return;
             }
@@ -134,6 +145,7 @@ public class ServerBehaviour : WorkerBehaviour
             if(State == ServerState.PickUp)
             {
                 currentRequest.CancelHandled();
+                AI.StatusUI.Hide();
 
                 currentRequest = null;
                 currentCustomer = null;
@@ -170,7 +182,7 @@ public class ServerBehaviour : WorkerBehaviour
         if (!foodService.HasFood(customer.OrderedFood)) return;
 
 
-        ServingRequest request = new ServingRequest(pickUpPoint, customer.ReservedSeat, dumpPoint, () => foodService.TakeFood(customer.OrderedFood), () => customer.AI.FoodReceived(), 
+        ServingRequest request = new ServingRequest(pickUpPoint, customer.ReservedSeat, dumpPoint, customer.OrderedFood,() => foodService.TakeFood(customer.OrderedFood), () => customer.AI.FoodReceived(), 
             () =>{
             if (customer.State == CustomerState.WaitingFood) orderManager.AddOrder(customer);
         });
@@ -185,6 +197,8 @@ public class ServerBehaviour : WorkerBehaviour
 
     public override void Exit()
     {
+        
+
         currentRequest = null;
         currentCustomer = null;
         State = ServerState.Idle;

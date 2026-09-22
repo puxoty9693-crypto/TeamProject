@@ -206,5 +206,5 @@ public class Customer : MonoBehaviour
     {
         OrderedFood = null;
     }
-
+    
 }

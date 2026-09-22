@@ -18,16 +18,14 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Spawn")]
     [SerializeField] private int maxActiveCustomers = 4;
 
-    // Store ON일 때 true.
-    // OFF-Waiting / OFF에서는 false.
     [SerializeField] private bool acceptingCustomers = true;
 
     private float spawnTimer;
-
+    private StoreSystem storeSystem = GameManager.Instance.StoreSystem;
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
-
+    
     private void OnEnable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned += HandleCustomerReturned;
@@ -38,17 +36,19 @@ public class CustomerSpawner : MonoBehaviour
     private void OnDisable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned -= HandleCustomerReturned;
-        if (EventManager.HasInstance)
-            EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
+        if (EventManager.HasInstance) EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnTableCapacityChanged); // 최대 스폰수 변경이벤트
     }
 
     private void Update()
     {
+        //GameLogOnlyEditor.Log($"스포너에선 {storeSystem.CanReceiveCustomer}");
+
         if (!CanSpawn()) return;
 
         spawnTimer += Time.deltaTime;
 
-        float interval = Mathf.Max(0.1f, spawnData.spawnInterval);
+        float interval = 2;
+            //AdUpgradeSystem.GetCustomerSpawnDelay(spawnData.spawnInterval);
 
         if (spawnTimer < interval) return;
 
@@ -134,6 +134,11 @@ public class CustomerSpawner : MonoBehaviour
     private bool CanSpawn()
     {
         
+        if (!storeSystem.CanReceiveCustomer) 
+        {
+            spawnTimer = 0f;
+            return false; 
+        }
         if (!acceptingCustomers) return false;
 
         if (npcPool == null || seatManager == null || spawnPoint == null || spawnData == null) return false;
