@@ -136,8 +136,6 @@ public class WorkerUpgradeSystem
         int currentLevel = GetCurrentLevel(WorkerRole.Chef);
         float value = data.levels[currentLevel].upgradeValue;
 
-        if (value <= 0) return 0;
-
         float finalTime = originTime * (1f - data.levels[currentLevel].upgradeValue);
 
         if(finalTime < 0) return 0;

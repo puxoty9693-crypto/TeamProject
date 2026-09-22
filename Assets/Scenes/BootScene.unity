@@ -220,6 +220,18 @@ PrefabInstance:
       propertyPath: allIngredients.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8412430320642376015, guid: 3de13bc94935c32429fdb7eeda777430, type: 3}
+      propertyPath: 'workerUpgradeDataList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b6b9fc78773a0645a3f721f520ac5aa, type: 2}
+    - target: {fileID: 8412430320642376015, guid: 3de13bc94935c32429fdb7eeda777430, type: 3}
+      propertyPath: 'workerUpgradeDataList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 768f0045177065b40a5cbdf290dfb0b8, type: 2}
+    - target: {fileID: 8412430320642376015, guid: 3de13bc94935c32429fdb7eeda777430, type: 3}
+      propertyPath: 'workerUpgradeDataList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4092d8ee375af194d81f8e995558c18e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
