@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class BootStrapper : MonoBehaviour
 {
 
-    [SerializeField] private string firstSceneName = "PrototypeScene";
+    [SerializeField] private string firstSceneName = "MainScene";
 
     private IEnumerator Start()
     {

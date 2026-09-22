@@ -14,7 +14,6 @@ public class MainMenuController : MonoBehaviour
     {
         PendingNewGame = true;
         SceneManager.LoadScene(bootSceneName);
-
     }
 
     // 불러오기 버튼에 연결

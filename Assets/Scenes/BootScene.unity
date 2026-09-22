@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bdf542783532f44a56031a28babced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootStrapper
-  firstSceneName: PrototypeScene
+  firstSceneName: MainScene
 --- !u!4 &55588432
 Transform:
   m_ObjectHideFlags: 0
