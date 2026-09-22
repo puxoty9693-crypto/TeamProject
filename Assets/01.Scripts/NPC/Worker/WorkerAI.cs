@@ -5,6 +5,10 @@ using System.Collections.Generic;
 [RequireComponent(typeof(AgentMovement))]
 public class WorkerAI : MonoBehaviour
 {
+    [SerializeField] private NPCStatusUI statusUI;
+
+    public NPCStatusUI StatusUI => statusUI;
+
     private Worker worker;
     private AgentMovement movement;
 
@@ -22,7 +26,7 @@ public class WorkerAI : MonoBehaviour
 
         foreach (WorkerBehaviour behaviour in foundBehaviours)
         {
-            behaviour.Initialize(worker);
+            behaviour.Initialize(worker, this);
 
             if (behaviours.ContainsKey(behaviour.Role))
             {

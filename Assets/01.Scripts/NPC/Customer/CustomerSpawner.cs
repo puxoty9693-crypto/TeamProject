@@ -133,7 +133,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private bool CanSpawn()
     {
-        if (storeSystem.IsBreakTime) return false;
+        
         if (storeSystem.IsBreakTime) 
         {
             spawnTimer = 0f;

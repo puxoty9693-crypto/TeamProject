@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerAI
   seatManager: {fileID: 0}
   exitPoint: {fileID: 0}
-  statusUI: {fileID: 0}
+  statusUI: {fileID: 5838194253243002234}
 --- !u!50 &8085413095259572302
 Rigidbody2D:
   serializedVersion: 5
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e85e2c75bacc414580423cc1ddd253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EatingBehaviour
+  eatingIcon: {fileID: 0}
 --- !u!114 &2668060782613075379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7053850702928134523, guid: 143aad625019f2e428c3409b021bd9f1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7053850702928134523, guid: 143aad625019f2e428c3409b021bd9f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

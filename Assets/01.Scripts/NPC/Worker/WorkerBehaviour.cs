@@ -5,16 +5,17 @@ public abstract class WorkerBehaviour : MonoBehaviour
 {
     public abstract WorkerRole Role { get; }
     protected Worker WorkerAgent { get; private set; }
-
+    protected WorkerAI AI { get; private set; }
     public Transform CurrentTarget { get; private set; }
 
     public bool IsActive { get; private set; }
     public bool IsArrived { get; private set; }
     public event Action<Transform> OnTargetChanged;
 
-    public virtual void Initialize(Worker workerAgent)
+    public virtual void Initialize(Worker WorkerAgent_, WorkerAI AI_)
     {
-        WorkerAgent = workerAgent;
+        WorkerAgent = WorkerAgent_;
+        AI = AI_;
 
     }
 
@@ -29,6 +30,7 @@ public abstract class WorkerBehaviour : MonoBehaviour
 
     public virtual void Exit() 
     {
+        AI.StatusUI.Hide();
         IsActive = false;
         IsArrived = false;
         CurrentTarget = null;
