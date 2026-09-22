@@ -18,8 +18,6 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Spawn")]
     [SerializeField] private int maxActiveCustomers = 4;
 
-    // Store ON일 때 true.
-    // OFF-Waiting / OFF에서는 false.
     [SerializeField] private bool acceptingCustomers = true;
 
     private float spawnTimer;
@@ -43,7 +41,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
-        GameLogOnlyEditor.Log($"스포너에선 {storeSystem.CanReceiveCustomer}");
+        //GameLogOnlyEditor.Log($"스포너에선 {storeSystem.CanReceiveCustomer}");
 
         if (!CanSpawn()) return;
 
