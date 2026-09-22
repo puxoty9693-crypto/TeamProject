@@ -24,11 +24,11 @@ public class CustomerSpawner : MonoBehaviour
 
     private float spawnTimer;
 
-    private AdUpgradeSystem adUpgradeSystem;
+    
     private readonly HashSet<Customer> activeCustomers = new();
 
     public int ActiveCustomerCount => activeCustomers.Count;
-
+    
     private void OnEnable()
     {
         if (npcPool != null) npcPool.OnCustomerReturned += HandleCustomerReturned;
@@ -48,7 +48,8 @@ public class CustomerSpawner : MonoBehaviour
 
         spawnTimer += Time.deltaTime;
 
-        float interval = Mathf.Max(0.1f, spawnData.spawnInterval);
+        float interval = 2;
+            //AdUpgradeSystem.GetCustomerSpawnDelay(spawnData.spawnInterval);
 
         if (spawnTimer < interval) return;
 
