@@ -16,6 +16,10 @@ public enum EventType
     OnQuestStarted,      // 퀘스트시작
     OnQuestEnded,        // 퀘스트 끝
     OnRewardGranted,      // 보상
+    OnIngredientUnlocked, // 튜토리얼 재료해금체크
+    OnRecipeUnlocked, // 튜토리얼 레시피해금체크
+    OnCookingStarted, // 튜토리얼 요리 시작체크
+    OnTableInstalled, // 튜토리얼 테이블 설치 체크
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

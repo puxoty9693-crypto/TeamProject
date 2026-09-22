@@ -176,7 +176,7 @@ public class CraftingSystem
         RemainingCraftCount = RequestedCraftCount;
         CompletedCraftCount = 0;
 
-        RequestedCraftCount = 1;
+        RequestedCraftCount = 0;
 
         OnRequestedCraftCountChanged?.Invoke(
             RequestedCraftCount

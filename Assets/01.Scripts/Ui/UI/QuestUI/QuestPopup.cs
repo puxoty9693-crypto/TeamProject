@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class QuestPopup : MonoBehaviour
 {
     [SerializeField] GameObject backgroundIMG;
-
+    [SerializeField] GameObject lodingPanel;
     [Header("진행 패널")]
     [SerializeField] GameObject questPanel;
     [SerializeField] TextMeshProUGUI goalText;
@@ -30,9 +30,11 @@ public class QuestPopup : MonoBehaviour
         backgroundIMG.SetActive(false);
         questPanel.SetActive(false);
         resultPanel.SetActive(false);
+        lodingPanel.SetActive(false);
 
         EventManager.Instance.AddListener(EventType.OnQuestStarted, OnQuestStarted);
         EventManager.Instance.AddListener(EventType.OnQuestEnded, OnQuestEnded);
+
     }
     private void OnDisable()
     {

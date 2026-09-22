@@ -93,7 +93,7 @@ public class SceneChanger : MMSingleton<SceneChanger>
 
         currentSceneName = sceneName;
 
-        if (loadedScene != null)
+        if (loadingScreenRoot != null)
             loadingScreenRoot.SetActive(false);
 
         yield return FadeCanvas(1f, 0f); // 화면 다시 밝게
