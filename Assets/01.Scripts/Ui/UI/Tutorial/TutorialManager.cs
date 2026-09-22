@@ -118,10 +118,7 @@ public class TutorialManager : MonoBehaviour
     {
         CurrentStep = step;
 
-        bool isDialogue = step == TutorialStep.Dialogue_Intro
-            || step == TutorialStep.Dialogue_AfterIngredient
-            || step == TutorialStep.Dialogue_AfterRecipe
-            || step == TutorialStep.Dialogue_AfterCooking;
+        bool isDialogue = step == TutorialStep.Dialogue_Intro || step == TutorialStep.Dialogue_AfterIngredient || step == TutorialStep.Dialogue_AfterRecipe || step == TutorialStep.Dialogue_AfterCooking;
 
         dialoguePanel.SetActive(isDialogue);
 

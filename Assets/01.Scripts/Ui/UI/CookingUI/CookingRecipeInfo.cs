@@ -137,6 +137,7 @@ public class CookingRecipeInfo : MonoBehaviour
     }
     private void TryStartCooking()
     {
+        Debug.Log("🔥 TryStartCooking 호출");
         if (currentData == null)
             return;
 
