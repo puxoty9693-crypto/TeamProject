@@ -6,6 +6,11 @@ using UnityEngine;
 // 씬에 인스턴스가 없으면 자동 생성, 씬 전환 시에도 파괴되지 않도록 처리
 public class MMSingleton<T> : MonoBehaviour where T : Component
 {
+
+    // 씬이 바뀌어도 파괴되지 않고 유지할지 여부.
+    [SerializeField]
+    protected bool persistAcrossScenes = true;
+
     protected static T _instance; // 실제 싱글톤 인스턴스
 
     public static bool HasInstance => _instance != null; // 인스턴스 존재 여부
@@ -31,8 +36,6 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
     {
         if (_instance == null)
         {
-            
-
             GameObject obj = new GameObject(typeof(T).Name);
             obj.name = typeof(T).Name + "_AutoCreated";
             _instance = obj.AddComponent<T>();
@@ -44,7 +47,6 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
     {
         if (_instance == null)
         {
-            Debug.LogWarning($"[{typeof(T).Name}] 자동 생성됨! 호출 스택:\n{System.Environment.StackTrace}");
             GameObject obj = new GameObject(typeof(T).Name);
             obj.name = typeof(T).Name + "_AutoCreated";
             _instance = obj.AddComponent<T>();
@@ -65,7 +67,30 @@ public class MMSingleton<T> : MonoBehaviour where T : Component
         {
             return;
         }
+        
+        // 이미 다른 인스턴스가 살아있을 이 오브젝트는 파괴.
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         _instance = this as T;
+
+        // 씬 전환 시 미리 배치해둔 매니저들이
+        if (persistAcrossScenes) 
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
+
+    // 파괴될 떄 자기 자신이 현재 싱글톤 인스터스였다면 참조 정리
+    protected virtual void OnDestroy() 
+    {
+        if (_instance == this as T) 
+        {
+            _instance = null;
+        }
+    }
+
 }

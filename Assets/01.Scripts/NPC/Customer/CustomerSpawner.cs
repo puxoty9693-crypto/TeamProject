@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
@@ -120,6 +120,7 @@ public class CustomerSpawner : MonoBehaviour
 
         activeCustomers.Add(customer);
         EventManager.Instance.PostNotification(EventType.OnCustomerCount, this, activeCustomers.Count);////손님입장시 ui반영 이벤트호출
+        GameManager.Instance.StoreSystem.CustomerEntered();
         //Debug.Log(
         //    $"Customer Spawn : {customer.name}" +
         //    $" / Seat : {seat.name}" +
@@ -161,6 +162,7 @@ public class CustomerSpawner : MonoBehaviour
         if (!activeCustomers.Remove(customer)) return;
 
         EventManager.Instance.PostNotification(EventType.OnCustomerCount, this, activeCustomers.Count);//손님퇴장시 ui반영 이벤트호출
+        GameManager.Instance.StoreSystem.CustomerExited();
         GameLogOnlyEditor.Log($"Customer 반환 / 활성화 : {activeCustomers.Count}",gameObject);
     }
 

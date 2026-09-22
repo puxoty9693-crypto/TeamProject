@@ -40,6 +40,7 @@ public class HousingSystem : MMSingleton<HousingSystem>
         }
 
         housingGrid.Place(pos, objectToPlace);
+        objectToPlace = null;
         EventManager.Instance.PostNotification(EventType.OnHousingChanged, this);
         return true;
     }

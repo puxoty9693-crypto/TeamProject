@@ -38,7 +38,7 @@ public class AdUpgradeSystem
 
         if (value <= 0f) return originDelay;
 
-        return originDelay * (2f - value);
+        return originDelay * (1f - value);
     }
 
     public bool CanUpgrade()
@@ -78,7 +78,7 @@ public class AdUpgradeSystem
         return data.levels[nextLevel].UpgradeGoldCost;
     }
 
-    private AdData GetUpgradeData()
+    public AdData GetUpgradeData()
     {
         if (DataManager.Instance == null)
             return null;

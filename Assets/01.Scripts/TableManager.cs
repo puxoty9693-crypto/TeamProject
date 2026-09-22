@@ -8,8 +8,7 @@ public class TableManager : MMSingleton<TableManager>
 
     public bool Upgrade()
     {
-        //return UpgradeHelper.TryUpgrade(GetLevel(), DataManager.Instance.tableUpgradeData.levels, () => SaveManager.Instance.CurrentData.UpgradeTableLevel());
-        return false;
+        return UpgradeHelper.TryUpgrade(GetLevel(), DataManager.Instance.tableUpgradeData.levels, () => SaveManager.Instance.CurrentData.UpgradeTableLevel());
     }
 
     // 현재 레벨에서 설치 가능한 최대 테이블 개수

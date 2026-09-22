@@ -8,10 +8,10 @@ public class TableUpgradeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI tableCountText;
     [SerializeField] TextMeshProUGUI costText;
-    
+    [SerializeField] TextMeshProUGUI costTitleText;
     [Header("¹öÆ°")]
     [SerializeField] Button upgradeButton;
-
+    [SerializeField] TextMeshProUGUI buttonText;
     private void Awake()
     {
         upgradeButton.onClick.AddListener(TryUpgrade);
@@ -33,7 +33,11 @@ public class TableUpgradeUI : MonoBehaviour
 
         if (isMaxLevel)
         {
-            costText.text = "MAX";
+            levelText.text = "MAX";
+            costTitleText.text = "";
+            costText.text = "";
+            upgradeButton.image.color = Color.white.WithAlpha(0f);
+            buttonText.text = "";
             upgradeButton.interactable = false;
         }
         else

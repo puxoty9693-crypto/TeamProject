@@ -171,6 +171,8 @@ public class CookingRecipeInfo : MonoBehaviour
         bool isCooking = Controller.IsCooking;
         selectionPanel.SetActive(!isCooking);
         cookingPanel.SetActive(isCooking);
+
+        SetButtonsVisible(currentData != null);
     }
 
     private void OnWarehouseChanged(Component sender, object param)
@@ -183,5 +185,17 @@ public class CookingRecipeInfo : MonoBehaviour
         ingredient1Count.text = $"{currentData.food.requiredIngredients[0].amount}";
         ingredient2Count.text = $"{currentData.food.requiredIngredients[1].amount}";
         RefreshCountText();
+    }
+    private void SetButtonsVisible(bool visible)
+    {
+        plus1Btn.gameObject.SetActive(visible);
+        plus5Btn.gameObject.SetActive(visible);
+        plus10Btn.gameObject.SetActive(visible);
+        clearCountBtn.gameObject.SetActive(visible);
+        cookingButton.gameObject.SetActive(visible);
+
+        ingredient1Image1.gameObject.SetActive(visible);
+        ingredient1Image2.gameObject.SetActive(visible);
+        foodImage.gameObject.SetActive(visible);
     }
 }
