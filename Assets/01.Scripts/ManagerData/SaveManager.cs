@@ -14,6 +14,14 @@ public class SaveManager : MMSingleton<SaveManager>
     protected override void Awake()
     {
         base.Awake();
+
+        if (MainMenuController.PendingNewGame) 
+        {
+            MainMenuController.PendingNewGame = false;
+            DeleteSave();
+            CurrentData = new PlayerData();
+        }
+
         CurrentData = LoadGame();
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, CurrentData.Gold);
     }
