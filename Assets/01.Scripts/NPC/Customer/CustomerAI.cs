@@ -16,11 +16,9 @@ public class CustomerAI : MonoBehaviour
     //[SerializeField] private Transform takeoutWaitingPoint;
 
     [SerializeField] private Transform exitPoint;
+    //[SerializeField] private Transform payingPoint;
 
 
-    [SerializeField] private NPCStatusUI statusUI;
-
-    public NPCStatusUI StatusUI => statusUI;
 
 
 
@@ -249,6 +247,5 @@ public class CustomerAI : MonoBehaviour
         customer.ClearSeat();
     }
 
-   
    
 }

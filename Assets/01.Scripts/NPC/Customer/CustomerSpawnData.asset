@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31befbc14e3f0d439b347e1f173f203, type: 3}
   m_Name: CustomerSpawnData
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawnData
-  spawnInterval: 10
+  spawnInterval: 2
   possibleCustomers:
   - {fileID: 11400000, guid: 17cd1267ab8b2ab4ca97039e103275b9, type: 2}
