@@ -78680,7 +78680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52116770d6824494083e1cdb5af23302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TableRegistry
-  persistAcrossScenes: 1
+  persistAcrossScenes: 0
   tableIds: []
 --- !u!114 &1594898414570548066
 MonoBehaviour:
@@ -79140,7 +79140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a16540140e74445ab0c96653d47c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TableManager
-  persistAcrossScenes: 1
+  persistAcrossScenes: 0
 --- !u!222 &2778130387972869211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79313,7 +79313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 698e9e236a8bb1f40a57c88df40a70c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupManager
-  persistAcrossScenes: 1
+  persistAcrossScenes: 0
   dim: {fileID: 475922471}
   animDuration: 0.25
 --- !u!1 &3136217853090551890
