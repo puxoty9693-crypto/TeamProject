@@ -1,32 +1,33 @@
-﻿using System;
-
-public enum StoreState
+﻿public enum StoreState
 {
-    Open,
-    Break
+    Empty,
+    Occupied
 }
 public class StoreSystem
 {
-    public StoreState State { get; private set; }
+    public StoreState State => CustomerCount > 0 ? StoreState.Occupied : StoreState.Empty;
+    public bool IsBreakTime { get; private set; }
 
-    public event Action<bool> OnStoreStateChanged;
-    public bool IsOpen => State == StoreState.Open;
+    public int CustomerCount { get; private set; }
 
-    public void Open()
+    public bool CanHousing => State == StoreState.Empty;
+    public bool CanReceiveCustomer => !IsBreakTime;
+
+    public void CustomerEntered()
     {
-        if (State == StoreState.Open) return;
-
-        State = StoreState.Open;
-
-        OnStoreStateChanged?.Invoke(IsOpen);
+        CustomerCount++;
     }
 
-    public void StartBreak()
+    public void CustomerExited()
     {
-        if (State == StoreState.Break) return;
+        if (CustomerCount <= 0)
+            return;
 
-        State = StoreState.Break;
+        CustomerCount--;
+    }
 
-        OnStoreStateChanged?.Invoke(IsOpen);
+    public void SetBreakTime(bool value)
+    {
+        IsBreakTime = value;
     }
 }
