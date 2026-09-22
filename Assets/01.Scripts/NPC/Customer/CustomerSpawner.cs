@@ -134,6 +134,11 @@ public class CustomerSpawner : MonoBehaviour
     private bool CanSpawn()
     {
         if (storeSystem.IsBreakTime) return false;
+        if (storeSystem.IsBreakTime) 
+        {
+            spawnTimer = 0f;
+            return false; 
+        }
         if (!acceptingCustomers) return false;
 
         if (npcPool == null || seatManager == null || spawnPoint == null || spawnData == null) return false;
