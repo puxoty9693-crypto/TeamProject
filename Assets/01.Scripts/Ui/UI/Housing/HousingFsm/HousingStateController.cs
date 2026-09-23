@@ -119,8 +119,14 @@ public class HousingStateController : MMSingleton<HousingStateController>
 
         if (stateMachine.currentState is DeleteHousingState)
             housingSystem.TryRemoveObject(target);
-        else if (stateMachine.currentState is MoveHousingState)
-            housingSystem.TryPickUpObject(target);
+
+        else if (stateMachine.currentState is MoveHousingState moveState)
+        {
+            bool picked = housingSystem.TryPickUpObject(target);
+
+            if (picked)
+                moveState.NotifyJustPickedUp();
+        }
     }
 
     public void CancelMove()
