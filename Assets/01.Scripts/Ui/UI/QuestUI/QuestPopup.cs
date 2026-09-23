@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class QuestPopup : MonoBehaviour
 {
     [SerializeField] GameObject backgroundIMG;
@@ -25,6 +27,7 @@ public class QuestPopup : MonoBehaviour
     private int startGold;
     private int goalGold;
 
+    private QuestType currentType;
     private void OnEnable()
     {
         backgroundIMG.SetActive(false);
@@ -85,6 +88,7 @@ public class QuestPopup : MonoBehaviour
 
         if (progressSlider != null)
             progressSlider.value = 0f;
+
     }
 
     private void OnQuestEnded(Component sender, object param)

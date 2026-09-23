@@ -5,6 +5,7 @@ using UnityEngine;
 #region 이벤트 목록
 public enum EventType
 {
+    none,
     OnChangeGold, //골드UI수치용이벤트
     OnGetGold, // 골드용 이펙트
     OnCustomerCount, // 손님ui수치용이벤트
@@ -20,6 +21,7 @@ public enum EventType
     OnRecipeUnlocked, // 튜토리얼 레시피해금체크
     OnCookingStarted, // 튜토리얼 요리 시작체크
     OnTableInstalled, // 튜토리얼 테이블 설치 체크
+    OnBreakTimeoffed, // 튜토리얼 브레이크타임 체크
 }
 #endregion
 public class EventManager : MMSingleton<EventManager>

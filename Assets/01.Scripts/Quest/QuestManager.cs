@@ -10,11 +10,14 @@ public class QuestManager
 {
     private readonly PlayerData playerData;
     private readonly SuddenQuestConfig config;
+    private readonly PaymentSystem paymentSystem;
 
-    private readonly Queue<(float time, int totalGold)> incomeHistory = new Queue<(float, int)>(); // 최근 수입 추적용 (누적 골드, 기록 시점의 누적 플레이 시간)
+    private readonly Queue<(float time, int totalGold, int totalSold)> incomeHistory = new Queue<(float, int, int)>(); // 최근 수입 추적용 (누적 골드, 기록 시점의 누적 플레이 시간)
 
     private float playTime;
     private float nextQuestTime;
+    private int soldCount; // 지금까지 팔린 음식 총 개수
+
 
     private bool isChallengeActive;
     public bool IsChallengeActive => isChallengeActive;
@@ -22,15 +25,24 @@ public class QuestManager
     private float challengeTimeRemaining;
     public float ChallengeTimeRemaining => challengeTimeRemaining;
 
-    private int challengeStartGold;
-    public int ChallengeGoalGold => challengeGoalGold;
 
-    private int challengeGoalGold;
+    private int challengeStartGold;
+    private int challengeSoldCount;
+    public int ChallengeGoalValue => challengeGoalValue;
+
+    public int ChallengeAchieved => currentType == QuestType.EarnGoldWithTime ? playerData.Gold - challengeStartGold : soldCount - challengeSoldCount;
+
+    private QuestType currentType;
+    public QuestType CurrentType => currentType;
+
+    private int challengeGoalValue;
     public int ChallengeStartGold => challengeStartGold;
 
 
+
+
     //방금 끝난 돌발 퀘스트의 성공 판단
-    public bool IsQuestCompleted {  get; private set; }
+    public bool IsQuestCompleted { get; private set; }
 
     // 돌발 퀘스트 시작 (목표 금액, 제한 시간)
     public event Action<int, float> OnQuestStarted;
@@ -41,12 +53,15 @@ public class QuestManager
     // 보상 지급
     public event Action<QuestRewardType, float> OnRewardGranted;
 
-    public QuestManager(PlayerData data, SuddenQuestConfig config)
+    public QuestManager(PlayerData data, SuddenQuestConfig config, PaymentSystem paymentSystem)
     {
         playerData = data;
         this.config = config;
+        this.paymentSystem = paymentSystem;
 
+        paymentSystem.OnPaymentCompleted += PaymentCompleted;
         ScheduleNextQuest();
+
     }
 
     public void Update(float deltaTime)
@@ -65,19 +80,25 @@ public class QuestManager
         }
     }
 
+    private void PaymentCompleted(FoodData food, int gold)
+    {
+        soldCount++;
+    }
+
+
     private void ScheduleNextQuest()
     {
         float interval = UnityEngine.Random.Range(config.minIntervalSeconds, config.maxIntervalSeconds);
 
         nextQuestTime = playTime + interval;
     }
-    
-    private void RecordIncome() 
+
+    private void RecordIncome()
     {
         int currentGold = playerData.Gold;
-        incomeHistory.Enqueue((playTime, currentGold));
+        incomeHistory.Enqueue((playTime, currentGold, soldCount));
 
-        while (incomeHistory.Count > 0 && playTime - incomeHistory.Peek().time > config.incomeRefrenceWindowSeconds) 
+        while (incomeHistory.Count > 0 && playTime - incomeHistory.Peek().time > config.incomeRefrenceWindowSeconds)
         {
             incomeHistory.Dequeue();
         }
@@ -92,31 +113,43 @@ public class QuestManager
         float oldestTime = incomeHistory.Count > 0 ? incomeHistory.Peek().time : playTime;
         int oldestGold = incomeHistory.Count > 0 ? incomeHistory.Peek().totalGold : currentGold;
 
+
         float elapsed = Mathf.Max(playTime - oldestTime, 1f);
         float avgPerSecond = (currentGold - oldestGold) / elapsed;
 
-        challengeGoalGold = Mathf.CeilToInt(avgPerSecond * config.challengeDurationSeconds * config.incomeGoalMultiplier);
+        var conditionTypes = (QuestType[])Enum.GetValues(typeof(QuestType));
+        currentType = conditionTypes[Random.Range(0, conditionTypes.Length)];
 
-        challengeGoalGold = Mathf.Max(challengeGoalGold, 1); // 최소 목표 1 골드 이상
+        if (currentType == QuestType.EarnGoldWithTime)
+        {
+            challengeGoalValue = Mathf.CeilToInt(avgPerSecond * config.challengeDurationSeconds * config.incomeGoalMultiplier);
+        }
+        else
+        {
+            challengeGoalValue = Random.Range(config.foodSellCountMin, config.foodSellCountMax + 1);
+        }
+
+        challengeGoalValue = Mathf.Max(challengeGoalValue, 1); // 최소 목표 1 이상
 
         challengeStartGold = currentGold;
+        challengeSoldCount = soldCount;
         challengeTimeRemaining = config.challengeDurationSeconds;
         isChallengeActive = true;
         IsQuestCompleted = false; // 새 퀘스트 시작하니까 초기화
-
-        OnQuestStarted?.Invoke(challengeGoalGold, config.challengeDurationSeconds);
+        GameLogOnlyEditor.Log($"[Quest] 뽑힌 조건: {currentType} / 목표값: {challengeGoalValue}");
+        OnQuestStarted?.Invoke(challengeGoalValue, config.challengeDurationSeconds);
     }
 
-    private void UpdateChallenge(float deltaTime) 
+    private void UpdateChallenge(float deltaTime)
     {
         challengeTimeRemaining -= deltaTime;
 
-        int earnGold = playerData.Gold - challengeStartGold;
-        bool goalReached = earnGold >= challengeGoalGold;
+        int achievedValue = ChallengeAchieved;
+        bool goalReached = achievedValue >= challengeGoalValue;
 
-        if (goalReached) 
+        if (goalReached)
         {
-            FinishChallenge(true, earnGold);
+            FinishChallenge(true, achievedValue);
             return;
         }
 
@@ -125,12 +158,12 @@ public class QuestManager
             return;
 
         //시간이 다 됐는데도 목표 미달성
-        FinishChallenge(false, earnGold);
+        FinishChallenge(false, achievedValue);
 
     }
 
     // 돌발 퀘스트 성공/실패 공통처리
-    private void FinishChallenge(bool success, int earnGold) 
+    private void FinishChallenge(bool success, int earnGold)
     {
         isChallengeActive = false;
         IsQuestCompleted = success;
@@ -145,7 +178,7 @@ public class QuestManager
         ScheduleNextQuest();
     }
 
-    private void GrantRandomReward() 
+    private void GrantRandomReward()
     {
         var rewardTypes = (QuestRewardType[])Enum.GetValues(typeof(QuestRewardType));
         var rewardType = rewardTypes[Random.Range(0, rewardTypes.Length)];
@@ -161,9 +194,7 @@ public class QuestManager
 
         };
 
-        OnRewardGranted?.Invoke(rewardType,value);
+        OnRewardGranted?.Invoke(rewardType, value);
     }
 
 }
-
-

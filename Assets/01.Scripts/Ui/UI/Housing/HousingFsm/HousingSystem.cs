@@ -22,6 +22,8 @@ public class HousingSystem : MMSingleton<HousingSystem>
         if (objectToPlace == null)
             return false;
 
+        bool isTable = objectToPlace.objID == ObjectIds.Table;
+
         if (objectToPlace.objID == ObjectIds.Table)
         {
             if (TableRegistry.Instance.GetAllTables().Count >= TableManager.Instance.GetMaxTableCount())
@@ -42,6 +44,8 @@ public class HousingSystem : MMSingleton<HousingSystem>
         housingGrid.Place(pos, objectToPlace);
         objectToPlace = null;
         EventManager.Instance.PostNotification(EventType.OnHousingChanged, this);
+        if (isTable)
+            EventManager.Instance.PostNotification(EventType.OnTableInstalled, this);
         return true;
     }
 

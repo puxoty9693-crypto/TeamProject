@@ -1,4 +1,6 @@
-﻿public enum StoreState
+﻿using UnityEngine;
+
+public enum StoreState
 {
     Empty,
     Occupied
@@ -28,6 +30,7 @@ public class StoreSystem
 
     public void SetBreakTime(bool value)
     {
+       
         //GameLogOnlyEditor.Log($"현재 value {value}");
         IsBreakTime = value;
 

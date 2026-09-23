@@ -33,7 +33,7 @@ public class GameManager : MMSingleton<GameManager>
         IngredientWareHouse = new IngredientWareHouse(pData);
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
-        QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig);
+        QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig, PaymentSystem);
         AdUpgradeSystem = new AdUpgradeSystem(pData);
         workerUpgradeSystem = new WorkerUpgradeSystem(pData);
         StoreSystem = new StoreSystem();
@@ -60,9 +60,10 @@ public class GameManager : MMSingleton<GameManager>
             DataManager.Instance.suddenQuestConfig,
             QuestManager
             );
-        QuestManager.OnQuestStarted += (goal, duration) => EventManager.Instance.PostNotification(EventType.OnQuestStarted, this, new QuestStartedData { goalGold = goal, duration = duration });
-        QuestManager.OnQuestEnded += success => EventManager.Instance.PostNotification(EventType.OnQuestEnded, this, success);
-        QuestManager.OnRewardGranted += (type, value) => EventManager.Instance.PostNotification(EventType.OnRewardGranted, this, new QuestRewardData { type = type, value = value });
+
+        StoreSystem.SetBreakTime(true);
+
+        AddEvents();
     }
 
     private void Update()
@@ -79,6 +80,17 @@ public class GameManager : MMSingleton<GameManager>
     private void QuitGame() 
     {
         SaveManager.Instance.ExitGame();
+    }
+
+
+    private void AddEvents()
+    {
+        QuestManager.OnQuestStarted += (goal, duration) => EventManager.Instance.PostNotification(EventType.OnQuestStarted, this, new QuestStartedData { goalGold = goal, duration = duration, type = QuestManager.CurrentType });
+        QuestManager.OnQuestEnded += success => EventManager.Instance.PostNotification(EventType.OnQuestEnded, this, success);
+        QuestManager.OnRewardGranted += (type, value) => EventManager.Instance.PostNotification(EventType.OnRewardGranted, this, new QuestRewardData { type = type, value = value });
+        ingredientUnlockSystem.OnIngredientUnlocked += ingredient => EventManager.Instance.PostNotification(EventType.OnIngredientUnlocked, this, ingredient);
+        RecipeUnlockSystem.OnRecipeUnlocked += recipe => EventManager.Instance.PostNotification(EventType.OnRecipeUnlocked, this, recipe);
+        CraftingSystem.OnCookingStarted += recipe => EventManager.Instance.PostNotification(EventType.OnCookingStarted, this, recipe);
     }
 
 }

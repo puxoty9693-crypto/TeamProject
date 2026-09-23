@@ -11,4 +11,8 @@ public class PopupOpenButton : MonoBehaviour
     {
         openButton.onClick.AddListener(() => PopupManager.Instance.Open(targetPopup));
     }
+    public void TriggerOpen()
+    {
+        PopupManager.Instance.Open(targetPopup);
+    }
 }
