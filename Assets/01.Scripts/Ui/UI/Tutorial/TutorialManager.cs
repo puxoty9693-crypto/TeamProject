@@ -8,7 +8,12 @@ public class TutorialManager : MonoBehaviour
 
     [Header("ScreenDimHighlighter 연결")]
     [SerializeField] MonoBehaviour highlightPresenterBehaviour;
+
+    [Header("TutorialHighlightMap 연결")]
     [SerializeField] TutorialHighlightMap highlightMap;
+
+    [Header("튜토리얼 캔버스 연결")]
+    [SerializeField] Canvas tutorialCanvas;
 
     [Header("튜토리얼 시퀀스 데이터")]
     [SerializeField] List<Tutorialnode> nodes;
@@ -32,9 +37,15 @@ public class TutorialManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (SaveManager.Instance.CurrentData.TutorialCompleted)
+        {
+            tutorialCanvas.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            return;
+        }
+
         dialoguePresenter.OnNextRequested += HandleNext;
         SubscribeAllWaitEvents();
-
         currentIndex = -1;
         Advance();
     }
@@ -139,6 +150,10 @@ public class TutorialManager : MonoBehaviour
     {
         dialoguePresenter.Hide();
         highlightPresenter.Hide();
+
+        SaveManager.Instance.CurrentData.CompleteTutorial();
+        SaveManager.Instance.SaveGame();
+
         gameObject.SetActive(false);
     }
 }

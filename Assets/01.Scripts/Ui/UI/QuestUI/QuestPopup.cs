@@ -27,7 +27,6 @@ public class QuestPopup : MonoBehaviour
     private int goalGold;
     private QuestType currentType; //지금 뜬 퀘스트가 골드인지 음식인지
 
-    private QuestType currentType;
     private void OnEnable()
     {
         backgroundIMG.SetActive(false);
