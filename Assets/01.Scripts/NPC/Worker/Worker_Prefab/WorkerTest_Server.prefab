@@ -118,8 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ServerBehaviour
   pickUpPoint: {fileID: 0}
   dumpPoint: {fileID: 0}
-  assignedIcon: {fileID: 0}
-  dumpIcon: {fileID: 0}
+  assignedIcon: {fileID: -7344317457711175271, guid: 401e56095eb2c3645a1c41b318e3ceed, type: 3}
+  dumpIcon: {fileID: 8811541603129702729, guid: dede1af2c3ed3b34f9e9bf59d14b6de4, type: 3}
 --- !u!114 &8771915053611353211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChefBehaviour
   animator: {fileID: 0}
+  cookingColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6686674309014480108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 5691455443060986943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -254,7 +255,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -991381882, guid: f27cb0067d8cf944ca7a368edef720bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -435,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7053850702928134523, guid: 143aad625019f2e428c3409b021bd9f1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7053850702928134523, guid: 143aad625019f2e428c3409b021bd9f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

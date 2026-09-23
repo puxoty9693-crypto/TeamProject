@@ -1,140 +1,140 @@
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
-public enum TutorialStep
-{
-    None,
-    Dialogue_Intro,
-    Wait_IngredientUnlock,
-    Dialogue_AfterIngredient,
-    Wait_RecipeUnlock,
-    Dialogue_AfterRecipe,
-    Wait_CookingStarted,
-    Dialogue_AfterCooking,
-    Wait_TableInstalled,
-    Completed
-}
-
 
 public class TutorialManager : MonoBehaviour
 {
-    [Header("대사 UI")]
-    [SerializeField] GameObject dialoguePanel;
-    [SerializeField] GameObject npcImagePanel;
-    [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] Button nextButton;
+    [Header("DialoguePresenter 연결")]
+    [SerializeField] MonoBehaviour dialoguePresenterBehaviour;
 
-    [Header("단계별 대사")]
-    [SerializeField] string introLine = "고향에서 무료로 토마토를 주기로 했어. 업그레이드에서 재료를 해금해보자.";
-    [SerializeField] string afterIngredientLine = "토마토를 해금했으니, 이번엔 만들 요리를 해금해보자.";
-    [SerializeField] string afterRecipeLine = "이제 요리를 해보자.";
-    [SerializeField] string afterCookingLine = "손님을 받으려면 테이블이 있어야지. 테이블을 설치해보자.";
+    [Header("튜토리얼 캔버스 연결")]
+    [SerializeField] Canvas tutorialCanvas;
 
+    [Header("튜토리얼 시퀀스 데이터")]
+    [SerializeField] List<Tutorialnode> nodes;
 
-    public TutorialStep CurrentStep { get; private set; } = TutorialStep.None;
+    private IDialoguePresenter dialoguePresenter;
+
+    private int currentIndex = -1;
+    private HashSet<EventType> subscribedTypes = new();
+
+    private void Awake()
+    {
+        dialoguePresenter = dialoguePresenterBehaviour as IDialoguePresenter;
+    }
 
     private void OnEnable()
     {
-        EventManager.Instance.AddListener(EventType.OnIngredientUnlocked, OnIngredientUnlocked);
-        EventManager.Instance.AddListener(EventType.OnRecipeUnlocked, OnRecipeUnlocked);
-        EventManager.Instance.AddListener(EventType.OnCookingStarted, OnCookingStarted);
-        EventManager.Instance.AddListener(EventType.OnTableInstalled, OnTableInstalled);
+        if (SaveManager.Instance.CurrentData.TutorialCompleted)
+        {
+            tutorialCanvas.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            return;
+        }
 
-        nextButton.onClick.AddListener(OnNextClicked);
-
-        StartTutorial();
-
+        dialoguePresenter.OnNextRequested += HandleNext;
+        SubscribeAllWaitEvents();
+        currentIndex = -1;
+        Advance();
     }
 
     private void OnDisable()
     {
+        if (dialoguePresenter != null)
+            dialoguePresenter.OnNextRequested -= HandleNext;
+
+        UnsubscribeAllWaitEvents();
+    }
+
+    private void SubscribeAllWaitEvents()
+    {
+        foreach (var node in nodes)
+        {
+            if (node.type != TutorialNodeType.WaitForEvent)
+                continue;
+
+            if (subscribedTypes.Contains(node.waitEventType))
+                continue;
+
+            EventManager.Instance.AddListener(node.waitEventType, HandleTutorialEvent);
+            subscribedTypes.Add(node.waitEventType);
+        }
+    }
+
+    private void UnsubscribeAllWaitEvents()
+    {
         if (!EventManager.HasInstance)
             return;
-        EventManager.Instance.RemoveListener(EventType.OnIngredientUnlocked, OnIngredientUnlocked);
-        EventManager.Instance.RemoveListener(EventType.OnRecipeUnlocked, OnRecipeUnlocked);
-        EventManager.Instance.RemoveListener(EventType.OnCookingStarted, OnCookingStarted);
-        EventManager.Instance.RemoveListener(EventType.OnTableInstalled, OnTableInstalled);
 
+        foreach (var type in subscribedTypes)
+            EventManager.Instance.RemoveListener(type, HandleTutorialEvent);
+
+        subscribedTypes.Clear();
     }
 
-    private void StartTutorial()
+    private void HandleTutorialEvent(Component sender, object param)
     {
-        SetStep(TutorialStep.Dialogue_Intro);
-    }
-
-    private void OnIngredientUnlocked(Component sender, object param)
-    {
-        if (CurrentStep != TutorialStep.Wait_IngredientUnlock)
+        if (currentIndex < 0 || currentIndex >= nodes.Count) 
             return;
 
-        SetStep(TutorialStep.Dialogue_AfterIngredient);
-    }
+        var current = nodes[currentIndex];
 
-    private void OnRecipeUnlocked(Component sender, object param)
-    {
-        if (CurrentStep != TutorialStep.Wait_RecipeUnlock)
+        if (current.type != TutorialNodeType.WaitForEvent)
             return;
 
-        SetStep(TutorialStep.Dialogue_AfterRecipe);
+        Advance();
     }
 
-    private void OnCookingStarted(Component sender, object param)
+    private void HandleNext()
     {
-        if (CurrentStep != TutorialStep.Wait_CookingStarted)
+        if (currentIndex < 0 || currentIndex >= nodes.Count)
             return;
 
-        SetStep(TutorialStep.Dialogue_AfterCooking);
-    }
-
-    private void OnTableInstalled(Component sender, object param)
-    {
-        if (CurrentStep != TutorialStep.Wait_TableInstalled)
+        var current = nodes[currentIndex];
+        if (current.type != TutorialNodeType.Dialogue)
             return;
 
-        SetStep(TutorialStep.Completed);
+        Advance();
     }
 
-    private void OnNextClicked()
+    private void Advance()
     {
-        switch (CurrentStep)
+
+        if (currentIndex >= 0 && currentIndex < nodes.Count)
+            nodes[currentIndex].onExitActions?.Invoke();
+        
+        currentIndex++;
+
+        if (currentIndex >= nodes.Count)
         {
-            case TutorialStep.Dialogue_Intro:
-                SetStep(TutorialStep.Wait_IngredientUnlock);
-                break;
-            case TutorialStep.Dialogue_AfterIngredient:
-                SetStep(TutorialStep.Wait_RecipeUnlock);
-                break;
-            case TutorialStep.Dialogue_AfterRecipe:
-                SetStep(TutorialStep.Wait_CookingStarted);
-                break;
-            case TutorialStep.Dialogue_AfterCooking:
-                SetStep(TutorialStep.Wait_TableInstalled);
-                break;
+            Complete();
+            return;
+        }
+
+        Render(nodes[currentIndex]);
+    }
+
+    private void Render(Tutorialnode node)
+    {
+        node.onEnterActions?.Invoke();
+
+        if (node.type == TutorialNodeType.Dialogue)
+        {
+            dialoguePresenter.Show(node.dialogueText);
+        }
+        else
+        {
+            dialoguePresenter.Hide();
         }
     }
 
-    private void SetStep(TutorialStep step)
+    private void Complete()
     {
-        CurrentStep = step;
+        dialoguePresenter.Hide();
 
-        bool isDialogue = step == TutorialStep.Dialogue_Intro || step == TutorialStep.Dialogue_AfterIngredient || step == TutorialStep.Dialogue_AfterRecipe || step == TutorialStep.Dialogue_AfterCooking;
+        SaveManager.Instance.CurrentData.CompleteTutorial();
+        SaveManager.Instance.SaveGame();
 
-        dialoguePanel.SetActive(isDialogue);
-
-        switch (step)
-        {
-            case TutorialStep.Dialogue_Intro: dialogueText.text = introLine;
-                break;
-            case TutorialStep.Dialogue_AfterIngredient: dialogueText.text = afterIngredientLine;
-                break;
-            case TutorialStep.Dialogue_AfterRecipe: dialogueText.text = afterRecipeLine;
-                break;
-            case TutorialStep.Dialogue_AfterCooking: dialogueText.text = afterCookingLine;
-                break;
-            case TutorialStep.Completed:
-                gameObject.SetActive(false);
-                break;
-        }
+        tutorialCanvas.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

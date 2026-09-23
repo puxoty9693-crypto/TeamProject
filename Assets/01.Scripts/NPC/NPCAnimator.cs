@@ -38,7 +38,6 @@ public class NPCAnimator : MonoBehaviour
             }
             spriteRenderer.flipX = false;
             
-
         }
         else
         {
@@ -46,5 +45,11 @@ public class NPCAnimator : MonoBehaviour
         }
         lastPosition = root.position;
 
+    }
+
+    public void SetIdleFacing(bool facing)
+    {
+        isFlipX = facing;
+        spriteRenderer.flipX = facing;
     }
 }

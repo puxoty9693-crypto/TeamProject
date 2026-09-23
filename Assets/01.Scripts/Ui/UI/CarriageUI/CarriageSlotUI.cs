@@ -13,13 +13,13 @@ public class CarriageSlotUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI statText;
-    
+
     [Header("버튼")]
     [SerializeField] Button actionButton;
     [SerializeField] TextMeshProUGUI actionButtonLabel;
 
     private Action onActionClicked;
-    
+
     private void Awake()
     {
         actionButton.onClick.AddListener(() => onActionClicked?.Invoke());
@@ -48,27 +48,27 @@ public class CarriageSlotUI : MonoBehaviour
         levelText.text = $"Lv.{level}";
         statText.text = $"{supplyInterval:0}초마다 {supplyAmount}개";
 
-        if (actionButtonLabel != null) 
+        if (actionButtonLabel != null)
             actionButtonLabel.text = "강화";
 
         onActionClicked = onUpgrade;
 
         if (isMaxLevel)
         {
-           levelText.text = "MAX";
-           costTitleText.text = "";
-           costText.text = "";
-           actionButton.image.color = Color.white.WithAlpha(0f);
-           actionButtonLabel.text = "";
-           actionButton.interactable = false;
+            levelText.text = "MAX";
+            costTitleText.text = "";
+            costText.text = "";
+            actionButton.image.color = Color.white.WithAlpha(0f);
+            actionButtonLabel.text = "";
+            actionButton.interactable = false;
         }
-        
+
         else
         {
-           costText.text = $"{GoldFormatter.Format(upgradeCost)}G";
-           actionButton.interactable = true;
+            costText.text = $"{GoldFormatter.Format(upgradeCost)}G";
+            actionButton.interactable = true;
         }
-        
+
     }
 }
 

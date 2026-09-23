@@ -30,7 +30,7 @@ public class PrototypeManager : MonoBehaviour
     {
         testFood = DataManager.Instance.allFoods[0];
 
-        SaveManager.Instance.CurrentData.AddGold(100000);
+        //SaveManager.Instance.CurrentData.AddGold(10000);
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, SaveManager.Instance.CurrentData.Gold);
     }
 

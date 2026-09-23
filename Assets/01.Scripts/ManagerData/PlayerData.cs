@@ -263,4 +263,13 @@ public class PlayerData
             freedTableIDs.Add(index);
         }
     }
+    // ---------- 튜토리얼 완료 여부 ----------
+    [SerializeField] private bool tutorialCompleted;
+    public bool TutorialCompleted => tutorialCompleted;
+
+    public void CompleteTutorial()
+    {
+        tutorialCompleted = true;
+    }
+
 }

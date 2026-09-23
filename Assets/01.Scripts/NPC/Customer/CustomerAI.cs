@@ -164,6 +164,7 @@ public class CustomerAI : MonoBehaviour
     private void OnDisable()
     {
         PatienceManager.instance?.Unregister(this);
+        statusUI?.Hide();
         customer?.EndPatience();
     }
 

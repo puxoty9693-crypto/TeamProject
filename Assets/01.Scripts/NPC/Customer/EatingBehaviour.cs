@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EatingBehaviour : CustomerBehaviour
 {
+    //[SerializeField] private Sprite eatingIcon;
+
     public override CustomerState State => CustomerState.Eating;
     private float eatingEndTime;
     private float eatingTime = 3f;

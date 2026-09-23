@@ -3,7 +3,9 @@
 public class ChefBehaviour : WorkerBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private Color cookingColor = Color.green;
 
+    
     private CraftingSystem craftingSystem;
     private GameManager gameManager;
     private bool isCooking;
@@ -11,27 +13,40 @@ public class ChefBehaviour : WorkerBehaviour
 
     public bool IsReady => IsActive && IsArrived;
 
+    
 
-
-    private void HandleCookingStarted(RecipeData _)
+    private void HandleCookingStarted(RecipeData recipe)
     {
 
         GameLogOnlyEditor.Log("Cooking Start");
         animator.SetBool("IsCooking", true);
+
+        AI.StatusUI.ShowProgress(recipe.food.foodImage, GetTotalProgress(), cookingColor);
         
     }
     private void HandleCookingEnded(RecipeData _)
     {
         GameLogOnlyEditor.Log("Cooking Finish");
         animator.SetBool("IsCooking", false);
+        AI.StatusUI.Hide();
         
+    }
+
+    private float GetTotalProgress()
+    {
+        int total = craftingSystem.CompletedCraftCount + craftingSystem.RemainingCraftCount;
+
+        if (total <= 0) return 0;
+
+        return (craftingSystem.CompletedCraftCount + craftingSystem.CookingProgressRatio) / total;
     }
   
 
     public override void Enter()
     {
         base.Enter();
-        GameLogOnlyEditor.Log("1111");
+
+        AI.StatusUI.Hide();
         TryGetCraftingSystem();
 
 
@@ -46,6 +61,12 @@ public class ChefBehaviour : WorkerBehaviour
         craftingSystem.OnCookingStarted += HandleCookingStarted;
         craftingSystem.OnCookingCompleted += HandleCookingEnded;
         craftingSystem.OnCookingCanceled += HandleCookingEnded;
+
+        if(craftingSystem.IsCooking && craftingSystem.CookingRecipe != null)
+        {
+            HandleCookingStarted(craftingSystem.CookingRecipe);
+        }
+
         GameLogOnlyEditor.Log("craftingSystem Loaded");
     }
     public override void Tick()
@@ -53,7 +74,13 @@ public class ChefBehaviour : WorkerBehaviour
         if(craftingSystem == null)
         {
             TryGetCraftingSystem();
+            return;
         }
+        if (!craftingSystem.IsCooking) return;
+
+        AI.StatusUI.SetProgress(GetTotalProgress(), cookingColor);
+        
+            
     }
 
     public override void Arrived()
@@ -71,9 +98,11 @@ public class ChefBehaviour : WorkerBehaviour
             craftingSystem.OnCookingCompleted -= HandleCookingEnded;
             craftingSystem.OnCookingCanceled -= HandleCookingEnded;
 
+            craftingSystem = null;
             
         }
         animator.SetBool("IsCooking", false);
+        AI.StatusUI.Hide();
         base.Exit();
         
     }

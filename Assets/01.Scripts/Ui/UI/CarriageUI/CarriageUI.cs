@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarriageUI : MonoBehaviour
 {
+    [SerializeField] ScrollRect scrollRect;
+
     [Header("재료업글 슬롯연결")]
     [SerializeField] List<CarriageSlotUI> slots = new();
     
     private void OnEnable()
     {
         RefreshAll();
+
+        scrollRect.horizontalNormalizedPosition = 0f;
     }
     private void RefreshAll()
     {

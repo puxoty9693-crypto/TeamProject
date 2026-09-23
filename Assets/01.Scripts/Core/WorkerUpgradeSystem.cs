@@ -47,10 +47,10 @@ public class WorkerUpgradeSystem
         int currentLevel = GetCurrentLevel(role);
         int nextLevel = currentLevel + 1;
 
-        if (!IsValidLevel(data, nextLevel))
+        if (!IsValidLevel(data, currentLevel))
             return -1;
 
-        return data.levels[nextLevel].upgradeGoldCost;
+        return data.levels[currentLevel].upgradeGoldCost;
     }
 
     //현재 강화 배율값 리턴
@@ -74,12 +74,11 @@ public class WorkerUpgradeSystem
             return false;
 
         int currentLevel = GetCurrentLevel(role);
-        int nextLevel = currentLevel + 1;
 
-        if (!IsValidLevel(data, nextLevel))
+        if (!IsValidLevel(data, currentLevel))
             return false;
 
-        int cost = data.levels[nextLevel].upgradeGoldCost;
+        int cost = data.levels[currentLevel].upgradeGoldCost;
 
         return curData.Gold >= cost;
     }
@@ -95,7 +94,7 @@ public class WorkerUpgradeSystem
         int currentLevel = GetCurrentLevel(role);
         int nextLevel = currentLevel + 1;
 
-        int cost = data.levels[nextLevel].upgradeGoldCost;
+        int cost = data.levels[currentLevel].upgradeGoldCost;
 
         if (!curData.SpendGold(cost))
             return false;

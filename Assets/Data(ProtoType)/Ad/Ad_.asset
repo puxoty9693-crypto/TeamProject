@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AdData
   levels:
   - upgradeValue: 0
-    upgradeGoldCost: 0
+    upgradeGoldCost: 10000
     upgradeText: "\uAE30\uBCF8"
   - upgradeValue: 0.1
-    upgradeGoldCost: 10000
+    upgradeGoldCost: 20000
     upgradeText: "\uC804\uB2E8\uC9C0 \uD64D\uBCF4"
   - upgradeValue: 0.2
-    upgradeGoldCost: 20000
+    upgradeGoldCost: 50000
     upgradeText: "\uC678\uAD6D \uD64D\uBCF4"
   - upgradeValue: 0.3
-    upgradeGoldCost: 50000
+    upgradeGoldCost: 500000
     upgradeText: "\uC655\uB3C4 \uD64D\uBCF4"
