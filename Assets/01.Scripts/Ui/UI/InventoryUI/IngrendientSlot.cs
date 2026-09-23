@@ -14,7 +14,7 @@ public class IngrendientSlot : MonoBehaviour
 
     public void UdateChestSlotUI(IngredientData data, IngredientStock stock)
     {
-        if (data != null)
+        if (data != null && stock != null && stock.count > 0)
         {
             ingredientImg.sprite = data.ingredientImage;
             if(stock.count < maxCount)
