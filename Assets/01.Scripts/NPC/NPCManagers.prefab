@@ -131,6 +131,7 @@ MonoBehaviour:
   customerPrefabFolder: Assets/01.Scripts/NPC/Customer/Customer_Prefab
   customerPrefabs:
   - {fileID: 1863047433836960620, guid: fce349d873727ed4aaa0cdb71dca052b, type: 3}
+  - {fileID: 1863047433836960620, guid: e4c299d65d0751b4b96b0ddb84ad8490, type: 3}
   initialPoolSize: 20
   poolRoot: {fileID: 0}
 --- !u!1 &2021868305075499098
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f3b2ac38c722548968e2ffc01e35ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrderManager
+  persistAcrossScenes: 0
 --- !u!1 &8126011964358706238
 GameObject:
   m_ObjectHideFlags: 0
