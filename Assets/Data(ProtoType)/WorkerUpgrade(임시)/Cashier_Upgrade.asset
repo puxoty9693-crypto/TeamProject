@@ -15,14 +15,14 @@ MonoBehaviour:
   role: 3
   levels:
   - upgradeValue: 0
-    upgradedeStatText: 
-    upgradeGoldCost: 0
-  - upgradeValue: 0.1
-    upgradedeStatText: 
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00 :"
     upgradeGoldCost: 5000
-  - upgradeValue: 0.2
-    upgradedeStatText: 
+  - upgradeValue: 0.1
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00 :"
     upgradeGoldCost: 20000
-  - upgradeValue: 0.3
-    upgradedeStatText: 
+  - upgradeValue: 0.2
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00 :"
     upgradeGoldCost: 50000
+  - upgradeValue: 0.3
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00 :"
+    upgradeGoldCost: 500000

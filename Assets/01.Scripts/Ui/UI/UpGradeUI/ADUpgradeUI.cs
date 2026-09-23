@@ -31,7 +31,7 @@ public class AdUpgradeUI : MonoBehaviour
         bool isMaxLevel = level >= levels.Count - 1;
     
         levelText.text = $"Lv.{level + 1}";
-        descriptionText.text = $"º’¥‘πÊπÆ∑Í : {levels[level].upgradeText}¡ı∞°";
+        descriptionText.text = $"{levels[level].upgradeText} : {levels[level].upgradeValue}¡ı∞°";
     
         if (isMaxLevel)
         {

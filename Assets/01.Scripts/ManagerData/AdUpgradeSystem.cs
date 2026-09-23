@@ -44,21 +44,22 @@ public class AdUpgradeSystem
     public bool CanUpgrade()
     {
         AdData data = GetUpgradeData();
-
-        if (!TryGetNextLevel(data, out int nextLevel))
+        int currentLevel = GetCurrentLevel();
+        if (currentLevel < 0 || currentLevel >= data.levels.Count)
             return false;
 
-        return curData.Gold >= data.levels[nextLevel].UpgradeGoldCost;
+        return curData.Gold >= data.levels[currentLevel].UpgradeGoldCost;
     }
 
     public bool Upgrade()
     {
         AdData data = GetUpgradeData();
 
-        if (!TryGetNextLevel(data, out int nextLevel))
+        if (!CanUpgrade())
             return false;
 
-        int cost = data.levels[nextLevel].UpgradeGoldCost;
+        int currentLevel = GetCurrentLevel();
+        int cost = data.levels[currentLevel].UpgradeGoldCost;
 
         if (!curData.SpendGold(cost))
             return false;
@@ -71,11 +72,12 @@ public class AdUpgradeSystem
     public int GetNextUpgradeCost()
     {
         AdData data = GetUpgradeData();
+        int currentLevel = GetCurrentLevel();
 
-        if (!TryGetNextLevel(data, out int nextLevel))
+        if (currentLevel < 0 || currentLevel >= data.levels.Count)
             return -1;
 
-        return data.levels[nextLevel].UpgradeGoldCost;
+        return data.levels[currentLevel].UpgradeGoldCost;
     }
 
     public AdData GetUpgradeData()
