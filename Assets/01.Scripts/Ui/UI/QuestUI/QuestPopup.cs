@@ -22,8 +22,8 @@ public class QuestPopup : MonoBehaviour
 
     private bool questActive;
     private float remaining;
-    private int startGold;
     private int goalGold;
+    private QuestType currentType; //지금 뜬 퀘스트가 골드인지 음식인지
 
     private void OnEnable()
     {
@@ -54,8 +54,8 @@ public class QuestPopup : MonoBehaviour
 
             if (progressSlider != null)
             {
-                int earned = SaveManager.Instance.CurrentData.Gold - startGold;
-                progressSlider.value = goalGold > 0 ? Mathf.Clamp01((float)earned / goalGold) : 0f;
+                int achieved = GameManager.Instance.QuestManager.ChallengeAchieved;
+                progressSlider.value = goalGold > 0 ? Mathf.Clamp01((float)achieved / goalGold) : 0f;
             }
         }
 
@@ -78,10 +78,10 @@ public class QuestPopup : MonoBehaviour
         questActive = true;
         remaining = data.duration;
         goalGold = data.goalGold;
-        startGold = SaveManager.Instance.CurrentData.Gold;
+        currentType = data.type;
 
         questPanel.SetActive(true);
-        goalText.text = $"목표: {GoldFormatter.Format(goalGold)}G";
+        goalText.text = currentType == QuestType.EarnGoldWithTime ? $"목표: {GoldFormatter.Format(goalGold)}G" : $"목표: {goalGold}개 판매";
 
         if (progressSlider != null)
             progressSlider.value = 0f;
