@@ -110,6 +110,8 @@ public class PlayerData
         var stock = warehouseStock.Find(s => s.ingredientId == ingredientId);
         if (stock == null || stock.count < amount) return false;
         stock.count -= amount;
+        if (stock.count <= 0)
+            warehouseStock.Remove(stock);
         return true;
     }
 
@@ -142,6 +144,9 @@ public class PlayerData
         var stock = foodStock.Find(f => f.foodId == foodId);
         if (stock == null || stock.count < amount) return false;
         stock.count -= amount;
+        if (stock.count <= 0)
+            foodStock.Remove(stock);
+
         return true;
     }
 
