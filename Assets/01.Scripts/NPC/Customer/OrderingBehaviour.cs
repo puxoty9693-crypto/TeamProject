@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class OrderingBehaviour : CustomerBehaviour
 {
@@ -16,13 +17,30 @@ public class OrderingBehaviour : CustomerBehaviour
 
         DataManager dataManager = DataManager.TryGetInstance();
         OrderManager orderManager = OrderManager.TryGetInstance();
+        RecipeUnlockSystem unlockSystem = GameManager.Instance?.RecipeUnlockSystem;
 
         if (!CustomerAgent.IsPatienceActive) CustomerAgent.BeginPatience();
 
         if (dataManager == null || orderManager == null) return;
         if (dataManager.allFoods == null || dataManager.allFoods.Count == 0) return;
 
-        FoodData food = dataManager.allFoods[0];
+        List<FoodData> unlockedFoods = new();
+        HashSet<FoodData> addedFoods = new();
+
+        foreach(RecipeData recipe in dataManager.allRecipes)
+        {
+            if (recipe == null || recipe.food == null) continue;
+            if (!unlockSystem.IsUnlocked(recipe)) continue;
+
+            if (addedFoods.Add(recipe.food)) unlockedFoods.Add(recipe.food);
+        }
+
+        if(unlockedFoods.Count == 0)
+        {
+            return;
+        }
+
+        FoodData food = unlockedFoods[Random.Range(0, unlockedFoods.Count)];
         
         if (food == null) return;
 
