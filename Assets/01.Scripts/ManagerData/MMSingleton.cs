@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // 모든 매니저가 상속받는 싱글톤 베이스 클래스

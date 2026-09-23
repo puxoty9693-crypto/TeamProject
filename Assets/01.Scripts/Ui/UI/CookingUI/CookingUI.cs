@@ -17,7 +17,14 @@ public class CookingUI : MonoBehaviour
     private void OnEnable()
     {
         recipeDropdown.onValueChanged.AddListener(OnRecipeSelected);
-        SetRecipes();
+        if(GameManager.Instance.craftingController.IsCooking)
+        {
+            cookingInfo.RestoreCurrentCooking();
+        }
+        else
+        {
+            SetRecipes();
+        }
     }
     private void OnDisable()
     {
