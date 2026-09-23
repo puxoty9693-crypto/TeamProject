@@ -43,7 +43,6 @@ public class BuffSlotUI : MonoBehaviour
     }
     private void HandleRewardGranted(Component sender, object param)
     {
-        Debug.Log("보상 이벤트 받음!");
         var data = (QuestRewardData)param;
 
         if (data.type != rewardType)
@@ -59,5 +58,18 @@ public class BuffSlotUI : MonoBehaviour
 
         if (cooldownFill != null)
             cooldownFill.fillAmount = 1f;
+
+        EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, FormatMessage(data.type, data.value));
+    }
+
+    private string FormatMessage(QuestRewardType type, float value)
+    {
+        return type switch
+        {
+            QuestRewardType.IncomeBonous => $"수익 +{value:0}% 버프 획득!",
+            QuestRewardType.IngredientSupplyBuff => $"재료 수급 x{value:0.0}% 버프 획득!",
+            QuestRewardType.FoodProductionBUff => $"음식 생산 +{value:0}% 버프 획득!",
+            _ => "버프를 획득했습니다!"
+        };
     }
 }
