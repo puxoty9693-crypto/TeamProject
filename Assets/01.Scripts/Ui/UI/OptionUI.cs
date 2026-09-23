@@ -11,7 +11,7 @@ public class OptionPanel : MonoBehaviour
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         bgmSlider.value = SoundManager.Instance.bgmVolume;
 
-        exitbutton.onClick.AddListener (() => SaveManager.Instance.ExitGame());
+        exitbutton.onClick.AddListener(() => SaveManager.Instance.ExitGame());
     }
     private void OnBgmVolumeChanged(float value)
     {
