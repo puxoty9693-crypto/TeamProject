@@ -157,6 +157,22 @@ public class CookingRecipeInfo : MonoBehaviour
             EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "재료가 부족합니다");
         }
     }
+    public void RestoreCurrentCooking()
+    {
+        currentData = Controller.CookingRecipe;
+        if (currentData == null)
+            return;
+
+        maxAffordableCount = CalculateMaxAffordable(currentData);
+
+        ingredient1Image1.sprite = currentData.food.requiredIngredients[0].ingredient.ingredientImage;
+        ingredient1Image2.sprite = currentData.food.requiredIngredients[1].ingredient.ingredientImage;
+        foodImage.sprite = currentData.food.foodImage;
+        ingredient1Count.text = $"{currentData.food.requiredIngredients[0].amount}";
+        ingredient2Count.text = $"{currentData.food.requiredIngredients[1].amount}";
+
+        RefreshPanelByState();
+    }
 
     private void OnCookingStarted(RecipeData recipe) => RefreshPanelByState();
     private void OnCookingEnded(RecipeData recipe)
@@ -186,6 +202,7 @@ public class CookingRecipeInfo : MonoBehaviour
         ingredient2Count.text = $"{currentData.food.requiredIngredients[1].amount}";
         RefreshCountText();
     }
+
     private void SetButtonsVisible(bool visible)
     {
         plus1Btn.gameObject.SetActive(visible);
