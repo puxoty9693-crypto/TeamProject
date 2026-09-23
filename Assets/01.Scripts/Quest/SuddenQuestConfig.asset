@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178e8098038d93c41bdd821767a099cb, type: 3}
   m_Name: SuddenQuestConfig
   m_EditorClassIdentifier: Assembly-CSharp::SuddenQuestConfig
-  minIntervalSeconds: 10
-  maxIntervalSeconds: 20
+  minIntervalSeconds: 5
+  maxIntervalSeconds: 10
+  foodSellCountMin: 1
+  foodSellCountMax: 30
   buffDurationSeconds: 60
-  challengeDurationSeconds: 30
+  challengeDurationSeconds: 5
   incomeGoalMultiplier: 0.8
   incomeRefrenceWindowSeconds: 60
+  foodSellGoalMultiplier: 0.8
   incomeBonusPercentMin: 1
   incomeBonusPercentMax: 100
   ingredientSupplyMultiplier:

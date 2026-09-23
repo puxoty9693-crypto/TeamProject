@@ -9,11 +9,12 @@ public enum QuestRewardType
     FoodProductionBUff,     // 음식 제작량 버프
 }
 
-public enum QuestType
+public enum QuestType 
 {
     EarnGoldWithTime,    // 제한 시간 안에 목표 금액 벌기
     SellFoodCount,       // 제한 시간 안에 목표 개수만큼 음식 판매
 }
+
 
 // 돌발 퀘스트 시스템 전체 설정값
 
@@ -46,7 +47,7 @@ public class SuddenQuestConfig : ScriptableObject
 
     public int[] foodProductionBonus = { 1, 2, 3 }; // 음식 제작량 버프 증가량
 
-
+    
 
 
 }
