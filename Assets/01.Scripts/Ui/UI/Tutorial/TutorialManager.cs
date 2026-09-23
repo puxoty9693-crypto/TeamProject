@@ -6,12 +6,6 @@ public class TutorialManager : MonoBehaviour
     [Header("DialoguePresenter 연결")]
     [SerializeField] MonoBehaviour dialoguePresenterBehaviour;
 
-    [Header("ScreenDimHighlighter 연결")]
-    [SerializeField] MonoBehaviour highlightPresenterBehaviour;
-
-    [Header("TutorialHighlightMap 연결")]
-    [SerializeField] TutorialHighlightMap highlightMap;
-
     [Header("튜토리얼 캔버스 연결")]
     [SerializeField] Canvas tutorialCanvas;
 
@@ -19,7 +13,6 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] List<Tutorialnode> nodes;
 
     private IDialoguePresenter dialoguePresenter;
-    private IHighlightPresenter highlightPresenter;
 
     private int currentIndex = -1;
     private HashSet<EventType> subscribedTypes = new();
@@ -27,12 +20,6 @@ public class TutorialManager : MonoBehaviour
     private void Awake()
     {
         dialoguePresenter = dialoguePresenterBehaviour as IDialoguePresenter;
-        highlightPresenter = highlightPresenterBehaviour as IHighlightPresenter;
-
-        if (dialoguePresenter == null)
-            Debug.LogError("dialoguePresenterBehaviour가 IDialoguePresenter를 구현하지 않습니다.");
-        if (highlightPresenter == null)
-            Debug.LogError("highlightPresenterBehaviour가 IHighlightPresenter를 구현하지 않습니다.");
     }
 
     private void OnEnable()
@@ -133,27 +120,21 @@ public class TutorialManager : MonoBehaviour
         if (node.type == TutorialNodeType.Dialogue)
         {
             dialoguePresenter.Show(node.dialogueText);
-            highlightPresenter.ShowFullDim();
         }
         else
         {
             dialoguePresenter.Hide();
-
-            if (highlightMap.TryGetTarget(node.highlightKey, out var target, out var padding))
-                highlightPresenter.ShowHole(target, padding);
-            else
-                highlightPresenter.ShowFullDim();
         }
     }
 
     private void Complete()
     {
         dialoguePresenter.Hide();
-        highlightPresenter.Hide();
 
         SaveManager.Instance.CurrentData.CompleteTutorial();
         SaveManager.Instance.SaveGame();
 
+        tutorialCanvas.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 }

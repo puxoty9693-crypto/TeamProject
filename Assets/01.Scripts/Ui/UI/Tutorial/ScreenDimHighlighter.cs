@@ -41,20 +41,47 @@ public class ScreenDimHighlighter : MonoBehaviour, IHighlightPresenter
 
         SetActive(true);
 
+        Canvas targetCanvas = target.GetComponentInParent<Canvas>();
+
+        Camera targetCamera = null;
+
+        if (targetCanvas != null &&
+            targetCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
+        {
+            targetCamera = targetCanvas.worldCamera;
+        }
+
         Vector3[] corners = new Vector3[4];
         target.GetWorldCorners(corners);
 
-        Canvas canvas = dimCanvasRoot.GetComponentInParent<Canvas>();
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        Vector2 screenMin = RectTransformUtility.WorldToScreenPoint(targetCamera, corners[0]);
 
-        Vector2 min = WorldToLocal(corners[0], cam) - Vector2.one * padding;
-        Vector2 max = WorldToLocal(corners[2], cam) + Vector2.one * padding;
+        Vector2 screenMax = RectTransformUtility.WorldToScreenPoint(targetCamera, corners[2]);
+
+        Canvas dimCanvas = dimCanvasRoot.GetComponentInParent<Canvas>();
+
+        Camera dimCamera = null;
+
+        if (dimCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
+        {
+            dimCamera = dimCanvas.worldCamera;
+        }
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(dimCanvasRoot, screenMin, dimCamera, out Vector2 min);
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(dimCanvasRoot, screenMax, dimCamera, out Vector2 max);
+
+        min -= Vector2.one * padding;
+        max += Vector2.one * padding;
 
         Rect full = dimCanvasRoot.rect;
 
         SetRect(dimTop, full.xMin, max.y, full.xMax, full.yMax);
+
         SetRect(dimBottom, full.xMin, full.yMin, full.xMax, min.y);
+
         SetRect(dimLeft, full.xMin, min.y, min.x, max.y);
+
         SetRect(dimRight, max.x, min.y, full.xMax, max.y);
     }
 

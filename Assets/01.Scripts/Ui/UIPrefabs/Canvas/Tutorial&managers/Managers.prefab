@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &328058819553493428
+--- !u!1 &2262404223600493284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,82 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2343073123619057541}
+  - component: {fileID: 6021837543896344515}
+  - component: {fileID: 7007593949059337584}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: Popupmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2343073123619057541
+--- !u!4 &6021837543896344515
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328058819553493428}
+  m_GameObject: {fileID: 2262404223600493284}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1476.8391, y: 608.96313, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3246163772460878563}
-  - {fileID: 6317603780912985379}
-  - {fileID: 6229650178258874111}
-  - {fileID: 1879934160906745437}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1768904011369792706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 889630214458297873}
-  - component: {fileID: 688200224051985490}
-  m_Layer: 0
-  m_Name: HousingController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &889630214458297873
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768904011369792706}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -643.7158, y: -210.46649, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3246163772460878563}
+  m_Father: {fileID: 694118447546363928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &688200224051985490
+--- !u!114 &7007593949059337584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768904011369792706}
+  m_GameObject: {fileID: 2262404223600493284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996892d2f5f36804f9591dbb9f1dbc32, type: 3}
+  m_Script: {fileID: 11500000, guid: 698e9e236a8bb1f40a57c88df40a70c9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HousingStateController
+  m_EditorClassIdentifier: Assembly-CSharp::PopupManager
   persistAcrossScenes: 0
-  housingSystem: {fileID: 2520389832585695418}
-  grids: {fileID: 4610958690871706057}
-  pallteUI: {fileID: 0}
---- !u!1 &1855845761734934397
+  dim: {fileID: 0}
+  animDuration: 0.25
+--- !u!1 &2404015998693468570
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,108 +55,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 855393336149272080}
-  - component: {fileID: 1978268462175606955}
+  - component: {fileID: 566908130678245482}
+  - component: {fileID: 3638542731745929914}
   m_Layer: 0
-  m_Name: ScreenDimHighlighter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &855393336149272080
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855845761734934397}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6317603780912985379}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1978268462175606955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855845761734934397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0010bbd0de8344a9d0390f03ca294b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenDimHighlighter
-  dimTop: {fileID: 0}
-  dimBottom: {fileID: 0}
-  dimLeft: {fileID: 0}
-  dimRight: {fileID: 0}
-  dimCanvasRoot: {fileID: 0}
---- !u!1 &2471050727545689268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6908286471422030369}
-  - component: {fileID: 6556298681930102901}
-  m_Layer: 0
-  m_Name: TutorialHighlightMap
+  m_Name: TableRegistry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6908286471422030369
+--- !u!4 &566908130678245482
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2471050727545689268}
+  m_GameObject: {fileID: 2404015998693468570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 234.26843, y: 60.02301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6317603780912985379}
+  m_Father: {fileID: 1531141169952660807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6556298681930102901
+--- !u!114 &3638542731745929914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2471050727545689268}
+  m_GameObject: {fileID: 2404015998693468570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c3c899fb2312d41b075537d4758f6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 52116770d6824494083e1cdb5af23302, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TutorialHighlightMap
-  entries:
-  - key: UnlockButton
-    target: {fileID: 0}
-    padding: 0
-  - key: RecipeButton
-    target: {fileID: 0}
-    padding: 0
-  - key: CookingButton
-    target: {fileID: 0}
-    padding: 0
-  - key: TableSlot
-    target: {fileID: 0}
-    padding: 0
-  - key: BreakTimeButton
-    target: {fileID: 0}
-    padding: 0
---- !u!1 &3640304408655574003
+  m_EditorClassIdentifier: Assembly-CSharp::TableRegistry
+  persistAcrossScenes: 0
+  tableIds: []
+--- !u!1 &3923545780994959770
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,10 +101,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7166558988979135674}
-  - component: {fileID: 4235262380283308978}
-  - component: {fileID: 5599608746857409860}
-  - component: {fileID: 3618542766282803638}
+  - component: {fileID: 1981268464031388899}
+  - component: {fileID: 1511560647379151962}
+  m_Layer: 0
+  m_Name: DialoguePresenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1981268464031388899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923545780994959770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2886702073326162428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511560647379151962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923545780994959770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088b37a01b091a74990883d2ca4c787b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialoguePresenter
+  dialoguePanel: {fileID: 0}
+  npcImagePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nextButton: {fileID: 0}
+--- !u!1 &4094293721834717962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4269905543065137320}
+  - component: {fileID: 6406974427579311887}
+  - component: {fileID: 7896857561730723894}
+  - component: {fileID: 8761914817655823161}
   m_Layer: 0
   m_Name: grid
   m_TagString: Untagged
@@ -211,30 +160,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7166558988979135674
+--- !u!4 &4269905543065137320
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3640304408655574003}
+  m_GameObject: {fileID: 4094293721834717962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1225.0206, y: -546.4101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6087718463750954416}
-  m_Father: {fileID: 3246163772460878563}
+  - {fileID: 3602829237268317583}
+  m_Father: {fileID: 1531141169952660807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4235262380283308978
+--- !u!212 &6406974427579311887
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3640304408655574003}
+  m_GameObject: {fileID: 4094293721834717962}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -286,13 +235,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5599608746857409860
+--- !u!114 &7896857561730723894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3640304408655574003}
+  m_GameObject: {fileID: 4094293721834717962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10fa86edb49e7f14ab7d937d159bd0f6, type: 3}
@@ -305,14 +254,14 @@ MonoBehaviour:
   maxGridY: 3
   gridCellPrefab: {fileID: 7134645772710852307, guid: a5c8ac3486b36114b864cc0bfa213c53, type: 3}
   gridObjectData: {fileID: 11400000, guid: d5005ca489766dd4ea8c57171b416a09, type: 2}
-  gridVisualRoot: {fileID: 6087718463750954416}
---- !u!114 &3618542766282803638
+  gridVisualRoot: {fileID: 3602829237268317583}
+--- !u!114 &8761914817655823161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3640304408655574003}
+  m_GameObject: {fileID: 4094293721834717962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81ba9ed88a45adf4aae4d2d30637ba1e, type: 3}
@@ -321,7 +270,7 @@ MonoBehaviour:
   clickableLayers:
     serializedVersion: 2
     m_Bits: 192
---- !u!1 &4369671538165930246
+--- !u!1 &4827226280622986330
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,47 +278,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5132077683458320510}
-  - component: {fileID: 5733047090134869226}
+  - component: {fileID: 7249398900667906122}
+  - component: {fileID: 702012156625034623}
   m_Layer: 0
-  m_Name: DialoguePresenter
+  m_Name: PrototypeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5132077683458320510
+--- !u!4 &7249398900667906122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4369671538165930246}
+  m_GameObject: {fileID: 4827226280622986330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6317603780912985379}
+  m_Father: {fileID: 694118447546363928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5733047090134869226
+--- !u!114 &702012156625034623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4369671538165930246}
+  m_GameObject: {fileID: 4827226280622986330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088b37a01b091a74990883d2ca4c787b, type: 3}
+  m_Script: {fileID: 11500000, guid: 87cbc1ee832d6d3448564535ae6be9e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialoguePresenter
-  dialoguePanel: {fileID: 0}
-  npcImagePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nextButton: {fileID: 0}
---- !u!1 &4609445337906547192
+  m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
+--- !u!1 &4912019876721106701
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,123 +322,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6229650178258874111}
-  - component: {fileID: 4739752507836786114}
+  - component: {fileID: 867090134122604936}
+  - component: {fileID: 1488699154773538961}
   m_Layer: 0
-  m_Name: Popupmanager
+  m_Name: TableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6229650178258874111
+--- !u!4 &867090134122604936
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609445337906547192}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -643.7158, y: -210.46649, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2343073123619057541}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4739752507836786114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609445337906547192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698e9e236a8bb1f40a57c88df40a70c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopupManager
-  persistAcrossScenes: 0
-  dim: {fileID: 0}
-  animDuration: 0.25
---- !u!1 &4610958690871706057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6087718463750954416}
-  m_Layer: 0
-  m_Name: GridCells
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6087718463750954416
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4610958690871706057}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7166558988979135674}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5295963784421920816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3885833048806085137}
-  - component: {fileID: 6023954050982012120}
-  m_Layer: 0
-  m_Name: TableRegistry
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3885833048806085137
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5295963784421920816}
+  m_GameObject: {fileID: 4912019876721106701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 234.26843, y: 60.02301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3246163772460878563}
+  m_Father: {fileID: 1531141169952660807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6023954050982012120
+--- !u!114 &1488699154773538961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5295963784421920816}
+  m_GameObject: {fileID: 4912019876721106701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52116770d6824494083e1cdb5af23302, type: 3}
+  m_Script: {fileID: 11500000, guid: f9a16540140e74445ab0c96653d47c21, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TableRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::TableManager
   persistAcrossScenes: 0
-  tableIds: []
---- !u!1 &6321018134526364604
+--- !u!1 &5088367176862947997
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,8 +367,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6317603780912985379}
-  - component: {fileID: 4176798898958071313}
+  - component: {fileID: 2886702073326162428}
+  - component: {fileID: 7952690626676946457}
   m_Layer: 0
   m_Name: TutorialManagers
   m_TagString: Untagged
@@ -510,39 +376,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6317603780912985379
+--- !u!4 &2886702073326162428
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6321018134526364604}
+  m_GameObject: {fileID: 5088367176862947997}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1526.7429, y: -601.4025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5132077683458320510}
-  - {fileID: 855393336149272080}
-  - {fileID: 6908286471422030369}
-  m_Father: {fileID: 2343073123619057541}
+  - {fileID: 1981268464031388899}
+  m_Father: {fileID: 694118447546363928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4176798898958071313
+--- !u!114 &7952690626676946457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6321018134526364604}
+  m_GameObject: {fileID: 5088367176862947997}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e55484bfca452049a905709659b7b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
-  dialoguePresenterBehaviour: {fileID: 5733047090134869226}
-  highlightPresenterBehaviour: {fileID: 1978268462175606955}
-  highlightMap: {fileID: 6556298681930102901}
+  dialoguePresenterBehaviour: {fileID: 1511560647379151962}
   tutorialCanvas: {fileID: 0}
   nodes:
   - type: 0
@@ -553,10 +415,34 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 1
     dialogueText: 
     waitEventType: 12
@@ -576,12 +462,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenUnlock
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
           m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseUnlock
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -599,10 +509,34 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 1
     dialogueText: 
     waitEventType: 13
@@ -622,12 +556,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenRecipel
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
           m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseRecipel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -644,10 +602,34 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 1
     dialogueText: 
     waitEventType: 14
@@ -667,12 +649,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenCooking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
           m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseCooking
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -692,10 +698,34 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 1
     dialogueText: 
     waitEventType: 15
@@ -703,7 +733,7 @@ MonoBehaviour:
     onEnterActions:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 688200224051985490}
+        - m_Target: {fileID: 599462830502381253}
           m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
           m_MethodName: EnterHousingMode
           m_Mode: 1
@@ -715,12 +745,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenHousing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 688200224051985490}
+        - m_Target: {fileID: 599462830502381253}
           m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
           m_MethodName: ExitHousingMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseHousing
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -738,32 +792,68 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    dialogueText: "\uC774\uC81C \uC5F4\uC2EC\uD788 \uB3C8\uBC8C\uC744 \uBC8C\uC5B4\uBCF4\uC790!
-      \uBE0C\uB808\uC774\uD06C\uD0C0\uC784 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD574\uC11C
-      \uC190\uB2D8\uC744 \uBC1B\uC544\uBCF4\uC790"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls: []
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 1
     dialogueText: 
     waitEventType: 16
     highlightKey: BreakTimeButton
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: Openbreaktime
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: Closebreaktime
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - type: 0
     dialogueText: "\uAE30\uBCF8\uC801\uC778 \uAC83\uC740 \uB2E4 \uD574\uBCF8\uAC70
       \uAC19\uC73C\uB2C8 \uBCF8\uACA9\uC801\uC778 \uC7A5\uC0AC\uB97C \uC2DC\uC791\uD574\uBCF4\uC790!"
@@ -771,11 +861,35 @@ MonoBehaviour:
     highlightKey: 
     onEnterActions:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExitActions:
       m_PersistentCalls:
-        m_Calls: []
---- !u!1 &6894258428508137695
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &6127504348911791668
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -783,97 +897,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1879934160906745437}
-  - component: {fileID: 68567929618343034}
-  m_Layer: 0
-  m_Name: PrototypeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1879934160906745437
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894258428508137695}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2343073123619057541}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &68567929618343034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894258428508137695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbc1ee832d6d3448564535ae6be9e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
---- !u!1 &7505757418919872712
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1930315189543907479}
-  - component: {fileID: 3401750687480627612}
-  m_Layer: 0
-  m_Name: TableManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1930315189543907479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505757418919872712}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 234.26843, y: 60.02301, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3246163772460878563}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3401750687480627612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505757418919872712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a16540140e74445ab0c96653d47c21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TableManager
-  persistAcrossScenes: 0
---- !u!1 &8036712199129852238
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3246163772460878563}
-  - component: {fileID: 2520389832585695418}
+  - component: {fileID: 1531141169952660807}
+  - component: {fileID: 4553870771363032394}
   m_Layer: 0
   m_Name: HousingSystem
   m_TagString: Untagged
@@ -881,37 +906,151 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3246163772460878563
+--- !u!4 &1531141169952660807
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036712199129852238}
+  m_GameObject: {fileID: 6127504348911791668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -234.26843, y: -60.02301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7166558988979135674}
-  - {fileID: 889630214458297873}
-  - {fileID: 1930315189543907479}
-  - {fileID: 3885833048806085137}
-  m_Father: {fileID: 2343073123619057541}
+  - {fileID: 4269905543065137320}
+  - {fileID: 3533986200878825322}
+  - {fileID: 867090134122604936}
+  - {fileID: 566908130678245482}
+  m_Father: {fileID: 694118447546363928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2520389832585695418
+--- !u!114 &4553870771363032394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036712199129852238}
+  m_GameObject: {fileID: 6127504348911791668}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1ca1468fa543af44b29ca106aa88c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HousingSystem
   persistAcrossScenes: 0
-  housingGrid: {fileID: 5599608746857409860}
+  housingGrid: {fileID: 7896857561730723894}
   gridObjectData: {fileID: 11400000, guid: d5005ca489766dd4ea8c57171b416a09, type: 2}
+--- !u!1 &7383616033164844916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3533986200878825322}
+  - component: {fileID: 599462830502381253}
+  m_Layer: 0
+  m_Name: HousingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3533986200878825322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383616033164844916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1531141169952660807}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599462830502381253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383616033164844916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996892d2f5f36804f9591dbb9f1dbc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HousingStateController
+  persistAcrossScenes: 0
+  housingSystem: {fileID: 4553870771363032394}
+  grids: {fileID: 8460942982558941387}
+  pallteUI: {fileID: 0}
+--- !u!1 &7717644670766865492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694118447546363928}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694118447546363928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717644670766865492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1476.8391, y: 608.96313, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1531141169952660807}
+  - {fileID: 2886702073326162428}
+  - {fileID: 6021837543896344515}
+  - {fileID: 7249398900667906122}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8460942982558941387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3602829237268317583}
+  m_Layer: 0
+  m_Name: GridCells
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3602829237268317583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460942982558941387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4269905543065137320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
