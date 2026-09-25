@@ -55,7 +55,7 @@ public class QuestBuffService
     // 수익 얻을 때마다 호출 됨
     private void HandleGoldEarned(int baseGold) 
     {
-        if (activeRewardType != QuestRewardType.IncomeBonous)
+        if (activeRewardType != QuestRewardType.IncomeBonus)
             return;
 
         int bonus = Mathf.RoundToInt(baseGold * (activeValue / 100f));

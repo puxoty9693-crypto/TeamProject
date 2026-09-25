@@ -66,7 +66,7 @@ public class BuffSlotUI : MonoBehaviour
     {
         return type switch
         {
-            QuestRewardType.IncomeBonous => $"수익 +{value:0}% 버프 획득!",
+            QuestRewardType.IncomeBonus => $"수익 +{value:0}% 버프 획득!",
             QuestRewardType.IngredientSupplyBuff => $"재료 수급 x{value:0.0}% 버프 획득!",
             QuestRewardType.FoodProductionBUff => $"음식 생산 +{value:0}% 버프 획득!",
             _ => "버프를 획득했습니다!"

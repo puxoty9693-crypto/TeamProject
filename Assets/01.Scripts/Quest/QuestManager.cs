@@ -185,7 +185,7 @@ public class QuestManager
 
         float value = rewardType switch
         {
-            QuestRewardType.IncomeBonous => Random.Range(config.incomeBonusPercentMin, config.incomeBonusPercentMax + 1),
+            QuestRewardType.IncomeBonus => Random.Range(config.incomeBonusPercentMin, config.incomeBonusPercentMax + 1),
 
             QuestRewardType.IngredientSupplyBuff => config.ingredientSupplyMultiplier[Random.Range(0, config.ingredientSupplyMultiplier.Length)],
 
