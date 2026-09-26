@@ -11,6 +11,7 @@ public class QuestManager
     private readonly PlayerData playerData;
     private readonly SuddenQuestConfig config;
     private readonly PaymentSystem paymentSystem;
+    private readonly AchievementManager achievementManager;
 
     private readonly Queue<(float time, int totalGold, int totalSold)> incomeHistory = new Queue<(float, int, int)>(); // 최근 수입 추적용 (누적 골드, 기록 시점의 누적 플레이 시간)
 
@@ -53,15 +54,16 @@ public class QuestManager
     // 보상 지급
     public event Action<QuestRewardType, float> OnRewardGranted;
 
-    public QuestManager(PlayerData data, SuddenQuestConfig config, PaymentSystem paymentSystem)
+    public QuestManager(PlayerData data, SuddenQuestConfig config, PaymentSystem paymentSystem, AchievementManager achievementManager)
     {
         playerData = data;
         this.config = config;
         this.paymentSystem = paymentSystem;
+        this.achievementManager = achievementManager;
 
         paymentSystem.OnPaymentCompleted += PaymentCompleted;
         ScheduleNextQuest();
-
+        
     }
 
     public void Update(float deltaTime)
@@ -194,6 +196,8 @@ public class QuestManager
 
         };
 
+        float permanentBonus = achievementManager.PermanentBonus(rewardType); //업적으로 얻은 영구적인 보너스
+        float randomvalue = value + permanentBonus;
         OnRewardGranted?.Invoke(rewardType, value);
     }
 

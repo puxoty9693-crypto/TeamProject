@@ -20,6 +20,7 @@ public class GameManager : MMSingleton<GameManager>
     public AdUpgradeSystem AdUpgradeSystem { get; private set; }
     public StoreSystem StoreSystem { get; private set; }
     public QuestBuffService QuestBuffService { get; private set; }
+    public AchievementManager AchievementManager { get; private set; }
 
     public QuestManager QuestManager { get; private set; }
 
@@ -33,7 +34,8 @@ public class GameManager : MMSingleton<GameManager>
         IngredientWareHouse = new IngredientWareHouse(pData);
         ingredientUnlockSystem = new IngredientUnlockSystem(pData);
         ingredientUpgradeSystem = new IngredientUpgradeSystem(pData);
-        QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig, PaymentSystem);
+        AchievementManager = new AchievementManager(pData, DataManager.Instance.achievementConfig, PaymentSystem, CraftingSystem);
+        QuestManager = new QuestManager(pData, DataManager.Instance.suddenQuestConfig, PaymentSystem, AchievementManager);
         AdUpgradeSystem = new AdUpgradeSystem(pData);
         workerUpgradeSystem = new WorkerUpgradeSystem(pData);
         StoreSystem = new StoreSystem();

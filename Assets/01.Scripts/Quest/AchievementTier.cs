@@ -42,6 +42,6 @@ public class AchievementConfig : ScriptableObject
         new AchievementTier {id = "TotalIncome_2", threshold =10000, goldReward = 2000},
         new AchievementTier {id = "TotalIncome_3", threshold =100000, goldReward = 20000},
         new AchievementTier {id = "TotalIncome_4", threshold = 1000000, goldReward = 200000},
-        new AchievementTier {id = "TotalIncome_5", threshold = 10000000, goldReward = 10000000, isSpecialTier = true, specialBuffType = QuestRewardType.IncomeBonus, specialBuffBonus = 2f},
+        new AchievementTier {id = "TotalIncome_5", threshold = 10000000, goldReward = 0, isSpecialTier = true, specialBuffType = QuestRewardType.IncomeBonus, specialBuffBonus = 2f},
     };
 }
