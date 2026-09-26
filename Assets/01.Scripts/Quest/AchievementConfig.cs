@@ -1,7 +1,9 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-public class AchievementTier : MonoBehaviour
+
+[Serializable]
+public class AchievementTier
 {
     public string id;
     public long threshold; // 이 단계를 클리어하기 위한 목표치
@@ -45,3 +47,4 @@ public class AchievementConfig : ScriptableObject
         new AchievementTier {id = "TotalIncome_5", threshold = 10000000, goldReward = 0, isSpecialTier = true, specialBuffType = QuestRewardType.IncomeBonus, specialBuffBonus = 2f},
     };
 }
+

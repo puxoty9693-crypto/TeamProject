@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d980fffa413c614180548d4d8594fe0, type: 3}
+  m_Name: AchievemetType
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementConfig
+  foodSoldTiers:
+  - id: FoodSold_1
+    threshold: 10
+    goldReward: 1000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodSold_2
+    threshold: 50
+    goldReward: 5000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodSold_3
+    threshold: 100
+    goldReward: 10000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodSold_4
+    threshold: 200
+    goldReward: 20000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodSole_5
+    threshold: 500
+    goldReward: 0
+    isSpecialTier: 1
+    specialBuffType: 2
+    specialBuffBonus: 2
+  foodCraftedTiers:
+  - id: FoodCrafted_1
+    threshold: 10
+    goldReward: 2500
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodCrafted_2
+    threshold: 50
+    goldReward: 7500
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodCrafted_3
+    threshold: 100
+    goldReward: 20000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodCrafted_4
+    threshold: 200
+    goldReward: 50000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: FoodCrafted_5
+    threshold: 500
+    goldReward: 0
+    isSpecialTier: 1
+    specialBuffType: 1
+    specialBuffBonus: 2
+  totalIncomeTiers:
+  - id: TotalIncome_1
+    threshold: 1000
+    goldReward: 500
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: TotalIncome_2
+    threshold: 10000
+    goldReward: 2000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: TotalIncome_3
+    threshold: 100000
+    goldReward: 20000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: TotalIncome_4
+    threshold: 1000000
+    goldReward: 200000
+    isSpecialTier: 0
+    specialBuffType: 0
+    specialBuffBonus: 0
+  - id: TotalIncome_5
+    threshold: 10000000
+    goldReward: 0
+    isSpecialTier: 1
+    specialBuffType: 0
+    specialBuffBonus: 2

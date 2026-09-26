@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce0ba987e7f6aa4da5c0fa278b79f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  persistAcrossScenes: 1
   allIngredients:
   - {fileID: 11400000, guid: be8c0da9c864e04489289b5b9a8e8db2, type: 2}
   - {fileID: 11400000, guid: b29ddb73268264a4aaa56c5a9cee3fa2, type: 2}
   - {fileID: 11400000, guid: f61640b48349aed46bd527b312e5b852, type: 2}
   - {fileID: 11400000, guid: 406e84e93bb2c19439fab81393cd5b9f, type: 2}
   - {fileID: 11400000, guid: 73593f0f2f69667438bcddca8dec5c93, type: 2}
-  - {fileID: 11400000, guid: 42c7c8bb0713ad1448ca1ddf3c978f36, type: 2}
   allRecipes:
   - {fileID: 11400000, guid: 0828d4e77aeb8174890c217aa45c8f0f, type: 2}
   - {fileID: 11400000, guid: 00481773f4fdf844eaa3883b48fbac05, type: 2}
@@ -74,10 +74,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 508b4412cd5f6b64c8cd66b6b0815c1b, type: 2}
   - {fileID: 11400000, guid: 83e5716aa6c16ae42baf0204904cc367, type: 2}
   workerUpgradeDataList:
-  - {fileID: 11400000, guid: 4092d8ee375af194d81f8e995558c18e, type: 2}
-  - {fileID: 11400000, guid: 768f0045177065b40a5cbdf290dfb0b8, type: 2}
   - {fileID: 11400000, guid: 9b6b9fc78773a0645a3f721f520ac5aa, type: 2}
+  - {fileID: 11400000, guid: 768f0045177065b40a5cbdf290dfb0b8, type: 2}
+  - {fileID: 11400000, guid: 4092d8ee375af194d81f8e995558c18e, type: 2}
   adData: {fileID: 11400000, guid: ee216a0d6e8895843a2584c7f0c1aeb3, type: 2}
   cookingBatchConfig: {fileID: 11400000, guid: ce4f63397a7b2384a92a9728126a3994, type: 2}
   tableUpgradeData: {fileID: 11400000, guid: dac2019ffdb12574fa8f2addab32c3ab, type: 2}
   suddenQuestConfig: {fileID: 11400000, guid: b28ec2ef296b9e34ca770e1819a67e2e, type: 2}
+  achievementConfig: {fileID: 11400000, guid: 3628f314936832744ba8034cee1c68c4, type: 2}
