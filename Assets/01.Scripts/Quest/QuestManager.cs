@@ -18,7 +18,7 @@ public class QuestManager
     private float playTime;
     private float nextQuestTime;
     private int soldCount; // 지금까지 팔린 음식 총 개수
-
+    private int achievementGoldTotal;
 
     private bool isChallengeActive;
     public bool IsChallengeActive => isChallengeActive;
@@ -29,6 +29,9 @@ public class QuestManager
 
     private int challengeStartGold;
     private int challengeSoldCount;
+
+    private int EffectiveGold => playerData.Gold - achievementGoldTotal;
+
     public int ChallengeGoalValue => challengeGoalValue;
 
     public int ChallengeAchieved => currentType == QuestType.EarnGoldWithTime ? playerData.Gold - challengeStartGold : soldCount - challengeSoldCount;
@@ -62,6 +65,7 @@ public class QuestManager
         this.achievementManager = achievementManager;
 
         paymentSystem.OnPaymentCompleted += PaymentCompleted;
+        achievementManager.OnAchievementGoldGranted += HandleAchievementGold;
         ScheduleNextQuest();
         
     }
@@ -95,9 +99,16 @@ public class QuestManager
         nextQuestTime = playTime + interval;
     }
 
+    private void HandleAchievementGold(int amount)
+    {
+        achievementGoldTotal += amount;
+    }
+
+
+
     private void RecordIncome()
     {
-        int currentGold = playerData.Gold;
+        int currentGold = EffectiveGold;
         incomeHistory.Enqueue((playTime, currentGold, soldCount));
 
         while (incomeHistory.Count > 0 && playTime - incomeHistory.Peek().time > config.incomeRefrenceWindowSeconds)

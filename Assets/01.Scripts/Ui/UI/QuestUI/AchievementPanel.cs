@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class AchievementPanel : MonoBehaviour
 {
+    [SerializeField] ScrollRect scrollRect;
     [SerializeField] AchievementRowUI rowPrefab;
     [SerializeField] Transform foodSoldContent;
     [SerializeField] Transform foodCraftedContent;
@@ -14,16 +17,23 @@ public class AchievementPanel : MonoBehaviour
     private void OnEnable()
     {
         Refresh();
-
-        if (GameManager.Instance != null && GameManager.Instance.AchievementManager != null)
-            GameManager.Instance.AchievementManager.AchievementCompleted += HandleAchievementCompleted;
+        var am = GameManager.Instance?.AchievementManager;
+        if (am != null)
+        {
+            am.AchievementCompleted += HandleAchievementCompleted;
+            am.AchievementProgressChanged += Refresh;
+        }
     }
 
     private void OnDisable()
     {
-        if (GameManager.Instance != null && GameManager.Instance.AchievementManager != null)
-            GameManager.Instance.AchievementManager.AchievementCompleted -= HandleAchievementCompleted;
-        
+        var am = GameManager.Instance?.AchievementManager;
+        if (am != null)
+        {
+           am.AchievementCompleted -= HandleAchievementCompleted;
+           am.AchievementProgressChanged -= Refresh;
+
+        }
     }
 
     private void HandleAchievementCompleted(AchievementTier tier, string title) 
@@ -41,6 +51,9 @@ public class AchievementPanel : MonoBehaviour
         BuildCategory(config.foodSoldTiers, achievements.TotalFoodSold, foodSoldContent, achievements, AchievementManager.FoodSoldTitle);
         BuildCategory(config.foodCraftedTiers, achievements.TotalFoodCrafted, foodCraftedContent, achievements, AchievementManager.FoodCraftedTitle);
         BuildCategory(config.totalIncomeTiers, achievements.TotalIncome, totalIncomeContent, achievements, AchievementManager.TotalIncomeTitle);
+
+        Canvas.ForceUpdateCanvases();
+        if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
     }
 
     private void BuildCategory(List<AchievementTier> tiers, long currentValue, Transform parent, AchievementSaveData achievements, Func<long, string> titleFormatter) 
