@@ -27,6 +27,8 @@ public class InventoryUI : MonoBehaviour
     {
         if (ingredientTabPanel.activeSelf)
             RefreshIngrendientSlots();
+        else if (foodTabPanel.activeSelf)
+            RefreshFoodSlots();
     }
     public void ShowIngrendientTab()
     {

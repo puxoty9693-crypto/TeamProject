@@ -68,6 +68,11 @@ public class PlayerData
         return true;
     }
 
+    //업적 진행 상태
+    [SerializeField] private AchievementSaveData achievements = new AchievementSaveData();
+    public AchievementSaveData Achievements => achievements;
+
+
     // ---------- 해금한 레시피 (세이브 데이터) ----------
     [SerializeField] private List<string> unlockedRecipeIds = new List<string>();
     public IReadOnlyList<string> UnlockedRecipeIds => unlockedRecipeIds;

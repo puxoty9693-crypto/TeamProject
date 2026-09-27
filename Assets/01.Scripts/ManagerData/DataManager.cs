@@ -13,6 +13,7 @@ public class DataManager : MMSingleton<DataManager>
     public CookingBatchConfig cookingBatchConfig;      // 제작 단위
     public TableUpgradeData tableUpgradeData;          // 테이블 업그레이드 데이터
     public SuddenQuestConfig suddenQuestConfig; // 돌발 퀘스트 데이터
+    public AchievementConfig achievementConfig; // 업적 퀘스트 데이터
     //========= 조회 함수 ========
 
     // id로 재료 원본 데이터 찾기

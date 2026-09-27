@@ -4,7 +4,7 @@ using UnityEngine;
 //돌발 퀘스트 클리어시 부여 받는 버프
 public enum QuestRewardType
 {
-    IncomeBonous,           // 추가 수익 (1 ~ 100 사이 난수, 일정 시간 동안 음식 판매 수익에 +% 더해짐)
+    IncomeBonus,           // 추가 수익 (1 ~ 100 사이 난수, 일정 시간 동안 음식 판매 수익에 +% 더해짐)
     IngredientSupplyBuff,   // 재료 수급량 배수 버프 (1.5 배/ 2배 / 3배 중 랜덤, 일정 시간 동안 지속)
     FoodProductionBUff,     // 음식 제작량 버프
 }

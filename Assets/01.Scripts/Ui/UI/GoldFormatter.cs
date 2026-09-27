@@ -2,7 +2,8 @@ using UnityEngine;
 
 public static class GoldFormatter
 {
-    public static string Format(int amount)
+    public static string Format(int amount) => Format((long)amount);
+    public static string Format(long amount)
     {
         if (amount >= 1_000_000_000)
             return $"{amount / 1_000_000_000f:0.#}B";
@@ -13,4 +14,5 @@ public static class GoldFormatter
         
         return amount.ToString();
     }
+
 }
