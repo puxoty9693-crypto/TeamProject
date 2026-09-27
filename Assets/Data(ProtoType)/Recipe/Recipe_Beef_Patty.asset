@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeId: recipe_4
   recipeName: recipe_beef_patty
-  unlockGoldCost: 10000
+  unlockGoldCost: 20000
   food: {fileID: 11400000, guid: 93783299ab229da49a30a8cf868b9999, type: 2}
-  cookingTime: 200
+  cookingTime: 22
