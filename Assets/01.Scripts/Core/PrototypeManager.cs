@@ -15,14 +15,7 @@ public class PrototypeManager : MonoBehaviour
     {
         testFood = DataManager.Instance.allFoods[0];
 
-        SaveManager.Instance.CurrentData.AddGold(1000000);
+        SaveManager.Instance.CurrentData.AddGold(0);
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, SaveManager.Instance.CurrentData.Gold);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }

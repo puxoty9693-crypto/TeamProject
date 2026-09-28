@@ -8,9 +8,13 @@ public class AgentMovement : MonoBehaviour
 
     [SerializeField] private float arrivalTolerance = 0.05f;    // 도착지 허용오차
 
+    public float BaseSpeed { get; private set; }
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        BaseSpeed = agent.speed;
 
         //2D
         agent.updateRotation = false;

@@ -17,6 +17,7 @@ public class WorkerAI : MonoBehaviour
     private WorkerBehaviour currentBehaviour;
     private Transform currentTarget;
     private bool isMoving;
+
     private void Awake()
     {
         worker = GetComponent<Worker>();
@@ -30,24 +31,28 @@ public class WorkerAI : MonoBehaviour
 
             if (behaviours.ContainsKey(behaviour.Role))
             {
-                Debug.Log($"Worker Behaviour 중복 {behaviour.Role}",gameObject);
-
+                Debug.Log($"Worker Behaviour 중복 {behaviour.Role}", gameObject);
                 continue;
             }
 
             behaviours.Add(behaviour.Role, behaviour);
         }
-
     }
 
     private void OnEnable()
     {
         worker.OnWorkerRoleChanged += HandleWorkerRoleChanged;
+
+        if (GameManager.Instance != null && GameManager.Instance.workerUpgradeSystem != null)
+            GameManager.Instance.workerUpgradeSystem.OnWorkerUpgraded += HandleWorkerUpgraded;
     }
 
     private void OnDisable()
     {
         worker.OnWorkerRoleChanged -= HandleWorkerRoleChanged;
+
+        if (GameManager.Instance != null && GameManager.Instance.workerUpgradeSystem != null)
+            GameManager.Instance.workerUpgradeSystem.OnWorkerUpgraded -= HandleWorkerUpgraded;
 
         DeactivateCurrentBehaviour();
     }
@@ -57,26 +62,21 @@ public class WorkerAI : MonoBehaviour
         if (worker.RegisterWork.IsRegistered)
         {
             HandleWorkerRoleChanged(worker.RegisterWork);
-
         }
-
     }
 
-   private void Update()
+    private void Update()
     {
+        currentBehaviour?.Tick();
 
-        currentBehaviour?.Tick();       // worker에 업무 지시
+        if (!isMoving) return;
+        if (!movement.HasArrived()) return;
 
-        if (!isMoving) return;          // 이동중이 아니면 return
-        if (!movement.HasArrived()) return;     // 아직 도착 안함 return
+        movement.Stop();
+        isMoving = false;
 
-        movement.Stop();        // 이동 중지
-        isMoving = false;       // 도착상태로 변경
-
-        currentBehaviour?.Arrived();        // 도착
-
+        currentBehaviour?.Arrived();
     }
-
 
     private void HandleWorkerRoleChanged(WorkerRegisterWork register)
     {
@@ -89,8 +89,7 @@ public class WorkerAI : MonoBehaviour
 
         if (!behaviours.TryGetValue(register.Role, out WorkerBehaviour behaviour))
         {
-            Debug.Log($"Behaviour is Null : {register.Role}",gameObject);
-
+            Debug.Log($"Behaviour is Null : {register.Role}", gameObject);
             return;
         }
 
@@ -99,6 +98,8 @@ public class WorkerAI : MonoBehaviour
         currentBehaviour.OnTargetChanged += HandleTargetChanged;
 
         currentBehaviour.Enter();
+
+        RefreshSpeed(register.Role);
     }
 
     private void HandleTargetChanged(Transform target)
@@ -107,11 +108,10 @@ public class WorkerAI : MonoBehaviour
 
         Debug.Log($"Target : {target?.name}");
 
-        if(currentTarget == null)
+        if (currentTarget == null)
         {
             movement.Stop();
             isMoving = false;
-
             return;
         }
 
@@ -130,8 +130,26 @@ public class WorkerAI : MonoBehaviour
         currentBehaviour = null;
         currentTarget = null;
         isMoving = false;
-
-
     }
 
+    private void HandleWorkerUpgraded(WorkerRole role)
+    {
+        if (!worker.RegisterWork.IsRegistered) return;
+        if (worker.RegisterWork.Role != role) return;
+
+        RefreshSpeed(role);
+    }
+
+    private void RefreshSpeed(WorkerRole role)
+    {
+        if (worker.Stats == null) return;
+
+        float baseSpeed = movement.BaseSpeed;
+
+        float finalSpeed = (role == WorkerRole.Server)
+            ? GameManager.Instance.workerUpgradeSystem.GetUpgradedServerSpeed(baseSpeed)
+            : baseSpeed;
+
+        movement.SetSpeed(finalSpeed);
+    }
 }
