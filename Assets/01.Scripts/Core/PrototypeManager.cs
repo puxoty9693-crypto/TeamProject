@@ -15,7 +15,7 @@ public class PrototypeManager : MonoBehaviour
     {
         testFood = DataManager.Instance.allFoods[0];
 
-        SaveManager.Instance.CurrentData.AddGold(0);
-        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, SaveManager.Instance.CurrentData.Gold);
+        //SaveManager.Instance.CurrentData.AddGold(0);
+        //EventManager.Instance.PostNotification(EventType.OnChangeGold, null, SaveManager.Instance.CurrentData.Gold);
     }
 }

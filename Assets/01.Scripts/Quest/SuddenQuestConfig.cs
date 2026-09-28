@@ -21,9 +21,9 @@ public enum QuestType
 [CreateAssetMenu(fileName = "SuddenQuestConfig", menuName = "Data/SuddenQuestConfig")]
 public class SuddenQuestConfig : ScriptableObject
 {
-    public float minIntervalSeconds = 300f; // 다음 돌발 퀘스트 최소 등장 시간
+    public float minIntervalSeconds = 60f; // 다음 돌발 퀘스트 최소 등장 시간
 
-    public float maxIntervalSeconds = 400f; // 다음 돌발 퀘스트 최종 등장 시간
+    public float maxIntervalSeconds = 100f; // 다음 돌발 퀘스트 최종 등장 시간
 
     public int foodSellCountMin = 1;    //음식 판매 퀘스트 개수 최소
     public int foodSellCountMax = 30;   //음식 판매 퀘스트 개수 최대
@@ -31,7 +31,7 @@ public class SuddenQuestConfig : ScriptableObject
 
     public float buffDurationSeconds = 60f; // 초 단위, 세 보상 타입 전부 이 시간만큼 적용됨
 
-    public float challengeDurationSeconds = 30f; // 챌린지 제한시간
+    public float challengeDurationSeconds = 60f; // 챌린지 제한시간
 
     public float incomeGoalMultiplier = 0.8f; // 목표 금액
 
