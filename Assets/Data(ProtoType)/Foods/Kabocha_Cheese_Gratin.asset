@@ -18,7 +18,7 @@ MonoBehaviour:
   goldPerSale: 0
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 406e84e93bb2c19439fab81393cd5b9f, type: 2}
-    amount: 1
+    amount: 2
   - ingredient: {fileID: 11400000, guid: b29ddb73268264a4aaa56c5a9cee3fa2, type: 2}
-    amount: 1
+    amount: 2
   sellPrice: 2000

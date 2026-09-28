@@ -40,6 +40,7 @@ public class OrderingBehaviour : CustomerBehaviour
             return;
         }
 
+
         FoodData food = unlockedFoods[Random.Range(0, unlockedFoods.Count)];
         
         if (food == null) return;
