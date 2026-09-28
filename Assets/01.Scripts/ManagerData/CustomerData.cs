@@ -5,7 +5,7 @@ using UnityEngine;
 public class CustomerData : NPCData
 {
     [Header("Customer")]
-    [SerializeField] private float basePatience = 30f;
+    [SerializeField] private float basePatience = 45f;
     [SerializeField] private CustomerType customerType = CustomerType.DineIn;
 
     public float BasePatience => basePatience;

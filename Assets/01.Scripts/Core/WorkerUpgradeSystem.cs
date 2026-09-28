@@ -6,6 +6,8 @@ public class WorkerUpgradeSystem
 {
     private readonly PlayerData curData;
 
+    public event Action<WorkerRole> OnWorkerUpgraded;
+
     public WorkerUpgradeSystem(PlayerData data)
     {
         if (data == null)
@@ -100,6 +102,8 @@ public class WorkerUpgradeSystem
             return false;
 
         curData.UpgradeWorkerLevel(role);
+
+        OnWorkerUpgraded?.Invoke(role);
 
         return true;
     }

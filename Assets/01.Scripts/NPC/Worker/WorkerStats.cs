@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorkerStats
 {
     [SerializeField] private float cooking = 1f;
-    [SerializeField] private float serving = 1f;
+    [SerializeField] private float serving = 2f;
     [SerializeField] private float cashing = 1f;    // 결제
 
     public float Cooking => cooking;
