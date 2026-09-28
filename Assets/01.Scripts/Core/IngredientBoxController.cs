@@ -6,6 +6,9 @@ public class IngredientBoxController : MonoBehaviour
 
     public IngredientBox CurrentBox => currentBox;
 
+    private const float SupplyInterval = 5f;
+    private float intervalTime = 0;
+
     private void Awake()
     {
         currentBox = new IngredientBox();
@@ -37,5 +40,16 @@ public class IngredientBoxController : MonoBehaviour
 
         currentBox.AddIngredient(ingredient, amount);
         Debug.Log(ingredient + "추가");
+    }
+
+    private void Update()
+    {
+        intervalTime += Time.deltaTime;
+        if(intervalTime >= SupplyInterval)
+        {
+            intervalTime -= SupplyInterval;
+            GameManager.Instance.IngredientWareHouse.ReceiveBox(TakeBox());
+            
+        }
     }
 }
