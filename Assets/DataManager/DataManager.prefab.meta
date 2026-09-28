@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/DataManager/DataManager.prefab.meta
+guid: 3de13bc94935c32429fdb7eeda777430
+========
+guid: 9a93731390827014aaa24f73b8cc56e1
+>>>>>>>> a12efbf2d0b50c68e47bf1dc84b84a988277fd0f:Assets/01.Scripts/Ui/UIPrefabs/Canvas/Managers.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
