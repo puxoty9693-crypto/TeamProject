@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeId: recipe_3
   recipeName: recipe_kabocha_cheese_gratin
-  unlockGoldCost: 5000
+  unlockGoldCost: 10000
   food: {fileID: 11400000, guid: 40104ee16b1d7f145b2616c979b3c7a8, type: 2}
-  cookingTime: 200
+  cookingTime: 18

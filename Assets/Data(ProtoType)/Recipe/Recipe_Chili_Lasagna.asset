@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeId: recipe_2
   recipeName: recipe_chili_lasagna
-  unlockGoldCost: 2000
+  unlockGoldCost: 5000
   food: {fileID: 11400000, guid: 87ddabbb3f118e34dada3011c57c5e03, type: 2}
-  cookingTime: 200
+  cookingTime: 15

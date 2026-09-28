@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeId: recipe_1
   recipeName: recipe_basil_tomato_lasagna
-  unlockGoldCost: 1000
+  unlockGoldCost: 2000
   food: {fileID: 11400000, guid: c215cb2efa276f64da652c6c5846ea9d, type: 2}
-  cookingTime: 20
+  cookingTime: 12
