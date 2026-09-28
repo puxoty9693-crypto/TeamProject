@@ -45,7 +45,7 @@ public class CarriageSlotUI : MonoBehaviour
         ingredientImage.color = Color.white;
 
         nameText.text = data.ingredientName;
-        levelText.text = $"Lv.{level}";
+        levelText.text = $"Lv.{level + 1}";
         statText.text = $"{supplyInterval:0}초마다 {supplyAmount}개";
 
         if (actionButtonLabel != null)
