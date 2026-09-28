@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 
 public class IngredientUnlockSystem
 {
@@ -22,11 +22,11 @@ public class IngredientUnlockSystem
         if (string.IsNullOrEmpty(ingredient.ingredientId))
             return false;
 
-        // ì´ë¯¸ í•´ê¸ˆë˜ì–´ ìžˆìœ¼ë©´ í•´ê¸ˆ ë¶ˆê°€
+        // ÀÌ¹Ì ÇØ±ÝµÇ¾î ÀÖÀ¸¸é ÇØ±Ý ºÒ°¡
         if (curData.IsIngredientUnlocked(ingredient.ingredientId))
             return false;
 
-        //ìž„ì‹œ ë¡œë“œ ì¶”í›„ ìˆ˜ì •í•´ì•¼í•¨
+        //ÀÓ½Ã ·Îµå ÃßÈÄ ¼öÁ¤ÇØ¾ßÇÔ
         CarriageIngredientData cIData =
         DataManager.Instance.carriageUpgrades.Find(
             x => x != null &&
@@ -46,7 +46,7 @@ public class IngredientUnlockSystem
         if (!CanUnlock(ingredient))
             return false;
 
-        //ìž„ì‹œ ë¡œë“œ ì¶”í›„ì— ìˆ˜ì •í•´ì•¼í•¨
+        //ÀÓ½Ã ·Îµå ÃßÈÄ¿¡ ¼öÁ¤ÇØ¾ßÇÔ
         CarriageIngredientData cIData =
         DataManager.Instance.carriageUpgrades.Find(
         x => x != null &&
@@ -60,6 +60,9 @@ public class IngredientUnlockSystem
             return false;
 
         curData.UnlockIngredient(ingredient.ingredientId);
+
+        if (!curData.TutorialCompleted)
+            curData.AddIngredient(ingredient.ingredientId, 2);
 
         OnIngredientUnlocked?.Invoke(ingredient);
 
