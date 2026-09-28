@@ -18,11 +18,11 @@ MonoBehaviour:
     upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(0%\uC99D\uAC00)"
     upgradeGoldCost: 5000
   - upgradeValue: 0.2
-    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x20%\uC99D\uAC00):"
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x20%\uC99D\uAC00)"
     upgradeGoldCost: 20000
   - upgradeValue: 0.3
-    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x30%\uC99D\uAC00):"
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x30%\uC99D\uAC00)"
     upgradeGoldCost: 50000
   - upgradeValue: 0.5
-    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x50%\uC99D\uAC00):"
+    upgradedeStatText: "\uD310\uB9E4\uC218\uC775\uC99D\uAC00(x50%\uC99D\uAC00)"
     upgradeGoldCost: 99999
