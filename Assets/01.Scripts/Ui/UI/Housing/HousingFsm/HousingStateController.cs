@@ -62,7 +62,8 @@ public class HousingStateController : MMSingleton<HousingStateController>
 
     public void ExitHousingMode()
     {
-        if (housingSystem.Grid.IsHolding) housingSystem.CancelPickUp();
+        if (housingSystem.Grid.IsHolding)
+            housingSystem.CancelPickUp();
 
         stateMachine.ChangeState(null);
         isHousingMode = false;
