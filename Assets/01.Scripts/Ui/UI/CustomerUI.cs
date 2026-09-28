@@ -16,7 +16,10 @@ public class CustomerUI : MonoBehaviour
     private void OnDisable()
     {
         if (EventManager.HasInstance)
+        {
             EventManager.Instance.RemoveListener(EventType.OnCustomerCount, OnCustomerCount);
+            EventManager.Instance.RemoveListener(EventType.OnCustomerMaxCount, OnCustomerMaxCount);
+        }
     }
     private void OnCustomerMaxCount(Component sender, object param)
     {

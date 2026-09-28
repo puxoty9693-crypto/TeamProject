@@ -18,7 +18,6 @@ public class Tutorialnode
 
     [Header("WaitForEvent 타입일 때만 사용")]
     public EventType waitEventType;
-    public string highlightKey;
 
     [Header("이 단계 진입 시 실행 (팝업 열기 등)")]
     public UnityEvent onEnterActions;

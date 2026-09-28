@@ -82016,505 +82016,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &879657339076353155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2663044315251617799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e55484bfca452049a905709659b7b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
-  dialoguePresenterBehaviour: {fileID: 8544082944449316544}
-  tutorialCanvas: {fileID: 3000975600391938780}
-  nodes:
-  - type: 0
-    dialogueText: "\uB4DC\uB514\uC5B4 \uC120\uC220\uC9D1\uC744 \uCC28\uB838\uB124\n\uC74C\uC2DD\uB9CC\uB4E4\uB824\uBA74
-      \uC7AC\uB8CC\uAC00 \uD544\uC694\uD558\uB2C8\uAE4C \uC7AC\uB8CC\uB97C \uD574\uAE08\uD574\uBCF4\uC790!\n\uC7AC\uB8CC\uB294
-      \uD574\uAE08\uD558\uBA74 5\uCD08\uC5D0 \uD55C\uBC88\uC529 \uBC30\uB2EC\uC774\uC640\uC11C
-      \uCC3D\uACE0\uC5D0 \uB123\uC5B4\uC8FC\uC2E0\uB370!!\n(\uB2E4\uC74C\uC73C\uB85C
-      \uB118\uC5B4\uAC00\uB824\uBA74 \uCC44\uD305\uCC3D\uC744 \uD074\uB9AD\uD574\uC8FC\uC138\uC694)"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 1
-    dialogueText: 
-    waitEventType: 12
-    highlightKey: UnlockButton
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 355769457}
-          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
-          m_MethodName: TriggerOpen
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenUnlock
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1508075294}
-          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
-          m_MethodName: TriggerClose
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseUnlock
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 0
-    dialogueText: "\uC88B\uC544 \uC774\uC81C \uC6B0\uB9AC\uB9C8\uC744\uC5D0\uC11C
-      \uD1A0\uB9C8\uD1A0\uB97C \uBCF4\uB0B4\uC904\uAC70\uC57C\n\uADF8\uB7FC \uC774\uC81C
-      \uC694\uB9AC\uD560 \uB808\uC2DC\uD53C\uB97C \uBC30\uC6CC\uBCFC\uAE4C?"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 1
-    dialogueText: 
-    waitEventType: 13
-    highlightKey: RecipeButton
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 289424451}
-          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
-          m_MethodName: TriggerOpen
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenRecipel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1186298920}
-          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
-          m_MethodName: TriggerClose
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseRecipel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 0
-    dialogueText: "\uC88B\uC544 \uC694\uB9AC\uB3C4 \uBC30\uC6E0\uC73C\uB2C8 \uC774\uBC88\uC5D4
-      \uC694\uB9AC\uB97C \uB9CC\uB4E4\uC5B4\uBCF4\uC790!"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 1
-    dialogueText: 
-    waitEventType: 14
-    highlightKey: CookingButton
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1750704821}
-          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
-          m_MethodName: TriggerOpen
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenCooking
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 934369514}
-          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
-          m_MethodName: TriggerClose
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseCooking
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 0
-    dialogueText: "\uC694\uB9AC\uB3C4 \uB9CC\uB4E4\uC5C8\uC73C\uB2C8 \uC774\uC81C
-      \uC190\uB2D8\uC744 \uBC1B\uC544\uC57C\uACA0\uC9C0? \uD14C\uC774\uBE14\uC744
-      \uC124\uCE58\uD574\uBCF4\uC790\n\uCC38\uACE0\uB85C \uD558\uC6B0\uC9D5\uC740
-      \uBE0C\uB808\uC774\uD06C\uD0C0\uC784\uD6C4 \uC190\uB2D8\uC774 \uC804\uBD80
-      \uB098\uAC00\uC2DC\uBA74 \uD560\uC218\uC788\uC5B4"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 1
-    dialogueText: 
-    waitEventType: 15
-    highlightKey: TableSlot
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7654204059086974047}
-          m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
-          m_MethodName: EnterHousingMode
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenHousing
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7654204059086974047}
-          m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
-          m_MethodName: ExitHousingMode
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseHousing
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 0
-    dialogueText: "\uC774\uC81C \uC5F4\uC2EC\uD788 \uB3C8\uBC8C\uC744 \uBC8C\uC5B4\uBCF4\uC790!
-      \uBE0C\uB808\uC774\uD06C\uD0C0\uC784 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD574\uC11C
-      \uC190\uB2D8\uC744 \uBC1B\uC544\uBCF4\uC790"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 1
-    dialogueText: 
-    waitEventType: 16
-    highlightKey: BreakTimeButton
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: Openbreaktime
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: Closebreaktime
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - type: 0
-    dialogueText: "\uAE30\uBCF8\uC801\uC778 \uAC83\uC740 \uB2E4 \uD574\uBCF8\uAC70
-      \uAC19\uC73C\uB2C8 \uBCF8\uACA9\uC801\uC778 \uC7A5\uC0AC\uB97C \uC2DC\uC791\uD574\uBCF4\uC790!"
-    waitEventType: 0
-    highlightKey: 
-    onEnterActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: OpenFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onExitActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9217957316284510824}
-          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
-          m_MethodName: CloseFull
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!222 &919304926833264968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83499,23 +83000,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &2663044315251617799
-GameObject:
+--- !u!114 &2672885129594786361
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5361300545504230246}
-  - component: {fileID: 879657339076353155}
-  m_Layer: 0
-  m_Name: TutorialManagers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 7829430294877073199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088b37a01b091a74990883d2ca4c787b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialoguePresenter
+  dialoguePanel: {fileID: 5416489661357591271}
+  npcImagePanel: {fileID: 2821870278298104234}
+  dialogueText: {fileID: 4602405413104240096}
+  nextButton: {fileID: 8485463742132535896}
 --- !u!1 &2757199406938781079
 GameObject:
   m_ObjectHideFlags: 0
@@ -83796,6 +83296,494 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821870278298104234}
   m_CullTransparentMesh: 1
+--- !u!114 &3101486535544835415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383453214784346258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e55484bfca452049a905709659b7b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
+  dialoguePresenterBehaviour: {fileID: 2672885129594786361}
+  tutorialCanvas: {fileID: 3000975600391938780}
+  nodes:
+  - type: 0
+    dialogueText: "\uB4DC\uB514\uC5B4 \uC120\uC220\uC9D1\uC744 \uCC28\uB838\uB124\n\uC74C\uC2DD\uB9CC\uB4E4\uB824\uBA74
+      \uC7AC\uB8CC\uAC00 \uD544\uC694\uD558\uB2C8\uAE4C \uC7AC\uB8CC\uB97C \uD574\uAE08\uD574\uBCF4\uC790!\n\uC7AC\uB8CC\uB294
+      \uD574\uAE08\uD558\uBA74 5\uCD08\uC5D0 \uD55C\uBC88\uC529 \uBC30\uB2EC\uC774\uC640\uC11C
+      \uCC3D\uACE0\uC5D0 \uB123\uC5B4\uC8FC\uC2E0\uB370!!\n(\uB2E4\uC74C\uC73C\uB85C
+      \uB118\uC5B4\uAC00\uB824\uBA74 \uCC44\uD305\uCC3D\uC744 \uD074\uB9AD\uD574\uC8FC\uC138\uC694)"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 1
+    dialogueText: 
+    waitEventType: 12
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 355769457}
+          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
+          m_MethodName: TriggerOpen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenUnlock
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1508075294}
+          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
+          m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseUnlock
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 0
+    dialogueText: "\uC88B\uC544 \uC774\uC81C \uC6B0\uB9AC\uB9C8\uC744\uC5D0\uC11C
+      \uD1A0\uB9C8\uD1A0\uB97C \uBCF4\uB0B4\uC904\uAC70\uC57C\n\uADF8\uB7FC \uC774\uC81C
+      \uC694\uB9AC\uD560 \uB808\uC2DC\uD53C\uB97C \uBC30\uC6CC\uBCFC\uAE4C?"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 1
+    dialogueText: 
+    waitEventType: 13
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 289424451}
+          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
+          m_MethodName: TriggerOpen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenRecipel
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1186298920}
+          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
+          m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseRecipel
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 0
+    dialogueText: "\uC88B\uC544 \uC694\uB9AC\uB3C4 \uBC30\uC6E0\uC73C\uB2C8 \uC774\uBC88\uC5D4
+      \uC694\uB9AC\uB97C \uB9CC\uB4E4\uC5B4\uBCF4\uC790!"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 1
+    dialogueText: 
+    waitEventType: 14
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1750704821}
+          m_TargetAssemblyTypeName: PopupOpenButton, Assembly-CSharp
+          m_MethodName: TriggerOpen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenCooking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 934369514}
+          m_TargetAssemblyTypeName: PopupCloseButton, Assembly-CSharp
+          m_MethodName: TriggerClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseCooking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 0
+    dialogueText: "\uC694\uB9AC\uB3C4 \uB9CC\uB4E4\uC5C8\uC73C\uB2C8 \uC774\uC81C
+      \uC190\uB2D8\uC744 \uBC1B\uC544\uC57C\uACA0\uC9C0? \uD14C\uC774\uBE14\uC744
+      \uC124\uCE58\uD574\uBCF4\uC790\n\uCC38\uACE0\uB85C \uD558\uC6B0\uC9D5\uC740
+      \uBE0C\uB808\uC774\uD06C\uD0C0\uC784\uD6C4 \uC190\uB2D8\uC774 \uC804\uBD80
+      \uB098\uAC00\uC2DC\uBA74 \uD560\uC218\uC788\uC5B4"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 1
+    dialogueText: 
+    waitEventType: 15
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654204059086974047}
+          m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
+          m_MethodName: EnterHousingMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenHousing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654204059086974047}
+          m_TargetAssemblyTypeName: HousingStateController, Assembly-CSharp
+          m_MethodName: ExitHousingMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseHousing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 0
+    dialogueText: "\uC774\uC81C \uC5F4\uC2EC\uD788 \uB3C8\uBC8C\uC744 \uBC8C\uC5B4\uBCF4\uC790!
+      \uBE0C\uB808\uC774\uD06C\uD0C0\uC784 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD574\uC11C
+      \uC190\uB2D8\uC744 \uBC1B\uC544\uBCF4\uC790"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 1
+    dialogueText: 
+    waitEventType: 16
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: Openbreaktime
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: Closebreaktime
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - type: 0
+    dialogueText: "\uAE30\uBCF8\uC801\uC778 \uAC83\uC740 \uB2E4 \uD574\uBCF8\uAC70
+      \uAC19\uC73C\uB2C8 \uBCF8\uACA9\uC801\uC778 \uC7A5\uC0AC\uB97C \uC2DC\uC791\uD574\uBCF4\uC790!"
+    waitEventType: 0
+    onEnterActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: OpenFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onExitActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9217957316284510824}
+          m_TargetAssemblyTypeName: DimController, Assembly-CSharp
+          m_MethodName: CloseFull
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3122778041399603961
 GameObject:
   m_ObjectHideFlags: 0
@@ -85327,6 +85315,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5416489661357591271}
   m_CullTransparentMesh: 1
+--- !u!4 &5246512499683512663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829430294877073199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6720591248078000116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &5248565553300607469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -85389,22 +85392,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5361300545504230246
-Transform:
+--- !u!1 &5383453214784346258
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2663044315251617799}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1526.7429, y: -601.4025, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8725279416782438009}
-  m_Father: {fileID: 7767173622838696578}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6720591248078000116}
+  - component: {fileID: 3101486535544835415}
+  m_Layer: 0
+  m_Name: TutorialManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5416489661357591271
 GameObject:
   m_ObjectHideFlags: 0
@@ -85659,23 +85663,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &6060638197735588608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8725279416782438009}
-  - component: {fileID: 8544082944449316544}
-  m_Layer: 0
-  m_Name: DialoguePresenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &6161332266393735432
 GameObject:
   m_ObjectHideFlags: 0
@@ -86017,6 +86004,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &6720591248078000116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383453214784346258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1526.7429, y: -601.4025, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5246512499683512663}
+  m_Father: {fileID: 7767173622838696578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6726710003341641680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91216,7 +91219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8599410755246192605}
-  - {fileID: 5361300545504230246}
+  - {fileID: 6720591248078000116}
   - {fileID: 3601005147365510489}
   - {fileID: 500888746337800912}
   m_Father: {fileID: 0}
@@ -91250,7 +91253,24 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!1 &7829430294877073199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5246512499683512663}
+  - component: {fileID: 2672885129594786361}
+  m_Layer: 0
+  m_Name: DialoguePresenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &7845204415516777263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96481,22 +96501,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8544082944449316544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6060638197735588608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088b37a01b091a74990883d2ca4c787b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialoguePresenter
-  dialoguePanel: {fileID: 5416489661357591271}
-  npcImagePanel: {fileID: 2821870278298104234}
-  dialogueText: {fileID: 4602405413104240096}
-  nextButton: {fileID: 8485463742132535896}
 --- !u!114 &8547523093656938538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96631,21 +96635,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184217698045682112}
   m_CullTransparentMesh: 1
---- !u!4 &8725279416782438009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6060638197735588608}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5361300545504230246}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &8778643348038375653
 RectTransform:
   m_ObjectHideFlags: 0
