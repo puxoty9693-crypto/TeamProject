@@ -1,12 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public enum NPCRole { Chef, Server, Cashier } // ¿ä¸®»ç, ¼­ºù¿ø, °è»ê¿ø
+//public enum NPCRole { Chef, Server, Cashier } // ìš”ë¦¬ì‚¬, ì„œë¹™ì›, ê³„ì‚°ì›
 
-// NPC ÇÑ ¸íÀÇ ±âº» Á¤º¸
+// NPC í•œ ëª…ì˜ ê¸°ë³¸ ì •ë³´
 [CreateAssetMenu(fileName = "NPC_", menuName = "Data/NPC")]
 public class NPCData : ScriptableObject
 {
-    public NPCRole role;      // NPC ¿ªÇÒ
-    public string npcName;    // NPC ÀÌ¸§
-    public Sprite npcImage;   // NPC ÀÌ¹ÌÁö
+
+    [Header("Identity")]
+    [SerializeField] private string npcId;      // NPC ë„˜ë²„ë§
+    [SerializeField] private string npcName;    // NPC ì´ë¦„
+    [SerializeField] private Sprite npcImage;   // NPC ì´ë¯¸ì§€
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 2f;
+
+    // í•´ë‹¹ propertyë“¤ì€ getë§Œ
+    public string NpcId => npcId;
+    public string NpcName => npcName;
+    public Sprite NpcImage => npcImage;
+    public float MoveSpeed => moveSpeed;
+
+
 }

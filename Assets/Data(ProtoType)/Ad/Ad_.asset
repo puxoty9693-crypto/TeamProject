@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0aa44a9c21f4c94292bab4f33b5969f, type: 3}
+  m_Name: Ad_
+  m_EditorClassIdentifier: Assembly-CSharp::AdData
+  levels:
+  - upgradeValue: 0
+    upgradeGoldCost: 10000
+    upgradeText: "\uAE30\uBCF8"
+  - upgradeValue: 0.1
+    upgradeGoldCost: 20000
+    upgradeText: "\uC804\uB2E8\uC9C0 \uD64D\uBCF4"
+  - upgradeValue: 0.2
+    upgradeGoldCost: 50000
+    upgradeText: "\uC678\uAD6D \uD64D\uBCF4"
+  - upgradeValue: 0.3
+    upgradeGoldCost: 500000
+    upgradeText: "\uC655\uB3C4 \uD64D\uBCF4"

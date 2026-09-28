@@ -1,0 +1,94 @@
+﻿// 플레이어 진행 데이터(PlayerData)를 JSON 파일로 저장/로드
+using System.IO;
+using UnityEngine;
+
+public class SaveManager : MMSingleton<SaveManager>
+{
+    public PlayerData CurrentData { get; private set; } // 현재 로드된 플레이어 데이터
+
+    private string SavePath => Application.persistentDataPath + "/save.json"; // 세이브 파일 경로
+
+    [SerializeField] private float autoSaveInterval = 30f;
+    private float autoSaveTimer;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (MainMenuController.PendingNewGame) 
+        {
+            MainMenuController.PendingNewGame = false;
+            DeleteSave();
+            CurrentData = new PlayerData();
+        }
+
+        CurrentData = LoadGame();
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, CurrentData.Gold);
+    }
+
+    private void Update()
+    {
+        autoSaveTimer += Time.deltaTime;
+        if (autoSaveTimer >= autoSaveInterval)
+        {
+            autoSaveTimer = 0f;
+            SaveGame();
+        }
+    }
+
+    // 현재 데이터를 JSON으로 저장
+    public void SaveGame()
+    {
+        string json = JsonUtility.ToJson(CurrentData, true);
+        File.WriteAllText(SavePath, json);
+    }
+
+    // 세이브 파일을 읽어 PlayerData로 반환 (없으면 새 데이터)
+    private PlayerData LoadGame()
+    {
+        if (!File.Exists(SavePath)) return new PlayerData();
+        return JsonUtility.FromJson<PlayerData>(File.ReadAllText(SavePath));
+    }
+
+    // 앱이 백그라운드로 가거나 종료될 때도 저장 (모바일 대비)
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause) SaveGame();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+    [ContextMenu("Delete Save")]
+    public void DeleteSave()
+    {
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+            Debug.Log("세이브 삭제 완료");
+        }
+    }
+
+    public void StartNewGame() 
+    {
+        DeleteSave();
+        CurrentData = new PlayerData();
+
+        //골드 등 초기화 된 값으로 UI도 바로 갱신되게 알림
+        EventManager.Instance.PostNotification(EventType.OnChangeGold, null, CurrentData.Gold);
+    }
+
+
+
+    public void ExitGame()
+    {
+        SaveGame();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+}

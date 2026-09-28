@@ -1,0 +1,101 @@
+﻿using System;
+
+public class AdUpgradeSystem
+{
+    private readonly PlayerData curData;
+
+    public AdUpgradeSystem(PlayerData data)
+    {
+        if (data == null)
+            throw new ArgumentNullException(nameof(data));
+
+        curData = data;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return curData.AdUpgradeLevel;
+    }
+
+    public float GetUpgradeValue()
+    {
+        AdData data = GetUpgradeData();
+
+        int level = GetCurrentLevel();
+
+        if (level < 0)
+            return 1f;
+
+        return data.levels[level].upgradeValue;
+    }
+
+    public float GetCustomerSpawnDelay(float originDelay)
+    {
+        if (originDelay <= 0f)
+            return 0f;
+
+        float value = GetUpgradeValue();
+
+        if (value <= 0f) return originDelay;
+
+        return originDelay * (1f - value);
+    }
+
+    public bool CanUpgrade()
+    {
+        AdData data = GetUpgradeData();
+        int currentLevel = GetCurrentLevel();
+        if (currentLevel < 0 || currentLevel >= data.levels.Count)
+            return false;
+
+        return curData.Gold >= data.levels[currentLevel].UpgradeGoldCost;
+    }
+
+    public bool Upgrade()
+    {
+        AdData data = GetUpgradeData();
+
+        if (!CanUpgrade())
+            return false;
+
+        int currentLevel = GetCurrentLevel();
+        int cost = data.levels[currentLevel].UpgradeGoldCost;
+
+        if (!curData.SpendGold(cost))
+            return false;
+
+        curData.UpgradeAdLevel();
+
+        return true;
+    }
+
+    public int GetNextUpgradeCost()
+    {
+        AdData data = GetUpgradeData();
+        int currentLevel = GetCurrentLevel();
+
+        if (currentLevel < 0 || currentLevel >= data.levels.Count)
+            return -1;
+
+        return data.levels[currentLevel].UpgradeGoldCost;
+    }
+
+    public AdData GetUpgradeData()
+    {
+        if (DataManager.Instance == null)
+            return null;
+
+        return DataManager.Instance.adData;
+    }
+
+    private bool TryGetNextLevel(AdData data, out int nextLevel)
+    {
+        nextLevel = -1;
+
+        int currentLevel = GetCurrentLevel();
+
+        nextLevel = currentLevel + 1;
+
+        return nextLevel >= 0 && nextLevel < data.levels.Count;
+    }
+}

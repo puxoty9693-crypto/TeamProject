@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04cf25f5d89aff4b824da79c11c828b, type: 3}
+  m_Name: Chef_Upgrade_
+  m_EditorClassIdentifier: Assembly-CSharp::WorkerUpgradeData
+  role: 1
+  levels:
+  - upgradeValue: 0
+    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4\uC99D\uAC00(0%\uC99D\uAC00)"
+    upgradeGoldCost: 5000
+  - upgradeValue: 0.2
+    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4\uC99D\uAC00(20%\uC99D\uAC00)"
+    upgradeGoldCost: 20000
+  - upgradeValue: 0.3
+    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4\uC99D\uAC00(30%)"
+    upgradeGoldCost: 50000
+  - upgradeValue: 0.4
+    upgradedeStatText: "\uC694\uB9AC\uC18D\uB3C4\uC99D\uAC00(40%\uC99D\uAC00)"
+    upgradeGoldCost: 999999
