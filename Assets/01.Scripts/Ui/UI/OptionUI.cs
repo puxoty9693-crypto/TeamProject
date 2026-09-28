@@ -5,13 +5,17 @@ public class OptionPanel : MonoBehaviour
 {
     public Slider bgmSlider;
     [SerializeField] Button exitbutton;
+
+    private void Awake()
+    {
+        exitbutton.onClick.AddListener(() => SaveManager.Instance.ExitGame());
+        
+    }
     private void OnEnable()
     {
         bgmSlider.SetValueWithoutNotify(SoundManager.Instance.bgmVolume);
         bgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         bgmSlider.value = SoundManager.Instance.bgmVolume;
-
-        exitbutton.onClick.AddListener(() => SaveManager.Instance.ExitGame());
     }
     private void OnBgmVolumeChanged(float value)
     {
