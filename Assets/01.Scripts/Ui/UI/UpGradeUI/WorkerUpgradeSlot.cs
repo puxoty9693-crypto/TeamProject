@@ -23,7 +23,7 @@ public class WorkerUpgradeSlot : MonoBehaviour
     public void UpdateSlot( WorkerUpgradeLevel currentLevel, int levelIndex, bool isMaxLevel, System.Action onUpgrade)
     {
         levelText.text = $"Lv.{levelIndex + 1}";
-        statText.text = $"{currentLevel.upgradedeStatText} {currentLevel.upgradeValue}¡ı∞°";
+        statText.text = $"{currentLevel.upgradedeStatText}";
 
         OnUpgradeClicked = onUpgrade;
         if(isMaxLevel)

@@ -7,7 +7,7 @@ public class HousingGrid : MonoBehaviour
     [Header("격자 크기")]
     [SerializeField] private float cellSize = 1f;
     [SerializeField] public int minGridX = -18;
-    [SerializeField] public int minGridY = -8;
+    [SerializeField] public int minGridY = -7;
     [SerializeField] public int maxGridX = 18;
     [SerializeField] public int maxGridY = 4;
     [SerializeField] private GameObject gridCellPrefab;

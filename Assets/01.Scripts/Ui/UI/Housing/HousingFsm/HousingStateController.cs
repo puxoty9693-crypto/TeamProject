@@ -11,6 +11,7 @@ public class HousingStateController : MMSingleton<HousingStateController>
     public HousingSystem System => housingSystem;
 
     private bool isHousingMode;
+    public bool IsHousingMode => isHousingMode;
     private StateMachine stateMachine = new StateMachine();
 
     public Vector2Int MouseGridPos { get; private set; }
@@ -48,7 +49,14 @@ public class HousingStateController : MMSingleton<HousingStateController>
     #region Housing Mode On/Off
     public void EnterHousingMode()
     {
-        if(!GameManager.Instance.StoreSystem.CanHousing)
+        var store = GameManager.Instance.StoreSystem;
+
+        if (!store.IsBreakTime)
+        {
+            EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "브레이크타임 중에만 배치할 수 있습니다.");
+            return;
+        }
+        if (store.State != StoreState.Empty)
         {
             EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, "아직 식당안에 손님이 존재합니다.");
             return;

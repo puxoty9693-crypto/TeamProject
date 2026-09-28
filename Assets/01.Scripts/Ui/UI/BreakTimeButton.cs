@@ -20,6 +20,8 @@ public class BreakTimeButton : MonoBehaviour
        
         EventManager.Instance.PostNotification(EventType.OnFeedbackMessage, this, message);
 
+        if (!nextState && HousingStateController.Instance.IsHousingMode)
+            HousingStateController.Instance.ExitHousingMode();
         UpdateUI();
 
         tutochecker = 1;

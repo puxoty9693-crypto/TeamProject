@@ -1,4 +1,4 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PrototypeManager : MonoBehaviour
@@ -15,14 +15,26 @@ public class PrototypeManager : MonoBehaviour
     {
         testFood = DataManager.Instance.allFoods[0];
 
-        SaveManager.Instance.CurrentData.AddGold(100000);
+        SaveManager.Instance.CurrentData.AddGold(1000000);
         EventManager.Instance.PostNotification(EventType.OnChangeGold, null, SaveManager.Instance.CurrentData.Gold);
     }
 
     // Update is called once per frame
     void Update()
     {
+        testDeltaTime += Time.deltaTime;
 
+        if (testDeltaTime > 5)
+        {
+            testDeltaTime -= 5;
+            IngredientData testIngredient = DataManager.Instance.allIngredients[0];
+            GameManager.Instance.ingredientBoxController.AddIngredient(testIngredient, 5);
+
+
+            IngredientBox box = GameManager.Instance.ingredientBoxController.TakeBox();
+            GameManager.Instance.IngredientWareHouse.ReceiveBox(box);
+            Debug.Log("¹Ú½º ¼ö±Þ ¿Ï·á");
+        }
     }
 
 }

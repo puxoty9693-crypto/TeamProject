@@ -1,4 +1,4 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 
 public enum StoreState
 {
@@ -12,7 +12,7 @@ public class StoreSystem
 
     public int CustomerCount { get; private set; }
 
-    public bool CanHousing => State == StoreState.Empty;
+    public bool CanHousing => IsBreakTime && State == StoreState.Empty;
     public bool CanReceiveCustomer = false;
 
     public void CustomerEntered()
@@ -31,12 +31,12 @@ public class StoreSystem
     public void SetBreakTime(bool value)
     {
        
-        //GameLogOnlyEditor.Log($"í˜„ìž¬ value {value}");
+        //GameLogOnlyEditor.Log($"ÇöÀç value {value}");
         IsBreakTime = value;
 
-        //GameLogOnlyEditor.Log($"í˜„ìž¬ isBreakTime {IsBreakTime}");
+        //GameLogOnlyEditor.Log($"ÇöÀç isBreakTime {IsBreakTime}");
         CanReceiveCustomer = !IsBreakTime;
 
-        //GameLogOnlyEditor.Log($"í˜„ìž¬ CanReceiveCustomer {CanReceiveCustomer}");
+        //GameLogOnlyEditor.Log($"ÇöÀç CanReceiveCustomer {CanReceiveCustomer}");
     }
 }
