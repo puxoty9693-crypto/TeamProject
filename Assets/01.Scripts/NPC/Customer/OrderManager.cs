@@ -31,7 +31,17 @@ public class OrderManager : MMSingleton<OrderManager>
 
     //public Customer NextOrder()
     //{
-            // í•´ë‹¹ ë¶€ë¶„ì€ ìˆœì„œ ë³€ê²½ ë¡œì§ì´ ìˆì„ ë•Œ
+    // ÇØ´ç ºÎºĞÀº ¼ø¼­ º¯°æ ·ÎÁ÷ÀÌ ÀÖÀ» ¶§
     //}
+
+    public Customer GetFirstOrder(System.Func<Customer, bool> canServe)
+    {
+        for (int i = 0; i < orderList.Count; i++)
+        {
+            if (canServe(orderList[i]))
+                return orderList[i];
+        }
+        return null;
+    }
 
 }

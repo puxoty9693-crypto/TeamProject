@@ -1,4 +1,4 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 
 public class ServerBehaviour : WorkerBehaviour
 {
@@ -166,10 +166,10 @@ public class ServerBehaviour : WorkerBehaviour
 
     private void TryNextOrder()
     {
-        //GameLogOnlyEditor.Log("TryNextOrder í˜¸ì¶œ");
+        //GameLogOnlyEditor.Log("TryNextOrder È£Ãâ");
         if (orderManager == null) return;
 
-        Customer customer = orderManager.GetFirstOrder();
+        Customer customer = orderManager.GetFirstOrder(c => c.State != CustomerState.WaitingFood || c.OrderedFood == null || c.ReservedSeat == null || foodService.HasFood(c.OrderedFood));
         if (customer == null) return;
 
         if (customer.State != CustomerState.WaitingFood|| customer.OrderedFood == null || customer.ReservedSeat == null)
@@ -177,7 +177,7 @@ public class ServerBehaviour : WorkerBehaviour
             orderManager.RemoveOrder(customer);
             return;
         }
-        //GameLogOnlyEditor.Log($"ì£¼ë¬¸ ìŒì‹ : {customer.OrderedFood.foodName} / " + $"ë³´ìœ  ìˆ˜ëŸ‰ : {foodService.GetFoodCount(customer.OrderedFood)}");
+        //GameLogOnlyEditor.Log($"ÁÖ¹® À½½Ä : {customer.OrderedFood.foodName} / " + $"º¸À¯ ¼ö·® : {foodService.GetFoodCount(customer.OrderedFood)}");
 
         if (!foodService.HasFood(customer.OrderedFood)) return;
 
