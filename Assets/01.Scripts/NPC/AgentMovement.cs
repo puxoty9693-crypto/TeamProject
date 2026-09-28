@@ -6,15 +6,19 @@ public class AgentMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    [SerializeField] private float arrivalTolerance = 0.05f;    // ë„ì°©ì§€ í—ˆìš©ì˜¤ì°¨
-
+    [SerializeField] private float arrivalTolerance = 0.2f;    // µµÂøÁö Çã¿ë¿ÀÂ÷
+    [SerializeField] private float accelerationBoost = 3f;
     public float BaseSpeed { get; private set; }
+    private float baseAngularSpeed;
+    private float baseAceleration;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
 
         BaseSpeed = agent.speed;
+        baseAngularSpeed = agent.angularSpeed;
+        baseAceleration = agent.acceleration;
 
         //2D
         agent.updateRotation = false;
@@ -22,14 +26,18 @@ public class AgentMovement : MonoBehaviour
 
         //agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
 
-        // NPCê°„ ì¶©ëŒ ì œê±°
+        // NPC°£ Ãæµ¹ Á¦°Å
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
 
     }
 
     public void SetSpeed(float speed)
     {
+        float ratio = BaseSpeed > 0f ? speed / BaseSpeed : 1f;
+
         agent.speed = speed;
+        agent.angularSpeed = baseAngularSpeed * ratio;
+        agent.acceleration = baseAceleration * ratio * accelerationBoost;
     }
 
     /// <summary>
@@ -44,7 +52,7 @@ public class AgentMovement : MonoBehaviour
         $"OnNavMesh : {agent.isOnNavMesh}, " +
         $"Destination : {destination}");
 
-        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh) return false;      // null Component ì—ëŸ¬ ë°©ì§€
+        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh) return false;      // null Component ¿¡·¯ ¹æÁö
 
         agent.isStopped = false;
         bool result = agent.SetDestination(destination);

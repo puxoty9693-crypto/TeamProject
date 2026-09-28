@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class OrderManager : MMSingleton<OrderManager>
@@ -34,7 +35,7 @@ public class OrderManager : MMSingleton<OrderManager>
     // 해당 부분은 순서 변경 로직이 있을 때
     //}
 
-    public Customer GetFirstOrder(System.Func<Customer, bool> canServe)
+    public Customer GetFirstOrder(Func<Customer, bool> canServe)
     {
         for (int i = 0; i < orderList.Count; i++)
         {
